@@ -1,0 +1,54 @@
+<script type="text/javascript">
+    
+    {#$(document).ready(function()
+{  
+    $("#form").submit(function(){
+    if($("#form").valid()==true)
+    {
+    var amountnomask = $('#apartamentos_apartamentosbundle_payment_amount').maskMoney('unmasked');$('#apartamentos_apartamentosbundle_payment_amount').val(amountnomask[0]);
+    }
+});
+            
+});
+ $(function() {
+    $('#apartamentos_apartamentosbundle_payment_amount').maskMoney({prefix:'$ ', allowNegative: true, thousands:',', decimal:'.', affixesStay: true,precision:2});
+  }); #}
+  $(function() {
+
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+       	
+        // Specify the validation rules
+      rules: 
+        {
+         "apartamentos_apartamentosbundle_payment[companyid]":{required:true},
+         "apartamentos_apartamentosbundle_payment[towerid]":{required:true},
+         "apartamentos_apartamentosbundle_payment[apartmentid]":{required:true},
+         "apartamentos_apartamentosbundle_payment[description]":{required:true},
+         "apartamentos_apartamentosbundle_payment[amount]":{required:true,number:true},
+         "apartamentos_apartamentosbundle_payment[paymentdate]":{required:true,date:true},
+         "apartamentos_apartamentosbundle_payment[accountid]":{ required:true},
+         "apartamentos_apartamentosbundle_payment[paymentmethod]":{ required:true},
+         "apartamentos_apartamentosbundle_payment[depositor]":{ required:true}
+        },
+        // Specify the validation error messages
+        messages: 
+         {
+          "apartamentos_apartamentosbundle_payment[companyid]":{required:"{{'companyid.validate'|trans}}"},
+          "apartamentos_apartamentosbundle_payment[towerid]":{required:"{{'towerid.validate'|trans}}"},
+          "apartamentos_apartamentosbundle_payment[apartmentid]":{required:"{{'apartmentid.validate'|trans}}"},
+          "apartamentos_apartamentosbundle_payment[description]":{required:"{{'required.description'|trans}}"},
+          "apartamentos_apartamentosbundle_payment[amount]":{required:"{{'required.amount'|trans}}",number:"{{'expense.number.amount'|trans}}"},
+          "apartamentos_apartamentosbundle_payment[paymentdate]":{required:"{{'required.date'|trans}}",date: "{{'date.date'|trans}}"},
+          "apartamentos_apartamentosbundle_payment[accountid]":{required:"{{'required.accountid'|trans}}"},
+          "apartamentos_apartamentosbundle_payment[paymentmethod]":{required:"{{'required.paymentmethod'|trans}}"},
+          "apartamentos_apartamentosbundle_payment[depositor]":{required:"{{'required.depositor'|trans}}"}
+        },
+       
+        submitHandler: function(form) {form.submit();}
+    });
+
+  });
+</script>
+  
+</script>

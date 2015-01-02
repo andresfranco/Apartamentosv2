@@ -1,0 +1,49 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+{% include 'ApartamentosApartamentosBundle:Statementofaccount:Statementajaxscript.html.twig' %}
+{% endblock %}
+{% block contenido %}
+   <h2 class="titulo">{{'Estado de Cuenta'|trans}}</h2>
+    <hr>
+   <form id="statementform" action="{{ path('statementgenerate')}}" method="post">
+    <table style="border:none;">
+        <tr class="grid-row-titles">
+        <td> 
+         {{'Mes'|trans}}<select id="months" name="months"> 
+           <option value="0">{{ 'Seleccione un Mes'|trans }}</option>  
+          {% for key,value in months|keys %}
+          <option value="{{loop.index}}">{{ months[value]|trans}}</option>
+          {% endfor %}
+        </select> 
+        </td>
+        <td> 
+        {{'Año'|trans}}
+        <select id="years" name="years">
+         <option value="0">{{ 'Seleccione un Año'|trans }}</option>     
+          {% for item in years %}
+          <option value="{{ years[item] }}">{{ years[item] }}</option>
+          {% endfor %}
+        </select>        
+        </td>
+        <td>
+         {{'Condominio'|trans}}   
+         <select id="condo" name="condo">
+         <option value="0">{{ 'Seleccione un condominio'|trans }}</option>     
+          {% for item in company%}
+          <option value="{{ item.id}}">{{item.name}}</option>
+          {% endfor %}
+        </select>   
+        </td>
+        <td>
+         {{'Torre'|trans}}   
+         <select id="tower" name="tower">
+         <option value="0">{{ 'Seleccione una torre'|trans }}</option>      
+        </select>   
+        </td>
+        <td><button type="submit" name="login" />{{'Consultar'|trans}}</button></td>
+        </tr>    
+    </table>
+   </form>
+    <br>  
+{% endblock %}

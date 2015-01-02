@@ -1,0 +1,81 @@
+{% extends '::masteradmin.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui-1.10.4.custom.css') }}" />
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.js') }}"></script>
+<script type="text/javascript"src="{{ asset('js/datepicker.js') }}"></script>
+<script src="{{ asset('js/jquery.maskMoney.js') }}" type="text/javascript"></script>
+{% include 'ApartamentosApartamentosBundle:Payment:validatepayment.html.twig' %}   
+{% include 'ApartamentosApartamentosBundle:Payment:paymentajaxscript.html.twig' %}   
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Editar Pago'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(edit_form) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(edit_form.companyid) }}
+        {{ form_widget(edit_form.companyid)}}
+        {{ form_errors(edit_form.companyid) }}
+    </div>
+     <div>
+        {{ form_label(edit_form.towerid) }}
+        {{ form_widget(edit_form.towerid)}}
+        {{ form_errors(edit_form.towerid) }}
+     </div>
+      <div>
+        {{ form_label(edit_form.apartmentid) }}
+        {{ form_widget(edit_form.apartmentid)}}
+        {{ form_errors(edit_form.apartmentid) }}
+     </div>
+    <div>
+        {{ form_label(edit_form.paymentdate) }}
+        {{ form_widget(edit_form.paymentdate)}}
+        {{ form_errors(edit_form.paymentdate) }}
+    </div>
+     <div>
+        {{ form_label(edit_form.accountid) }}
+        {{ form_widget(edit_form.accountid)}}
+        {{ form_errors(edit_form.accountid) }}
+    </div>
+     <div>
+        {{ form_label(edit_form.paymentmethod) }}
+        {{ form_widget(edit_form.paymentmethod)}}
+        {{ form_errors(edit_form.paymentmethod) }}
+    </div>
+    
+    <div>
+        {{ form_label(edit_form.amount) }}
+        {{ form_widget(edit_form.amount)}}
+        {{ form_errors(edit_form.amount) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.depositor) }}
+        {{ form_widget(edit_form.depositor) }}
+        {{ form_errors(edit_form.depositor) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.description) }}
+        {{ form_widget(edit_form.description) }}
+        {{ form_errors(edit_form.description) }}
+    </div><br>
+    
+    
+{{ form_end(edit_form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('paymentgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/payment.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Pagos'|trans}}</span></a>
+
+     </div><br> 
+    
+   
+{% endblock %}
+

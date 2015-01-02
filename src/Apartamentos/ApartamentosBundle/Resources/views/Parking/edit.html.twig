@@ -1,0 +1,58 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Parking:validateparking.html.twig' %} 
+{% include 'ApartamentosApartamentosBundle:Parking:parkingajaxscript.html.twig' %}  
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{ 'Editar Estacionamiento'|trans }}</h2>
+    <hr> 
+
+    {{ form_start(edit_form) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(edit_form.companyid)}}
+        {{ form_widget(edit_form.companyid)}}
+        {{ form_errors(edit_form.companyid) }}
+    </div><br>
+    <div>
+        {{ form_label(edit_form.towerid)}}
+        {{ form_widget(edit_form.towerid)}}
+        {{ form_errors(edit_form.towerid) }}
+    </div><br>
+     <div>
+        {{ form_label(edit_form.apartmentid) }}
+        {{ form_widget(edit_form.apartmentid) }}
+        {{ form_errors(edit_form.apartmentid) }}
+    </div><br>
+    <div>
+        {{ form_label(edit_form.number)}}
+        {{ form_widget(edit_form.number)}}
+        {{ form_errors(edit_form.number) }}
+    </div>
+
+    <div>
+        {{ form_label(edit_form.locationid) }}
+        {{ form_widget(edit_form.locationid) }}
+        {{ form_errors(edit_form.locationid) }}
+    </div><br>
+    <div>
+        {{ form_label(edit_form.type) }}
+        {{ form_widget(edit_form.type) }}
+        {{ form_errors(edit_form.type) }}
+    </div><br>
+   
+     
+{{ form_end(edit_form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('parkinggrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/parking.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Estacionamientos'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends layout %}
+
+{% block contenido %}
+<div>
+    <h2 class="titulo">{{ 'Editar Traduccion'|trans({}, 'LexikTranslationBundle') }}</h2>
+    <hr> 
+    <form id ="form" action="{{ path('update_translation',{'id':app.request.get('id')}) }}" method="post">
+        {{ form_row(form.key) }}
+        {{ form_row(form.domain) }}
+        {% for translation in form.translations %}
+            {{ form_row(translation) }}
+        {% endfor %}
+        {{ form_rest(form) }}
+        <input type="submit" id="trans-unit-submit" name="trans-unit-submit" class="button" />
+    </form>
+</div>
+{% endblock %}

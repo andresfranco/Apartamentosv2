@@ -1,0 +1,103 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Apartment:validateapartment.html.twig' %} 
+{% include 'ApartamentosApartamentosBundle:Apartment:apartmentajaxscript.html.twig' %}
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Editar Apartamento'|trans}}</h2>
+    <hr> 
+    {{ form_start(edit_form) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+     <div>
+        {{ form_label(edit_form.companyid) }}
+        {{ form_widget(edit_form.companyid)}}
+        {{ form_errors(edit_form.companyid) }}
+     </div><br>
+      <div>
+        {{ form_label(edit_form.towerid) }}
+        {{ form_widget(edit_form.towerid)}}
+        {{ form_errors(edit_form.towerid) }}
+    </div><br>
+    <div>
+        {{ form_label(edit_form.number) }}
+        {{ form_widget(edit_form.number)}}
+        {{ form_errors(edit_form.number) }}
+    </div>
+
+    <div>
+        {{ form_label(edit_form.phone) }}
+        {{ form_widget(edit_form.phone) }}
+        {{ form_errors(edit_form.phone) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.numberresidents) }}
+        {{ form_widget(edit_form.numberresidents) }}
+        {{ form_errors(edit_form.numberresidents) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.floornumber) }}
+        {{ form_widget(edit_form.floornumber) }}
+        {{ form_errors(edit_form.floornumber) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.area) }}
+        {{ form_widget(edit_form.area) }}
+        {{ form_errors(edit_form.area) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.rooms) }}
+        {{ form_widget(edit_form.rooms) }}
+        {{ form_errors(edit_form.rooms) }}
+    </div>
+     <div>
+        {{ form_label(edit_form.hasmade) }}
+        {{ form_widget(edit_form.hasmade) }}
+        {{ form_errors(edit_form.hasmade) }} 
+     </div><br>
+      <div>
+        {{ form_label(edit_form.hasbabysitting) }}
+        {{ form_widget(edit_form.hasbabysitting) }}
+        {{ form_errors(edit_form.hasbabysitting) }} 
+     </div><br>
+      <div>
+        {{ form_label(edit_form.haspet) }}
+        {{ form_widget(edit_form.haspet) }}
+        {{ form_errors(edit_form.haspet) }} 
+     </div><br>
+     <div>
+        {{ form_label(edit_form.petkind) }}
+        {{ form_widget(edit_form.petkind) }}
+        {{ form_errors(edit_form.petkind) }} 
+     </div>
+     <div>
+        {{ form_label(edit_form.petnumber) }}
+        {{ form_widget(edit_form.petnumber) }}
+        {{ form_errors(edit_form.petnumber) }} 
+     </div>
+     <div>
+        {{ form_label(edit_form.hasmaderoom) }}
+        {{ form_widget(edit_form.hasmaderoom) }}
+        {{ form_errors(edit_form.hasmaderoom) }} 
+     </div><br>
+     <div>
+        {{ form_label(edit_form.haskids) }}
+        {{ form_widget(edit_form.haskids) }}
+        {{ form_errors(edit_form.haskids) }}     
+     </div><br>
+     <div>
+        {{ form_label(edit_form.numberofkids) }}
+        {{ form_widget(edit_form.numberofkids) }}
+        {{ form_errors(edit_form.numberofkids) }}     
+     </div>
+    
+      
+{{ form_end(edit_form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('apartmentgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/torres.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Apartamentos'|trans}}</span></a>
+
+       </div> 
+{% endblock %}

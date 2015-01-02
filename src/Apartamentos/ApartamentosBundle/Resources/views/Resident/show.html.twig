@@ -1,0 +1,98 @@
+{% extends '::masteradmin.html.twig' %}
+
+{% block contenido %}
+    <h2 class="titulo">{{'Detalles del residente'|trans}}</h2>
+    <hr>
+    {% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="error">
+        <table>
+            <tr><td><img  src="{{ asset('images/warning.png') }}"/></td>
+                <td>{{ flashMessage|trans }}</td>
+            </tr>   
+        </table> 
+    </div><br>
+{% endfor %}
+    <table style="border:none;">
+        <tr>
+        <td> 
+          <a href="{{ path('residentsgrid') }}" class="button radius">
+              <img  src="{{ asset('images/resident.png') }}"/>
+              <span>{{'Lista de residentes'|trans}}</span>
+          </a>   
+        </td>
+        {% if deleteaction =='S' %}
+        <td> 
+          <a href="#" data-reveal-id="myNormal" class="button radius">
+              <img  src="{{ asset('images/delete32.png') }}"/>
+              <span>{{'Eliminar residente'|trans}}</span>
+          </a>
+        </td>
+        {%endif%}
+        </tr>    
+    </table>
+    <br>
+    <table>
+            <tr>
+                <td  class="titulocampo">{{'Condominio'|trans}}</td>
+                <td>{{ entity.towerid.companyid.name }}</td>
+            </tr>
+             <tr>
+           <tr>
+                <td  class="titulocampo">{{'Torre'|trans}}</td>
+                <td>{{ entity.towerid.name }}</td>
+            </tr>
+             <tr>
+                <td  class="titulocampo">{{'Apartamento'|trans}}</td>
+                <td>{{ entity.apartmentid.number}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'nombre'|trans}}</td>
+                <td>{{ entity.name}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Número de identificación'|trans}}</td>
+                <td>{{ entity.idnumber }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Tipo de identificación'|trans}}</td>
+                <td>{{ entity.idnumbertype }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'¿Es titular?'|trans}}</td>
+                <td>{{ entity.holder}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Email'|trans}}</td>
+                <td>{{ entity.email}}</td>
+            </tr>
+             <tr>
+                <td  class="titulocampo">{{'teléfono'|trans}}</td>
+                <td>{{ entity.phone}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Tipo de residente'|trans}}</td>
+                <td>{{ entity.residenttypeid.type }}</td>
+            </tr>
+            
+            
+    </table>
+   <div class="reveal-modal small" id="myNormal" data-reveal >
+      &iquest;{{'resident.delete.question'|trans}}?
+	  <br><br>
+	  <table class="dialogo">
+	  <tr>
+	  <td><a class="radius button" href="{{ path('resident_deletemodal', { 'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
+	  <td><a id ="cancelar" class="radius button" href="#">{{'Cancelar'|trans}}</a></td>
+	  </tr>
+	  </table>
+      <a class="close-reveal-modal"><img src="{{ asset('images/dialog_close.png')}}"/></a>
+  </div>
+    <script>
+     {% block foundation %}
+   $("#cancelar").click(function (e) {
+    $('#myNormal').foundation('reveal', 'close');
+});
+{% endblock %} 
+    </script>
+{% endblock %}
+

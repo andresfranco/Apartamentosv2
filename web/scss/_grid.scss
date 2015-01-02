@@ -1,0 +1,58 @@
+
+@import "gridfunctions";
+$sortimage:url('../images/show.png');
+ul.grid-row-actions{list-style-type: none;}   
+a
+{
+    &.mostrar{@include images-grid('show');}
+    &.editar{@include images-grid('edit');}
+    &.order {color:#0079a1;font-weight:bold;text-transform: uppercase;}
+}
+
+table
+{
+  &.paginado{border:0px;float:left;td{padding:0px;}}
+  &.busqueda{@include busqueda ('table');td,tr{@include busqueda ('tdtr');}}
+  &.dialogo{border: 0px;}
+
+}   
+  
+.paginado
+{
+  & input[type="button"]{@include control-size('button');}
+  & input[type="text"]{@include control-size('text');}
+  & select{@include control-size('select');}
+}
+
+.busqueda 
+{
+  & input[type="text"]{@include busqueda ('text');}
+
+  & select{@include busqueda ('select');} 
+  & input[type="submit"]{@include busqueda ('submit');}
+  & input[type="submit"]:hover{background-color: #0079a1;} 
+}
+   
+h2
+{&.titulo{font-weight:500;color:#0079a1;}}
+
+label
+{
+ &.even {@include odd-even(#0079a1,bold,uppercase);}
+ &.odd{@include odd-even(#0079a1,bold,uppercase);}
+}
+ 
+ div
+{
+ &.sortup{background-image:$sortimage;background-repeat:no-repeat;text-indent: -9999px;}
+ &.sortdown{content:$sortimage;}
+ &.newuser{padding-left:220px;}
+}
+
+td
+{
+  &.titulocampo {color:#0079a1;   font-weight:bold;text-transform: uppercase;}
+}
+
+.final{height:400px;margin-bottom:0px;padding-bottom: 0px;}
+.bottom-bar{position: fixed;bottom: 0px;width: 100%;margin-bottom: 0px;}

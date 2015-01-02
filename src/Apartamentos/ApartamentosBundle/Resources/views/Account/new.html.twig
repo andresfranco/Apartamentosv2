@@ -1,0 +1,45 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Account:validateaccount.html.twig' %}
+ 
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nueva Cuenta'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(form.number) }}
+        {{ form_widget(form.number)}}
+        {{ form_errors(form.number) }}
+    </div><br>
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name)}}
+        {{ form_errors(form.name) }}
+    </div><br>
+     <div>
+        {{ form_label(form.balance) }}
+        {{ form_widget(form.balance)}}
+        {{ form_errors(form.balance) }}
+     </div><br>
+      <div>
+        {{ form_label(form.bankid) }}
+        {{ form_widget(form.bankid)}}
+        {{ form_errors(form.bankid) }}
+      </div><br><br>
+   
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('accountgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/account48.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Cuentas'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}

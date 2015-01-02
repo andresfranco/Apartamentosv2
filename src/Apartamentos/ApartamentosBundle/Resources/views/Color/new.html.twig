@@ -1,0 +1,33 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Color:validatecolor.html.twig' %}
+ 
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nuevo Color'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.color) }}
+        {{ form_widget(form.color)}}
+        {{ form_errors(form.color) }}
+        
+    </div>
+
+   
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('colorgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/color.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Color'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}

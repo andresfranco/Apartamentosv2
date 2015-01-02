@@ -1,0 +1,61 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{parent()}}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'LoginLoginBundle:User:validateuser.html.twig' %}
+{% endblock %}
+
+{% block contenido %}
+
+    <h2 class="titulo">{{ 'Editar Usuarios'|trans }}</h2>
+    <hr> 
+    {{ form_start(edit_form) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+     <div>
+        {{ form_label(edit_form.companyid) }}
+        {{ form_widget(edit_form.companyid)}}
+        {{ form_errors(edit_form.companyid)}}
+         
+    </div><br>
+    <div>
+        {{ form_label(edit_form.name) }}
+        {{ form_widget(edit_form.name)}}
+        {{ form_errors(edit_form.name) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.email) }}
+        {{ form_widget(edit_form.email)}}
+        {{ form_errors(edit_form.email) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.username) }}
+        {{ form_widget(edit_form.username)}}
+        {{ form_errors(edit_form.username) }}
+    </div>
+    
+{# 
+    <div>
+       {{ form_label(edit_form.password) }}
+        {{ form_widget(edit_form.password) }}
+        {{ form_errors(edit_form.password) }}
+    </div>
+   <div>
+        {{ form_errors(edit_form.roles) }}
+        {{ form_widget(edit_form.roles) }}
+        {{ form_errors(edit_form.roles) }}
+        
+    </div><br>
+#}
+    <div>{{ form_errors(edit_form) }}</div>
+    
+{{ form_end(edit_form) }}
+
+       
+      <div style="display:table-row;">
+          <a href="{{ path('userslist') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/usertitle.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{ 'Usuarios'|trans }}</span></a>
+
+       </div> 
+   
+
+{% endblock %}

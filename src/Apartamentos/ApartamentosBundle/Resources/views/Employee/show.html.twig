@@ -1,0 +1,71 @@
+{% extends '::masteradmin.html.twig' %}
+
+{% block contenido %}
+    <h2 class="titulo">{{'Detalles del Empleado'|trans}}</h2>
+    <hr>
+    <table style="border:none;">
+        <tr>
+        <td> 
+          <a href="{{ path('employeegrid') }}" class="button radius">
+              <img  src="{{ asset('images/employee.png') }}"/>
+              <span>{{'Empleados'|trans}}</span>
+          </a>   
+        </td>
+        {% if deleteaction =='S' %}
+        <td> 
+          <a href="#" data-reveal-id="myNormal" class="button radius">
+              <img  src="{{ asset('images/delete32.png') }}"/>
+              <span>{{'Eliminar empleado'|trans}}</span>
+          </a>
+        </td>
+        {%endif%}
+        </tr>    
+    </table>
+    <br>
+    <table>
+            <tr>
+                <td  class="titulocampo">{{'nombre'|trans}}</td>
+                <td>{{ entity.completename}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'cédula'|trans}}</td>
+                <td>{{ entity.idnumber }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Salario'|trans}}</td>
+                <td>{{ entity.salaryamount }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Puesto'|trans}}</td>
+                <td>{{ entity.position }}</td>
+            </tr>
+            <tr>
+                <td class="titulocampo">{{'Torres en las que trabaja'|trans}}</td>
+               <td>
+                {% for tower in towers %}
+                {{tower.name}} <br>
+                {% endfor %}
+                </td>
+            </tr>
+    </table>
+   <div class="reveal-modal small" id="myNormal" data-reveal >
+      &iquest;{{'employee.delete.question'|trans}}?
+	  <br><br>
+	  <table class="dialogo">
+	  <tr>
+	  <td><a class="radius button" href="{{ path('employee_deletemodal', { 'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
+	  <td><a id ="cancelar" class="radius button" href="#">{{'Cancelar'|trans}}</a></td>
+	  </tr>
+	  </table>
+      <a class="close-reveal-modal"><img src="{{ asset('images/dialog_close.png')}}"/></a>
+  </div>
+    <script>
+     {% block foundation %}
+   $("#cancelar").click(function (e) {
+    $('#myNormal').foundation('reveal', 'close');
+});
+{% endblock %} 
+    </script>
+{% endblock %}
+
+

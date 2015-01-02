@@ -1,0 +1,84 @@
+<script type="text/javascript">
+   $(document).ready(function()
+{  
+    
+    $("#apartamentos_apartamentosbundle_vehicle_companyid").change(function(){
+    towerdata("#apartamentos_apartamentosbundle_vehicle_companyid");
+    apartmentdata("#apartamentos_apartamentosbundle_vehicle_towerid");
+    residentdata("#apartamentos_apartamentosbundle_vehicle_apartmentid"); 
+});
+            
+   $("#apartamentos_apartamentosbundle_vehicle_towerid").change(function(){
+    apartmentdata("#apartamentos_apartamentosbundle_vehicle_towerid");
+    residentdata("#apartamentos_apartamentosbundle_vehicle_apartmentid"); 
+    
+    });
+     
+   $("#apartamentos_apartamentosbundle_vehicle_apartmentid").change(function(){
+    
+    residentdata("#apartamentos_apartamentosbundle_vehicle_apartmentid");   
+      
+});
+});
+
+function apartmentdata(control)
+{
+  var data2 = {
+        tower_id:$(control).val()
+     };
+    $.ajax({
+        type: "POST",
+        url: "{{ path('vehicle_select_apartment')}}",
+        data:data2,
+        dataType: 'json',
+        success: function(data2) {
+            var apartment_selector = $('#apartamentos_apartamentosbundle_vehicle_apartmentid');
+ 
+            apartment_selector.html('<option>Seleccione un apartamento</option>');
+            apartment_selector.append( data2);
+        }       
+    });    
+    
+}
+
+function towerdata(control)
+{
+    var data = {
+        company_id:$(control).val()
+     };
+    $.ajax({
+        type: "POST",
+        url: "{{ path('vehicle_select_tower')}}",
+        data:data,
+        dataType: 'json',
+        success: function(data) {
+            var tower_selector = $('#apartamentos_apartamentosbundle_vehicle_towerid');
+ 
+            tower_selector.html('<option value="">Seleccione una torre</option>');
+            tower_selector.append( data);
+        }       
+    });   
+    
+}
+
+function residentdata(control)
+{
+  var data3 = {
+        apartment_id:$(control).val()
+     };
+    $.ajax({
+        type: "POST",
+        url: "{{ path('vehicle_select_resident')}}",
+        data:data3,
+        dataType: 'json',
+        success: function(data3) {
+            var resident_selector = $('#apartamentos_apartamentosbundle_vehicle_residentid');
+ 
+            resident_selector.html('<option>Seleccione un propietario</option>');
+            resident_selector.append( data3);
+        }       
+    });    
+    
+}
+
+    </script>

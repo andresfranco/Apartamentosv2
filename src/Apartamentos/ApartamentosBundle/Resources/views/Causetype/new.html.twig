@@ -1,0 +1,32 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Causetype:validatecausetype.html.twig' %}   
+ 
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nuevo tipo de causa'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.causetype) }}
+        {{ form_widget(form.causetype)}}
+        {{ form_errors(form.causetype) }}
+    </div>
+
+   
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('causetypegrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/causetype32.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Tipos de Causa'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}

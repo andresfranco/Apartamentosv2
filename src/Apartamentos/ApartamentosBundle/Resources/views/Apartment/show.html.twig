@@ -1,0 +1,161 @@
+{% extends '::masteradmin.html.twig' %}
+
+{% block contenido %}
+    <h2 class="titulo">{{'Detalles del Apartamento'|trans}}</h2>
+    <hr>
+    {% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="error">
+        <table>
+            <tr><td><img  src="{{ asset('images/warning.png') }}"/></td>
+                <td>{{ flashMessage|trans }}</td>
+            </tr>   
+        </table> 
+    </div><br>
+{% endfor %}
+    <table style="border:none;">
+        <tr>
+        <td> 
+          <a href="{{ path('apartmentgrid') }}" class="button radius">
+              <img  src="{{ asset('images/torres.png') }}"/>
+              <span>{{'Lista de Apartamentos'|trans}}</span>
+          </a>   
+        </td>
+        <td> 
+          <a href="{{ path('apartmentresidentgrid', { 'id': entity.id }) }}" class="button radius">
+              <img  src="{{ asset('images/resident.png') }}"/>
+              <span>{{'Residentes'|trans}}</span>
+          </a>   
+        </td>
+        {% if deleteaction =='S' %}
+        <td> 
+          <a href="#" data-reveal-id="myNormal" class="button radius">
+              <img  src="{{ asset('images/delete32.png') }}"/>
+              <span>{{'Eliminar Apartamento'|trans}}</span>
+          </a>
+        </td>
+        {%endif%}
+        </tr>    
+    </table>
+    <table class="record_properties">
+             <tr>
+                <td  class="titulocampo">{{'Condominio'|trans}}</td>
+                <td>{{ entity.towerid.companyid.name}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Torre'|trans}}</td>
+                <td>{{ entity.towerid.name }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Número de apartamento'|trans}}</td>
+                <td>{{ entity.number}}</td>
+            </tr>
+            
+            <tr>
+                <td  class="titulocampo">{{'Número de teléfono'|trans}}</td>
+                <td>{{ entity.phone }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Area'|trans}}</td>
+                <td>{{ entity.area }} M²</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Cantidad de residentes'|trans}}</td>
+                <td>{{ entity.numberresidents }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Número de piso'|trans}}</td>
+                <td>{{ entity.floornumber }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Cantidad de habitaciones'|trans}}</td>
+                <td>{{ entity.rooms }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'¿Tiene cuarto de empleada?'|trans}}</td>
+                <td>{% if entity.hasmaderoom =="S"%}
+                    Si
+                    {% else %}
+                    No 
+                   {% endif%}
+                </td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'¿Tiene empleada?'|trans}}</td>
+                <td>{% if entity.hasmade =="S"%}
+                    Si
+                    {% else %}
+                    No 
+                   {% endif%}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'¿Tiene niñera?'|trans}}</td>
+                <td>
+                {% if entity.hasbabysitting =="S"%}
+                    Si
+                    {% else %}
+                    No 
+                   {% endif%}
+                </td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'¿Tiene mascotas?'|trans}}</td>
+                <td>{% if entity.haspet =="S"%}
+                    Si
+                    {% else %}
+                    No 
+                   {% endif%}
+                
+                </td>
+                {% if entity.haspet =="S"%}
+                <td  class="titulocampo">{{'Cantidad de mascotas'|trans}}</td>
+                <td>{% if entity.petnumber ==""%}
+                    0
+                    {% else %}
+                    {{entity.petnumber}}
+                   {% endif%}</td>
+                <td  class="titulocampo">{{'Tipo de mascota'|trans}}</td>
+                <td>{{ entity.petkind }}</td>
+                {% endif%}
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'¿Hay niños viviendo ahi?'|trans}}</td>
+                <td>{% if entity.haskids =="S"%}
+                    Si
+                    {% else %}
+                    No 
+                   {% endif%}
+                </td>
+                {% if entity.haskids =="S"%}
+                <td  class="titulocampo">{{'Cantida de niños'|trans}}</td>
+                <td>{% if entity.numberofkids ==""%}
+                    0
+                    {% else%}
+                    {{entity.numberofkids}}
+                    {% endif %}
+                </td>
+                {% endif%}
+            </tr>
+            
+    </table>
+
+    
+   <div class="reveal-modal small" id="myNormal" data-reveal >
+      &iquest;{{'delete.apartment.question'|trans}}?
+	  <br><br>
+	  <table class="dialogo">
+	  <tr>
+	  <td><a class="radius button" href="{{ path('apartment_deletemodal', { 'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
+	  <td><a id ="cancelar" class="radius button" href="#">{{'Cancelar'|trans}}</a></td>
+	  </tr>
+	  </table>
+      <a class="close-reveal-modal"><img src="{{ asset('images/dialog_close.png')}}"/></a>
+  </div>
+    <script>
+     {% block foundation %}
+   $("#cancelar").click(function (e) {
+    $('#myNormal').foundation('reveal', 'close');
+});
+{% endblock %} 
+    </script>
+{% endblock %}
+

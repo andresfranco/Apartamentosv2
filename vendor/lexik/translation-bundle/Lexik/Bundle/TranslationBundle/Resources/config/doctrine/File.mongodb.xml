@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                                            http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
+                  
+    <document name="Lexik\Bundle\TranslationBundle\Document\File"
+              collection="lexik_translation_file"
+              repository-class="Lexik\Bundle\TranslationBundle\Document\FileRepository">
+
+        <indexes>
+            <index>
+                <option name="unique" value="true" />
+                <option name="safe" value="true" />
+                <key name="hash" order="asc" />
+            </index>
+        </indexes>
+        
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="prePersist" />
+            <lifecycle-callback type="preUpdate" method="preUpdate" />
+        </lifecycle-callbacks>
+
+        <field fieldName="id" name="id" id="true" strategy="AUTO" />
+
+        <field fieldName="domain" name="domain" type="string" />
+
+        <field fieldName="locale" name="locale" type="string" />
+        
+        <field fieldName="extention" name="extention" type="string" />
+        
+        <field fieldName="path" name="path" type="string" />
+        
+        <field fieldName="hash" name="hash" type="string" />
+        
+        <reference-many field="translations" target-document="Lexik\Bundle\TranslationBundle\Document\Translation" mapped-by="file">
+            <cascade>
+                <persist/>
+            </cascade>
+        </reference-many>
+
+    </document>
+</doctrine-mongo-mapping>

@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    $(function() {
+    
+    $("#form").validate({
+       	
+        // Specify the validation rules
+        rules: 
+           {
+            "apartamentos_apartamentosbundle_company[name]":{required:true},
+            "apartamentos_apartamentosbundle_company[phone]":{required:true,digits:true,phonepanama:true},
+             "apartamentos_apartamentosbundle_company[address]":{required:true},
+             "apartamentos_apartamentosbundle_company[companycode]":{required:true},
+             "apartamentos_apartamentosbundle_company[email]":{email:true}  
+          },
+        // Specify the validation error messages
+        messages: 
+         {
+          "apartamentos_apartamentosbundle_company[name]":{required:"{{'company.validate.name'|trans}}"},
+          "apartamentos_apartamentosbundle_company[phone]":{required:"{{'company.required.phone'|trans}}",digits:"{{'company.digits.phone'|trans}}"},
+          "apartamentos_apartamentosbundle_company[address]":{required:"{{'constcompany.validate.address'|trans}}"},
+          "apartamentos_apartamentosbundle_company[companycode]":{required:"{{'company.validate.companycode'|trans}}"},
+          "apartamentos_apartamentosbundle_company[email]":{email:"{{'email.validate'|trans}}"}
+         },
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+</script>

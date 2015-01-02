@@ -1,0 +1,71 @@
+<pdf>
+   <dynamic-page>
+     <div  id="layer-1"  font-size="12px"  width ="100%" padding-top ="25px" padding-left="3px" padding-right="3px">
+      <div>
+            <div text-align="right"><b>{{ "now"|date("d/m/Y") }}</b></div>
+             <br />
+             <br />
+            <h1>{{tower.companyid.name}}-{{tower.name}}</h1>
+             <br />
+            <h1>{{'Estado de Cuenta'|trans}}{{' '}}{{monthname|trans}}{{' '}}{{year}}</h1>
+       <br />
+       <br />
+       <table width ="100%">
+          <tr>
+            <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px">
+                <b>{{'Fecha'|trans}}</b>
+           </td>
+           <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px">
+               <b>{{'Clase'|trans}}</b>
+           </td>
+           <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px">
+               <b>{{'Depositante'|trans}}</b>
+           </td>
+            <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px">
+                <b>{{'Crédito'|trans}}</b>
+           </td>
+            <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px">
+                <b>{{'Débito'|trans}}</b>
+           </td>
+           <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px">
+               <b>{{'Apartamento'|trans}}</b>
+           </td>
+           <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px">
+               <b>{{'Recibo'|trans}}</b>
+           </td>
+           <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px">
+               <b>{{'Detalle'|trans}}</b>
+           </td>
+          </tr>
+          {% set sumcredit = 0 %}
+          {% set sumdebit = 0 %}
+          {% for item in results %}
+              <tr><td padding="10px">{{item.processdate}}</td>
+              <td padding="10px">{{item.paymentmethod|trans}}</td>
+              <td padding= "10px"> {{item.depositor}} </td>
+              <td padding= "10px">{% if item.debitcredit=='C'%}
+                  {{item.amount|number_format(2, ".", ",")}}
+                  {% set sumcredit = sumcredit+item.amount %}
+                  {% endif %}
+              </td>
+              <td padding= "10px">{% if item.debitcredit=='D'%}
+                  {{item.amount|number_format(2, ".", ",")}}
+                  {% set sumdebit = sumdebit+item.amount %}
+                  {% endif %}
+              </td>
+              <td padding= "10px">{{item.apartment}}</td>
+              <td padding= "10px">{{item.invoicenumber}}</td>
+              <td padding= "10px">{{item.description|trans}}</td>
+             </tr>
+         {% endfor %}
+         <tr>
+           <td></td>
+           <td></td>
+           <td padding= "10px"><b>{{'Total'|trans}}</b></td><td padding= "10px"><b>{{sumcredit|number_format(2, ".", ",")}}</b></td><td padding= "10px"><b>{{sumdebit|number_format(2, ".", ",")}}</b></td>
+         </tr>
+    </table>  
+    <br /> 
+    </div>
+    </div>
+  </dynamic-page>
+</pdf>

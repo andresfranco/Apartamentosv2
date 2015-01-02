@@ -1,0 +1,40 @@
+@mixin odd-even($color,$fontweight,$texttransform) 
+{
+  color:$color;   
+  font-weight:$fontweight;
+  text-transform:$texttransform;
+}
+
+@mixin images-grid($type)
+{
+   @if $type == 'edit' {background-image: url('../images/edit.png');} 
+   @else if $type == 'show'{background-image: url('../images/show.png');}
+   display: block;height: 16px;width: 16px;background-repeat:no-repeat;text-indent: -9999px;
+ }
+ 
+@mixin control-size($controltype) 
+{
+  @if $controltype == 'button' or $controltype == 'text'
+  {
+  display: block;padding: 0.0625rem 0.625rem 0.0625rem;-webkit-border-radius: 3px;width: 30px;height:34px;margin:0px;
+  } 
+  @else if $controltype == 'select'{width: 60px;height:34px;margin:0px;}
+}
+
+
+@mixin busqueda-margin($height,$margin){height:$height;margin:$margin;}
+
+@mixin busqueda ($controltype)
+{
+ @if $controltype == 'table'{border: 0px; } 
+ @else if $controltype == 'tdtr' {padding:1px;}
+ @else if $controltype == 'text' {@include busqueda-margin(38px,0px);}
+ @else if $controltype == 'select' {@include busqueda-margin(38px,0px) ;}
+ @else if $controltype == 'submit' 
+ {cursor: pointer;font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;line-height: normal;margin-top: 0px;margin-bottom:0px;text-decoration: none;
+  text-align: center;display: inline-block;padding-right: 2rem;padding-left: 2rem;font-size: 1rem;
+  height:40px;background-color: #008cba;border-color: #0079a1;color: white;-webkit-transition: background-color 300ms ease-out;
+  -moz-transition: background-color 300ms ease-out;transition: background-color 300ms ease-out;-webkit-appearance: none;
+  border: none;font-weight: normal !important;} 
+}

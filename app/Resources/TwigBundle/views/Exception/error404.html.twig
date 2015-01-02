@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+        {% block stylesheets %}
+                
+		<link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerfoundation/css/foundation.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/error404.css') }}" />
+        {% endblock %}
+		
+    </head> 
+    
+    <body  bgcolor="silver">
+   
+ 
+      <center><div class="panel" data-equalizer-watch="" style="height: 80%; width:100%;margin: auto;">
+              <img src="{{ asset('images/404.png') }}"/><br><br>
+              <p class="error404">{{'Pagina no encontrada, por favor verifique'|trans}}</p><br><br><br>
+              
+              <a href="{{ path('logout') }}" class="button radius">
+              <img  src="{{ asset('images/home2.png') }}"/>
+              <span>{{'Volver a la aplicación'|trans}}</span>
+          </a> 
+    
+     
+     
+       </div>
+      </center>
+    
+    </body>
+  
+ 
+</html>

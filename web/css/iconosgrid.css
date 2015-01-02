@@ -1,0 +1,198 @@
+   ul.grid-row-actions 
+   {
+  
+    list-style-type: none;
+    }   
+                   
+   a.mostrar
+   {
+   display: block;
+   height: 16px;
+   width: 16px;
+   background-image: url('../images/show.png');
+   background-repeat:no-repeat;
+   text-indent: -9999px;
+  }
+      
+                   
+   a.editar
+   {
+   display: block;
+   height: 16px;
+   width: 16px;
+   background-image: url('../images/edit.png');
+   background-repeat:no-repeat;
+   text-indent: -9999px;
+   }
+                   
+   table.paginado
+   {
+    border:0px;
+    float:left;
+   
+   }
+   table.paginado td
+   {
+    padding:0px;   
+   }
+  
+   .paginado input[type="button"]
+   {
+     
+       display: block;
+      padding: 0.0625rem 0.625rem 0.0625rem;
+     
+      -webkit-border-radius: 3px;
+      
+      width: 30px;
+      height:34px;
+      margin:0px;
+     
+   }
+   .paginado input[type="text"]
+   {
+     
+       display: block;
+      padding: 0.0625rem 0.625rem 0.0625rem;
+     
+      -webkit-border-radius: 3px;
+      
+      width: 30px;
+      height:34px;
+      margin:0px;
+      
+   }
+   
+   .paginado select
+   {
+     
+     width: 60px;
+      height:34px;
+      margin:0px;
+      
+   }
+   
+  table.busqueda
+  {
+   border: 0px;   
+  }
+ 
+  table.busqueda td,tr
+   {
+    padding:1px;   
+   }
+   .busqueda input[type="text"]
+   {
+    
+      height:38px;
+      margin:0px;   
+   }
+   .busqueda select
+   {
+      height:38px;
+      margin:0px;  
+   }
+   .busqueda input[type="submit"]
+   {
+     cursor: pointer;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin-top: 0px;
+  margin-bottom:0px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  
+  padding-right: 2rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  height:40px;
+  /*     @else                            { font-size: $padding - rem-calc(2); } */
+  background-color: #008cba;
+  border-color: #0079a1;
+  color: white;
+  -webkit-transition: background-color 300ms ease-out;
+  -moz-transition: background-color 300ms ease-out;
+  transition: background-color 300ms ease-out;
+
+  -webkit-appearance: none;
+  border: none;
+  font-weight: normal !important; 
+   }
+    .busqueda input[type="submit"]:hover
+    {
+    background-color: #0079a1; 
+    }
+ h2.titulo 
+ {
+  
+ font-weight:500;
+ color:#0079a1;
+
+ }
+ .even label
+ {
+  color:#0079a1;   
+  font-weight:bold;
+  text-transform: uppercase;
+ }
+ 
+ .odd label
+ {
+  color:#0079a1;   
+  font-weight:bold;
+  text-transform: uppercase;
+  
+ }
+ a.order 
+ {
+  color:#0079a1;   
+  font-weight:bold;
+  text-transform: uppercase;   
+ }
+ 
+ div.sortup
+ {
+    
+ background-image: url('../images/show.png');
+ background-repeat:no-repeat;
+ text-indent: -9999px;
+  
+}
+    
+div.sortdown
+{
+   content:url(../images/show.png);
+}
+div.newuser
+{
+padding-left:220px;  
+
+    
+}
+td.titulocampo 
+{
+  color:#0079a1;   
+  font-weight:bold;
+  text-transform: uppercase;   
+}
+table.dialogo
+{
+border: 0px;
+}
+.final
+{
+height:400px;
+margin-bottom:0px;
+padding-bottom: 0px;
+
+
+}
+
+.bottom-bar{
+position: fixed;
+bottom: 0px;
+width: 100%;
+margin-bottom: 0px;
+}

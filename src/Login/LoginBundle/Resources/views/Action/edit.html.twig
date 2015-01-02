@@ -1,0 +1,31 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'LoginLoginBundle:Action:validateaction.html.twig' %}
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Editar Acción'|trans }}</h2>
+    <hr> 
+{{ form_start(edit_form) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(edit_form.actionname) }}
+        {{ form_widget(edit_form.actionname)}}
+        {{ form_errors(edit_form.actionname) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.description) }}
+        {{ form_widget(edit_form.description)}}
+        {{ form_errors(edit_form.description) }}
+    </div>
+
+{{ form_end(edit_form) }}
+<div> 
+<br>    
+<a href="{{ path('actiongrid') }}" class="button radius">
+<img  src="{{ asset('images/back24.png') }}"/>
+<span>{{'Acciones'|trans}}</span>
+ </a>   
+</div>  
+{% endblock %}

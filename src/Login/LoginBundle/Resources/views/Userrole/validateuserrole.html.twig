@@ -1,0 +1,34 @@
+<script>
+  $(document).ready(function(){
+      $("#userdiv").hide(); 
+  });
+  
+  $(function() {
+
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+        
+		
+		
+        // Specify the validation rules
+        rules: {
+            "login_loginbundle_userrole[roleid]": "required",
+            
+        },
+        
+        // Specify the validation error messages
+        messages: {
+          "login_loginbundle_userrole[roleid]": "{{'userrole.roleid.validate'|trans}}"
+           
+           
+        },
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+  
+  
+  </script>

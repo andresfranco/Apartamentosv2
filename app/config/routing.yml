@@ -1,0 +1,12 @@
+apartamentos_apartamentos:
+    resource: "@ApartamentosApartamentosBundle/Resources/config/routing.yml"
+    prefix:   /
+
+login_login:
+    resource: "@LoginLoginBundle/Resources/config/routing.yml"
+    prefix:   /
+
+lexik_translation_edition:
+    resource: "@LexikTranslationBundle/Resources/config/routing.yml"
+    prefix:   /admin/{_locale}/translations
+

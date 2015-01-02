@@ -1,0 +1,33 @@
+{# AppApartamentos/src/Login/LoginBundle/Resources/views/Security/login.html.twig #}
+<head>       
+{% block stylesheets %}
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/masterfoundation.css') }}" />
+   <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}" />
+{% endblock %}
+{% block javascripts %}
+   <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+   <script src="{{ asset('foundation/js/foundation.min.js') }}"></script>
+   <script src="{{ asset('js/jquery.validate.js') }}"></script>
+   <script src="{{ asset('js/validatelogin.js') }}"></script>
+{% endblock %}
+</head>
+<body id="bodylogin">
+     <fieldset>
+      <div><img src="{{ asset('images/adminlogin.png') }}"/><b><span class="titulologin">{{'SYSTEM ADMINISTRATION'|trans}}</span></b></div>
+      <br><br>
+      <div class="error">
+        <label id="labelerror" class="error2">
+        {% if error %}
+        {{ error.message|trans({},'messages')  }}<br><br>
+        {% endif %}
+        </label>
+      </div>
+      <form id="loginform" action="{{ path('login_check') }}" method="post">
+        <label for="username" class="labellogin"><b>{{'Username:'|trans}}</b></label>
+        <input id="username" type="text" name="_username"/>
+        <label for="password" class="labellogin"><b>{{'Password:'|trans}}</b></label>
+        <input id="password" type="password" name="_password"/>
+        <button type="submit" name="login" class="button radius"/>{{'login'|trans}}</button>
+      </form>
+     </fieldset>
+ </body>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>{% block title %}{{'Administrar Apartamentos'|trans}}{% endblock %}</title>
+        {% block stylesheets %}
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/masterfoundation.css') }}" />
+	{% endblock %}
+        {% block javascripts %}
+		<script src="{{ asset('jquery/jquery.min.js') }}"></script>
+                <script src="{{ asset('foundation/js/foundation.min.js') }}"></script>
+        {% endblock %}
+    </head>
+    <body>
+     {% block javascript_footer %}
+                 {% endblock %}    
+   {% block body %}
+        <!-- TOP NAV BAR -->
+        {% include 'topbar.html.twig' %} 
+       <!-- Main Content Section -->
+      <div id="contenido" style="height:100%;">    
+         <div  class="large-12 columns" >
+	       
+	   <div  class="large-11 columns">
+	    <!-- Content--> 
+           {% block contenido %}
+                   
+                    <!-- Grids-->
+                   {% block grid %}
+                    {%endblock grid %}
+	  {% endblock %}
+	  </div>
+       </div>
+  </div>
+  
+    <!-- Footer --> 
+  <div class="large-12 columns" style="background-color: black;color:white;">
+    {% block footer %}
+         {% include 'footer.html.twig' %}
+	{% endblock %}	
+      </div>
+  {%block script %}   
+   {% include 'foundationscript.html.twig' %}
+  {% endblock %} 
+ </body>
+ 
+{% endblock %}
+</html>  
+   

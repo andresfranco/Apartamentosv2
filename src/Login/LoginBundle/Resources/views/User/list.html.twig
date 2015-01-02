@@ -1,0 +1,64 @@
+{% extends '::masteradmin.html.twig' %}
+
+{% block contenido %}
+    <div>
+         <img style="float:left;" src="{{ asset('images/usertitle48.png') }}"/>
+         <h3 style="position: absolute; top: 10px;left: 70px;">Users ({{ pagination.getTotalItemCount }})</span> </h3>
+    </div> 
+    <hr>   
+     <div>
+         <table width="70%">
+             <form id="busquedauser" action="{{ path('finduser') }}" method="post"><tr><td>
+                         <select id="filtro" name="filtro">
+                            <option value="id" {{selectedid}}>ID</option>
+                            <option value="username" {{selecteduser}}>Username</option>
+                         </select>
+                   
+                     <td><input id="valor" name ="valor" type="text" value="{{ valor }}">
+                     </td>
+                     <td>
+                     <button type="submit">Buscar</button>
+                     </td>
+                 </tr>
+             </form>
+         </table>    
+    
+        
+        
+                </div><br>  
+    <div><a href="{{ path('admin_user_new') }}">New User<img src="{{ asset('images/new.png') }}"/></a></div></br>
+            
+    <table>
+        <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'Id', 'u.id') }}</th>
+                <th{% if pagination.isSorted('u.username') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'UserName', 'u.username') }}</th>
+                <th></th>
+                <th></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+           {% for User in pagination %}
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
+            <td>{{ User.id }}</td>
+            <td>{{ User.username}}</td>
+            <td> 
+             <div><a href="{{ path('admin_user_show', { 'id': User.id }) }}"><img src="{{ asset('images/show.png') }}"/></a></div>
+            </td>
+             <td><div><a href="{{ path('admin_user_edit', { 'id': User.id }) }}"><img src="{{ asset('images/edit.png') }}"/></a></div></td>
+            </tr>        
+ </div>    
+        
+        {% endfor %} 
+
+        </tbody>
+    </table>
+  
+    {{ knp_pagination_render(pagination) }}
+</div>
+  
+ {% endblock %}   
+
+
+

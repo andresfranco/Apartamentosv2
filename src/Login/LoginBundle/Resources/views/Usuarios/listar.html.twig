@@ -1,0 +1,26 @@
+{% extends '::masterpageadmin.html.twig' %}
+
+{% block contenido %}
+<h1><small>Listado de Usuarios</small><h1>
+<hr/>
+<table>
+    <tr>
+	<a href="{{path('usuario_new')}}"><small>Nuevo Usuario</small></a>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+		<th>
+		<th>
+    </tr>
+    {% for usuario in usuarios %}
+    <tr>
+        <td>{{ usuario.idusuario }}</td>
+        <td>{{ usuario.usuario }}</td>
+        <td>{{ usuario.email }}</td>
+        <td><img src="{{asset('images/edit.png')}}"/></td>
+        <td><img src="{{asset('images/delete.png')}}"/></td> 		
+	</tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,25 @@
+<script type="text/javascript">
+   $(document).ready(function()
+{  
+     
+   $("#apartamentos_apartamentosbundle_apartment_companyid").change(function(){
+    
+       
+        var data = {
+        company_id:$("#apartamentos_apartamentosbundle_apartment_companyid").val()
+     };
+    $.ajax({
+        type: "POST",
+        url: "{{ path('apartment_select_tower')}}",
+        data:data,
+        dataType: 'json',
+        success: function(data) {
+            var tower_selector = $('#apartamentos_apartamentosbundle_apartment_towerid');
+ 
+            tower_selector.html('<option value="">Seleccione una Torre</option>');
+            tower_selector.append(data);
+        }       
+    });
+});
+});
+    </script> 

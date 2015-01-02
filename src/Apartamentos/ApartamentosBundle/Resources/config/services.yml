@@ -1,0 +1,13 @@
+parameters:
+#    apartamentos_apartamentos.example.class: Apartamentos\ApartamentosBundle\Example
+
+services:
+    apartamentos.apartamentosbundle.manager.color:
+        class:     Apartamentos\ApartamentosBundle\Manager\ColorManager
+        arguments: ["@doctrine.orm.default_entity_manager", "Apartamentos\ApartamentosBundle\Entity\Color"]
+        calls:
+            - [setRepositoryLocale, ["@service_container"]]
+    globalfunctions:
+        class: Apartamentos\ApartamentosBundle\Controller\GlobalfunctionsController
+        calls:
+            - [ setContainer, [ @service_container ]]

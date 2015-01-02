@@ -1,0 +1,8 @@
+
+@import "errorfunctions";
+@import "genericfunctions";
+//Custom foundation errors
+label.error{@include errortype('label');}
+input.error{@include errortype('input');}
+select.error{@include errortype('select');}
+input[type="text"].readonlytext  {@include read-only('text');}

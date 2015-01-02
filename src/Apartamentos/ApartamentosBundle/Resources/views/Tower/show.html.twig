@@ -1,0 +1,103 @@
+{% extends '::masteradmin.html.twig' %}
+{% block contenido %}
+    <h2 class="titulo">{{'Detalles'|trans}}{{ entity.name }}</h2>
+    <hr>
+    {% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="error">
+        <table>
+            <tr><td><img  src="{{ asset('images/warning.png') }}"/></td>
+                <td>{{ flashMessage|trans }}</td>
+            </tr>   
+        </table> 
+    </div><br>
+{% endfor %}
+    <table style="border:none;">
+        <tr>
+        <td> 
+          <a href="{{ path('towergrid') }}" class="button radius">
+              <img  src="{{ asset('images/torres.png') }}"/>
+              <span>{{'Lista de torres'|trans}}</span>
+          </a>   
+        </td>
+         <td> 
+          <a href="{{ path('tower_apartmentgrid',{'id':entity.id}) }}" class="button radius">
+              <img  src="{{ asset('images/apartamentos.png') }}"/>
+              <span>{{'Apartamentos'|trans}}</span>
+          </a>   
+        </td>
+         <td> 
+          <a href="{{ path('gridemployee',{'id':entity.id}) }}" class="button radius">
+              <img  src="{{ asset('images/employee.png') }}"/>
+              <span>{{'Empleados'|trans}}</span>
+          </a>   
+        </td>
+         {% if deleteaction =='S' %}
+        <td> 
+          <a href="#" data-reveal-id="myNormal" class="button radius">
+              <img  src="{{ asset('images/delete32.png') }}"/>
+              <span>{{'Eliminar torre'|trans}}</span>
+          </a>
+        </td>
+        {%endif%}
+        </tr>    
+    </table>
+    <table class="record_properties">
+       
+            <tr>
+                <td  class="titulocampo">{{'Condominio'|trans}}</td>
+                <td>{{ entity.companyid.name }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'nombre'|trans}}</td>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+            <tr>
+                <td  class="titulocampo">{{'Email'|trans}}</td>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>    
+                <td  class="titulocampo">{{'Número de apartamentos'|trans}}</td>
+                <td>{{ entity.numberapartments }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Número de depósitos'|trans}}</td>
+                <td>{{ entity.numberstorerooms }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Número de estacionamientos'|trans}}</td>
+                <td>{{ entity.numberparkings }}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Cantidad de apartamentos por piso'|trans}}</td>
+                <td>{{ entity.numberaptperfloor }}</td>
+            </tr>
+              <tr>
+              <td>
+              <div>
+              
+       </div> 
+         </td>  
+            </tr>
+           
+    </table>
+    
+   <div class="reveal-modal small" id="myNormal" data-reveal >
+      &iquest;{{'delete.tower.question'|trans}}?
+	  <br><br>
+	  <table class="dialogo">
+	  <tr>
+	  <td><a class="radius button" href="{{ path('tower_deletemodal', { 'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
+	  <td><a id ="cancelar" class="radius button" href="#">{{'Cancelar'|trans}}</a></td>
+	  </tr>
+	  </table>
+      <a class="close-reveal-modal"><img src="{{ asset('images/dialog_close.png')}}"/></a>
+  </div>
+    <script>
+     {% block foundation %}
+   $("#cancelar").click(function (e) {
+    $('#myNormal').foundation('reveal', 'close');
+});
+{% endblock %} 
+    </script>
+{% endblock %}

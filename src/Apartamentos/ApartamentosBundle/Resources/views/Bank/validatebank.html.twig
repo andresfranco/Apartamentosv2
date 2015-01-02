@@ -1,0 +1,47 @@
+<script type="text/javascript">
+$(function() {
+
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+       	
+        // Specify the validation rules
+        rules: {
+            "apartamentos_apartamentosbundle_bank[name]":{
+                required:true
+               
+            },
+           "apartamentos_apartamentosbundle_bank[phone]":{
+                digits:true
+               
+            }
+           
+            
+           
+        },
+        // Specify the validation error messages
+        messages: {
+            "apartamentos_apartamentosbundle_bank[name]":{
+                required:"{{'bank.required.name'|trans}}"
+                
+            },
+            "apartamentos_apartamentosbundle_bank[phone]":{
+                digits:"{{'bank.digits.phone'|trans}}"
+               
+            }
+               
+                    
+           
+            
+
+        },
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+    
+    
+</script>
+

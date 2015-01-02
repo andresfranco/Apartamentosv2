@@ -1,0 +1,27 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Residenttype:validateresidenttype.html.twig' %}
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Nuevo tipo de residente'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.type) }}
+        {{ form_widget(form.type)}}
+        {{ form_errors(form.type) }}
+    </div>
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('typeresidentgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/residenttype.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Tipo de residente'|trans}}</span></a>
+
+       </div> 
+{% endblock %}
+

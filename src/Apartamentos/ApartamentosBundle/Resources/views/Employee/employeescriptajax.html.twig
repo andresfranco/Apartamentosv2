@@ -1,0 +1,45 @@
+<script type="text/javascript">
+   $(document).ready(function()
+{  
+
+        
+        
+   $("#apartamentos_apartamentosbundle_employee_companyid").change(function(){
+     
+    var data = {
+        company_id:$(this).val()
+     };
+    $.ajax({
+        type: "POST",
+        url: "{{ path('employee_tower')}}",
+        data:data,
+        dataType: 'json',
+        success: function(data){
+            var tower_selector = $('#apartamentos_apartamentosbundle_employee_tower');
+            tower_selector.html('');
+            tower_selector.append( data);
+            hidelabel();   
+        }       
+    });
+       
+});
+});
+
+$(window).load(function() {
+     hidelabel(); 
+});
+
+function hidelabel()
+{
+ if ( $("#apartamentos_apartamentosbundle_employee_companyid").val()=="")
+             {
+              $("#lbltower").hide();
+              $("#apartamentos_apartamentosbundle_employee_tower").hide();
+             }
+             else
+            {
+              $("#lbltower").show();
+              $("#apartamentos_apartamentosbundle_employee_tower").show();
+            }    
+}
+    </script> 

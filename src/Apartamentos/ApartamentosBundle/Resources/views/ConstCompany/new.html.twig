@@ -1,0 +1,50 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:ConstCompany:validateconstcompany.html.twig' %} 
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nueva constructora'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name)}}
+        {{ form_errors(form.name) }}
+        
+    </div>
+    <div>
+        {{ form_label(form.address) }}
+        {{ form_widget(form.address)}}
+        {{ form_errors(form.address) }}
+        
+    </div>
+    <div>
+        {{ form_label(form.phone) }}
+        {{ form_widget(form.phone)}}
+        {{ form_errors(form.phone) }}
+        
+    </div>
+    <div>
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email)}}
+        {{ form_errors(form.email) }}
+        
+    </div>
+
+   
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('constcompanygrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/constcompany.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Constructoras'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}

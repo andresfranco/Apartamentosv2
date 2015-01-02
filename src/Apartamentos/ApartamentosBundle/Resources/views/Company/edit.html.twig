@@ -1,0 +1,63 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Globalmethods:validatecustom.html.twig' %}
+{% include 'ApartamentosApartamentosBundle:Company:validatecompany.html.twig' %} 
+ 
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Editar Condominio'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(edit_form) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+     <div>
+        {{ form_label(edit_form.companycode) }}
+        {{ form_widget(edit_form.companycode)}}
+        {{ form_errors(edit_form.companycode) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.name) }}
+        {{ form_widget(edit_form.name)}}
+        {{ form_errors(edit_form.name) }}
+    </div>
+     <div>
+        {{ form_label(edit_form.phone) }}
+        {{ form_widget(edit_form.phone)}}
+        {{ form_errors(edit_form.phone) }}
+    </div>
+     <div>
+        {{ form_label(edit_form.address) }}
+        {{ form_widget(edit_form.address)}}
+        {{ form_errors(edit_form.address) }}
+    </div>
+    
+    <div>
+        {{ form_label(edit_form.email) }}
+        {{ form_widget(edit_form.email)}}
+        {{ form_errors(edit_form.email) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.website) }}
+        {{ form_widget(edit_form.website)}}
+        {{ form_errors(edit_form.website) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.constCompanyid) }}
+        {{ form_widget(edit_form.constCompanyid)}}
+        {{ form_errors(edit_form.constCompanyid) }}
+    </div>
+    
+    
+{{ form_end(edit_form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('companygrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/condominio.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Condominios'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}

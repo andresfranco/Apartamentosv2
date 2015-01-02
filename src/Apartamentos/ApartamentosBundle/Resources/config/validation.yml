@@ -1,0 +1,423 @@
+Apartamentos\ApartamentosBundle\Entity\Tower:
+    properties:
+         companyid:
+            - NotBlank:
+               message: "validate.tower.companyid"
+         name:
+            - NotBlank:
+               message: "validate.tower.name"
+         email: 
+            - Email:
+                message: 'validate.tower.email'
+         numberapartments:
+            - Type:
+                type: digit
+                message: "validate.tower.numberapartments"
+         numberstorerooms:
+            - Type:
+                type: digit
+                message: "validate.tower.numberstorerooms"
+         numberparkings:
+            - Type:
+                type: digit
+                message: "validate.tower.numberparkings"
+         numberaptperfloor:
+            - Type:
+               type: digit
+               message: "validate.tower.numberaptperfloor"
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: "validate.tower.exist.name"
+            
+            fields: [email]
+            errorPath: email
+            message: "validate.tower.exist.email"    
+
+Apartamentos\ApartamentosBundle\Entity\Apartment:
+    properties:
+        number:
+            - NotBlank:
+               message: "validate.apartment.name"
+        towerid:
+            - NotBlank:
+               message: "validate.apartment.towerid"
+        phone:
+            - NotBlank:
+               message: "validate.apartment.phone"
+        numberresidents:
+            - NotBlank:
+               message: "validate.apartment.numberresidents"
+        floornumber:
+            - NotBlank:
+               message: "validate.apartment.floornumber"
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [number,towerid]
+            errorPath: number
+            message: "validate.apartment.exist.number"
+
+Apartamentos\ApartamentosBundle\Entity\Employee:
+    properties:
+        completename:
+            - NotBlank:
+               message: "validate.employee.completename"
+        idnumber:
+            - NotBlank:
+               message: "validate.employee.idnumber"
+        tower:
+            - Count:
+                min: 1
+                minMessage: "validate.employee.tower"
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [idnumber]
+            errorPath: idnumber
+            message: "validate.employee.exist.idnumber"
+            
+
+Apartamentos\ApartamentosBundle\Entity\Provider:
+    properties:
+        companyid:
+            - NotBlank:
+               message: "validate.provider.companyid"
+        towerid:
+            - NotBlank:
+               message: "tower.select"
+        name:
+            - NotBlank:
+               message: "validate.provider.name"
+        email:
+             - Email:
+                message: "validate.provider.email"
+        phone:
+            - NotBlank:
+                message: "validate.provider.phone"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: 'validate.provider.exist.name'
+            
+Apartamentos\ApartamentosBundle\Entity\Residenttype:
+    properties:
+        type:
+            - NotBlank:
+               message: "validate.residentype.type"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [type]
+            errorPath: type
+            message: 'validate.residentype.exist.type'
+Apartamentos\ApartamentosBundle\Entity\Resident:
+    properties:
+        name:
+            - NotBlank:
+               message: "validate.resident.name"
+        idnumbertype:
+            - NotBlank:
+               message: "validate.resident.idnumbertype"
+        idnumber:
+            - NotBlank:
+               message: "validate.resident.idnumber"
+        apartmentid:
+            - NotBlank:
+               message: "validate.resident.apartmentid"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: "resident.name.exist"
+Apartamentos\ApartamentosBundle\Entity\Location:
+    properties:
+        location:
+            - NotBlank:
+               message: "validate.location.location"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [location]
+            errorPath: location
+            message: "location.location.exist"
+            
+Apartamentos\ApartamentosBundle\Entity\Parking:
+    properties:
+        
+        towerid:
+            - NotBlank:
+               message: "tower.select"
+        apartmentid:
+            - NotBlank:
+               message: "apartment.select"
+        locationid:
+            - NotBlank:
+               message: "location.select"
+        number:
+            - NotBlank:
+               message: "validate.parking.number"
+        type:
+            - NotBlank:
+               message: "validate.parking.type"
+        
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [number]
+            errorPath: number
+            message: "parking.number.exist"
+            
+Apartamentos\ApartamentosBundle\Entity\Vehicle:
+    properties:
+           
+        apartmentid:
+            - NotBlank:
+               message: "validate.car.apartmentid"
+        residentid:
+            - NotBlank:
+               message: "validate.car.residentid"
+        colorid:
+            - NotBlank:
+               message: "validate.car.colorid"
+        
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [platenumber]
+            errorPath: platenumber
+            message: 'car.platenumber.exist'
+            
+            fields: [parkingid]
+            errorPath: parkingid
+            message: "validate.vehicle.exist.parkingid"
+Apartamentos\ApartamentosBundle\Entity\Color:
+    properties:
+        color:
+            - NotBlank:
+               message: "validate.color.color"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [color]
+            errorPath: color
+            message: 'validate.color.exist'
+            
+Apartamentos\ApartamentosBundle\Entity\Brand:
+    properties:
+        brand:
+            - NotBlank:
+               message: "validate.brand.brand"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [brand]
+            errorPath: brand
+            message: 'validate.brand.exist'
+ 
+Apartamentos\ApartamentosBundle\Entity\Cause:
+    properties:
+        cause:
+            - NotBlank:
+               message: "validate.cause.cause"
+        causetypeid:
+            - NotBlank:
+               message: "validate.cause.causetype"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [cause]
+            errorPath: cause
+            message: "cause.cause.exist"
+            
+Apartamentos\ApartamentosBundle\Entity\Expense:
+    properties:
+        companyid:
+            - NotBlank:
+               message: "condo.select"
+        towerid:
+            - NotBlank:
+               message: "tower.select"       
+        description:
+            - NotBlank:
+               message: "validate.expense.description"
+        causeid:
+            - NotBlank:
+               message: "validate.expense.cause"
+        amount:
+            - NotBlank:
+               message: "validate.expense.amount"
+            - Type:
+                type: numeric
+                message: "validate.amount.numeric"
+        expensedate:
+            - NotBlank:
+               message: "validate.expense.date"
+        accountid:
+            - NotBlank:
+               message: "validate.expense.accountid"
+        paymentmethod:
+            - NotBlank:
+               message: "paymentmethod.validate"
+              
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [description]
+            errorPath: description
+            message: 'validate.expense.exist.description'
+
+Apartamentos\ApartamentosBundle\Entity\ConstCompany:
+    properties:
+       
+        name:
+            - NotBlank:
+               message: "name.constcompany.validate"
+        phone:
+            - NotBlank:
+               message: "phone.constcompany.validate"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: "name.constcompany.exist"
+            
+Apartamentos\ApartamentosBundle\Entity\Company:
+    properties:
+        name:
+            - NotBlank:
+               message: "name.company.validate"
+        phone:
+            - NotBlank:
+               message: "phone.company.validate"
+        companycode:
+            - NotBlank:
+               message: "companycode.company.validate"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: "name.company.exist"
+            
+Apartamentos\ApartamentosBundle\Entity\Bank:
+    properties:
+        name:
+            - NotBlank:
+               message: "name.bank.validate"    
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: "name.bank.exist"
+Apartamentos\ApartamentosBundle\Entity\Account:
+    properties:
+        number:
+            - NotBlank:
+               message: "number.account.validate"    
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [number]
+            errorPath: number
+            message: "number.account.exist"
+
+Apartamentos\ApartamentosBundle\Entity\Document:
+    properties:
+        file:
+            - File:
+                maxSize: 6000000
+
+Apartamentos\ApartamentosBundle\Entity\ExpenseInvoice:
+    properties:
+        name:
+            - NotBlank:
+               message: "name.expenseinvoice.validate"
+      
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: "name.expenseinvoice.exist"
+            
+Apartamentos\ApartamentosBundle\Entity\Causetype:
+    properties:
+        causetype:
+            - NotBlank:
+               message: "causetype.causetype.validate"
+      
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [causetype]
+            errorPath: causetype
+            message: "causetype.causetype.exist"
+            
+Apartamentos\ApartamentosBundle\Entity\Income:
+    properties:
+        companyid:
+            - NotBlank:
+               message: "companyid.income.validate"          
+        towerid:
+            - NotBlank:
+               message: "towerid.income.validate"
+               
+        accountid:
+            - NotBlank:
+               message: "accountid.income.validate"
+               
+        causeid:
+            - NotBlank:
+               message: "causeid.income.validate"
+               
+        description:
+            - NotBlank:
+               message: "description.income.validate"
+        amount:
+            - NotBlank:
+               message: "amount.income.validate"
+        
+        incomedate:
+            - NotBlank:
+               message: "incomedate.income.validate"
+        paymentmethod:
+            - NotBlank:
+               message: "paymentmethod.validate"
+        depositor:
+            - NotBlank:
+               message: "depositor.validate"
+
+Apartamentos\ApartamentosBundle\Entity\Payment:
+    properties:
+        companyid:
+            - NotBlank:
+               message: "condo.select"          
+        towerid:
+            - NotBlank:
+               message: "tower.select"
+        apartmentid:
+            - NotBlank:
+               message: "apartment.select"       
+        accountid:
+            - NotBlank:
+               message: "account.select"
+               
+        description:
+            - NotBlank:
+               message: "description.validate"
+        amount:
+            - NotBlank:
+               message: "noblank.amount.validate"
+            - NotEqualTo:
+                value: 0
+                message: "zero.amount.validate"
+        
+        paymentdate:
+            - NotBlank:
+               message: "date.empty"
+        paymentmethod:
+            - NotBlank:
+               message: "paymentmethod.validate"
+        depositor:
+            - NotBlank:
+               message: "depositor.validate"

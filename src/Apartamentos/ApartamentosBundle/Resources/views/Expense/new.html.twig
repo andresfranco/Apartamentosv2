@@ -1,0 +1,78 @@
+{% extends '::masteradmin.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui-1.10.4.custom.css') }}" />
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.js') }}"></script>
+<script type="text/javascript"src="{{ asset('js/datepicker.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Expense:validateexpense.html.twig' %}
+{% include 'ApartamentosApartamentosBundle:Expense:expenseajaxscript.html.twig' %}
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nuevo Gasto'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(form.companyid) }}
+        {{ form_widget(form.companyid) }}
+        {{ form_errors(form.companyid) }}
+    </div>
+    <div>
+        {{ form_label(form.towerid) }}
+        {{ form_widget(form.towerid) }}
+        {{ form_errors(form.towerid) }}
+    </div>
+    <div>
+        {{ form_label(form.providerid) }}
+        {{ form_widget(form.providerid) }}
+        {{ form_errors(form.providerid) }}
+    </div>
+    <div>
+        {{ form_label(form.expensedate) }}
+        {{ form_widget(form.expensedate) }}
+        {{ form_errors(form.expensedate) }}
+    </div>
+    <div>
+        {{ form_label(form.accountid) }}
+        {{ form_widget(form.accountid)}}
+        {{ form_errors(form.accountid) }}
+    </div>
+    <div>
+        {{ form_label(form.paymentmethod) }}
+        {{ form_widget(form.paymentmethod)}}
+        {{ form_errors(form.paymentmethod) }}
+    </div>
+    <div>
+        {{ form_label(form.causeid) }}
+        {{ form_widget(form.causeid)}}
+        {{ form_errors(form.causeid) }}
+    </div>
+    <div>
+        {{ form_label(form.amount) }}
+        {{ form_widget(form.amount)}}
+        {{ form_errors(form.amount) }}
+    </div>
+    <div>
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description)}}
+        {{ form_errors(form.description) }}
+    </div>
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('expensegrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/expense.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Gastos'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}
+
+
+

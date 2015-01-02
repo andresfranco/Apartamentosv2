@@ -1,0 +1,12 @@
+<script type="text/javascript">
+$(function() {
+    $("#form").validate({
+       rules: {"login_loginbundle_role[name]": "required"},
+       messages: {"login_loginbundle_role[name]": "{{'role.validate'|trans}}"},
+       submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+</script>

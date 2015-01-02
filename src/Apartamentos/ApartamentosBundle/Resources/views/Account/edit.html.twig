@@ -1,0 +1,45 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Account:validateaccount.html.twig' %}
+ 
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Editar Cuenta'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(edit_form) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(edit_form.number) }}
+        {{ form_widget(edit_form.number)}}
+        {{ form_errors(edit_form.number) }}
+    </div><br>
+    <div>
+        {{ form_label(edit_form.name) }}
+        {{ form_widget(edit_form.name)}}
+        {{ form_errors(edit_form.name) }}
+    </div><br>
+     <div>
+        {{ form_label(edit_form.balance) }}
+        {{ form_widget(edit_form.balance)}}
+        {{ form_errors(edit_form.balance) }}
+     </div><br>
+      <div>
+        {{ form_label(edit_form.bankid) }}
+        {{ form_widget(edit_form.bankid)}}
+        {{ form_errors(edit_form.bankid) }}
+      </div><br><br>
+   
+{{ form_end(edit_form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('accountgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/account.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Cuentas'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}

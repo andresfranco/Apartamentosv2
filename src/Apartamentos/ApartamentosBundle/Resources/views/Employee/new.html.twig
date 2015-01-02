@@ -1,0 +1,55 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Employee:validateemployee.html.twig' %}
+{% include 'ApartamentosApartamentosBundle:Employee:employeescriptajax.html.twig' %} 
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Nuevo Empleado'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(form.companyid) }}
+        {{ form_widget(form.companyid) }}
+        {{ form_errors(form.companyid) }}
+    </div><br>
+    <div>
+        {{ form_label(form.tower) }}
+        <br>
+        {{ form_widget(form.tower) }}
+        {{ form_errors(form.tower) }}
+    </div><br>
+    <div>
+        {{ form_label(form.completename) }}
+        {{ form_widget(form.completename)}}
+        {{ form_errors(form.completename) }}
+    </div>
+
+    <div>
+        {{ form_label(form.idnumber) }}
+        {{ form_widget(form.idnumber) }}
+        {{ form_errors(form.idnumber) }}
+    </div>
+    <div>
+        {{ form_label(form.salaryamount) }}
+        {{ form_widget(form.salaryamount) }}
+        {{ form_errors(form.salaryamount) }}
+    </div>
+    <div>
+        {{ form_label(form.position) }}
+        {{ form_widget(form.position) }}
+        {{ form_errors(form.position) }}
+    </div>
+    
+   
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('employeegrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/employee.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Empleados'|trans}}</span></a>
+
+       </div> 
+{% endblock %}

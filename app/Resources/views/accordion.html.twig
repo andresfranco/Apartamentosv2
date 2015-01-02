@@ -1,0 +1,67 @@
+<div  class="large-2 columns">
+	{% block sideleft %}
+	
+   
+      <dl class="accordion" data-accordion> 
+          <dd> 
+              <a href="#panel1"><img src="{{ asset('images/usertitle.png') }}"/>{{ 'Usuarios'|trans }}</a> 
+              <div id="panel1" class="{% if app.request.attributes.get('_route') starts with 'user' or app.request.attributes.get('_route') starts with 'rol' or app.request.attributes.get('_route') starts with 'admin_' %}content active{% else%}content{% endif %}"> 
+                <ul id="usuarios">
+	<li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'user' or app.request.attributes.get('_route') starts with 'admin_user' %}activo{% endif %}" href="{{path('userslist')}}" ><img src="{{ asset('images/usertitle.png') }}"/>{{ 'Usuarios'|trans }}</a></li>
+	<li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'role'or app.request.attributes.get('_route') starts with 'admin_role' %}activo{% endif %}" href="{{path('rolelist')}}"><img src="{{ asset('images/userrole.png') }}"/>{{ 'Roles'|trans }}</a></li>
+	</ul>   
+               </div>
+          </dd>
+          <dd> 
+              <a href="#panel2"><img src="{{ asset('images/condominio.png') }}"/>{{ 'Condominio'|trans }}</a> 
+              <div id="panel2" class="{% if app.request.attributes.get('_route') starts with 'tower' or app.request.attributes.get('_route') starts with 'apart' or app.request.attributes.get('_route') starts with 'employ' or app.request.attributes.get('_route') starts with 'provi'  or app.request.attributes.get('_route') starts with 'company' or app.request.attributes.get('_route') starts with 'employ' or app.request.attributes.get('_route') starts with 'provi'  or app.request.attributes.get('_route') starts with 'constcompany'%}content active{% else%}content{% endif %}"> 
+                <ul>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'company' %}activo{% endif %}"  href="{{path('companygrid')}}"><img src="{{ asset('images/condominio.png') }}"/>{{ 'Condominio'|trans }}</a></li>            
+	<li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'tower' %}activo{% endif %}"  href="{{path('towergrid')}}"><img src="{{ asset('images/torres.png') }}"/>{{ 'Torres'|trans }}</a></li>
+	<li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'apart' %}activo{% endif %}"  href="{{path('apartmentgrid')}}"><img src="{{ asset('images/apartamentos.png') }}"/>{{ 'Apartamentos'|trans }}</a></li>
+	<li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'employ' %}activo{% endif %}"  href="{{path('employeegrid')}}"><img src="{{ asset('images/employee.png') }}"/>{{ 'Empeados'|trans }}</a></li>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'prov' %}activo{% endif %}"  href="{{path('providergrid')}}"><img src="{{ asset('images/provider.png') }}"/>{{ 'Proveedores'|trans }}</a></li>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'constcompany' %}activo{% endif %}"  href="{{path('constcompanygrid')}}"><img src="{{ asset('images/constcompany.png') }}"/>{{ 'Constructoras'|trans }}</a></li> 
+              </ul>   
+               </div>
+          </dd> 
+        <dd> 
+              <a href="#panel3"><img src="{{ asset('images/resident.png') }}"/>{{ 'Residentes'|trans }}</a> 
+              <div id="panel3" class="{% if app.request.attributes.get('_route') starts with 'resident' or app.request.attributes.get('_route') starts with 'typeresident' or app.request.attributes.get('_route') starts with 'vehicle'or app.request.attributes.get('_route') starts with 'parking'or app.request.attributes.get('_route') starts with 'location'or app.request.attributes.get('_route') starts with 'car' or app.request.attributes.get('_route') starts with 'color'or app.request.attributes.get('_route') starts with 'brand'%}content active{% else%}content{% endif %}"> 
+                <ul>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'typeresident' or app.request.attributes.get('_route') starts with 'residenttype'%}activo{% endif %}"  href="{{path('typeresidentgrid')}}"><img src="{{ asset('images/residenttype.png') }}"/>{{ 'Tipo de Residentes'|trans }}</a></li>            
+	<li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'residents' %}activo{% endif %}"  href="{{path('residentsgrid')}}"><img src="{{ asset('images/resident.png') }}"/>{{ 'Residentes'|trans }}</a></li>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'color' %}activo{% endif %}"  href="{{path('colorgrid')}}"><img src="{{ asset('images/color.png') }}"/>{{ 'Colores'|trans }}</a></li>
+	<li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'brand' %}activo{% endif %}"  href="{{path('brandgrid')}}"><img src="{{ asset('images/brand.png') }}"/>{{ 'Marcas'|trans }}</a></li>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'vehicle' %}activo{% endif %}"  href="{{path('vehiclegrid')}}"><img src="{{ asset('images/car.png') }}"/>{{ 'Vehículos'|trans }}</a></li>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'parking' %}activo{% endif %}"  href="{{path('parkinggrid')}}"><img src="{{ asset('images/parking.png') }}"/>{{ 'Estacionamientos'|trans }}</a></li>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'location' %}activo{% endif %}"  href="{{path('locationgrid')}}"><img src="{{ asset('images/location.png') }}"/>{{ 'Localización'|trans }}</a></li>
+           </ul>   
+               </div>
+          </dd> 
+          
+         <dd> 
+              <a href="#panel4"><img src="{{ asset('images/finance.png') }}"/>{{ 'Manejo de Presupuesto'|trans }}</a> 
+              <div id="panel4" class="{% if app.request.attributes.get('_route') starts with 'cause'or app.request.attributes.get('_route') starts with 'expense' or app.request.attributes.get('_route') starts with 'bank' %}content active{% else%}content{% endif %}"> 
+                <ul>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'cause' %}activo{% endif %}"  href="{{path('causegrid')}}"><img src="{{ asset('images/cause.png') }}"/>{{ 'Causa'|trans }}</a></li>            
+	<li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'expense' %}activo{% endif %}"  href="{{path('expensegrid')}}"><img src="{{ asset('images/expense.png') }}"/>{{ 'Gastos'|trans }}</a></li>            
+	<li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'bank' %}activo{% endif %}"  href="{{path('bankgrid')}}"><img src="{{ asset('images/bank.png') }}"/>{{ 'Bancos'|trans }}</a></li>  
+           </ul>   
+               </div>
+          </dd>
+          <dd> 
+              <a href="#panel5"><img src="{{ asset('images/translations.png') }}"/>{{ 'Traducciones'|trans }}</a> 
+              <div id="panel5" class="{% if app.request.attributes.get('_route') starts with 'lexik_translation' %}content active{% else%}content{% endif %}"> 
+                <ul>
+        <li style="list-style: none;"><a class="{% if app.request.attributes.get('_route') starts with 'lexik_translation'  %}activo{% endif %}"  href="{{path('lexik_translation_grid')}}"><img src="{{ asset('images/translations.png') }}"/>{{ 'Etiquetas'|trans }}</a></li>            
+	     
+           </ul>   
+               </div>
+          </dd> 
+          
+      </dl>
+      
+	  
+	  {% endblock %}
+     </div>

@@ -1,0 +1,80 @@
+<script type="text/javascript">
+$(function() {
+
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+       	
+        // Specify the validation rules
+        rules: {
+            "apartamentos_apartamentosbundle_resident[companyid]":{
+                required:true
+               
+            },
+            "apartamentos_apartamentosbundle_resident[name]":{
+                required:true
+               
+            },
+           
+            
+            "apartamentos_apartamentosbundle_resident[idnumber]":{
+                required:true
+               
+            },
+            
+            "apartamentos_apartamentosbundle_resident[idnumbertype]":{
+                 required:true,
+                   
+            },
+            "apartamentos_apartamentosbundle_resident[apartmentid]":{
+                required:true
+        }
+        ,
+         "apartamentos_apartamentosbundle_resident[towerid]":{
+                required:true
+        },
+         "apartamentos_apartamentosbundle_resident[residenttypeid]":{
+                required:true
+        }
+        },
+        // Specify the validation error messages
+        messages: {
+            "apartamentos_apartamentosbundle_resident[companyid]":{
+                required:"{{'resident.required.companyid'|trans}}"
+                
+            },
+            
+            "apartamentos_apartamentosbundle_resident[name]":{
+                required:"{{'resident.required.name'|trans}}"
+                
+            },
+           
+            
+            "apartamentos_apartamentosbundle_resident[idnumber]":{
+                required:"{{'resident.required.idnumber'|trans}}"
+                
+            },
+            
+            "apartamentos_apartamentosbundle_resident[idnumbertype]":{
+                 required:"{{'resident.required.idnumbertype'|trans}}",
+                  
+            },
+            "apartamentos_apartamentosbundle_resident[apartmentid]":{
+                required:"{{'resident.required.apartmentid'|trans}}"
+        },
+          "apartamentos_apartamentosbundle_resident[towerid]":{
+                required:"{{'resident.required.towerid'|trans}}"
+        },
+         "apartamentos_apartamentosbundle_resident[residenttypeid]":{
+                required:"{{'resident.required.residenttypeid'|trans}}"
+        }        
+       
+        },
+            
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+</script>

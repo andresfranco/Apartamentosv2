@@ -1,0 +1,42 @@
+# AppApartamentos/app/config/security.yml
+security:
+    encoders:
+        Login\LoginBundle\Entity\User:
+            algorithm: sha512
+            encode-as-base64: true
+            iterations: 10
+
+    providers:
+        user_db:
+            entity: { class: Login\LoginBundle\Entity\User, property: username }
+
+    firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        login:
+           pattern:  ^/admin/login$
+           security: false
+
+        secured_area:
+            pattern:    ^/admin/
+#            anonymous: ~
+#            http_basic:
+#                realm: "Introduzca Usuario y Contraseña"
+            form_login:
+                login_path: /admin/login
+                check_path: /admin/login_check
+                always_use_default_target_path: true
+                default_target_path: /admin/inicio/es
+            logout:
+                path: /logout
+                target: /
+            
+
+    access_control:
+     #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }  
+     #- { path: /admin, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+     - { path: /admin/user, roles: ROLE_ADMIN}
+     - { path: /admin/role, roles: ROLE_ADMIN}
+     # - { path: /admin/inicio, roles: IS_AUTHENTICATED_ANONYMOUSLY }

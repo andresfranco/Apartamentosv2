@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+    jQuery.validator.addMethod("phonepanama", function(phone_number,element) {
+    phone_number = phone_number.replace(/\s+/g, ""); 
+    //Panama City
+    var expcellphone =/^6\d{7,7}$/;
+    //Provinces
+    var expphone =/^[2,3,5,7,9]\d{6,6}$/;
+ 
+    return this.optional(element) || phone_number.match(expcellphone)||phone_number.match(expphone);
+     },"{{'Por favor introduzca un número de teléfono válido'|trans}}") 
+    });
+</script>    

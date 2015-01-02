@@ -1,0 +1,61 @@
+login_login_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: LoginLoginBundle:Default:index }
+
+usuarios_listar:
+    pattern:  /usuarios/listar
+    defaults: { _controller: LoginLoginBundle:Usuarios:listar }
+
+usuarios_editar:
+    pattern:  /usuarios/editar/{id}
+    defaults: { _controller: LoginLoginBundle:Usuarios:update}
+
+usuarios_visualizar:
+    pattern:  /usuarios/visualizar/{id}
+    defaults: { _controller: LoginLoginBundle:Usuarios:visualizar }
+
+apartamentos_borrar:
+    pattern:  /usuarios/borrar/{id}
+    defaults: { _controller: LoginLoginBundle:Usuarios:delete }
+
+usuario_new:
+ pattern: /usuarios/new
+ defaults: { _controller:LoginLoginBundle:Usuarios:new }
+ 
+LoginAnnotations:
+ resource: "@LoginLoginBundle/Controller/"
+ prefix:   /
+ type:     annotation
+
+users:
+  pattern: /admin/user
+  defaults: { _controller:LoginLoginBundle:User:index }
+
+roles:
+  pattern: /admin/role
+  defaults: { _controller:LoginLoginBundle:Role:index }
+  
+logout:
+    path: /login
+    defaults: { _controller:LoginLoginBundle:Security:logout }
+userlist:
+    path: /admin/{_locale}/listuser
+    defaults: { _controller:LoginLoginBundle:User:list }
+
+deleteuser:
+    path: /admin/deleteuser/{id}
+    defaults: { _controller:LoginLoginBundle:User:deletemodal }
+
+finduser:
+    path: /admin/finduser
+    defaults: { _controller:LoginLoginBundle:User:find }
+userslist:
+    path: /admin/{_locale}/listusers
+    defaults: { _controller:LoginLoginBundle:User:usergrid }
+rolelist:
+  pattern: /admin/{_locale}/roles
+  defaults: { _controller:LoginLoginBundle:Role:rolegrid }
+
+deleterole:
+  pattern: /admin/deleterole/{id}
+  defaults: { _controller:LoginLoginBundle:Role:deletemodal }

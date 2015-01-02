@@ -1,0 +1,88 @@
+<pdf>
+    <dynamic-page>
+        <div  id="layer-1" font-type="judson" font-size="16px"  width ="100%" height="800px" padding-top ="25px" padding-left="20px" padding-right="20px">
+            <stylesheet>
+                <!-- Top and bootom edges are red, side edges are yellow-gray --> 
+                <complex-attribute name="border" color="black" />
+               
+            </stylesheet>
+                      <div>
+                      
+                          <table>
+                              <tr>
+                                  <td border.type="none">
+                                    {{'Fecha'|trans}} : {{ "now"|date("d/m/Y") }}
+                                  </td>
+                                  <td border.type="none" text-align="right" color="red">
+                                    N°  {{invoicenumber}}    
+                                  </td>
+                              </tr>
+ 
+                          </table>
+                          <br />
+                           <br />
+                           <br />
+                           <br />
+                           <div text-align="center" font-type="judson" font-size="20px">
+                             {{'COMPROBANTE DE PAGO'|trans}}  
+                           </div>
+                           <br/>
+                           <br/>
+                           <br/>
+                       <table width="50%">
+                              <tr>
+                                  <td border.type="none">{{'Condominio'|trans|upper}} : {{ entity.apartmentid.towerid.companyid.name}}</td>
+                           </tr>
+                         </table>
+                           <br/>
+                           <br/>
+                           <table width="50%">
+                              <tr>
+                                  <td border.type="none">{{'Torre'|trans|upper}} : {{entity.apartmentid.towerid.name}}</td>
+                           </tr>
+                         </table>
+                           <br/>
+                           <br/>
+                           <table>
+                               <tr><td  border.type="none">{{'Apartamento'|trans|upper}} : {{ entity.apartmentid.number}}</td></tr>
+                           </table>
+                           <br/>
+                           <br/>
+                           <table>
+                               <tr><td   border.type="none">{{'Depositante'|trans|upper}} : {{ entity.depositor}}</td></tr>
+                           </table>
+                           <br/>
+                           <br/>
+                           <table height="200px" width ="100%">
+                                       <tr> 
+                                         <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px" width="33%"> {{'Fecha de Pago'|trans}}</td>  
+                                         <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px" width="33%"> {{'Descripción'|trans}}</td> 
+                                         <td background-color="#dedede" border.size ="1px" border.style ="solid" padding="4px" height="20px" width="33%"> {{'Monto'|trans}} </td>
+                                         
+                                       </tr>
+                                       
+                                       <tr>
+                                           <td height="80px" padding="4px" width="33%"> {{ entity.paymentdate|date('d/m/Y')}}</td>
+                                           <td height="80px" padding="4px" width="33%">{{ entity.description}}</td>
+                                           <td height="80px" padding="4px" width="33%" text-align="right" > ${{ entity.amount}}</td>
+                                          
+                                       </tr>
+                                       <tr><td width="100%">
+                                           
+                                           </td>
+                                           <td>
+                                               
+                                           </td>
+                                           <td padding="4px" > <div text-align="right">{{'Total'|trans}} : ${{ entity.amount}}</div></td>
+                                          
+                                       </tr>
+                                   </table> 
+                    </div>  
+            
+            
+           
+        </div>
+   
+
+    </dynamic-page>
+</pdf>

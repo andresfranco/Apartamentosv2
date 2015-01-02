@@ -1,0 +1,4 @@
+kernel.listener.LanguageListener:
+    class: Login\LoginBundle\EventListener\LanguageListener
+    tags:
+        - { name: kernel.event_listener, event: kernel.request, method: setLocale }

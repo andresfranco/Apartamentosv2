@@ -1,0 +1,74 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Vehicle:validatevehicle.html.twig' %}   
+{% include 'ApartamentosApartamentosBundle:Vehicle:Vehicleajaxscript.html.twig' %}   
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nuevo vehículo'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.companyid) }}
+        {{ form_widget(form.companyid)}}
+        {{ form_errors(form.companyid) }}
+    </div><br>
+     <div>
+        {{ form_label(form.towerid) }}
+        {{ form_widget(form.towerid)}}
+        {{ form_errors(form.towerid) }}
+     </div><br>
+      <div>
+        {{ form_label(form.apartmentid) }}
+        {{ form_widget(form.apartmentid)}}
+        {{ form_errors(form.apartmentid) }}
+     </div><br>
+      <div>
+        {{ form_label(form.residentid) }}
+        {{ form_widget(form.residentid)}}
+        {{ form_errors(form.residentid) }}
+     </div><br>
+    <div>
+        {{ form_label(form.platenumber) }}
+        {{ form_widget(form.platenumber)}}
+        {{ form_errors(form.platenumber) }}
+    </div>
+    <div>
+        {{ form_label(form.type) }}
+        {{ form_widget(form.type)}}
+        {{ form_errors(form.type) }}
+    </div><br>
+    <div>
+        {{ form_label(form.brandid) }}
+        {{ form_widget(form.brandid) }}
+        {{ form_errors(form.brandid) }}
+    </div><br>
+     <div>
+        {{ form_label(form.colorid) }}
+        {{ form_widget(form.colorid) }}
+        {{ form_errors(form.colorid) }}
+     </div><br>
+     
+     <div>
+        {{ form_label(form.parkingid) }}
+        {{ form_widget(form.parkingid) }}
+        {{ form_errors(form.parkingid) }}
+     </div><br>
+    
+    
+  
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('vehiclegrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/car.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Vehículos'|trans}}</span></a>
+
+     </div><br> 
+    
+   
+{% endblock %}

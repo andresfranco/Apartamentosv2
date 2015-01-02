@@ -1,0 +1,71 @@
+{% extends '::masteradmin.html.twig' %}
+
+{% block contenido %}
+    <h2 class="titulo">{{'Detalles del ingreso'|trans}}</h2>
+    <hr>
+   <table style="border:none;">
+        <tr>
+         <td> 
+          <a href="#" data-reveal-id="myNormal" class="button radius">
+              <img  src="{{ asset('images/delete32.png') }}"/>
+              <span>{{'Eliminar Ingreso'|trans}}</span>
+          </a>
+        </td>
+        </tr>    
+    </table>
+    <br>
+    <table>
+             <tr>
+                <td  class="titulocampo">{{'Condominio'|trans}}</td>
+                <td>{{ entity.towerid.companyid.name}}</td>
+            </tr>
+             <tr>
+                <td  class="titulocampo">{{'Torre'|trans}}</td>
+                <td>{{ entity.towerid.name}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Descripción'|trans}}</td>
+                <td>{{ entity.description}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Causa'|trans}}</td>
+                <td>{{ entity.causeid.cause}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Tipo de Pago'|trans}}</td>
+                <td>{{ entity.paymentmethod|trans}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Monto'|trans}}</td>
+                <td>${{ entity.amount}}</td>
+            </tr>
+            <tr>
+                <td  class="titulocampo">{{'Fecha del ingreso'|trans}}</td>
+                <td>{{ entity.incomedate|date('d/m/Y')}}</td>
+            </tr>
+            
+            
+    </table>
+   <div class="reveal-modal small" id="myNormal" data-reveal >
+      &iquest;{{'income.delete.question'|trans}}?
+	  <br><br>
+	  <table class="dialogo">
+	  <tr>
+	  <td><a class="radius button" href="{{ path('income_deletemodal', { 'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
+	  <td><a id ="cancelar" class="radius button" href="#">{{'Cancelar'|trans}}</a></td>
+	  </tr>
+	  </table>
+      <a class="close-reveal-modal"><img src="{{ asset('images/dialog_close.png')}}"/></a>
+  </div>
+  <a href="{{ path('incomegrid') }}" class="button radius">
+              <img  src="{{ asset('images/back24.png') }}"/>
+              <span>{{'Ingresos'|trans}}</span>
+          </a> 
+    <script>
+     {% block foundation %}
+   $("#cancelar").click(function (e) {
+    $('#myNormal').foundation('reveal', 'close');
+});
+{% endblock %} 
+    </script>
+{% endblock %}

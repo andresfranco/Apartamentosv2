@@ -1,0 +1,58 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Tower:validatetower.html.twig' %} 
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Nueva Torre'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.companyid) }}
+        {{ form_widget(form.companyid)}}
+        {{ form_errors(form.companyid) }}
+    </div>
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name)}}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <div>
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}
+        {{ form_errors(form.email) }}
+    </div>
+    <div>
+        {{ form_label(form.numberapartments) }}
+        {{ form_widget(form.numberapartments) }}
+        {{ form_errors(form.numberapartments) }}
+    </div>
+    <div>
+        {{ form_label(form.numberstorerooms) }}
+        {{ form_widget(form.numberstorerooms) }}
+        {{ form_errors(form.numberstorerooms) }}
+    </div>
+    <div>
+        {{ form_label(form.numberparkings) }}
+        {{ form_widget(form.numberparkings) }}
+        {{ form_errors(form.numberparkings) }}
+    </div>
+    <div>
+        {{ form_label(form.numberaptperfloor) }}
+        {{ form_widget(form.numberaptperfloor) }}
+        {{ form_errors(form.numberaptperfloor) }}
+    </div>
+
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('towergrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/torres.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Torres'|trans}}</span></a>
+
+       </div> 
+{% endblock %}

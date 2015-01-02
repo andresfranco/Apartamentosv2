@@ -1,0 +1,57 @@
+<script type="text/javascript">
+$(function() {
+
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+       	
+        // Specify the validation rules
+        rules: {
+            "apartamentos_apartamentosbundle_constcompany[name]":{
+                required:true
+               
+            },
+            "apartamentos_apartamentosbundle_constcompany[phone]":{
+                required:true,
+                digits:true
+                
+               
+            },
+            "apartamentos_apartamentosbundle_constcompany[email]":{
+                email:true
+               
+                
+               
+            }
+           
+            
+           
+        },
+        // Specify the validation error messages
+        messages: {
+           "apartamentos_apartamentosbundle_constcompany[name]":{
+                required:"{{'constcompany.vaidate.name'|trans}}"
+               
+            },
+            "apartamentos_apartamentosbundle_constcompany[phone]":{
+            required:"{{'constcompany.required.phone'|trans}}",    
+            digits:"{{'constcompany.digits.phone'|trans}}"
+               
+            },
+            "apartamentos_apartamentosbundle_constcompany[email]":{
+                email:"{{'email.validate'|trans}}"
+               
+                
+               
+            }        
+           
+            
+
+        },
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+</script>

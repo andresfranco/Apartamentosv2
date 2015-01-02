@@ -1,0 +1,18 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'LoginLoginBundle:Role:validaterole.html.twig' %}
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Editar Roles'|trans}}</h2>
+    <hr> 
+
+    {{ form(edit_form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('rolelist') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/userrole.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Roles'|trans}}</span></a>
+
+       </div> 
+{% endblock %}

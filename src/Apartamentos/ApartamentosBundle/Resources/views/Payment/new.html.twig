@@ -1,0 +1,80 @@
+{% extends '::masteradmin.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui-1.10.4.custom.css') }}" />
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+<script src="{{ asset('js/jquery-ui.js') }}"></script>
+<script type="text/javascript"src="{{ asset('js/datepicker.js') }}"></script>
+<script src="{{ asset('js/jquery.maskMoney.js') }}" type="text/javascript"></script>
+{% include 'ApartamentosApartamentosBundle:Payment:validatepayment.html.twig' %}   
+{% include 'ApartamentosApartamentosBundle:Payment:paymentajaxscript.html.twig' %}   
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nuevo Pago'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.companyid) }}
+        {{ form_widget(form.companyid)}}
+        {{ form_errors(form.companyid) }}
+    </div>
+     <div>
+        {{ form_label(form.towerid) }}
+        {{ form_widget(form.towerid)}}
+        {{ form_errors(form.towerid) }}
+     </div>
+      <div>
+        {{ form_label(form.apartmentid) }}
+        {{ form_widget(form.apartmentid)}}
+        {{ form_errors(form.apartmentid) }}
+     </div>
+    <div>
+        {{ form_label(form.paymentdate) }}
+        {{ form_widget(form.paymentdate)}}
+        {{ form_errors(form.paymentdate) }}
+    </div>
+     <div>
+        {{ form_label(form.accountid) }}
+        {{ form_widget(form.accountid)}}
+        {{ form_errors(form.accountid) }}
+    </div>
+     <div>
+        {{ form_label(form.paymentmethod) }}
+        {{ form_widget(form.paymentmethod)}}
+        {{ form_errors(form.paymentmethod) }}
+    </div>
+    
+    <div>
+        {{ form_label(form.amount) }}
+        {{ form_widget(form.amount)}}
+        {{ form_errors(form.amount) }}
+    </div>
+    <div>
+        {{ form_label(form.depositor) }}
+        {{ form_widget(form.depositor) }}
+        {{ form_errors(form.depositor) }}
+    </div>
+    <div>
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
+        {{ form_errors(form.description) }}
+    </div><br>
+    
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('paymentgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/payment.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Pagos'|trans}}</span></a>
+
+     </div><br> 
+    
+   
+{% endblock %}
+

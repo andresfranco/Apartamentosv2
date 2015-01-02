@@ -1,0 +1,39 @@
+<script type="text/javascript">
+$(function() {
+
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+        
+		
+		
+        // Specify the validation rules
+        rules: {
+            "apartamentos_apartamentosbundle_tower[companyid]": "required",
+            "apartamentos_apartamentosbundle_tower[name]": "required",
+            "apartamentos_apartamentosbundle_tower[email]" :"email",
+            "apartamentos_apartamentosbundle_tower[numberapartments]" :"digits",
+            "apartamentos_apartamentosbundle_tower[numberstorerooms]" :"digits",
+            "apartamentos_apartamentosbundle_tower[numberparkings]" :"digits",
+            "apartamentos_apartamentosbundle_tower[numberaptperfloor]" :"digits"
+            
+    
+        },
+        
+        // Specify the validation error messages
+        messages: {
+           "apartamentos_apartamentosbundle_tower[companyid]": "{{'tower.validate.companyid'|trans}}", 
+           "apartamentos_apartamentosbundle_tower[name]": "{{'tower.validate.name'|trans}}",
+           "apartamentos_apartamentosbundle_tower[email]" :"{{'tower.validate.email'|trans}}",
+           "apartamentos_apartamentosbundle_tower[numberapartments]" :"{{'tower.validate.numberapartments'|trans}}",
+           "apartamentos_apartamentosbundle_tower[numberstorerooms]" :"{{'tower.validate.numberstorerooms'|trans}}",
+           "apartamentos_apartamentosbundle_tower[numberparkings]" :"{{'tower.validate.numberparkings'|trans}}",
+           "apartamentos_apartamentosbundle_tower[numberaptperfloor]" :"{{'tower.validate.numberaptperfloor'|trans}}"
+        },
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+</script>

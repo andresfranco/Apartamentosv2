@@ -1,0 +1,79 @@
+{% extends '::masteradmin.html.twig' %}
+
+
+{% block contenido %}
+
+    <h2 class="titulo">{{'Detalles del Usuario / '|trans}}{{entity.username}}</h2>
+    <hr>
+    <table style="border:none;">
+        <tr>
+        <td> 
+          <a href="#" data-reveal-id="myNormal" class="button radius">
+              <img  src="{{ asset('images/deleteuser.png') }}"/>
+              <span>{{'Eliminar Usuario'|trans}}</span>
+          </a>
+        </td>
+       <td> 
+          <a href="{{ path('userroles',{'userid':entity.id}) }}" class="button radius">
+              <img  src="{{ asset('images/edit32.png') }}"/>
+              <span>{{'Editar Roles'|trans}}</span>
+          </a>   
+        </td>
+        <td> 
+          <a href="{{ path('change_password',{'id':entity.id}) }}" class="button radius">
+              <img  src="{{ asset('images/changepassword32.png') }}"/>
+              <span>{{'Cambiar contraseña'|trans}}</span>
+          </a>   
+        </td>
+        </tr>    
+    </table>
+    <br>
+    <table class="record_properties">
+       
+            <tr>
+                <td class="titulocampo">{{'nombre'|trans}}</td>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <td class="titulocampo">{{'email'|trans}}</td>
+                <td>{{ entity.email}}</td>
+            </tr>
+            <tr>
+                <td class="titulocampo">{{'user.username.show'|trans}}</td>
+                <td>{{ entity.username }}</td>
+            </tr>
+            
+            <tr><td class="titulocampo">{{'user.roles.show'|trans}}
+               <td>
+                {% for rol in roles %}
+                {{rol.name}}<br>
+                {% endfor %}
+                    </td>
+               </td>
+                </tr>
+       
+    </table>
+      
+   <div class="reveal-modal small" id="myNormal" data-reveal >
+      &iquest;{{'userdelete.question'|trans}}?
+	  <br><br>
+	  <table class="dialogo">
+	  <tr>
+	  <td><a class="radius button" href="{{ path('deleteuser', { 'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
+	  <td><a id ="cancelar" class="radius button" href="#">{{'Cancelar'|trans}}</a></td>
+	  </tr>
+	  </table>
+      <a class="close-reveal-modal"><img src="{{ asset('images/dialog_close.png')}}"/></a>
+   </div><br><br>
+    <a href="{{ path('userslist') }}" class="button radius">
+              <img  src="{{ asset('images/back24.png') }}"/>
+              <span>{{'Lista de Usuarios'|trans}}</span>
+          </a>
+    <script>
+     {% block foundation %}
+   $("#cancelar").click(function (e) {
+    $('#myNormal').foundation('reveal', 'close');
+});
+{% endblock %} 
+    </script>
+{% endblock %}

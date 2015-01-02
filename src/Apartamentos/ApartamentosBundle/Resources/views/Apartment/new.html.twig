@@ -1,0 +1,103 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Apartment:validateapartment.html.twig' %}
+{% include 'ApartamentosApartamentosBundle:Apartment:apartmentajaxscript.html.twig' %}
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Nuevo Apartamento'|trans}}</h2>
+    <hr> 
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+     <div>
+        {{ form_label(form.companyid) }}
+        {{ form_widget(form.companyid)}}
+        {{ form_errors(form.companyid) }}
+     </div><br>
+      <div>
+        {{ form_label(form.towerid) }}
+        {{ form_widget(form.towerid)}}
+        {{ form_errors(form.towerid) }}
+    </div><br>
+    <div>
+        {{ form_label(form.number) }}
+        {{ form_widget(form.number)}}
+        {{ form_errors(form.number) }}
+    </div>
+
+    <div>
+        {{ form_label(form.phone) }}
+        {{ form_widget(form.phone) }}
+        {{ form_errors(form.phone) }}
+    </div>
+    <div>
+        {{ form_label(form.numberresidents) }}
+        {{ form_widget(form.numberresidents) }}
+        {{ form_errors(form.numberresidents) }}
+    </div>
+    <div>
+        {{ form_label(form.floornumber) }}
+        {{ form_widget(form.floornumber) }}
+        {{ form_errors(form.floornumber) }}
+    </div>
+    <div>
+        {{ form_label(form.area) }}
+        {{ form_widget(form.area) }}
+        {{ form_errors(form.area) }}
+    </div>
+    <div>
+        {{ form_label(form.rooms) }}
+        {{ form_widget(form.rooms) }}
+        {{ form_errors(form.rooms) }}
+    </div>
+     <div>
+        {{ form_label(form.hasmade) }}
+        {{ form_widget(form.hasmade) }}
+        {{ form_errors(form.hasmade) }} 
+     </div><br>
+      <div>
+        {{ form_label(form.hasbabysitting) }}
+        {{ form_widget(form.hasbabysitting) }}
+        {{ form_errors(form.hasbabysitting) }} 
+     </div><br>
+      <div>
+        {{ form_label(form.haspet) }}
+        {{ form_widget(form.haspet) }}
+        {{ form_errors(form.haspet) }} 
+     </div><br>
+     <div>
+        {{ form_label(form.petkind) }}
+        {{ form_widget(form.petkind) }}
+        {{ form_errors(form.petkind) }} 
+     </div>
+     <div>
+        {{ form_label(form.petnumber) }}
+        {{ form_widget(form.petnumber) }}
+        {{ form_errors(form.petnumber) }} 
+     </div>
+     <div>
+        {{ form_label(form.hasmaderoom) }}
+        {{ form_widget(form.hasmaderoom) }}
+        {{ form_errors(form.hasmaderoom) }} 
+     </div><br>
+     <div>
+        {{ form_label(form.haskids) }}
+        {{ form_widget(form.haskids) }}
+        {{ form_errors(form.haskids) }}     
+     </div><br>
+     <div>
+        {{ form_label(form.numberofkids) }}
+        {{ form_widget(form.numberofkids) }}
+        {{ form_errors(form.numberofkids) }}     
+     </div>
+    
+      
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('apartmentgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/torres.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Apartamentos'|trans}}</span></a>
+
+       </div> 
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Location:validatelocation.html.twig' %}
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nueva Localización'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.location) }}
+        {{ form_widget(form.location)}}
+        {{ form_errors(form.location) }}
+    </div>
+
+    <div>
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description) }}
+        {{ form_errors(form.description) }}
+    </div>
+    
+  
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('locationgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/location.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Localización'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}
+
+

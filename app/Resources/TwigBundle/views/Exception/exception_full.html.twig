@@ -1,0 +1,19 @@
+{% block head %}
+    <link href="{{ asset('bundles/framework/css/exception.css') }}" rel="stylesheet" type="text/css" media="all" />
+{% endblock %}
+
+
+
+{% block body %}
+    {% if status_code ==404 %}
+    {% include 'TwigBundle:Exception:error404.html.twig' %}
+ 
+ {% else%}
+    {% block title %}
+    {{ exception.message }} ({{ status_code }} {{ status_text }})
+{% endblock %}
+    {% include 'TwigBundle:Exception:exception.html.twig' %}
+{% endif %}
+    
+{% endblock %}
+

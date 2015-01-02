@@ -1,0 +1,64 @@
+Login\LoginBundle\Entity\User:
+    properties:
+        companyid:
+            - NotBlank:
+               message: "validate.companyid"
+        username:
+            - NotBlank:
+               message: "validate.username"
+        password:
+             - NotBlank: 
+                message: "validate.password"
+             - Length: 
+                  min: 6
+                  minMessage: "validate.lenghtpassword"
+       
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [username]
+            errorPath: username
+            message: "validate.existusername"
+
+Login\LoginBundle\Entity\Role:
+    properties:
+        name:
+            - NotBlank:
+               message: "validate.role"
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: "validate.existrole"
+            
+Login\LoginBundle\Entity\Userrole:
+    properties:
+        roleid:
+            - NotBlank:
+               message: "validate.role"
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [userid,roleid]
+            errorPath: roleid
+            message: "validate.existuserrole"
+            
+Login\LoginBundle\Entity\Action:
+    properties:
+        actionname:
+            - NotBlank:
+               message: "validate.actionname"
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [actionname]
+            errorPath: actionname
+            message: "validate.exist.actionname"
+ 
+Login\LoginBundle\Entity\Roleaction:
+    properties:
+        actionid:
+            - NotBlank:
+               message: "action.select"
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [roleid,actionid]
+            errorPath: actionid
+            message: "validate.exist.actionrole"

@@ -1,0 +1,51 @@
+{% extends '::masteradmin.html.twig' %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'LoginLoginBundle:User:validateuser.html.twig' %}
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{ 'Nuevo Usuario'|trans }}</h2>
+    <hr> 
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(form.companyid) }}
+        {{ form_widget(form.companyid)}}
+        {{ form_errors(form.companyid)}}
+    </div><br>
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name)}}
+        {{ form_errors(form.name) }}
+    </div>
+    <div>
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email)}}
+        {{ form_errors(form.email) }}
+    </div>
+    <div>
+        {{ form_label(form.username) }}
+        {{ form_widget(form.username)}}
+        {{ form_errors(form.username) }}
+    </div>
+
+    <div>
+        {{ form_label(form.password) }}
+        {{ form_widget(form.password) }}
+        {{ form_errors(form.password) }}
+    </div>
+    
+    <div>{{ form_errors(form) }}</div>
+    
+{{ form_end(form) }}
+         
+    
+     
+      <div style="display:table-row;">
+          <a href="{{ path('userslist') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/usertitle.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{ 'Usuarios'|trans }}</span></a>
+
+       </div> 
+{% endblock %}

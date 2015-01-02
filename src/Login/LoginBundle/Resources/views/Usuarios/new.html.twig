@@ -1,0 +1,30 @@
+
+{% extends '::masterpageadmin.html.twig' %}
+
+{% block javascripts2 %}
+  
+{% endblock %}
+        
+{% block contenido %}
+<h1><small>Nuevo Usuario</small><h1>
+<hr/>
+{{ form_errors(form.usuario, {'attr': {'class': 'error'}})}}
+{{ form_errors(form.password)}} 
+<form id="frmusuario" novalidate="novalidate" action="{{ path('usuario_new') }}" method="post">
+     
+    {{form_enctype(form)}}
+    
+   {{form_label(form.usuario)}}
+   {{ form_widget(form.usuario)}}
+    <div><span id="usuarioInfo"></span></div> 
+    
+   {{form_label(form.password)}}
+   {{ form_widget(form.password)}}
+    <div><span id="passwordInfo"></span></div> 
+   
+  
+    <button type="submit">Guardar</button>
+</form>
+
+<a href="{{path('usuarios_listar')}}"><small>Listado de usuarios</small></a>
+{% endblock %}

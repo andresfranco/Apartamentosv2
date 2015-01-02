@@ -1,0 +1,14 @@
+ApartamentosAnnotations:
+ resource: "@ApartamentosApartamentosBundle/Controller/"
+ prefix:   /
+ type:     annotation
+ 
+statementgenerate:
+    pattern: /admin/statement/{_locale}/statementgenerate
+    defaults: { _controller:ApartamentosApartamentosBundle:Statementofaccount:generatestatement}
+statementpdf:
+    pattern: /admin/statement/{_locale}/{year}/{month}/{towerid}/{namestatement}.pdf
+    defaults: { _controller:ApartamentosApartamentosBundle:Statementofaccount:Statementpdf}
+statementshow:
+    pattern: /admin/statement/{_locale}/{year}/{month}/{towerid}/statementshow
+    defaults: { _controller:ApartamentosApartamentosBundle:Statementofaccount:Statementshow}

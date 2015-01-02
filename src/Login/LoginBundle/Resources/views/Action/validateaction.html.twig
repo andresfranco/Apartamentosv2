@@ -1,0 +1,13 @@
+<script type="text/javascript">
+$(function() {
+    $("#form").validate({
+        rules: {"login_loginbundle_action[actionname]":{required:true}},
+        messages: {"login_loginbundle_action[actionname]":{required:"{{'actionname.validate'|trans}}"}},
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+</script>

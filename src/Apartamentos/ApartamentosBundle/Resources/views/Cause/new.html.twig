@@ -1,0 +1,37 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Cause:validatecause.html.twig' %}   
+ 
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nueva Causa'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.cause) }}
+        {{ form_widget(form.cause)}}
+        {{ form_errors(form.cause) }}
+    </div>
+    <div>
+        {{ form_label(form.causetypeid) }}
+        {{ form_widget(form.causetypeid)}}
+        {{ form_errors(form.causetypeid) }}
+    </div><br><br>
+
+   
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('causegrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/cause.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Causas'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}

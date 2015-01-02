@@ -1,0 +1,17 @@
+@mixin border-error()
+{
+ $bordererror:1px solid red;border:$bordererror ;
+}
+
+@mixin errortype($controltype)
+{
+
+ @if $controltype == 'label'
+  {
+    display: block;padding: 0.375rem 0.5625rem 0.5625rem;margin-top: -1px;margin-bottom: 1rem;font-size: 0.75rem;
+    font-weight: bold;font-style: italic;background: #f04124;color: $white ; 
+  } 
+  
+  @else if $controltype == 'input'{@include border-error();} 
+  @else if $controltype == 'select' {@include border-error();} 
+}

@@ -1,0 +1,24 @@
+
+{% extends layout %}
+{% block javascripts %}
+    {{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'LexikTranslationBundle:Edition:validatetranslation.html.twig' %}  
+{% endblock %}
+{% block contenido %}
+<div>
+    <h2 class="titulo">{{ 'translations.add_translation'|trans({}, 'LexikTranslationBundle') }}</h2>
+    <hr> 
+
+
+    <form id ="form" action="{{ path('lexik_translation_new') }}" method="post">
+        {{ form_row(form.key) }}
+        {{ form_row(form.domain) }}
+        {% for translation in form.translations %}
+            {{ form_row(translation) }}
+        {% endfor %}
+        {{ form_rest(form) }}
+        <input type="submit" id="trans-unit-submit" name="trans-unit-submit" value="{{ 'translations.add'|trans({}, 'LexikTranslationBundle') }}" class="button" />
+    </form>
+</div>
+{% endblock %}

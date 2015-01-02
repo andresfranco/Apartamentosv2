@@ -1,0 +1,32 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{% include 'ApartamentosApartamentosBundle:Brand:validatebrand.html.twig' %}
+ 
+{% endblock %}
+{% block contenido %}
+  
+    <h2 class="titulo">{{'Nueva Marca'|trans}}</h2>
+    <hr> 
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    
+    <div>
+        {{ form_label(form.brand) }}
+        {{ form_widget(form.brand)}}
+        {{ form_errors(form.brand) }}
+    </div>
+
+   
+{{ form_end(form) }}
+
+     <div style="display:table-row;">
+          <a href="{{ path('brandgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/brand.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Marca'|trans}}</span></a>
+
+       </div> 
+    
+   
+{% endblock %}

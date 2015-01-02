@@ -1,0 +1,37 @@
+<script type="text/javascript">
+$(function() {
+
+    // Validate create and edit expenseinvoice fields
+    $("#form").validate({
+       	
+        // Specify the validation rules
+      rules: 
+        {
+            "apartamentos_apartamentosbundle_expenseinvoice[file]":
+            {
+                required:true
+            },
+         "apartamentos_apartamentosbundle_expenseinvoice[name]":
+            {
+                required:true
+            }
+       },
+        // Specify the validation error messages
+        messages: 
+        {
+            
+           "apartamentos_apartamentosbundle_expenseinvoice[file]":
+           {
+            required:"{{'expenseinvoice.required.file'|trans}}"
+           },
+            "apartamentos_apartamentosbundle_expenseinvoice[name]":
+           {
+            required:"{{'expenseinvoice.required.name'|trans}}"
+           }        
+            
+        }
+    });
+
+
+  });
+</script>

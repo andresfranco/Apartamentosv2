@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Administrar Apartamentos{% endblock %}</title>
+        {% block stylesheets %}
+		<link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerfoundation/css/foundation.min.css') }}" />
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/masterpage.css') }}" />
+		
+		{% endblock %}
+		{% block javascripts %}
+		<script type="text/javascript" src="{{ asset('bundles/bmatznerjquery/js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/bmatznerfoundation/js/foundation.min.js') }}"></script>
+		{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+  
+<!-- Header and Nav -->
+  
+  <div class="large-12 columns">
+    <div class="large-4 columns">
+      <h1>{% block logo %}<img src="http://placehold.it/400x100&text=Logo" />{% endblock %}</h1>
+    </div>
+    <div class="large-8 columns">
+	{% block sidemenu %}
+      <ul class="inline-list right">
+        <li><a href="#">Section 1</a></li>
+        <li><a href="#">Section 2</a></li>
+        <li><a href="#">Section 3</a></li>
+        <li><a href="#">Section 4</a></li>
+      </ul>
+	  {% endblock %}
+    </div>
+  </div>
+
+  <div class="large-12 columns">
+  <div class="large-10 columns"></div>
+  <div class="large-2 columns">{% block usuario %}Nombre de Usuario{% endblock %}</div>
+  </div>
+     
+  
+  <!-- End Header and Nav -->
+  
+  
+  <div id="contenido">    
+     
+  
+    
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <div  class="large-12 columns">
+	
+	
+	<div  class="large-4 columns">
+	{% block sideleft %}
+	
+	<!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+      <ul  class="side-nav">
+        <li><a href="#">Section 1</a></li>
+        <li><a href="#">Section 2</a></li>
+        <li><a href="#">Section 3</a></li>
+        <li><a href="#">Section 4</a></li>
+        <li><a href="#">Section 5</a></li>
+        <li><a href="#">Section 6</a></li>
+      </ul>
+      
+      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
+	  
+	  {% endblock %}
+     </div>
+	 
+	<div  class="large-8 columns">
+	
+	<h3> 
+	  TITULO
+	  </h3>
+	  <hr/>
+	  {% block contenido %}
+      <h3><small>Page subtitle</small></h3>
+      <p>Prosciutto ball tip filet mignon andouille frankfurter chicken rump sausage meatball. Filet mignon meatloaf ground round andouille ham hock pork. Bresaola short loin meatball chuck hamburger pig. Turkey venison chuck, tongue fatback tail swine jerky corned beef shank kielbasa prosciutto ribeye ham tri-tip. Rump bacon pork belly meatloaf shoulder short loin meatball kielbasa pork loin tongue bresaola brisket corned beef jowl prosciutto. Beef ribs shankle short ribs pork belly corned beef fatback pork chop tongue biltong boudin strip steak sirloin meatloaf pancetta.</p>
+      <p>Prosciutto ball tip filet mignon andouille frankfurter chicken rump sausage meatball. Filet mignon meatloaf ground round andouille ham hock pork. Bresaola short loin meatball chuck hamburger pig. Turkey venison chuck, tongue fatback tail swine jerky corned beef shank kielbasa prosciutto ribeye ham tri-tip. Rump bacon pork belly meatloaf shoulder short loin meatball kielbasa pork loin tongue bresaola brisket corned beef jowl prosciutto. Beef ribs shankle short ribs pork belly corned beef fatback pork chop tongue biltong boudin strip steak sirloin meatloaf pancetta.</p>
+      <p>Prosciutto ball tip filet mignon andouille frankfurter chicken rump sausage meatball. Filet mignon meatloaf ground round andouille ham hock pork. Bresaola short loin meatball chuck hamburger pig. Turkey venison chuck, tongue fatback tail swine jerky corned beef shank kielbasa prosciutto ribeye ham tri-tip. Rump bacon pork belly meatloaf shoulder short loin meatball kielbasa pork loin tongue bresaola brisket corned beef jowl prosciutto. Beef ribs shankle short ribs pork belly corned beef fatback pork chop tongue biltong boudin strip steak sirloin meatloaf pancetta.</p>
+   <p>Prosciutto ball tip filet mignon andouille frankfurter chicken rump sausage meatball. Filet mignon meatloaf ground round andouille ham hock pork. Bresaola short loin meatball chuck hamburger pig. Turkey venison chuck, tongue fatback tail swine jerky corned beef shank kielbasa prosciutto ribeye ham tri-tip. Rump bacon pork belly meatloaf shoulder short loin meatball kielbasa pork loin tongue bresaola brisket corned beef jowl prosciutto. Beef ribs shankle short ribs pork belly corned beef fatback pork chop tongue biltong boudin strip steak sirloin meatloaf pancetta.</p>
+   <p>Prosciutto ball tip filet mignon andouille frankfurter chicken rump sausage meatball. Filet mignon meatloaf ground round andouille ham hock pork. Bresaola short loin meatball chuck hamburger pig. Turkey venison chuck, tongue fatback tail swine jerky corned beef shank kielbasa prosciutto ribeye ham tri-tip. Rump bacon pork belly meatloaf shoulder short loin meatball kielbasa pork loin tongue bresaola brisket corned beef jowl prosciutto. Beef ribs shankle short ribs pork belly corned beef fatback pork chop tongue biltong boudin strip steak sirloin meatloaf pancetta.</p>
+   
+	{% endblock %}
+	</div>
+   
+	
+	
+	</div>
+  </div>
+  
+    <!-- Footer --> 
+ <div class="large-12 columns">
+    {% block footer %}
+     <hr />
+        <div class="large-6 columns">
+		
+        <p>© Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+          </ul>
+        </div>
+	{% endblock %}	
+      </div>
+ </body>  
+{% endblock %}
+</html>  
+   

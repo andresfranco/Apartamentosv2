@@ -1,0 +1,40 @@
+<script type="text/javascript">
+$(function() {
+
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+       	
+        // Specify the validation rules
+        rules: {
+            "trans_unit[key]":{
+                required:true
+               
+            },
+            "trans_unit[domain]":{
+               required:true   
+            }
+           
+            
+           
+        },
+        // Specify the validation error messages
+        messages: {
+            "trans_unit[key]":{
+                required:"{{'translation.key.validate'|trans}}"
+                
+            },
+            "trans_unit[domain]":{
+                required:"{{'translation.domain.validate'|trans}}"
+                
+            }
+            
+
+        },
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+</script>

@@ -1,0 +1,37 @@
+{% extends '::masteradmin.html.twig' %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+
+{% include 'LoginLoginBundle:Roleaction:validateroleaction.html.twig' %}
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Editar acción del rol'}}{{' / '}}{% render url('Rolenametwig', {'roleid':  app.request.get('roleid')}) %}
+    <hr> 
+    {{ form_start(edit_form) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div id="userdiv">
+        {{ form_label(edit_form.roleid) }}
+        {{ form_widget(edit_form.roleid)}}
+        {{ form_errors(edit_form.roleid)}}
+    </div>
+    <div>
+        {{ form_label(edit_form.actionid)}}
+        {{ form_widget(edit_form.actionid)}}
+        {{ form_errors(edit_form.actionid)}}
+    </div>
+    
+    <br>
+    
+    <div>{{ form_errors(edit_form) }}</div>
+    
+{{ form_end(edit_form) }}
+        <br><div> 
+          <a href="{{ path('roleactiongrid',{'roleid':app.request.get('roleid')}) }}" class="button radius">
+              <img  src="{{ asset('images/back24.png') }}"/>
+              <span>{{'Acciones del rol'|trans}}</span>
+          </a>   
+    </div> 
+    
+{% endblock %}

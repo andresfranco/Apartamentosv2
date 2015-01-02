@@ -1,0 +1,4 @@
+@mixin read-only($controltype)
+{
+  @if $controltype == 'text'{background-color:#EBEBE4 !important;border:1px solid !important;border-color:#EBEBE4 !important;} 
+}

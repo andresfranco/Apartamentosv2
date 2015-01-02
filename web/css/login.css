@@ -1,0 +1,5 @@
+#bodylogin{background-color:#202020;}
+.titulologin{vertical-align: bottom;color:#008cba;}
+fieldset {background-color:white;border:2px solid #008cba ;width: 40%;position:absolute;left:40%;top:40%;margin:-100px 0 0 -150px;
+-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;}
+#labelerror{font-weight:bold;}

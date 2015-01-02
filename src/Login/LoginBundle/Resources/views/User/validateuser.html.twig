@@ -1,0 +1,23 @@
+<script type="text/javascript">
+$(function() {
+    $("#form").validate({
+        
+       rules: {
+            "login_loginbundle_user[password]":{required:true,minlength: 6},	
+            "login_loginbundle_user[username]":{required:true},
+             "login_loginbundle_user[companyid]":{required:true}
+        },
+        
+        messages: {
+           "login_loginbundle_user[username]":{required:"{{'username.validate'|trans}}"},
+           "login_loginbundle_user[password]":{required:"{{'password.validate'|trans}}",minlength:"{{'lenghtpassword'|trans}}"},
+           "login_loginbundle_user[companyid]":{required:"{{'companyid.validate'|trans}}"}     
+         },
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+</script>

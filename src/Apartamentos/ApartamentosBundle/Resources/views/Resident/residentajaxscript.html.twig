@@ -1,0 +1,62 @@
+<script type="text/javascript">
+   $(document).ready(function()
+{  
+    $("#apartamentos_apartamentosbundle_resident_companyid").change(function(){
+    towerdata("#apartamentos_apartamentosbundle_resident_companyid");
+    apartmentdata("#apartamentos_apartamentosbundle_resident_companyid");
+    
+});
+            
+   $("#apartamentos_apartamentosbundle_resident_towerid").change(function(){
+    apartmentdata("#apartamentos_apartamentosbundle_resident_towerid");
+    
+    });
+
+
+
+});
+
+
+
+function apartmentdata(control)
+{
+  var data2 = {
+        tower_id:$(control).val()
+     };
+    $.ajax({
+        type: "POST",
+        url: "{{ path('resident_select_apartment')}}",
+        data:data2,
+        dataType: 'json',
+        success: function(data2) {
+            var apartment_selector = $('#apartamentos_apartamentosbundle_resident_apartmentid');
+ 
+            apartment_selector.html('<option>Seleccione un Apartamento</option>');
+            apartment_selector.append( data2);
+        }       
+    });    
+    
+}
+
+function towerdata(control)
+{
+    var data = {
+        company_id:$(control).val()
+     };
+    $.ajax({
+        type: "POST",
+        url: "{{ path('resident_select_tower')}}",
+        data:data,
+        dataType: 'json',
+        success: function(data) {
+            var tower_selector = $('#apartamentos_apartamentosbundle_resident_towerid');
+ 
+            tower_selector.html('<option value="">Seleccione una Torre</option>');
+            tower_selector.append( data);
+        }       
+    });   
+    
+}
+
+
+    </script>  

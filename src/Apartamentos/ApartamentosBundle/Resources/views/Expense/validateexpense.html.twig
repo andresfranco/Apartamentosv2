@@ -1,0 +1,37 @@
+<script type="text/javascript">
+$(function() {
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+        // Specify the validation rules
+      rules: 
+       {
+         "apartamentos_apartamentosbundle_expense[companyid]":{required:true},
+         "apartamentos_apartamentosbundle_expense[towerid]":{required:true},
+         "apartamentos_apartamentosbundle_expense[description]":{required:true},
+         "apartamentos_apartamentosbundle_expense[causeid]":{required:true},
+         "apartamentos_apartamentosbundle_expense[amount]":{required:true,number:true},
+         "apartamentos_apartamentosbundle_expense[expensedate]":{required:true,date:true},
+         "apartamentos_apartamentosbundle_expense[accountid]":{required:true},
+         "apartamentos_apartamentosbundle_expense[paymentmethod]":{required:true},
+         "apartamentos_apartamentosbundle_expense[providerid]":{required:true}
+        },
+        // Specify the validation error messages
+        messages: 
+         {
+          "apartamentos_apartamentosbundle_expense[companyid]":{required:"{{'expense.required.companyid'|trans}}"},
+          "apartamentos_apartamentosbundle_expense[towerid]":{required:"{{'expense.required.towerid'|trans}}"},
+          "apartamentos_apartamentosbundle_expense[description]":{required:"{{'expense.required.description'|trans}}"},
+          "apartamentos_apartamentosbundle_expense[causeid]":{required:"{{'expense.required.causeid'|trans}}"},
+          "apartamentos_apartamentosbundle_expense[amount]":{required:"{{'expense.required.amount'|trans}}",number:"{{'expense.number.amount'|trans}}"},
+          "apartamentos_apartamentosbundle_expense[expensedate]":{required:"{{'expense.required.expensedate'|trans}}",date: "{{'expense.date.expensedate'|trans}}"},
+          "apartamentos_apartamentosbundle_expense[accountid]":{required:"{{'expense.required.accountid'|trans}}"},
+          "apartamentos_apartamentosbundle_expense[paymentmethod]":{required:"{{'required.paymentmethod'|trans}}"},
+          "apartamentos_apartamentosbundle_expense[providerid]":{required:"{{'required.providerid'|trans}}"}
+        },
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+  });
+</script>

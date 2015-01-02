@@ -1,0 +1,25 @@
+<script type="text/javascript">
+   $(document).ready(function()
+{  
+     
+   $("#apartamentos_apartamentosbundle_income_companyid").change(function(){
+    
+       
+        var data = {
+        company_id:$("#apartamentos_apartamentosbundle_income_companyid").val()
+     };
+    $.ajax({
+        type: "POST",
+        url: "{{ path('income_select_tower')}}",
+        data:data,
+        dataType: 'json',
+        success: function(data) {
+            var tower_selector = $('#apartamentos_apartamentosbundle_income_towerid');
+ 
+            tower_selector.html('<option value="">{{'Seleccione una torre'|trans}}</option>');
+            tower_selector.append(data);
+        }       
+    });
+});
+});
+    </script> 

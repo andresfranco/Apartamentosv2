@@ -1,0 +1,124 @@
+---Instalar Composer----
+Instalación en Windows
+
+    Abre cualquier navegador y accede a la siguiente dirección https://getcomposer.org/installer
+    Guarda el contenido de esa página en el directorio raíz de tu proyecto Symfony2. Asegúrate de guardar el archivo con
+
+el nombre instalador.php
+
+    Abre la consola de comandos de Windows y entra en el directorio raíz de tu proyecto Symfony2. Para simplificar la
+
+explicación, en adelante se supone que tu proyecto Symfony2 se encuentraen el directorio D:\Proyectos\Symfony2:
+
+    C:\> cd D:\Proyectos\Symfony2
+
+    Ejecuta el siguiente comando para instalar Composer:
+
+    D:\Proyectos\Symfony2> php instalador.php
+
+Si no te funciona el comando anterior, seguramente la razón es que no puedes ejecutar programas de PHP directamente desde
+
+la consola. Consulta la guía de instalación de PHP, MySQL y Apache para saber cómo solucionarlo.
+
+Si todo ha funcionado bien, en el directorio raíz de tu proyecto Symfony2 verás un nuevo archivo llamado composer.phar.
+
+Para comprobar que se ha instalado correctamente, ejecuta el siguiente comando que muestra el menú de opciones de
+
+Composer:
+
+D:\Proyectos\Symfony2> php composer.phar
+
+Ahora ya puedes borrar el archivo instalador.php.
+
+Instalar Composer de esta manera es correcto, pero te obliga a realizar una nueva instalación para cada proyecto Symfony2.
+
+Si tienes muchos proyectos, es mucho mejor que instales Composer de forma global en tu ordenador, para que todos los
+
+proyectos utilicen la misma versión de Composer.
+
+-----------------------------------------
+
+
+------Actualizar componentes de Symfony para composer------------
+
+php composer.phar update symfony/icu
+
+----------------------------------------------------------------
+
+---Crear un Bundle----------------------------------------------
+
+php app/console generate:bundle --namespace=Login/LoginBundle --format=yml
+
+----------------------------------------------------------------
+
+----Instalar bundle de fuoundation--------------------------------------
+
+https://github.com/bmatzner/BmatznerFoundationBundle
+
+
+-------------------------------------------------------------------------
+--Actualizar composer---
+composer.phar self-update
+----
+
+Crear entidades a partir de una base de datos.
+--Crea metadatos----
+
+php app/console doctrine:mapping:convert xml ./src/Login/LoginBundle/Resources/config/doctrine/metadata/orm --
+
+from-database
+--
+Genera entidades
+
+php app/console doctrine:mapping:import LoginLoginBundle annotation
+php app/console doctrine:generate:entities LoginLoginBundle
+
+
+php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation
+php app/console doctrine:generate:entities ApartamentosApartamentosBundle
+------crear una sola entidad----------------------------------------------
+php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation --filter="Expenseinvoice"
+php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Expenseinvoice
+
+php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation --filter="Paymentmethod"
+php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Paymentmethod
+
+
+php app/console doctrine:mapping:import LoginLoginBundle  annotation --filter="Roleaction"
+php app/console doctrine:generate:entities LoginLoginBundle:Roleaction
+
+
+----------------------------------------------------------------------------
+
+
+
+---crear entidades--
+php app/console doctrine:schema:update --force
+
+--generar cruds-----------
+php app/console doctrine:generate:crud
+
+--generar crud de una sola entidad --
+php app/console generate:doctrine:crud --entity=AcmeBlogBundle:Post --format=annotation --with-write
+
+php app/console generate:doctrine:crud --entity=ApartamentosApartamentosBundle:Income --format=annotation --with-write 
+
+php app/console generate:doctrine:crud --entity=ApartamentosApartamentosBundle:Paymentmethod --format=annotation --with-write
+
+php app/console generate:doctrine:crud --entity=LoginLoginBundle:Roleaction --format=annotation --with-write
+
+----limpiar cache----
+php app/console cache:clear
+
+---Importar traducciones---
+
+php app/console lexik:translations:import ApartamentosApartamentosBundle --cache-clear
+
+--Exportar traducciones-----
+php app/console lexik:translations:export --format=yml
+
+----comandos sass------------
+sass --watch C:\xampp\htdocs\Apartamentos\web\scss:C:\xampp\htdocs\Apartamentos\web\css
+
+
+

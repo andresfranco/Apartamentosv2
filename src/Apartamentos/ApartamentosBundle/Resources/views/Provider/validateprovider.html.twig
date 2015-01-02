@@ -1,0 +1,22 @@
+<script type="text/javascript">
+$(function() {
+$("#form").validate({
+rules: {"apartamentos_apartamentosbundle_provider[companyid]":{required:true},
+        "apartamentos_apartamentosbundle_provider[towerid]":{required:true},
+        "apartamentos_apartamentosbundle_provider[name]":{required:true},
+        "apartamentos_apartamentosbundle_provider[email]":{email:true},
+        "apartamentos_apartamentosbundle_provider[phone]":{required:true,number:true}
+       },
+      
+messages: {"apartamentos_apartamentosbundle_provider[companyid]":{required:"{{'provider.required.companyid'|trans}}"},
+           "apartamentos_apartamentosbundle_provider[towerid]":{required:"{{'towerid.validate'|trans}}"},
+           "apartamentos_apartamentosbundle_provider[name]":{required:"{{'provider.required.name'|trans}}"},
+           "apartamentos_apartamentosbundle_provider[email]":{email:"{{'provider.email'|trans}}"},
+           "apartamentos_apartamentosbundle_provider[phone]":{required:"{{'provider.required.phone'|trans}}",number:"{{'provider.number.phone'|trans}}"}
+        },
+       submitHandler: function(form){form.submit();}
+    });
+  });
+</script>
+
+

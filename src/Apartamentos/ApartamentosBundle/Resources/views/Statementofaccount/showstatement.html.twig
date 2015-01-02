@@ -1,0 +1,39 @@
+{% extends '::masteradmin.html.twig' %}
+{% block contenido %}
+  
+       <h2 class="titulo">{{tower.companyid.name}}-{{tower.name}} </h2>
+       <h2 class="titulo">{{'Estado de Cuenta'|trans}}{{' '}}{{monthname|trans}}{{' '}}{{year}}</h2>
+       <hr>
+       <br>
+       <a href="{{path('statementshow',{'year':year,'month':month,'towerid':tower.id}) }} " data-reveal-id="myNormal" class="button radius">
+              <img  src="{{ asset('images/detail.png') }}"/>
+              <span>{{'Ver Detalle'|trans}}</span>
+       </a>
+       <a href="{{path('statementpdf',{'namestatement': randomchar~'_'~tower.companyid.name~'_'~tower.name,'year':year,'month':month,'towerid':tower.id}) }} " data-reveal-id="myNormal" class="button radius">
+              <img  src="{{ asset('images/pdf.png') }}"/>
+              <span>{{'PDF'|trans}}</span>
+       </a>
+        <a href="{{path('statementexcel',{'info': randomchar~'-'~tower.companyid.name~'-'~tower.name~'-'~app.user.username~'-'~year~'-'~monthname~'-'~month~'-'~tower.id}) }} " data-reveal-id="myNormal" class="button radius">
+              <img  src="{{ asset('images/excel.png') }}"/>
+              <span>{{'EXCEL'|trans}}</span>
+        </a>
+      
+          {% set sumcredit = 0 %}
+          {% set sumdebit = 0 %}
+          {% for item in results %}
+              {% if item.debitcredit=='C'%}
+               {% set sumcredit = sumcredit+item.amount %}
+              {% endif %}
+             
+             {% if item.debitcredit=='D'%}
+                  {% set sumdebit = sumdebit+item.amount %}
+             {% endif %}
+          {% endfor %}  
+   
+    <br><br>
+    <a href="{{ path('statementview') }}" class="button radius">
+              <img  src="{{ asset('images/back24.png') }}"/>
+              <span>{{'Estado de Cuenta'|trans}}</span>
+          </a> 
+    <script>
+{% endblock %}

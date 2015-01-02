@@ -1,0 +1,66 @@
+<script type="text/javascript">
+$(function() {
+
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+       	
+        // Specify the validation rules
+        rules: {
+            
+            "apartamentos_apartamentosbundle_employee[companyid]":
+             {
+                required:true        
+             },        
+            "apartamentos_apartamentosbundle_employee[completename]":{
+                required:true
+               
+            },
+           
+            
+            "apartamentos_apartamentosbundle_employee[idnumber]":{
+                required:true
+               
+            },
+            
+            "apartamentos_apartamentosbundle_employee[salaryamount]":{
+                 required:true,
+                 number:true     
+            },
+            "apartamentos_apartamentosbundle_employee[position]":{
+                required:true
+        }
+        },
+        // Specify the validation error messages
+        messages: {
+            
+            "apartamentos_apartamentosbundle_employee[companyid]":
+             {
+                required:"{{'employee.validate.companyid'|trans}}"       
+             },
+            "apartamentos_apartamentosbundle_employee[completename]":{
+                required:"{{'employee.required.completename'|trans}}"
+                
+            },
+           
+            
+            "apartamentos_apartamentosbundle_employee[idnumber]":{
+                required:"{{'employee.required.idnumber'|trans}}"
+                
+            },
+            
+            "apartamentos_apartamentosbundle_employee[salaryamount]":{
+                 required:"{{'employee.required.salaryamount'|trans}}",
+                 number:"{{'employee.number.salaryamount'|trans}}"    
+            },
+            "apartamentos_apartamentosbundle_employee[position]":{
+                required:"{{'employee.required.position'|trans}}"
+        }
+        },
+       
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+</script>

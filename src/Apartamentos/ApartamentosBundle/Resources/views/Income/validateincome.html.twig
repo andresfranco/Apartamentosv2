@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    {#$(document).ready(function()
+{  
+    $("#form").submit(function(){
+    if($("#form").valid()==true)
+    {
+    var amountnomask = $('#apartamentos_apartamentosbundle_income_amount').maskMoney('unmasked');$('#apartamentos_apartamentosbundle_income_amount').val(amountnomask[0]);
+    }
+});
+          
+}); 
+ $(function() {
+    $('#apartamentos_apartamentosbundle_income_amount').maskMoney({prefix:'$ ', allowNegative: true, thousands:',', decimal:'.', affixesStay: true,precision:2});
+  })#} 
+$(function() {
+
+    // Setup form validation on the #register-form element
+    $("#form").validate({
+       	
+        // Specify the validation rules
+      rules: 
+        {
+         "apartamentos_apartamentosbundle_income[companyid]":{required:true},
+         "apartamentos_apartamentosbundle_income[towerid]":{required:true},
+         "apartamentos_apartamentosbundle_income[description]":{required:true},
+         "apartamentos_apartamentosbundle_income[causeid]":{required:true},
+         "apartamentos_apartamentosbundle_income[amount]":{required:true,number:true},
+         "apartamentos_apartamentosbundle_income[incomedate]":{required:true,date:true},
+         "apartamentos_apartamentosbundle_income[accountid]":{ required:true},
+         "apartamentos_apartamentosbundle_income[paymentmethod]":{ required:true},
+         "apartamentos_apartamentosbundle_income[depositor]":{ required:true}
+        },
+        // Specify the validation error messages
+        messages: 
+         {
+          "apartamentos_apartamentosbundle_income[companyid]":{required:"{{'income.required.companyid'|trans}}"},
+          "apartamentos_apartamentosbundle_income[towerid]":{required:"{{'income.required.towerid'|trans}}"},
+          "apartamentos_apartamentosbundle_income[description]":{required:"{{'income.required.description'|trans}}"},
+          "apartamentos_apartamentosbundle_income[causeid]":{required:"{{'income.required.causeid'|trans}}"},
+          "apartamentos_apartamentosbundle_income[amount]":{required:"{{'income.required.amount'|trans}}",number:"{{'amount.number'|trans}}"},
+          "apartamentos_apartamentosbundle_income[incomedate]":{required:"{{'income.required.incomedate'|trans}}",date: "{{'income.date.incomedate'|trans}}"},
+          "apartamentos_apartamentosbundle_income[accountid]":{required:"{{'income.required.accountid'|trans}}"},
+          "apartamentos_apartamentosbundle_income[paymentmethod]":{required:"{{'required.paymentmethod'|trans}}"},
+          "apartamentos_apartamentosbundle_income[depositor]":{required:"{{'required.depositor'|trans}}"}
+        },
+       
+        submitHandler: function(form) {form.submit();}
+    });
+
+  });
+</script>

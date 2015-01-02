@@ -1,0 +1,3 @@
+---Para PHP 5.6 hay que hacer upgrade de doctrine
+sudo composer update doctrine/orm
+--Luego de importar de repositorio hacer upgrade de luiggio Excel bundel

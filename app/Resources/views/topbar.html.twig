@@ -1,0 +1,22 @@
+ <nav class="top-bar" data-topbar data-options="is_hover: false">
+            <ul class="title-area">
+                <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+                <li class="name">
+                    <h1><img src="{{ asset('images/logoapp.png') }}"/><span class="titleproduct">{{ 'CONDO HANDLER'|trans }}</span></h1>
+                </li>
+            </ul>
+         <section class="top-bar-section">
+            <ul class="right">
+                <li ><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}"><img src="{{ asset('images/english.png') }}"/></a></li>
+                <li ><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'es'})) }}"><img src="{{ asset('images/spanish.png') }}"/></a></li>
+                <li>
+                    <a href="#"><img src="{{ asset('images/usernav.png') }}"/><b>{{ app.user.username|upper }}</b></a>
+                </li>  
+                <li><a href="{{path('logout')}}"><img src="{{ asset('images/logout.png') }}"/><b>{{'SALIR'|trans }}</b></a></li>
+            </ul>
+          <ul class="left">
+              <li><a href="{{path('iniciologin')}}"><img src="{{ asset('images/homepage.png') }}"/><b>{{'INICIO'|trans}}</b></a></li>
+	
+	</ul>
+       </section>
+</nav>

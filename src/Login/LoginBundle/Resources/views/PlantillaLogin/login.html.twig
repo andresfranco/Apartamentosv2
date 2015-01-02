@@ -1,0 +1,43 @@
+<head>
+{% block stylesheets %}
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/masterfoundation.css') }}" />
+                <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}" />
+	{% endblock %}
+        {% block javascripts %}
+		<script src="{{ asset('jquery/jquery.min.js') }}"></script>
+                <script src="{{ asset('foundation/js/foundation.min.js') }}"></script>
+        {% endblock %}
+</head>
+
+<body id="bodylogin">
+      <div class="container">
+	  <div id ="loginbox" >
+	  <fieldset>
+	  <legend><img src="{{ asset('images/logo.png') }}"/>ADMINISTRACIÓN</legend>
+	  <div class="error"><label id="labelerror" class="Error">El Usuario o la contraseña no son correctos</label></div>
+	   <form name="login">
+	    <div id ="espaciorow" class="row" >
+		<label class="error">Usuario</label>
+	    <input type="text" class="error" required/>
+		<small class="Error">Debe introducir un Usuario</small>
+	    </div>
+		
+		<div id ="espaciorow" class="row">
+		<label label class="error">Password</label>
+	    <input type="password" class="error" required/>
+		<small id =""class="Error">Debe introducir un Password</small>
+		</div>
+		
+		<div id ="espaciorow" class="row">
+		<a href="#" class="button">Iniciar Sesion</a>
+		<div>
+	  </form> 
+	  
+	  </fieldset>
+     </div>  
+   </div>
+
+	
+
+  
+</body>

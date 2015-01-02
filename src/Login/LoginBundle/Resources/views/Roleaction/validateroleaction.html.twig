@@ -1,0 +1,16 @@
+<script>
+  $(document).ready(function(){
+      $("#userdiv").hide(); 
+  });
+  
+  $(function() {
+    $("#form").validate({	
+        rules: {"login_loginbundle_roleaction[actionid]": "required"},
+        messages: {"login_loginbundle_roleaction[actionid]": "{{'roleaction.actionid.validate'|trans}}"},
+       submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+  });
+  </script>
