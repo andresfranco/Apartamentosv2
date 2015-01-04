@@ -9,15 +9,18 @@
               <img  src="{{ asset('images/detail.png') }}"/>
               <span>{{'Ver Detalle'|trans}}</span>
        </a>
+       {% if statementpdf =='S' %}
        <a href="{{path('statementpdf',{'namestatement': randomchar~'_'~tower.companyid.name~'_'~tower.name,'year':year,'month':month,'towerid':tower.id}) }} " data-reveal-id="myNormal" class="button radius">
               <img  src="{{ asset('images/pdf.png') }}"/>
               <span>{{'PDF'|trans}}</span>
        </a>
+       {% endif %}
+       {% if statementexcel =='S' %}
         <a href="{{path('statementexcel',{'info': randomchar~'-'~tower.companyid.name~'-'~tower.name~'-'~app.user.username~'-'~year~'-'~monthname~'-'~month~'-'~tower.id}) }} " data-reveal-id="myNormal" class="button radius">
               <img  src="{{ asset('images/excel.png') }}"/>
               <span>{{'EXCEL'|trans}}</span>
         </a>
-      
+       {% endif %}
           {% set sumcredit = 0 %}
           {% set sumdebit = 0 %}
           {% for item in results %}

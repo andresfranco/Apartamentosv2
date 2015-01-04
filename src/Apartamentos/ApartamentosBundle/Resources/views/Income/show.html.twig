@@ -5,12 +5,13 @@
     <hr>
    <table style="border:none;">
         <tr>
-         <td> 
-          <a href="#" data-reveal-id="myNormal" class="button radius">
+            {% if deleteaction =='S' %}
+            <td><a href="#" data-reveal-id="myNormal" class="button radius">
               <img  src="{{ asset('images/delete32.png') }}"/>
-              <span>{{'Eliminar Ingreso'|trans}}</span>
-          </a>
-        </td>
+              <span>{{'Eliminar Ingreso'|trans}}</span></a>
+            </td>
+            {% endif %}
+
         </tr>    
     </table>
     <br>

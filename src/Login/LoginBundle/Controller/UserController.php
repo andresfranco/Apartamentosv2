@@ -153,13 +153,18 @@ class UserController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find User entity.');
         }
+        $delete = $this->get('globalfunctions')->verifyaction("Delete User");
+        $edit= $this->get('globalfunctions')->verifyaction("Edit User");
+        $changepassword = $this->get('globalfunctions')->verifyaction("Change User Password");
         $roles=$this->GetUserRolesAction($id);
-        //$roles=$this
-        //$deleteForm = $this->createDeleteForm($id);
+
 
         return array(
             'entity'      => $entity,
-            'roles'       => $roles
+            'roles'       => $roles,
+            'deleteaction'=>$delete,
+            'editaction'=>$edit,
+            'changepassword'=>$changepassword
         );
     }
 
@@ -438,15 +443,21 @@ public function usergridAction()
         $grid->setPage(1);
         
         // Add Edit actions in the default row actions column
-        
-        $editColumn = new ActionsColumn('info_column_1', '');
-        $editColumn->setSeparator("<br />");
-        $grid->addColumn($editColumn, 9);
-        // Attach a rowAction to the Actions Column
-         $editAction = new RowAction('Edit', 'admin_user_edit',false, '_self', array('class' => 'editar'));
-         $editAction->setColumn('info_column_1');
-         $grid->addRowAction($editAction);
-         
+
+        //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create User");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit User");
+
+        if ($edit =='S')
+        {
+            $editColumn = new ActionsColumn('info_column_1', '');
+            $editColumn->setSeparator("<br />");
+            $grid->addColumn($editColumn, 9);
+            // Attach a rowAction to the Actions Column
+            $editAction = new RowAction('Edit', 'admin_user_edit', false, '_self', array('class' => 'editar'));
+            $editAction->setColumn('info_column_1');
+            $grid->addRowAction($editAction);
+        }
          $showColumn = new ActionsColumn('info_column_2', '');
          $showColumn->setSeparator("<br />");
          $grid->addColumn($showColumn, 10);
@@ -458,7 +469,7 @@ public function usergridAction()
          $grid->addRowAction($showAction);
     
          $grid->hideColumns(array('id','password','salt','createdate','createuser','modifyuser','modifydate'));
-        return $grid->getGridResponse('LoginLoginBundle:User:usergrid.html.twig');
+        return $grid->getGridResponse('LoginLoginBundle:User:usergrid.html.twig',array('create'=>$create,'edit'=>$edit,'urlnew'=>'admin_user_new'));
     }
     
    public function GetUserRolesAction($userid)

@@ -34,9 +34,12 @@
           </div>
         {% endif %}
        {% endblock grid_search %}
-        <div>
-            <a href="{{path('income_new')}}"><img  src="{{ asset('images/newitem.png') }}"/></a>
-         </div>
+
+        {% if create =='S'%}
+            <div>
+                <a href="{{path(urlnew)}}"><img  src="{{ asset('images/newitem.png') }}"/></a>
+            </div>
+        {% endif %}
         <br>
        {% if grid.totalCount > 0 or grid.isFiltered or grid.noDataMessage is sameas(false) %}
         

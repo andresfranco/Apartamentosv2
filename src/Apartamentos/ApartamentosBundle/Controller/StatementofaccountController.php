@@ -115,8 +115,9 @@ public function generatestatementAction(Request $request)
   $tower= $em2->getRepository('ApartamentosApartamentosBundle:Tower')->find($towerid);   
   $randomchar =$this->randomchar(4);
   $results = $this->Executeprocedure($year, $month, $towerid);
-  
-  return $this->render('ApartamentosApartamentosBundle:Statementofaccount:showstatement.html.twig', array('results' => $results ,'tower'=>$tower,'month'=>$month,'monthname'=>$monthname,'year'=>$year,'randomchar'=>$randomchar));
+    $statementpdf = $this->get('globalfunctions')->verifyaction("Generate Statement PDF");
+    $statementexcel= $this->get('globalfunctions')->verifyaction("Generate Statement EXCEL");
+  return $this->render('ApartamentosApartamentosBundle:Statementofaccount:showstatement.html.twig', array('results' => $results ,'tower'=>$tower,'month'=>$month,'monthname'=>$monthname,'year'=>$year,'randomchar'=>$randomchar,'statementpdf'=>$statementpdf ,'statementexcel'=>$statementexcel));
  
 }
 
@@ -130,8 +131,9 @@ public function StatementshowAction($year,$month,$towerid)
   $results = $this->Executeprocedure($year, $month, $towerid);//$sth->fetchAll();
    
    $grid=$this->StatementgridAction($year,$month,$towerid);
+
+
    return $grid->getGridResponse('ApartamentosApartamentosBundle:Statementofaccount:statementview.html.twig', array('results' => $results ,'tower'=>$tower,'month'=>$month,'monthname'=>$monthname,'year'=>$year,'randomchar'=>$randomchar));
-   //return $this->render('ApartamentosApartamentosBundle:Statementofaccount:showstatement.html.twig', array('results' => $results ,'tower'=>$tower,'month'=>$month,'monthname'=>$monthname,'year'=>$year,'randomchar'=>$randomchar));
  
 }
 /**

@@ -34,12 +34,14 @@
           </div>
         {% endif %}
        {% endblock grid_search %}
-        
-       {% if grid.totalCount > 0 or grid.isFiltered or grid.noDataMessage is sameas(false) %}
-        <div>
-            <a href="{{path('admin_user_new')}}"><img  src="{{ asset('images/adduser.png') }}"/></a>
-         </div>
+        {% if create =='S'%}
+            <div>
+                <a href="{{path(urlnew)}}"><img  src="{{ asset('images/newitem.png') }}"/></a>
+            </div>
+        {% endif %}
         <br>
+       {% if grid.totalCount > 0 or grid.isFiltered or grid.noDataMessage is sameas(false) %}
+
             
             <form id="{{ grid.hash }}" action="{{ grid.routeUrl }}" method="post">
           <div class="grid_header">

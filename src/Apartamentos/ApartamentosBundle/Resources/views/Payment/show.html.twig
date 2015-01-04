@@ -5,15 +5,18 @@
     <hr>
    <table style="border:none;">
         <tr>
-         <td> 
-          <a href="#" data-reveal-id="myNormal" class="button radius">
+
+         <td>
+            {% if deleteaction =='S' %}
+            <a href="#" data-reveal-id="myNormal" class="button radius">
               <img  src="{{ asset('images/delete32.png') }}"/>
               <span>{{'Eliminar Pago'|trans}}</span>
-          </a>
-          <a href="{{ path('paymentinvoice',{'id':entity.id,'namevoucher': randomchar~'_'~entity.apartmentid.towerid.name~'_'~entity.apartmentid.number}) }}" class="button radius ">
-              <img  src="{{ asset('images/printfile32.png') }}"/>
-              <span>{{'Imprimir Recibo'|trans}}</span>
-          </a>    
+            </a>
+            <a href="{{ path('paymentinvoice',{'id':entity.id,'namevoucher': randomchar~'_'~entity.apartmentid.towerid.name~'_'~entity.apartmentid.number}) }}" class="button radius ">
+                <img  src="{{ asset('images/printfile32.png') }}"/>
+                <span>{{'Imprimir Recibo'|trans}}</span>
+            </a>
+            {% endif %}
         </td>
         </tr>    
     </table>

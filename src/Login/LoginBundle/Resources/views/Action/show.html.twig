@@ -14,12 +14,14 @@
     {% endfor %}
    <table style="border:none;">
         <tr>
+        {% if deleteaction=='S' %}
         <td> 
           <a href="#" data-reveal-id="myNormal" class="button radius">
               <img  src="{{ asset('images/delete32.png') }}"/>
               <span>{{'Eliminar Acción'|trans}}</span>
           </a>
         </td>
+        {% endif %}
         </tr>    
     </table>
    <table class="record_properties">

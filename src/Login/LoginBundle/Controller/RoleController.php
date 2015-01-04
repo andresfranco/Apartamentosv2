@@ -128,11 +128,14 @@ class RoleController extends Controller
             throw $this->createNotFoundException('Unable to find Role entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
+        $delete = $this->get('globalfunctions')->verifyaction("Delete Role");
+        $edit= $this->get('globalfunctions')->verifyaction("Edit Role");
+        $addroleactions =$this->get('globalfunctions')->verifyaction("Add Role Actions");
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'deleteaction'=>$delete,
+            'editaction'=>$edit,
+            'addroleactios'=>$addroleactions
         );
     }
 
@@ -307,16 +310,21 @@ class RoleController extends Controller
         $grid->setPage(1);
         
         // Add Edit actions in the default row actions column
-        
-        //$grid->addRowAction($myRowAction);
-        $editColumn = new ActionsColumn('info_column_1', '');
-        $editColumn->setSeparator("<br />");
-        $grid->addColumn($editColumn, 3);
-        // Attach a rowAction to the Actions Column
-         $editAction = new RowAction('Edit', 'admin_role_edit',false, '_self', array('class' => 'editar'));
-         $editAction->setColumn('info_column_1');
-         $grid->addRowAction($editAction);
-         
+        //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create Role");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Role");
+
+        if ($edit =='S')
+        {
+            //$grid->addRowAction($myRowAction);
+            $editColumn = new ActionsColumn('info_column_1', '');
+            $editColumn->setSeparator("<br />");
+            $grid->addColumn($editColumn, 3);
+            // Attach a rowAction to the Actions Column
+            $editAction = new RowAction('Edit', 'admin_role_edit', false, '_self', array('class' => 'editar'));
+            $editAction->setColumn('info_column_1');
+            $grid->addRowAction($editAction);
+        }
          $showColumn = new ActionsColumn('info_column_2', '');
          $showColumn->setSeparator("<br />");
          $grid->addColumn($showColumn, 4);
@@ -329,6 +337,6 @@ class RoleController extends Controller
        
         
         $grid->hideColumns(array('id'));
-        return $grid->getGridResponse('LoginLoginBundle:Role:rolegrid.html.twig');
+        return $grid->getGridResponse('LoginLoginBundle:Role:rolegrid.html.twig',array('create'=>$create,'edit'=>$edit,'urlnew'=>'admin_role_new'));
     }
 }

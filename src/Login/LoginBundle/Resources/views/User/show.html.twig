@@ -7,24 +7,28 @@
     <hr>
     <table style="border:none;">
         <tr>
-        <td> 
-          <a href="#" data-reveal-id="myNormal" class="button radius">
+            {% if deleteaction =='S' %}
+           <td>
+           <a href="#" data-reveal-id="myNormal" class="button radius">
               <img  src="{{ asset('images/deleteuser.png') }}"/>
               <span>{{'Eliminar Usuario'|trans}}</span>
-          </a>
-        </td>
+           </a>
+          </td>
+           {% endif %}
        <td> 
           <a href="{{ path('userroles',{'userid':entity.id}) }}" class="button radius">
               <img  src="{{ asset('images/edit32.png') }}"/>
               <span>{{'Editar Roles'|trans}}</span>
           </a>   
         </td>
+         {%  if changepassword=='S' %}
         <td> 
           <a href="{{ path('change_password',{'id':entity.id}) }}" class="button radius">
               <img  src="{{ asset('images/changepassword32.png') }}"/>
               <span>{{'Cambiar contraseña'|trans}}</span>
           </a>   
         </td>
+         {% endif %}
         </tr>    
     </table>
     <br>

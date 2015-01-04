@@ -126,11 +126,13 @@ class IncomeController extends Controller
             throw $this->createNotFoundException('Unable to find Income entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $delete = $this->get('globalfunctions')->verifyaction("Delete Income");
+        $edit= $this->get('globalfunctions')->verifyaction("Edit Income");
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'deleteaction'=>$delete,
+            'editaction'=>$edit
         );
     }
 
@@ -277,17 +279,22 @@ class IncomeController extends Controller
 
         // Set the default page
         $grid->setPage(1);
+
+        //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create Income");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Income");
         
         // Add Edit actions in the default row actions column
-        
-        $editColumn = new ActionsColumn('info_column_1', '');
-        $editColumn->setSeparator("<br />");
-        $grid->addColumn($editColumn, 10);
-        // Attach a rowAction to the Actions Column
-         $editAction = new RowAction('Edit', 'income_edit',false, '_self', array('class' => 'editar'));
-         $editAction->setColumn('info_column_1');
-         $grid->addRowAction($editAction);
-         
+        if ($edit =='S')
+        {
+            $editColumn = new ActionsColumn('info_column_1', '');
+            $editColumn->setSeparator("<br />");
+            $grid->addColumn($editColumn, 10);
+            // Attach a rowAction to the Actions Column
+            $editAction = new RowAction('Edit', 'income_edit', false, '_self', array('class' => 'editar'));
+            $editAction->setColumn('info_column_1');
+            $grid->addRowAction($editAction);
+        }
          $showColumn = new ActionsColumn('info_column_2', '');
          $showColumn->setSeparator("<br />");
          $grid->addColumn($showColumn, 11);
@@ -300,7 +307,7 @@ class IncomeController extends Controller
        
        $grid->hideColumns(array('id','description','createdate','createuser','modifyuser','modifydate'));
        //$grid->
-        return $grid->getGridResponse('ApartamentosApartamentosBundle:Income:incomegrid.html.twig');
+        return $grid->getGridResponse('ApartamentosApartamentosBundle:Income:incomegrid.html.twig',array('create'=>$create,'edit'=>$edit,'urlnew'=>'income_new'));
     }
     /**
      * Deletes a Income entity.

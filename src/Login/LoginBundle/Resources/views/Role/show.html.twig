@@ -20,18 +20,22 @@
               <span>{{'Lista de Roles'|trans}}</span>
           </a>   
         </td>
-         <td> 
-          <a href="{{ path('roleactiongrid',{'roleid':entity.id}) }}" class="button radius">
+            {% if addroleactios =='S' %}
+            <td>
+            <a href="{{ path('roleactiongrid',{'roleid':entity.id}) }}" class="button radius">
               <img  src="{{ asset('images/actions.png') }}"/>
               <span>{{'Acciones'|trans}}</span>
-          </a>   
-        </td>
-        <td> 
-          <a href="#" data-reveal-id="myNormal" class="button radius">
+             </a>
+            </td>
+            {% endif %}
+            {% if deleteaction =='S' %}
+           <td>
+           <a href="#" data-reveal-id="myNormal" class="button radius">
               <img  src="{{ asset('images/delete32.png') }}"/>
               <span>{{'Eliminar Rol'|trans}}</span>
-          </a>
-        </td>
+           </a>
+           </td>
+           {% endif %}
         </tr>    
     </table>
    <table class="record_properties">

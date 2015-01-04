@@ -27,10 +27,13 @@
           </form>
           </div>
         {% endif %}
-       {% endblock grid_search %} 
-         <div>
-            <a href="{{path('action_new')}}"><img  src="{{ asset('images/new.png') }}"/></a>
-         </div>
+       {% endblock grid_search %}
+        {% if create =='S'%}
+            <div>
+                <a href="{{path(urlnew)}}"><img  src="{{ asset('images/newitem.png') }}"/></a>
+            </div>
+        {% endif %}
+
        {% if grid.totalCount > 0 or grid.isFiltered or grid.noDataMessage is sameas(false) %}
        
         <br>

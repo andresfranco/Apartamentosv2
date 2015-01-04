@@ -256,15 +256,19 @@ class EditionController extends Controller
         $grid->setPage(1);
         
         // Add Edit actions in the default row actions column
-        
-         $editColumn = new ActionsColumn('info_column_1', '');
-         $editColumn->setSeparator("<br />");
-         $grid->addColumn($editColumn, 10);
-        // Attach a rowAction to the Actions Column
-         $editAction = new RowAction('Edit', 'translation_edit',false, '_self', array('class' => 'editar'));
-         $editAction->setColumn('info_column_1');
-         $grid->addRowAction($editAction);
-         
+        $create= $this->get('globalfunctions')->verifyaction("Create Translation");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Translation");
+
+        if ($edit =='S')
+        {
+            $editColumn = new ActionsColumn('info_column_1', '');
+            $editColumn->setSeparator("<br />");
+            $grid->addColumn($editColumn, 10);
+            // Attach a rowAction to the Actions Column
+            $editAction = new RowAction('Edit', 'translation_edit', false, '_self', array('class' => 'editar'));
+            $editAction->setColumn('info_column_1');
+            $grid->addRowAction($editAction);
+        }
          $userColumns = array('transUnit.keyName','transUnit.domain','locale','content');
          $grid->setColumnsOrder($userColumns);
        
@@ -273,7 +277,9 @@ class EditionController extends Controller
         return $grid->getGridResponse('LexikTranslationBundle:Edition:Translationgrid.html.twig',array(
             'layout'    => $this->container->getParameter('lexik_translation.base_layout'),
             'inputType' => $this->container->getParameter('lexik_translation.grid_input_type'),
-            'locales'   => $this->getManagedLocales()));
+            'locales'   => $this->getManagedLocales(),
+            'create'=>$create,'edit'=>$edit,
+            'urlnew'=>'lexik_translation_new'));
     }
     
     

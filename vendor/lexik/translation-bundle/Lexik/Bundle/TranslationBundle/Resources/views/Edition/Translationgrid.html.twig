@@ -44,7 +44,9 @@
         {% endif %}
        {% endblock grid_search %}
         <div>
+            {% if create =='S' %}
             <a href="{{ path('lexik_translation_new') }}"><img  src="{{ asset('images/new.png') }}"/></a>
+            {% endif %}
             <a href="{{ path('lexik_translation_invalidate_cache') }}"><img  src="{{ asset('images/refresh.png') }}"/></a>
          </div>
         <br>

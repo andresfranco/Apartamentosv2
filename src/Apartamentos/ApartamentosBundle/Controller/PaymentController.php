@@ -141,15 +141,16 @@ class PaymentController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Payment entity.');
         }
-         
+        $delete = $this->get('globalfunctions')->verifyaction("Delete Payment");
+        $edit= $this->get('globalfunctions')->verifyaction("Edit Payment");
         $invoicenumber =$this->Getinvoicenumber($id);
-        $deleteForm = $this->createDeleteForm($id);
         $unique_key =$this->randomchar(5);
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
             'invoicenumber'=>$invoicenumber,
-            'randomchar'=>$unique_key
+            'randomchar'=>$unique_key,
+            'deleteaction'=>$delete,
+            'editaction'=>$edit
                 
         );
     }
@@ -296,17 +297,22 @@ class PaymentController extends Controller
 
         // Set the default page
         $grid->setPage(1);
-        
+
+        //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create Payment");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Payment");
+
         // Add Edit actions in the default row actions column
-        
-        $editColumn = new ActionsColumn('info_column_1', '');
-        $editColumn->setSeparator("<br />");
-        $grid->addColumn($editColumn, 10);
-        // Attach a rowAction to the Actions Column
-         $editAction = new RowAction('Edit', 'payment_edit',false, '_self', array('class' => 'editar'));
-         $editAction->setColumn('info_column_1');
-         $grid->addRowAction($editAction);
-         
+        if ($edit =='S')
+        {
+            $editColumn = new ActionsColumn('info_column_1', '');
+            $editColumn->setSeparator("<br />");
+            $grid->addColumn($editColumn, 10);
+            // Attach a rowAction to the Actions Column
+            $editAction = new RowAction('Edit', 'payment_edit', false, '_self', array('class' => 'editar'));
+            $editAction->setColumn('info_column_1');
+            $grid->addRowAction($editAction);
+        }
          $showColumn = new ActionsColumn('info_column_2', '');
          $showColumn->setSeparator("<br />");
          $grid->addColumn($showColumn, 11);
@@ -319,7 +325,7 @@ class PaymentController extends Controller
        
        $grid->hideColumns(array('id','description','createdate','createuser','modifyuser','modifydate'));
        //$grid->
-        return $grid->getGridResponse('ApartamentosApartamentosBundle:Payment:paymentgrid.html.twig');
+        return $grid->getGridResponse('ApartamentosApartamentosBundle:Payment:paymentgrid.html.twig',array('create'=>$create,'edit'=>$edit,'urlnew'=>'payment_new'));
     }
     /**
      * Deletes a Location entity.

@@ -124,11 +124,13 @@ class ActionController extends Controller
             throw $this->createNotFoundException('Unable to find Action entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $delete = $this->get('globalfunctions')->verifyaction("Delete Security Action");
+        $edit= $this->get('globalfunctions')->verifyaction("Edit Security Action");
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'deleteaction'=>$delete,
+            'editaction'=>$edit
         );
     }
 
@@ -278,16 +280,21 @@ class ActionController extends Controller
         $grid->setPage(1);
         
         // Add Edit actions in the default row actions column
-        
-        //$grid->addRowAction($myRowAction);
-        $editColumn = new ActionsColumn('info_column_1', '');
-        $editColumn->setSeparator("<br />");
-        $grid->addColumn($editColumn, 5);
-        // Attach a rowAction to the Actions Column
-         $editAction = new RowAction('Edit', 'action_edit',false, '_self', array('class' => 'editar'));
-         $editAction->setColumn('info_column_1');
-         $grid->addRowAction($editAction);
-         
+        //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create Security Action");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Security Action");
+
+        if ($edit =='S')
+        {
+
+            $editColumn = new ActionsColumn('info_column_1', '');
+            $editColumn->setSeparator("<br />");
+            $grid->addColumn($editColumn, 5);
+            // Attach a rowAction to the Actions Column
+            $editAction = new RowAction('Edit', 'action_edit', false, '_self', array('class' => 'editar'));
+            $editAction->setColumn('info_column_1');
+            $grid->addRowAction($editAction);
+        }
          $showColumn = new ActionsColumn('info_column_2', '');
          $showColumn->setSeparator("<br />");
          $grid->addColumn($showColumn, 6);
@@ -300,7 +307,7 @@ class ActionController extends Controller
        
         
         $grid->hideColumns(array('id','createuser','modifyuser','createdate','modifydate'));
-        return $grid->getGridResponse('LoginLoginBundle:Action:actiongrid.html.twig');
+        return $grid->getGridResponse('LoginLoginBundle:Action:actiongrid.html.twig',array('create'=>$create,'edit'=>$edit,'urlnew'=>'action_new'));
     }
       /**
      * Deletes a Company entity.
