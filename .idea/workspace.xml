@@ -1,33 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f29c4e20-b148-46e5-89c6-a670709c355f" name="Default" comment="Finalizacion Permisos Actions">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/frameworkRootSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+    <list default="true" id="f29c4e20-b148-46e5-89c6-a670709c355f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/apy/datagrid-bundle/APY/DataGridBundle" afterPath="$PROJECT_DIR$/vendor/apy/datagrid-bundle/APY/DataGridBundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle/Stof/DoctrineExtensionsBundle" afterPath="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle/Stof/DoctrineExtensionsBundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/white-october/pagerfanta-bundle/WhiteOctober/PagerfantaBundle" afterPath="$PROJECT_DIR$/vendor/white-october/pagerfanta-bundle/WhiteOctober/PagerfantaBundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/a2lix/translation-form-bundle/A2lix/TranslationFormBundle" afterPath="$PROJECT_DIR$/vendor/a2lix/translation-form-bundle/A2lix/TranslationFormBundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Controller/ActionController.php" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Controller/ActionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Controller/EditionController.php" afterPath="$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Controller/EditionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/IncomeController.php" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/IncomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/PaymentController.php" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/PaymentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Controller/RoleController.php" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Controller/RoleController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/StatementofaccountController.php" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/StatementofaccountController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Resources/views/Edition/Translationgrid.html.twig" afterPath="$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Resources/views/Edition/Translationgrid.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Controller/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/actiongrid.html.twig" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/actiongrid.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Income/incomegrid.html.twig" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Income/incomegrid.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Payment/paymentgrid.html.twig" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Payment/paymentgrid.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Role/rolegrid.html.twig" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Role/rolegrid.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Income/show.html.twig" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Income/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Payment/show.html.twig" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Payment/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/show.html.twig" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Role/show.html.twig" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Role/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/User/show.html.twig" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/User/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Statementofaccount/showstatement.html.twig" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Statementofaccount/showstatement.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/User/usergrid.html.twig" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/User/usergrid.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Apartamentosv2.iws" />
@@ -191,6 +169,13 @@
       <option name="number" value="Default" />
       <updated>1420158085635</updated>
     </task>
+    <task id="LOCAL-00001" summary="Finalizacion Permisos Actions">
+      <created>1420411333304</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1420411333304</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
