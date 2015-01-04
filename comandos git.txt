@@ -1,0 +1,5 @@
+Comandos GIT
+
+git remote add origin https://github.com/andresfranco/Apartamentosv2.git
+
+git push -u origin master
