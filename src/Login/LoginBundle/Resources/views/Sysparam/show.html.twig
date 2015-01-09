@@ -1,0 +1,64 @@
+{% extends '::masteradmin.html.twig' %}
+
+{% block contenido %}
+    <h2 class="titulo">{{'Detalle del parámetro'|trans}}</h2>
+    <hr>
+    {% for flashMessage in app.session.flashbag.get('error') %}
+        <div class="error">
+            <table>
+                <tr><td><img  src="{{ asset('images/warning.png') }}"/></td>
+                    <td>{{ flashMessage|trans}}</td>
+                </tr>
+            </table>
+        </div><br>
+    {% endfor %}
+    <table style="border:none;">
+        <tr>
+            {% if deleteaction=='S' %}
+                <td>
+                    <a href="#" data-reveal-id="myNormal" class="button radius">
+                        <img  src="{{ asset('images/delete32.png') }}"/>
+                        <span>{{'Eliminar Parámetro'|trans}}</span>
+                    </a>
+                </td>
+            {% endif %}
+        </tr>
+    </table>
+    <table class="record_properties">
+        <tr>
+            <td class="titulocampo">{{'nombre'|trans}}</td>
+            <td>{{ entity.name }}</td>
+        </tr>
+        <tr>
+            <td class="titulocampo">{{'Valor'|trans}}</td>
+            <td>{{ entity.value }}</td>
+        </tr>
+        <tr>
+            <td class="titulocampo">{{'Descripción'|trans}}</td>
+            <td>{{ entity.description }}</td>
+        </tr>
+    </table>
+
+    <div class="reveal-modal small" id="myNormal" data-reveal >
+        &iquest;{{'delete.sysparam.question'|trans}}?
+        <br><br>
+        <table class="dialogo">
+            <tr>
+                <td><a class="radius button" href="{{ path('action_deletesysparam', { 'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
+                <td><a id ="cancelar" class="radius button" href="#">{{'Cancelar'|trans}}</a></td>
+            </tr>
+        </table>
+        <a class="close-reveal-modal"><img src="{{ asset('images/dialog_close.png')}}"/></a>
+    </div>
+    <script>
+        {% block foundation %}
+        $("#cancelar").click(function (e) {
+            $('#myNormal').foundation('reveal', 'close');
+        });
+        {% endblock %}
+    </script>
+    <a href="{{ path('sysparamgrid') }}" class="button radius">
+        <img  src="{{ asset('images/back24.png') }}"/>
+        <span>{{'Parámetros del Sistema'|trans}}</span>
+    </a>
+{% endblock %}

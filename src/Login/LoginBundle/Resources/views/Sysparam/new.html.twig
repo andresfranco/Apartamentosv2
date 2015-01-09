@@ -1,0 +1,36 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+    {% include 'LoginLoginBundle:Sysparam:validatesysparam.html.twig' %}
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Nuevo Parámetro del sistema'|trans }}</h2>
+    <hr>
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name)}}
+        {{ form_errors(form.name) }}
+    </div>
+    <div>
+        {{ form_label(form.value) }}
+        {{ form_widget(form.value)}}
+        {{ form_errors(form.value) }}
+    </div>
+    <div>
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description)}}
+        {{ form_errors(form.description) }}
+    </div>
+
+    {{ form_end(form) }}
+    <div>
+        <br>
+        <a href="{{ path('sysparamgrid') }}" class="button radius">
+            <img  src="{{ asset('images/back24.png') }}"/>
+            <span>{{'Parámetros del Sistema'|trans}}</span>
+        </a>
+    </div>
+{% endblock %}
