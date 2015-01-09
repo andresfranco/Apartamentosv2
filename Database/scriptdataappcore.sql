@@ -3,7 +3,6 @@
 --
 -- Volcado de datos para la tabla `action`
 --
-
 INSERT INTO `action` (`id`, `actionname`, `description`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (2, 'Create User', 'Permiso para crear usuarios', 'admin', 'admin', '2014-12-05 14:42:46', '2014-12-05 14:42:46'),
 (3, 'Edit User', 'Permite cambiar los datos del usuario', 'admin', 'admin', '2014-12-09 16:09:56', '2014-12-09 16:09:56'),

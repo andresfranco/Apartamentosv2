@@ -195,6 +195,9 @@ $catalogue = new MessageCatalogue('es', array (
     'validate.exist.actionname' => 'Ya existe una acción con ese nombre',
     'action.select' => 'Debe seleccionar una acción',
     'validate.exist.actionrole' => 'Ya esta asociada esta accion para el rol',
+    'validate.sysparam.name' => 'Debe ingresar un nombre',
+    'validate.sysparam.value' => 'Debe ingresar un valor',
+    'validate.exist.name' => 'Ya existe un parámetro con ese nombre',
   ),
   'messages' => 
   array (
@@ -675,6 +678,15 @@ $catalogue = new MessageCatalogue('es', array (
     'roleaction.actionid.validate' => 'Debe seleccionar una acción',
     'Quitar Acción' => 'Quitar Acción',
     'delete.roleaction.question' => 'Esta seguro que desea quitar esa accion del rol',
+    'Valor' => 'Valor',
+    'sysparam.name.validate' => 'Debe ingresar un nombre',
+    'sysparam.value.validate' => 'Debe ingresar un valor',
+    'Parámetros del Sistema' => 'Parámetros del Sistema',
+    'Nuevo Parámetro del sistema' => 'Nuevo Parámetro del sistema',
+    'Detalle del parámetro' => 'Detalle del parámetro',
+    'Editar Parámetro del sistema' => 'Editar Parámetro del sistema',
+    'Eliminar Parámetro' => 'Eliminar Parámetro',
+    'delete.sysparam.question' => 'Esta seguro que desea eliminar este parámetro del sistema',
   ),
   'LexikTranslationBundle' => 
   array (

@@ -84,8 +84,8 @@ php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotatio
 php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Paymentmethod
 
 
-php app/console doctrine:mapping:import LoginLoginBundle  annotation --filter="Roleaction"
-php app/console doctrine:generate:entities LoginLoginBundle:Roleaction
+php app/console doctrine:mapping:import LoginLoginBundle  annotation --filter="Parameters"
+php app/console doctrine:generate:entities LoginLoginBundle:Parameters
 
 
 ----------------------------------------------------------------------------

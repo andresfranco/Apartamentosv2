@@ -203,7 +203,7 @@ class ActionController extends Controller
 
         if ($editForm->isValid()) {
             // Save Audit date and users
-            $entity=$this->get('globalfunctions')->Audit($entity,'ins');
+            $entity=$this->get('globalfunctions')->Audit($entity,'upd');
             $em->flush();
             return $this->redirect($this->generateUrl('actiongrid'));
         }

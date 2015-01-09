@@ -2926,6 +2926,100 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'iniciologin')), array (  '_controller' => 'Login\\LoginBundle\\Controller\\SecurityController::inicioAction',));
             }
 
+            if (0 === strpos($pathinfo, '/admin/sysparams')) {
+                // sysparam
+                if (rtrim($pathinfo, '/') === '/admin/sysparams') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_sysparam;
+                    }
+
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'sysparam');
+                    }
+
+                    return array (  '_controller' => 'Login\\LoginBundle\\Controller\\SysparamController::indexAction',  '_route' => 'sysparam',);
+                }
+                not_sysparam:
+
+                // sysparam_create
+                if (preg_match('#^/admin/sysparams/(?P<_locale>[^/]++)/new$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_sysparam_create;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'sysparam_create')), array (  '_controller' => 'Login\\LoginBundle\\Controller\\SysparamController::createAction',));
+                }
+                not_sysparam_create:
+
+                // sysparam_new
+                if (preg_match('#^/admin/sysparams/(?P<_locale>[^/]++)/new$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_sysparam_new;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'sysparam_new')), array (  '_controller' => 'Login\\LoginBundle\\Controller\\SysparamController::newAction',));
+                }
+                not_sysparam_new:
+
+                // sysparam_show
+                if (preg_match('#^/admin/sysparams/(?P<_locale>[^/]++)/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_sysparam_show;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'sysparam_show')), array (  '_controller' => 'Login\\LoginBundle\\Controller\\SysparamController::showAction',));
+                }
+                not_sysparam_show:
+
+                // sysparam_edit
+                if (preg_match('#^/admin/sysparams/(?P<_locale>[^/]++)/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_sysparam_edit;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'sysparam_edit')), array (  '_controller' => 'Login\\LoginBundle\\Controller\\SysparamController::editAction',));
+                }
+                not_sysparam_edit:
+
+                // sysparam_update
+                if (preg_match('#^/admin/sysparams/(?P<_locale>[^/]++)/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'PUT') {
+                        $allow[] = 'PUT';
+                        goto not_sysparam_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'sysparam_update')), array (  '_controller' => 'Login\\LoginBundle\\Controller\\SysparamController::updateAction',));
+                }
+                not_sysparam_update:
+
+                // sysparam_delete
+                if (preg_match('#^/admin/sysparams/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    if ($this->context->getMethod() != 'DELETE') {
+                        $allow[] = 'DELETE';
+                        goto not_sysparam_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'sysparam_delete')), array (  '_controller' => 'Login\\LoginBundle\\Controller\\SysparamController::deleteAction',));
+                }
+                not_sysparam_delete:
+
+                // sysparamgrid
+                if (preg_match('#^/admin/sysparams/(?P<_locale>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'sysparamgrid')), array (  '_controller' => 'Login\\LoginBundle\\Controller\\SysparamController::sysparamgrid',));
+                }
+
+                // action_deletesysparam
+                if (preg_match('#^/admin/sysparams/(?P<_locale>[^/]++)/delesysparam/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'action_deletesysparam')), array (  '_controller' => 'Login\\LoginBundle\\Controller\\SysparamController::deletemodalAction',));
+                }
+
+            }
+
             if (0 === strpos($pathinfo, '/admin/user')) {
                 // admin_user
                 if (rtrim($pathinfo, '/') === '/admin/user') {

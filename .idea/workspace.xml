@@ -1,12 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f29c4e20-b148-46e5-89c6-a670709c355f" name="Default" comment="Finalizacion Permisos Actions">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/comandos git.txt" />
+    <list default="true" id="f29c4e20-b148-46e5-89c6-a670709c355f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqlDataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/sysparamgrid.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/validatesysparam.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/profiler/18/19/8f1918" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/profiler/32/ec/06ec32" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/profiler/7f/32/c1327f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/profiler/7f/3f/823f7f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/profiler/9b/04/0f049b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/profiler/9f/60/59609f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/profiler/ab/56/5456ab" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/06/05/b8307fbfb4f021c51b046c05b3859778921b76711961df97615787c14971.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/08/41/58caebbe7f74fa316e586e2ea46567209eba7181e8baf43343d494723d66.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/0c/f3/2be467d4fe25dfcbb03f9db1583af40598cc35099a8feb0ceb87fe67c40e.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/0e/b9/eb2ae99bf206818fbe74ca3a83c653fe54f3655e1aa5679c0f2fc38b1434.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/22/b4/10249a0accf208914d0ecaf8624882e53225c285b1a704cb9bbb7d4dcf5e.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/23/5f/58bb0263241ebc7a479afa42ddc7d0920f8c37416886323b962a28b71208.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/30/49/3b7d613a5c70f827c62edc053dfc25a719209a4cefdc4a73b1e599a6f401.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/3e/55/9631d2ac311452b5fd133796cb3f4532a2db3651d52b53992eda8a89d813.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/3e/6e/361f5ba960eab8f7205743b139466e065c54ceafdc0bed2caf113bec9ed3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/47/08/39f9565886149c6e5688b0898e45a9d7ab78c757cfa360609011a6c57654.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/53/4a/c9895e1aea370aaa1668e5bf92df2f5ea6a2997fd2a5deb0e415b0a53913.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/53/5b/607060e06d60b363f0a43ffd1f1fcede84a7a880a625096d9555cae03825.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/57/ce/fdc367460a6ef7988946c8483efa4654cf5b5b003bcce735b52712592310.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/5a/cb/f058f04bbc9ba31ff921fec4e4ae23b251da7f9d7b89eba67a6042e7612f.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/6a/4e/4ccef9c90cf46aa14bfeeefb0df10463de2c947f627ba21214f4cbe32c00.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/6c/1c/8d897cb7726c890e9c9759b6521b4093ce5184f652863271f029592034a5.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/6e/46/f238409c67248f6a16845e0305bff89f5e516dd613b7eff093d1b43ae1e1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/7c/c7/c604eea95c585de8921f7b6fd1f431a10f90ac70604d4e1923c35d788c2c.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/7f/fc/b2470729d8bf1e7f54e144470c180d87cdc09bec693a278ac3fad0463aa2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/80/37/331cc05aa9604c21dcc6bbde6098f3a504cbe3e099a3786e7a5a4bfe5037.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/b3/c5/8f065e65c7c1b26a2cfca91c1c8350e9d8edaf238ec95157732a7b8daf52.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/be/58/6e42d28a7aafbcddcc54d1df665f7c9e0c2b288840a9ef73e99e520ee09a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/c0/9e/43aa43cc4803369c7db79a1c01b72cdc53e18c164e2b38d3c3d4266d7c2b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/cd/2b/2819f8cd7acc80d8333f82e0e03c2cb558c1c3592b1951370b1b96aaaa4a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/d0/29/d65502080942e00c79dc1630a91f60a5bc86e6b9c45d306a1d85daa825e0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/f2/17/2de723153fc1e3af40342f868e855ce588bf7e091cb0243624f05b2cd24f.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/f4/e7/11479e2779cd9ca6b88ea53e469d83f5515e592bc42ec99964b1d4c4c5df.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/cache/dev/twig/f5/c4/2e91688e7fef4bfa22a38adbd4936f002b175004ed4f1f2704ed32c2aa45.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/css/masterfoundation.css.map" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/apy/datagrid-bundle/APY/DataGridBundle" afterPath="$PROJECT_DIR$/vendor/apy/datagrid-bundle/APY/DataGridBundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle/Stof/DoctrineExtensionsBundle" afterPath="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle/Stof/DoctrineExtensionsBundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modelo/Modelo4.mwb.bak" afterPath="$PROJECT_DIR$/Modelo/Modelo4.mwb.bak" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modelo/Modelo4.mwb" afterPath="$PROJECT_DIR$/Modelo/Modelo4.mwb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/white-october/pagerfanta-bundle/WhiteOctober/PagerfantaBundle" afterPath="$PROJECT_DIR$/vendor/white-october/pagerfanta-bundle/WhiteOctober/PagerfantaBundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/a2lix/translation-form-bundle/A2lix/TranslationFormBundle" afterPath="$PROJECT_DIR$/vendor/a2lix/translation-form-bundle/A2lix/TranslationFormBundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/appDevUrlGenerator.php.meta" afterPath="$PROJECT_DIR$/app/cache/dev/appDevUrlGenerator.php.meta" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/appDevUrlMatcher.php.meta" afterPath="$PROJECT_DIR$/app/cache/dev/appDevUrlMatcher.php.meta" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Controller/ActionController.php" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Controller/ActionController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/scss/_titles.scss" afterPath="$PROJECT_DIR$/web/scss/_titles.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.php.meta" afterPath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.php.meta" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.php" afterPath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.xml" afterPath="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/appDevUrlGenerator.php" afterPath="$PROJECT_DIR$/app/cache/dev/appDevUrlGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/appDevUrlMatcher.php" afterPath="$PROJECT_DIR$/app/cache/dev/appDevUrlMatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database/appcore.sql" afterPath="$PROJECT_DIR$/Database/appcore.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/translations/catalogue.es.php.meta" afterPath="$PROJECT_DIR$/app/cache/dev/translations/catalogue.es.php.meta" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/translations/catalogue.es.php" afterPath="$PROJECT_DIR$/app/cache/dev/translations/catalogue.es.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/classes.php.meta" afterPath="$PROJECT_DIR$/app/cache/dev/classes.php.meta" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comandos.txt" afterPath="$PROJECT_DIR$/comandos.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/logs/dev.log" afterPath="$PROJECT_DIR$/app/logs/dev.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/profiler/index.csv" afterPath="$PROJECT_DIR$/app/cache/dev/profiler/index.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Security/inicio.html.twig" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Security/inicio.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/cache/dev/assetic/routing.yml" afterPath="$PROJECT_DIR$/app/cache/dev/assetic/routing.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database/scriptdataappcore.sql" afterPath="$PROJECT_DIR$/Database/scriptdataappcore.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/config/validation.yml" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/config/validation.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Apartamentosv2.iws" />
@@ -68,11 +130,28 @@
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Role/rolegrid.html.twig" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Controller/RoleController.php" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Role/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Controller/ActionController.php" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/actiongrid.html.twig" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/show.html.twig" />
         <option value="$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Controller/EditionController.php" />
         <option value="$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Resources/views/Edition/Translationgrid.html.twig" />
+        <option value="$PROJECT_DIR$/.idea/watcherTasks.xml" />
+        <option value="$PROJECT_DIR$/web/scss/test.css.map" />
+        <option value="$PROJECT_DIR$/web/scss/test.scss" />
+        <option value="$PROJECT_DIR$/web/scss/_titles.scss" />
+        <option value="dbprocedure:/2fbddd11/a021f4b3-2721-4ba6-8745-b64b5694c721/appcore..generatestatement" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/sysparamgrid.html.twig" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Security/inicio.html.twig" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/config/validation.yml" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Form/SysparamType.php" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Entity/Sysparam.php" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/validatesysparam.html.twig" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/new.html.twig" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Controller/ActionController.php" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Controller/SysparamController.php" />
+        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/show.html.twig" />
+        <option value="$PROJECT_DIR$/Database/scriptdataappcore.sql" />
+        <option value="$PROJECT_DIR$/Database/appcore.sql" />
       </list>
     </option>
   </component>
@@ -85,6 +164,31 @@
     <option name="y" value="27" />
     <option name="width" value="1362" />
     <option name="height" value="742" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>RELAX NG</id>
+          </State>
+          <State>
+            <id>SASS/SCSS</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>SassScssResolvedByNameOnly</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -135,10 +239,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="options.lastSelected" value="settings.github" />
+    <property name="options.lastSelected" value="watcher.settings" />
     <property name="options.splitter.main.proportions" value="0.295" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/scss" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -151,11 +256,14 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
-      <BehatRunner />
+    <configuration default="true" type="com.intellij.database.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -164,6 +272,9 @@
       <tasks />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -191,35 +302,61 @@
       <option name="project" value="LOCAL" />
       <updated>1420411345915</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Ultimos cambios  permisos translations">
+      <created>1420412919863</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1420412919863</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1362" height="742" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952815" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25722983" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18314424" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11183144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08143075" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18314424" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901135" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961948" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28538814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -238,78 +375,19 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Finalizacion Permisos Actions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalizacion Permisos Actions" />
+    <MESSAGE value="Ultimos cambios  permisos translations" />
+    <MESSAGE value="parametros del sistema" />
+    <option name="LAST_COMMIT_MESSAGE" value="parametros del sistema" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/IncomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4194" max-vertical-offset="5355">
-          <caret line="284" column="8" selection-start-line="284" selection-start-column="8" selection-end-line="284" selection-end-column="8" />
-          <folding>
-            <element signature="e#62#107#0#PHP" expanded="false" />
-            <element signature="e#10240#10252#1#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Income/incomegrid.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2520">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/AccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="4905">
-          <caret line="132" column="31" selection-start-line="131" selection-start-column="12" selection-end-line="132" selection-end-column="31" />
-          <folding>
-            <element signature="e#2001#2015#0#PHP" expanded="true" />
-            <element signature="e#10375#10389#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Account/accountgrid.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="448" max-vertical-offset="2535">
-          <caret line="40" column="18" selection-start-line="36" selection-start-column="7" selection-end-line="40" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Income/incomegrid.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="388" max-vertical-offset="2520">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Account/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1095">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="19" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Income/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -317,10 +395,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="5355">
           <caret line="128" column="79" selection-start-line="128" selection-start-column="79" selection-end-line="128" selection-end-column="79" />
-          <folding>
-            <element signature="e#62#107#0#PHP" expanded="false" />
-            <element signature="e#10240#10252#1#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -335,9 +409,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.275862" vertical-offset="548" max-vertical-offset="3042">
           <caret line="41" column="19" selection-start-line="37" selection-start-column="8" selection-end-line="41" selection-end-column="19" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -345,7 +416,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21818182" vertical-offset="0" max-vertical-offset="1386">
           <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -353,11 +423,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="1692">
           <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-          <folding>
-            <element signature="e#466#480#0#Twig" expanded="false" />
-            <element signature="e#2710#2729#0#Twig" expanded="false" />
-            <element signature="e#3013#3024#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -365,11 +430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="882">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#175#239#0#Twig" expanded="false" />
-            <element signature="e#401#444#0#Twig" expanded="false" />
-            <element signature="e#1108#1119#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -377,9 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3384">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -387,7 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6121212" vertical-offset="1443" max-vertical-offset="7146">
           <caret line="117" column="4" selection-start-line="117" selection-start-column="4" selection-end-line="117" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -395,9 +451,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44827586" vertical-offset="512" max-vertical-offset="3042">
           <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -405,10 +458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37068966" vertical-offset="2078" max-vertical-offset="7488">
           <caret line="143" column="54" selection-start-line="143" selection-start-column="8" selection-end-line="144" selection-end-column="75" />
-          <folding>
-            <element signature="e#2715#2729#0#PHP" expanded="false" />
-            <element signature="e#11171#11184#1#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -416,9 +465,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18181819" vertical-offset="0" max-vertical-offset="846">
           <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -426,10 +472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7191919" vertical-offset="2056" max-vertical-offset="6444">
           <caret line="134" column="30" selection-start-line="133" selection-start-column="12" selection-end-line="134" selection-end-column="31" />
-          <folding>
-            <element signature="e#62#107#0#PHP" expanded="false" />
-            <element signature="e#10240#10252#1#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -437,9 +479,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5646552" vertical-offset="476" max-vertical-offset="3366">
           <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -447,9 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0909091" vertical-offset="0" max-vertical-offset="1602">
           <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -457,9 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4" vertical-offset="198" max-vertical-offset="1386">
           <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -467,7 +500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5919192" vertical-offset="1939" max-vertical-offset="6030">
           <caret line="137" column="44" selection-start-line="137" selection-start-column="44" selection-end-line="137" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -475,6 +507,181 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44827586" vertical-offset="458" max-vertical-offset="2952">
           <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/AccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.413793" vertical-offset="5076" max-vertical-offset="5886">
+          <caret line="306" column="153" selection-start-line="306" selection-start-column="107" selection-end-line="306" selection-end-column="162" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Account/accountgrid.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15757576" vertical-offset="570" max-vertical-offset="3042">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="7" selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Resources/views/Edition/Translationgrid.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44827586" vertical-offset="620" max-vertical-offset="3294">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Controller/EditionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2363636" vertical-offset="4140" max-vertical-offset="6390">
+          <caret line="281" column="48" selection-start-line="281" selection-start-column="48" selection-end-line="281" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Account/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34545454" vertical-offset="225" max-vertical-offset="1314">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2848837" vertical-offset="2222" max-vertical-offset="10026">
+          <caret line="166" column="13" selection-start-line="166" selection-start-column="13" selection-end-line="166" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/_settings.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.15697674" vertical-offset="54" max-vertical-offset="26082">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/_divsmasterpage.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="384">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/watcherTasks.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34177214" vertical-offset="0" max-vertical-offset="540">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/masterfoundation.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="474">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/masterfoundation.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64859" vertical-offset="130021" max-vertical-offset="130482">
+          <caret line="7240" column="34" selection-start-line="7240" selection-start-column="34" selection-end-line="7240" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scss/_titles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24161074" vertical-offset="0" max-vertical-offset="447">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/a021f4b3-2721-4ba6-8745-b64b5694c721.schema:appcore">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>a021f4b3-2721-4ba6-8745-b64b5694c721.schema:appcore</OriginalElement>
+          <nodes>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.day</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.lexik_trans_unit</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.ext_log_entries</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.provider_schedule</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.roleaction</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.residenttype</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.admin_user</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.paymentinvoice</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.expense</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.advertisement</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.location</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.income</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.provider_employee</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.account</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.lexik_translation_file</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.apartment</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.admin_roles</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.color</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.color_translations</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.provider</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.const_company</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.causetype</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.lexik_trans_unit_translations</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.expenseinvoice</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.payment</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.abssenceday</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.tower</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.brand</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.userrole</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.bank</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.action</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.income_invoice</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.vehicle</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.resident</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.employee</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.architect</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.ext_translations</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.employee_tower</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.parking</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.employee_schedule</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.cause</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.tower_advertisement</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.company</node>
+            <node x="" y="">a021f4b3-2721-4ba6-8745-b64b5694c721.table:appcore.employee_vacation</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.43101330603889454" x="1944.0" y="1408.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Columns</Category>
+            <Category>Key columns</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/actiongrid.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8117155" vertical-offset="2366" max-vertical-offset="2916">
+          <caret line="153" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8533605" vertical-offset="121" max-vertical-offset="684">
+          <caret line="30" column="14" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#12#35#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8533605" vertical-offset="103" max-vertical-offset="666">
+          <caret line="29" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="e#12#35#0#Twig" expanded="false" />
           </folding>
@@ -483,97 +690,205 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.333333" vertical-offset="0" max-vertical-offset="1188">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.62343097" vertical-offset="638" max-vertical-offset="1188">
+          <caret line="52" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="59" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Entity/Action.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.185185" vertical-offset="508" max-vertical-offset="4104">
+          <caret line="43" column="21" selection-start-line="40" selection-start-column="4" selection-end-line="46" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/sysparamgrid.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="2916">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Security/inicio.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.6296296" vertical-offset="1916" max-vertical-offset="2448">
+          <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
           <folding>
             <element signature="e#12#35#0#Twig" expanded="false" />
+            <element signature="e#317#328#0#Twig" expanded="false" />
+            <element signature="e#537#546#0#Twig" expanded="false" />
+            <element signature="e#747#760#0#Twig" expanded="false" />
+            <element signature="e#974#986#0#Twig" expanded="false" />
+            <element signature="e#1192#1204#0#Twig" expanded="false" />
+            <element signature="e#1412#1428#0#Twig" expanded="false" />
+            <element signature="e#1820#1829#0#Twig" expanded="false" />
+            <element signature="e#2029#2040#0#Twig" expanded="false" />
+            <element signature="e#2243#2251#0#Twig" expanded="false" />
+            <element signature="e#2450#2461#0#Twig" expanded="false" />
+            <element signature="e#2664#2674#0#Twig" expanded="false" />
+            <element signature="e#2877#2888#0#Twig" expanded="false" />
+            <element signature="e#3089#3102#0#Twig" expanded="false" />
+            <element signature="e#3522#3535#0#Twig" expanded="false" />
+            <element signature="e#3743#3754#0#Twig" expanded="false" />
+            <element signature="e#3955#3966#0#Twig" expanded="false" />
+            <element signature="e#4178#4190#0#Twig" expanded="false" />
+            <element signature="e#4532#4541#0#Twig" expanded="false" />
+            <element signature="e#4738#4746#0#Twig" expanded="false" />
+            <element signature="e#4943#4953#0#Twig" expanded="false" />
+            <element signature="e#5149#5171#0#Twig" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/actiongrid.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/config/validation.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8362069" vertical-offset="242" max-vertical-offset="2916">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="922" max-vertical-offset="1494">
+          <caret line="77" column="42" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
           <folding>
-            <element signature="e#12#35#0#Twig" expanded="false" />
+            <marker date="1420836100367" expanded="true" signature="-1:-1" placeholder="Login\LoginBundle\Entity\Roleaction:" />
+            <marker date="1420836100367" expanded="true" signature="-1:-1" placeholder="constraints:" />
+            <marker date="1420836100367" expanded="true" signature="-1:-1" placeholder="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:" />
+            <marker date="1420836100367" expanded="true" signature="-1:-1" placeholder="properties:" />
+            <marker date="1420836100367" expanded="true" signature="-1:-1" placeholder="NotBlank:" />
+            <marker date="1420836100367" expanded="true" signature="-1:-1" placeholder="fields:" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Form/ActionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3333335" vertical-offset="162" max-vertical-offset="954">
+          <caret line="22" column="19" selection-start-line="17" selection-start-column="12" selection-end-line="26" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Form/SysparamType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.0" vertical-offset="0" max-vertical-offset="1026">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Controller/ActionController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.456621" vertical-offset="2086" max-vertical-offset="6192">
-          <caret line="127" column="83" selection-start-line="127" selection-start-column="83" selection-end-line="127" selection-end-column="83" />
+        <state vertical-scroll-proportion="-1.8828452" vertical-offset="4590" max-vertical-offset="6192">
+          <caret line="205" column="72" selection-start-line="205" selection-start-column="72" selection-end-line="205" selection-end-column="72" />
           <folding>
-            <element signature="e#48#93#0#PHP" expanded="false" />
-            <element signature="e#1933#1945#1#PHP" expanded="false" />
-            <element signature="e#6020#6032#1#PHP" expanded="false" />
-            <element signature="e#10209#10222#0#PHP" expanded="false" />
-            <element signature="e#10338#10350#1#PHP" expanded="false" />
+            <element signature="e#48#93#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/AccountController.php">
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/validatesysparam.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.413793" vertical-offset="5076" max-vertical-offset="5886">
-          <caret line="306" column="153" selection-start-line="306" selection-start-column="107" selection-end-line="306" selection-end-column="162" />
-          <folding>
-            <element signature="e#2001#2015#0#PHP" expanded="true" />
-            <element signature="e#10375#10389#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Account/accountgrid.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15757576" vertical-offset="570" max-vertical-offset="3042">
-          <caret line="36" column="12" selection-start-line="36" selection-start-column="7" selection-end-line="40" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.37656903" vertical-offset="0" max-vertical-offset="478">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Resources/views/Edition/Translationgrid.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Controller/SysparamController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44827586" vertical-offset="620" max-vertical-offset="3294">
-          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+        <state vertical-scroll-proportion="2.6599553" vertical-offset="2609" max-vertical-offset="6246">
+          <caret line="211" column="71" selection-start-line="211" selection-start-column="71" selection-end-line="211" selection-end-column="71" />
           <folding>
-            <element signature="e#1702#1723#0#Twig" expanded="false" />
+            <element signature="e#48#93#0#PHP" expanded="true" />
+            <element signature="e#4968#4985#0#PHP" expanded="true" />
+            <element signature="e#6103#6117#1#PHP" expanded="true" />
+            <element signature="e#7019#7033#1#PHP" expanded="true" />
+            <element signature="e#7356#7373#0#PHP" expanded="true" />
+            <element signature="e#10210#10225#0#PHP" expanded="true" />
+            <element signature="e#10321#10335#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/lexik/translation-bundle/Lexik/Bundle/TranslationBundle/Controller/EditionController.php">
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2363636" vertical-offset="4140" max-vertical-offset="6390">
-          <caret line="281" column="48" selection-start-line="281" selection-start-column="48" selection-end-line="281" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.25661916" vertical-offset="0" max-vertical-offset="774">
+          <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
           <folding>
-            <element signature="e#11189#11236#0#PHP" expanded="false" />
-            <element signature="e#12430#12454#1#PHP" expanded="false" />
+            <element signature="e#187#239#0#Twig" expanded="false" />
+            <element signature="e#421#464#0#Twig" expanded="false" />
+            <element signature="e#1008#1020#0#Twig" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Account/show.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34545454" vertical-offset="225" max-vertical-offset="1314">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="35" />
+        <state vertical-scroll-proportion="1.0733198" vertical-offset="49" max-vertical-offset="756">
+          <caret line="32" column="59" selection-start-line="32" selection-start-column="59" selection-end-line="32" selection-end-column="59" />
+          <folding>
+            <element signature="e#12#35#0#Twig" expanded="false" />
+            <element signature="e#187#239#0#Twig" expanded="false" />
+            <element signature="e#410#453#0#Twig" expanded="false" />
+            <element signature="e#947#959#0#Twig" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9246862" vertical-offset="134" max-vertical-offset="1260">
+          <caret line="32" column="58" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Controller/UserController.php">
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Action/validateaction.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2848837" vertical-offset="2222" max-vertical-offset="10026">
-          <caret line="166" column="13" selection-start-line="166" selection-start-column="13" selection-end-line="166" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.48953974" vertical-offset="0" max-vertical-offset="478">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database/scriptdataappcore.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15824176" vertical-offset="0" max-vertical-offset="38934">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database/appcore.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43516484" vertical-offset="0" max-vertical-offset="68202">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Entity/Sysparam.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.91649693" vertical-offset="54" max-vertical-offset="4662">
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding>
-            <element signature="e#14555#14578#1#PHP" expanded="true" />
-            <element signature="e#15369#15386#0#PHP" expanded="true" />
-            <element signature="e#16885#16896#1#PHP" expanded="true" />
+            <element signature="e#43#87#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

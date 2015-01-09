@@ -1,126 +1,130 @@
 {% extends '::masteradmin.html.twig' %}
 
 {% block contenido %}
-<div class="large-12 columns">
-    
-    <h2 class="titulo">{{'Inicio'|trans}}</h2>
-   
-    <hr>
-    <br>
-    <div class="large-6 columns">
- 
-        <div><h5>{{'configure.condo.title'|trans}}</h5> </div><br>
-    <a href="{{ path('companygrid') }}" class="button radius">
-        <img  src="{{ asset('images/condominio48.png') }}"/><br>
-        <b><span>{{'Condominio'|trans}}</span></b>
-    </a> 
-    <a href="{{ path('towergrid') }}" class="button radius">
-        <img  src="{{ asset('images/tower48.png') }}"/><br>
-        <b><span>{{'Torres'|trans}}</span></b>
-    </a> 
+    <div class="large-12 columns">
 
-     <a href="{{ path('apartmentgrid') }}" class="button radius">
-        <img  src="{{ asset('images/apartamentos48.png') }}"/><br>
-        <b><span>{{'Apartamentos'|trans}}</span></b>
-     </a> 
-    
-     <a href="{{ path('employeegrid') }}" class="button radius">
-        <img  src="{{ asset('images/employee48.png') }}"/><br>
-        <b><span>{{'Empleados'|trans}}</span></b>
-     </a> 
-     <a href="{{ path('providergrid') }}" class="button radius">
-        <img  src="{{ asset('images/provider48.png') }}"/><br>
-        <b><span>{{'Proveedores'|trans}}</span></b>
-     </a> 
-     <a href="{{ path('constcompanygrid') }}" class="button radius">
-        <img  src="{{ asset('images/constcompany48.png') }}"/><br>
-        <b><span>{{'Constructoras'|trans}}</span></b>
-     </a>
-    <br><br>
-    {# if app.user.hasRole('Company Admin') or app.user.hasRole('ROLE_ADMIN') #}    
-    <div><h5>{{'manage.budget.title'|trans}}</h5></div><br>
-    <a href="{{ path('causegrid') }}" class="button radius">
-        <img  src="{{ asset('images/cause48.png') }}"/><br>
-        <b><span>{{'Causas'|trans}}</span></b>
-    </a> 
-    <a href="{{ path('expensegrid') }}" class="button radius">
-        <img  src="{{ asset('images/expense48.png') }}"/><br>
-        <b><span>{{'Gastos'|trans}}</span></b>
-    </a> 
+        <h2 class="titulo">{{'Inicio'|trans}}</h2>
 
-     <a href="{{ path('bankgrid') }}" class="button radius">
-        <img  src="{{ asset('images/bank48.png') }}"/><br>
-        <b><span>{{'Bancos'|trans}}</span></b>
-    </a>
-    <a href="{{ path('accountgrid') }}" class="button radius">
-        <img  src="{{ asset('images/account48.png') }}"/><br>
-              <b><span>{{'Cuentas'|trans}}</span></b>
-    </a>
-    <a href="{{ path('incomegrid') }}" class="button radius">
-        <img  src="{{ asset('images/income48.png') }}"/><br>
-             <b><span>{{'Ingresos'|trans}}</span></b>
-    </a> 
-     <a href="{{ path('paymentgrid') }}" class="button radius">
-        <img  src="{{ asset('images/payment48.png') }}"/><br>
-              <b><span>{{'Pagos'|trans}}</span></b>
-    </a> 
-     <a href="{{ path('statementview') }}" class="button radius">
-        <img  src="{{ asset('images/statement.png') }}"/><br>
-              <b><span>{{'Estado de Cuenta'|trans}}</span></b>
-    </a>
-       <br>
-       <br>
-       {# endif #} 
-    <br><br>
+        <hr>
+        <br>
+        <div class="large-6 columns">
 
-     
-    </div>
-   <div class="large-6 columns">
-       <div><h5>{{'config.residents.title'|trans}}</h5> </div><br>
-    
+            <div><h5>{{'configure.condo.title'|trans}}</h5> </div><br>
+            <a href="{{ path('companygrid') }}" class="button radius">
+                <img  src="{{ asset('images/condominio48.png') }}"/><br>
+                <b><span>{{'Condominio'|trans}}</span></b>
+            </a>
+            <a href="{{ path('towergrid') }}" class="button radius">
+                <img  src="{{ asset('images/tower48.png') }}"/><br>
+                <b><span>{{'Torres'|trans}}</span></b>
+            </a>
 
-    <a href="{{ path('residentsgrid') }}" class="button radius">
-        <img  src="{{ asset('images/resident48.png') }}"/><br>
-              <b><span>{{'Residentes'|trans}}</span></b>
-    </a> 
+            <a href="{{ path('apartmentgrid') }}" class="button radius">
+                <img  src="{{ asset('images/apartamentos48.png') }}"/><br>
+                <b><span>{{'Apartamentos'|trans}}</span></b>
+            </a>
 
-     <a href="{{ path('vehiclegrid') }}" class="button radius">
-        <img  src="{{ asset('images/car48.png') }}"/><br>
-              <b><span>{{'Vehículos'|trans}}</span></b>
-    </a> 
-     <a href="{{ path('parkinggrid') }}" class="button radius">
-        <img  src="{{ asset('images/parking48.png') }}"/><br>
-              <b><span>{{'Estacionamientos'|trans}}</span></b>
-    </a> 
-    <a href="{{ path('locationgrid') }}" class="button radius">
-        <img  src="{{ asset('images/location48.png') }}"/><br>
-              <b><span>{{'Localización'|trans}}</span></b>
-    </a> 
-     
-    <br><br>  
-    
-       {% if is_granted('ROLE_ADMIN') %} 
-    <div><h5>{{'config.system.title'|trans}}</h5></div><br>
-      <a href="{{ path('userslist') }}" class="button radius">
-        <img  src="{{ asset('images/usertitle48.png') }}"/><br>
-        <b><span>{{'Usuarios  '|trans}}</span></b>
-    </a>  
+            <a href="{{ path('employeegrid') }}" class="button radius">
+                <img  src="{{ asset('images/employee48.png') }}"/><br>
+                <b><span>{{'Empleados'|trans}}</span></b>
+            </a>
+            <a href="{{ path('providergrid') }}" class="button radius">
+                <img  src="{{ asset('images/provider48.png') }}"/><br>
+                <b><span>{{'Proveedores'|trans}}</span></b>
+            </a>
+            <a href="{{ path('constcompanygrid') }}" class="button radius">
+                <img  src="{{ asset('images/constcompany48.png') }}"/><br>
+                <b><span>{{'Constructoras'|trans}}</span></b>
+            </a>
+            <br><br>
+            {# if app.user.hasRole('Company Admin') or app.user.hasRole('ROLE_ADMIN') #}
+            <div><h5>{{'manage.budget.title'|trans}}</h5></div><br>
+            <a href="{{ path('causegrid') }}" class="button radius">
+                <img  src="{{ asset('images/cause48.png') }}"/><br>
+                <b><span>{{'Causas'|trans}}</span></b>
+            </a>
+            <a href="{{ path('expensegrid') }}" class="button radius">
+                <img  src="{{ asset('images/expense48.png') }}"/><br>
+                <b><span>{{'Gastos'|trans}}</span></b>
+            </a>
 
-    <a href="{{ path('rolelist') }}" class="button radius">
-        <img  src="{{ asset('images/userroletitle.png') }}"/><br>
-              <b><span>{{'Roles'|trans}}</span>
-    </a> 
-     <a href="{{ path('actiongrid') }}" class="button radius">
-        <img  src="{{ asset('images/actions48.png') }}"/><br>
-              <b><span>{{'Acciones'|trans}}</span>
-    </a>
-      <a href="{{ path('lexik_translation_grid') }}" class="button radius">
-        <img  src="{{ asset('images/trans48.png') }}"/><br>
-              <b><span>{{'Etiquetas'|trans}}</span>
-    </a>
-    
-    {% endif %}   
-    </div>
-</div>
+            <a href="{{ path('bankgrid') }}" class="button radius">
+                <img  src="{{ asset('images/bank48.png') }}"/><br>
+                <b><span>{{'Bancos'|trans}}</span></b>
+            </a>
+            <a href="{{ path('accountgrid') }}" class="button radius">
+                <img  src="{{ asset('images/account48.png') }}"/><br>
+                <b><span>{{'Cuentas'|trans}}</span></b>
+            </a>
+            <a href="{{ path('incomegrid') }}" class="button radius">
+                <img  src="{{ asset('images/income48.png') }}"/><br>
+                <b><span>{{'Ingresos'|trans}}</span></b>
+            </a>
+            <a href="{{ path('paymentgrid') }}" class="button radius">
+                <img  src="{{ asset('images/payment48.png') }}"/><br>
+                <b><span>{{'Pagos'|trans}}</span></b>
+            </a>
+            <a href="{{ path('statementview') }}" class="button radius">
+                <img  src="{{ asset('images/statement.png') }}"/><br>
+                <b><span>{{'Estado de Cuenta'|trans}}</span></b>
+            </a>
+            <br>
+            <br>
+            {# endif #}
+            <br><br>
+
+
+        </div>
+        <div class="large-6 columns">
+            <div><h5>{{'config.residents.title'|trans}}</h5> </div><br>
+
+
+            <a href="{{ path('residentsgrid') }}" class="button radius">
+                <img  src="{{ asset('images/resident48.png') }}"/><br>
+                <b><span>{{'Residentes'|trans}}</span></b>
+            </a>
+
+            <a href="{{ path('vehiclegrid') }}" class="button radius">
+                <img  src="{{ asset('images/car48.png') }}"/><br>
+                <b><span>{{'Vehículos'|trans}}</span></b>
+            </a>
+            <a href="{{ path('parkinggrid') }}" class="button radius">
+                <img  src="{{ asset('images/parking48.png') }}"/><br>
+                <b><span>{{'Estacionamientos'|trans}}</span></b>
+            </a>
+            <a href="{{ path('locationgrid') }}" class="button radius">
+                <img  src="{{ asset('images/location48.png') }}"/><br>
+                <b><span>{{'Localización'|trans}}</span></b>
+            </a>
+
+            <br><br>
+
+   {% if is_granted('ROLE_ADMIN') %}
+        <div>
+          <h5>{{'config.system.title'|trans}}</h5></div><br>
+          <a href="{{ path('userslist') }}" class="button radius">
+            <img  src="{{ asset('images/usertitle48.png') }}"/><br>
+            <b><span>{{'Usuarios  '|trans}}</span></b>
+          </a>
+
+          <a href="{{ path('rolelist') }}" class="button radius">
+              <img  src="{{ asset('images/userroletitle.png') }}"/><br>
+              <b><span>{{'Roles'|trans}}</span></b>
+          </a>
+          <a href="{{ path('actiongrid') }}" class="button radius">
+              <img  src="{{ asset('images/actions48.png') }}"/><br>
+              <b><span>{{'Acciones'|trans}}</span></b>
+          </a>
+          <a href="{{ path('lexik_translation_grid') }}" class="button radius">
+              <img  src="{{ asset('images/trans48.png') }}"/><br>
+              <b><span>{{'Etiquetas'|trans}}</span></b>
+          </a>
+           <a href="{{ path('sysparamgrid') }}" class="button radius">
+               <img  src="{{ asset('images/param48.png') }}"/><br>
+               <b><span>{{'Parámetros'|trans}}</span></b>
+           </a>
+   {% endif %}
+        </div>
+   </div>
 
 {% endblock %}

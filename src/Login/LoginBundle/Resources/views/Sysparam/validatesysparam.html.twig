@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    $(function() {
+        $("#form").validate({
+            rules: {"login_loginbundle_sysparam[name]":{required:true},
+                    "login_loginbundle_sysparam[value]":{required:true}},
+            messages: {"login_loginbundle_sysparam[name]":{required:"{{'sysparam.name.validate'|trans}}"},
+            "login_loginbundle_sysparam[value]":{required:"{{'sysparam.value.validate'|trans}}"}},
+
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+
+    });
+</script>

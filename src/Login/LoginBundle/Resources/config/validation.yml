@@ -62,3 +62,17 @@ Login\LoginBundle\Entity\Roleaction:
             fields: [roleid,actionid]
             errorPath: actionid
             message: "validate.exist.actionrole"
+
+Login\LoginBundle\Entity\Sysparam:
+    properties:
+        name:
+            - NotBlank:
+               message: "validate.sysparam.name"
+        value:
+            - NotBlank:
+               message: "validate.sysparam.value"
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            errorPath: name
+            message: "validate.exist.name"
