@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Reservation list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Reservename</th>
+                <th>Reason</th>
+                <th>Hourfrom</th>
+                <th>Hourto</th>
+                <th>Createdate</th>
+                <th>Modifydate</th>
+                <th>Createuser</th>
+                <th>Modifyuser</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('reservation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.reservename }}</td>
+                <td>{{ entity.reason }}</td>
+                <td>{{ entity.hourfrom }}</td>
+                <td>{{ entity.hourto }}</td>
+                <td>{% if entity.createdate %}{{ entity.createdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.modifydate %}{{ entity.modifydate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.createuser }}</td>
+                <td>{{ entity.modifyuser }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('reservation_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('reservation_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('reservation_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

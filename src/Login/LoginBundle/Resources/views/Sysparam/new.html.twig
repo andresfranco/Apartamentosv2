@@ -10,6 +10,11 @@
     {{ form_start(form) }}
     {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
     <div>
+        {{ form_label(form.multiparamid) }}
+        {{ form_widget(form.multiparamid)}}
+        {{ form_errors(form.multiparamid) }}
+    </div>
+    <div>
         {{ form_label(form.name) }}
         {{ form_widget(form.name)}}
         {{ form_errors(form.name) }}

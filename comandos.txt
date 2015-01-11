@@ -77,15 +77,15 @@ php app/console doctrine:generate:entities LoginLoginBundle
 php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation
 php app/console doctrine:generate:entities ApartamentosApartamentosBundle
 ------crear una sola entidad----------------------------------------------
-php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation --filter="Expenseinvoice"
-php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Expenseinvoice
+php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation --filter="Reservation"
+php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Reservation
 
 php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation --filter="Paymentmethod"
 php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Paymentmethod
 
 
-php app/console doctrine:mapping:import LoginLoginBundle  annotation --filter="Parameters"
-php app/console doctrine:generate:entities LoginLoginBundle:Parameters
+php app/console doctrine:mapping:import LoginLoginBundle  annotation --filter="Multiparam"
+php app/console doctrine:generate:entities LoginLoginBundle:Multiparam
 
 
 ----------------------------------------------------------------------------
@@ -103,9 +103,9 @@ php app/console generate:doctrine:crud --entity=AcmeBlogBundle:Post --format=ann
 
 php app/console generate:doctrine:crud --entity=ApartamentosApartamentosBundle:Income --format=annotation --with-write 
 
-php app/console generate:doctrine:crud --entity=ApartamentosApartamentosBundle:Paymentmethod --format=annotation --with-write
+php app/console generate:doctrine:crud --entity=ApartamentosApartamentosBundle:Reservation --format=annotation --with-write
 
-php app/console generate:doctrine:crud --entity=LoginLoginBundle:Roleaction --format=annotation --with-write
+php app/console generate:doctrine:crud --entity=LoginLoginBundle:Sysparam --format=annotation --with-write
 
 ----limpiar cache----
 php app/console cache:clear

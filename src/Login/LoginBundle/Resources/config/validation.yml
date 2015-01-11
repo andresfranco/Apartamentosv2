@@ -65,6 +65,9 @@ Login\LoginBundle\Entity\Roleaction:
 
 Login\LoginBundle\Entity\Sysparam:
     properties:
+        multiparamid:
+            - NotBlank:
+               message: "validate.sysparam.multiparamid"
         name:
             - NotBlank:
                message: "validate.sysparam.name"

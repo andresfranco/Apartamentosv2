@@ -15,6 +15,11 @@ class SysparamType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('multiparamid',"text", array(
+                "label"=>"Identificador",
+                "required"=>false,
+                'attr'=>array("maxlength"=>'45')
+            ))
             ->add('name',"text", array(
                 "label"=>"nombre",
                 "required"=>false,

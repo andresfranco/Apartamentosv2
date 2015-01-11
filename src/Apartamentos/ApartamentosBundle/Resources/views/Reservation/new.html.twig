@@ -1,0 +1,61 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+{#{% include 'ApartamentosApartamentosBundle:Reservation:validatereservation.html.twig' %}#}
+    {% include 'ApartamentosApartamentosBundle:Reservation:reservationajaxscript.html.twig' %}
+{% endblock %}
+{% block contenido %}
+
+    <h2 class="titulo">{{'Nueva Reservación'|trans}}</h2>
+    <hr>
+
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(form.companyid) }}
+        {{ form_widget(form.companyid)}}
+        {{ form_errors(form.companyid) }}
+    </div><br>
+    <div>
+        {{ form_label(form.towerid) }}
+        {{ form_widget(form.towerid)}}
+        {{ form_errors(form.towerid) }}
+    </div><br>
+    <div>
+        {{ form_label(form.apartmentid) }}
+        {{ form_widget(form.apartmentid)}}
+        {{ form_errors(form.apartmentid) }}
+    </div><br>
+    <div>
+        {{ form_label(form.reservename) }}
+        {{ form_widget(form.reservename)}}
+        {{ form_errors(form.reservename) }}
+    </div>
+    <div>
+        {{ form_label(form.reason) }}
+        {{ form_widget(form.reason)}}
+        {{ form_errors(form.reason) }}
+    </div>
+    <div>
+        {{ form_label(form.hourfrom) }}
+        {{ form_widget(form.hourfrom)}}
+        {{ form_errors(form.hourfrom) }}
+    </div>
+    <div>
+        {{ form_label(form.hourto) }}
+        {{ form_widget(form.hourto)}}
+        {{ form_errors(form.hourto) }}
+    </div>
+    <br><br>
+
+    {{ form_end(form) }}
+
+    <div style="display:table-row;">
+        <a href="{{ path('reservationgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/reservation48.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Reservaciones'|trans}}</span></a>
+
+    </div>
+
+
+{% endblock %}

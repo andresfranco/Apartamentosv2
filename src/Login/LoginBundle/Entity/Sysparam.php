@@ -1,13 +1,13 @@
 <?php
 
 namespace Login\LoginBundle\Entity;
-use APY\DataGridBundle\Grid\Mapping as GRID;
-use Doctrine\ORM\Mapping as ORM;
 
+use Doctrine\ORM\Mapping as ORM;
+use APY\DataGridBundle\Grid\Mapping as GRID;
 /**
  * Sysparam
  *
- * @ORM\Table(name="sysparam")
+ * @ORM\Table(name="sysparam", indexes={@ORM\Index(name="fk_sysparam_Parammultiple1_idx", columns={"multiparamid"})})
  * @ORM\Entity
  */
 class Sysparam
@@ -41,19 +41,10 @@ class Sysparam
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=45, nullable=true)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      * @GRID\Column(title="Descripción")
      */
     private $description;
-
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="createdate", type="datetime", nullable=false)
-     * @GRID\Column(title="Create Date",filterable=false)
-     */
-    private $createdate;
 
     /**
      * @var string
@@ -64,20 +55,39 @@ class Sysparam
     private $createuser;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="modifydate", type="datetime", nullable=false)
-     * @GRID\Column(title="Modify Date",filterable=false)
-     */
-    private $modifydate;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="modifyuser", type="string", length=45, nullable=true)
      * @GRID\Column(filterable=false)
      */
     private $modifyuser;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdate", type="datetime", nullable=true)
+     * @GRID\Column(filterable=false)
+     */
+    private $createdate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="modifydate", type="datetime", nullable=true)
+     * @GRID\Column(filterable=false)
+     */
+    private $modifydate;
+
+    /**
+     * @var \Multiparam
+     *
+     * @ORM\ManyToOne(targetEntity="Multiparam")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="multiparamid", referencedColumnName="idparam")
+     * })
+     * @GRID\Column(title="Identificador")
+     */
+    private $multiparamid;
 
 
 
@@ -159,6 +169,53 @@ class Sysparam
     {
         return $this->description;
     }
+
+    /**
+     * Set createuser
+     *
+     * @param string $createuser
+     * @return Sysparam
+     */
+    public function setCreateuser($createuser)
+    {
+        $this->createuser = $createuser;
+
+        return $this;
+    }
+
+    /**
+     * Get createuser
+     *
+     * @return string 
+     */
+    public function getCreateuser()
+    {
+        return $this->createuser;
+    }
+
+    /**
+     * Set modifyuser
+     *
+     * @param string $modifyuser
+     * @return Sysparam
+     */
+    public function setModifyuser($modifyuser)
+    {
+        $this->modifyuser = $modifyuser;
+
+        return $this;
+    }
+
+    /**
+     * Get modifyuser
+     *
+     * @return string 
+     */
+    public function getModifyuser()
+    {
+        return $this->modifyuser;
+    }
+
     /**
      * Set createdate
      *
@@ -175,7 +232,7 @@ class Sysparam
     /**
      * Get createdate
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getCreatedate()
     {
@@ -198,7 +255,7 @@ class Sysparam
     /**
      * Get modifydate
      *
-     * @return \DateTime
+     * @return \DateTime 
      */
     public function getModifydate()
     {
@@ -206,48 +263,25 @@ class Sysparam
     }
 
     /**
-     * Set createuser
+     * Set multiparamid
      *
-     * @param string $createuser
+     * @param \Login\LoginBundle\Entity\Multiparam $multiparamid
      * @return Sysparam
      */
-    public function setCreateuser($createuser)
+    public function setMultiparamid(\Login\LoginBundle\Entity\Multiparam $multiparamid = null)
     {
-        $this->createuser = $createuser;
+        $this->multiparamid = $multiparamid;
 
         return $this;
     }
 
     /**
-     * Get createuser
+     * Get multiparamid
      *
-     * @return string
+     * @return \Login\LoginBundle\Entity\Multiparam 
      */
-    public function getCreateuser()
+    public function getMultiparamid()
     {
-        return $this->createuser;
+        return $this->multiparamid;
     }
-    /**
-     * Set modifyuser
-     *
-     * @param string $modifyuser
-     * @return Sysparam
-     */
-    public function setModifyuser($modifyuser)
-    {
-        $this->modifyuser = $modifyuser;
-
-        return $this;
-    }
-
-    /**
-     * Get modifyuser
-     *
-     * @return string
-     */
-    public function getModifyuser()
-    {
-        return $this->modifyuser;
-    }
-
 }

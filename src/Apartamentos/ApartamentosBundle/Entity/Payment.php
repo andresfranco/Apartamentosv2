@@ -273,7 +273,7 @@ class Payment
     }
 
     /**
-     * Get apartmentid
+     * Get towerid
      
      */
     public function getTowerid()
