@@ -4,6 +4,7 @@ namespace Login\LoginBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use APY\DataGridBundle\Grid\Mapping as GRID;
+
 /**
  * Sysparam
  *
@@ -49,7 +50,7 @@ class Sysparam
     /**
      * @var string
      *
-     * @ORM\Column(name="createuser", type="string", length=45, nullable=true)
+     * @ORM\Column(name="createuser", type="string", length=45, nullable=false)
      * @GRID\Column(filterable=false)
      */
     private $createuser;
@@ -57,7 +58,7 @@ class Sysparam
     /**
      * @var string
      *
-     * @ORM\Column(name="modifyuser", type="string", length=45, nullable=true)
+     * @ORM\Column(name="modifyuser", type="string", length=45, nullable=false)
      * @GRID\Column(filterable=false)
      */
     private $modifyuser;
@@ -65,7 +66,7 @@ class Sysparam
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdate", type="datetime", nullable=true)
+     * @ORM\Column(name="createdate", type="datetime", nullable=false)
      * @GRID\Column(filterable=false)
      */
     private $createdate;
@@ -73,21 +74,10 @@ class Sysparam
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="modifydate", type="datetime", nullable=true)
+     * @ORM\Column(name="modifydate", type="datetime", nullable=false)
      * @GRID\Column(filterable=false)
      */
     private $modifydate;
-
-    /**
-     * @var \Multiparam
-     *
-     * @ORM\ManyToOne(targetEntity="Multiparam")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="multiparamid", referencedColumnName="idparam")
-     * })
-     * @GRID\Column(title="Identificador")
-     */
-    private $multiparamid;
 
 
 
@@ -262,26 +252,5 @@ class Sysparam
         return $this->modifydate;
     }
 
-    /**
-     * Set multiparamid
-     *
-     * @param \Login\LoginBundle\Entity\Multiparam $multiparamid
-     * @return Sysparam
-     */
-    public function setMultiparamid(\Login\LoginBundle\Entity\Multiparam $multiparamid = null)
-    {
-        $this->multiparamid = $multiparamid;
 
-        return $this;
-    }
-
-    /**
-     * Get multiparamid
-     *
-     * @return \Login\LoginBundle\Entity\Multiparam 
-     */
-    public function getMultiparamid()
-    {
-        return $this->multiparamid;
-    }
 }

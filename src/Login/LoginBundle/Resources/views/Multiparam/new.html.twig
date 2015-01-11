@@ -1,0 +1,38 @@
+{% extends '::masteradmin.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+    {% include 'LoginLoginBundle:Multiparam:validatemultiparam.html.twig' %}
+{% endblock %}
+{% block contenido %}
+    <h2 class="titulo">{{'Nuevo Parámetro multiple'|trans }}</h2>
+    <hr>
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(form.sysparamid) }}
+        {{ form_widget(form.sysparamid)}}
+        {{ form_errors(form.sysparamid) }}
+    </div>
+
+    <div>
+        {{ form_label(form.value) }}
+        {{ form_widget(form.value)}}
+        {{ form_errors(form.value) }}
+    </div>
+    <div>
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description)}}
+        {{ form_errors(form.description) }}
+    </div>
+
+    {{ form_end(form) }}
+    <div>
+        <br>
+        <a href="{{ path('multiparamgrid',{ 'sysparamid':app.request.get('sysparamid')}) }}" class="button radius">
+            <img  src="{{ asset('images/back24.png') }}"/>
+            <span>{{'Parámetros multiples'|trans}}</span>
+        </a>
+    </div>
+{% endblock %}
+

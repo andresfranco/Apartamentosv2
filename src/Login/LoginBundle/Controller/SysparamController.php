@@ -2,6 +2,7 @@
 
 namespace Login\LoginBundle\Controller;
 
+use Login\LoginBundle\Entity\Multiparam;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -52,11 +53,13 @@ class SysparamController extends Controller
     public function createAction(Request $request)
     {
         $entity = new Sysparam();
+
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             // Save Audit date and users
+
             $entity=$this->get('globalfunctions')->Audit($entity,'ins');
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);

@@ -65,9 +65,7 @@ Login\LoginBundle\Entity\Roleaction:
 
 Login\LoginBundle\Entity\Sysparam:
     properties:
-        multiparamid:
-            - NotBlank:
-               message: "validate.sysparam.multiparamid"
+
         name:
             - NotBlank:
                message: "validate.sysparam.name"
@@ -79,3 +77,18 @@ Login\LoginBundle\Entity\Sysparam:
             fields: [name]
             errorPath: name
             message: "validate.exist.name"
+
+Login\LoginBundle\Entity\Multiparam:
+    properties:
+
+        sysparamid:
+            - NotBlank:
+               message: "validate.multiparam.sysparamid"
+        value:
+            - NotBlank:
+               message: "validate.multiparam.value"
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [sysparamid,value]
+            errorPath: name
+            message: "validate.exist.multiparam"
