@@ -18,7 +18,7 @@
                 <td>
                     <a href="#" data-reveal-id="myNormal" class="button radius">
                         <img  src="{{ asset('images/delete32.png') }}"/>
-                        <span>{{'Eliminar Parámetro multiple'|trans}}</span>
+                        <span>{{'Eliminar parámetro multiple'|trans}}</span>
                     </a>
                 </td>
             {% endif %}
@@ -27,7 +27,7 @@
     <table class="record_properties">
         <tr>
             <td class="titulocampo">{{'Identificador'|trans}}</td>
-            <td>{{ entity.sysparamid}}</td>
+            <td>{{ entity.sysparamid.name}}</td>
         </tr>
 
         <tr>
@@ -45,7 +45,7 @@
         <br><br>
         <table class="dialogo">
             <tr>
-                <td><a class="radius button" href="{{ path('action_deletemultiparam', { 'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
+                <td><a class="radius button" href="{{ path('action_deletemultiparam', { 'sysparamid':entity.sysparamid.id,'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
                 <td><a id ="cancelar" class="radius button" href="#">{{'Cancelar'|trans}}</a></td>
             </tr>
         </table>
@@ -58,7 +58,7 @@
         });
         {% endblock %}
     </script>
-    <a href="{{ path('multiparamgrid') }}" class="button radius">
+    <a href="{{ path('multiparamgrid',{'sysparamid':entity.sysparamid.id}) }}" class="button radius">
         <img  src="{{ asset('images/back24.png') }}"/>
         <span>{{'Parámetros multiples'|trans}}</span>
     </a>

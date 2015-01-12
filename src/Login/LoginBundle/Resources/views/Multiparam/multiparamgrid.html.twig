@@ -1,7 +1,7 @@
 {% extends '::masteradmin.html.twig' %}
 {% block contenido %}
     <img style="float:left;" src="{{ asset('images/param48.png') }}"/>
-    <h2 class="titulo">{{'Parámetros multiples'|trans}}</h2>
+    <h2 class="titulo">{{'Parámetros multiples'|trans}}{{ ' ' }}{{ entity.name}}</h2>
     <hr>
     {% block grid %}
         <div class="grid">
@@ -152,4 +152,15 @@
             {% endif %}
         </div>
     {% endblock grid %}
+    <br><br><br><br>
+    <table style="border:none;">
+        <tr>
+            <td>
+                <a href="{{ path('sysparam_show',{'id':entity.id}) }}" class="button radius">
+                    <img  src="{{ asset('images/back24.png') }}"/>
+                    <span>{{'Parámetros'|trans}}</span>
+                </a>
+            </td>
+        </tr>
+    </table>
 {% endblock contenido %}

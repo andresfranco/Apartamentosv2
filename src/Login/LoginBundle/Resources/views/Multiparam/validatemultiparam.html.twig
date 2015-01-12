@@ -1,0 +1,19 @@
+<script type="text/javascript">
+    $(function() {
+        $("#form").validate({
+            rules: {"login_loginbundle_multiparam[sysparamid]":{required:true},
+                "login_loginbundle_multiparam[value]":{required:true},
+                "login_loginbundle_multiparam[description]":{required:true}
+            },
+            messages:{"login_loginbundle_multiparam[sysparamid]":{required:"{{'multiparam.sysparamid.validate'|trans}}"},
+                "login_loginbundle_multiparam[value]":{required:"{{'multiparam.value.validate'|trans}}"},
+                "login_loginbundle_multiparam[description]":"{{'multiparam.description.validate'|trans}}"},
+
+
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+
+    });
+</script>

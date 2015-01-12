@@ -1,7 +1,7 @@
 <?php
 
 namespace Apartamentos\ApartamentosBundle\Form;
-
+use Apartamentos\ApartamentosBundle\Controller\GlobalfunctionsController;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -10,6 +10,11 @@ use Apartamentos\ApartamentosBundle\Form\EventListener\AddTowerforApartmentSubsc
 
 class ReservationType extends AbstractType
 {
+    public function __construct(GlobalfunctionsController $globalfunctions)
+    {
+        $this->globalfunctions = $globalfunctions;
+    }
+
         /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -57,14 +62,14 @@ class ReservationType extends AbstractType
             ->add('hourfrom',"choice", array(
                 "label"=>"Hora desde",
                 'required' =>false,
-                'choices'   => $this->arrayhours(),
+                'choices'   => $this->arrayhours('reservehours'),
                 'empty_value' => 'Seleccione una hora',
 
             ))
             ->add('hourto',"choice", array(
                 "label"=>"Hora hasta",
                 'required' =>false,
-                'choices'   => $this->arrayhours(),
+                'choices'   => $this->arrayhours('reservehours'),
                 'empty_value' => 'Seleccione una hora',
             ))
 
@@ -89,10 +94,12 @@ class ReservationType extends AbstractType
         return 'apartamentos_apartamentosbundle_reservation';
     }
 
-    public function arrayhours()
+    public function arrayhours($name)
     {
+        $arrayhours = $this->globalfunctions->getmultipleparambyname($name);
 
-        return array(
+        return $arrayhours;
+        /*    array(
             '00:00'   => '12:00 AM',
             '00:30'   => '12:30 AM',
             '01:00'   => '1:00 AM',
@@ -142,7 +149,7 @@ class ReservationType extends AbstractType
             '23:00'   => '11:00 PM',
             '23:30'   => '11:30 PM'
 
-        );
+        );*/
 
     }
 

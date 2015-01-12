@@ -13,9 +13,9 @@ use APY\DataGridBundle\Grid\Mapping as GRID;
 class Multiparam
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="id", type="string", length=45, nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @GRID\Column(filterable=false)

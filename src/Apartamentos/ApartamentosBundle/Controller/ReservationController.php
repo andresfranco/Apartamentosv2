@@ -84,7 +84,7 @@ class ReservationController extends Controller
     */
     private function createCreateForm(Reservation $entity)
     {
-        $form = $this->createForm(new ReservationType(), $entity, array(
+        $form = $this->createForm(new ReservationType($this->get('globalfunctions')), $entity, array(
             'action' => $this->generateUrl('reservation_create'),
             'method' => 'POST',
             'attr' => array('id' => 'form')
@@ -177,7 +177,7 @@ class ReservationController extends Controller
     */
     private function createEditForm(Reservation $entity)
     {
-        $form = $this->createForm(new ReservationType(), $entity, array(
+        $form = $this->createForm(new ReservationType($this->get('globalfunctions')), $entity, array(
             'action' => $this->generateUrl('reservation_update', array('id' => $entity->getId())),
             'method' => 'PUT',
             'attr' => array('id' => 'form')

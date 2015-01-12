@@ -29,7 +29,7 @@
     {{ form_end(edit_form) }}
     <div>
         <br>
-        <a href="{{ path('multiparamgrid') }}" class="button radius">
+        <a href="{{ path('multiparamgrid',{'sysparamid':app.request.get('sysparamid')}) }}" class="button radius">
             <img  src="{{ asset('images/back24.png') }}"/>
             <span>{{'Parámetros multiples'|trans}}</span>
         </a>

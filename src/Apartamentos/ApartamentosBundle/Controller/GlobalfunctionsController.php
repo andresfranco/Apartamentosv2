@@ -81,6 +81,21 @@ class GlobalfunctionsController extends Controller{
       }
       
      return $hasaction;
-    } 
+    }
+
+    public function getmultipleparambyname($name)
+    {
+        // set doctrine
+        $em = $this->get('doctrine')->getManager()->getConnection();
+        // prepare statement
+        $sth = $em->prepare("select mp.value,mp.description from multiparam mp inner join sysparam sp on(sp.id =mp.sysparamid)where sp.name =:name");
+        $sth->bindValue('name', $name);
+        // execute and fetch
+        $sth->execute();
+        $results = $sth->fetchall();
+        unset($sth);
+        return $results;
+
+    }
     
 }

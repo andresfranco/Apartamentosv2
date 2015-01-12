@@ -188,7 +188,7 @@ class MultiparamController extends Controller
 
     {
         $sysparamid=$entity->getSysparamid()->getId();
-        $form = $this->createForm(new MultiparamType(), $entity, array(
+        $form = $this->createForm(new MultiparamType($sysparamid), $entity, array(
             'action' => $this->generateUrl('multiparam_update', array('id' => $entity->getId(),'sysparamid'=>$sysparamid)),
             'method' => 'PUT',
             'attr' => array('id' => 'form')
@@ -322,6 +322,7 @@ class MultiparamController extends Controller
             // Attach a rowAction to the Actions Column
             $editAction = new RowAction('Edit', 'multiparam_edit', false, '_self', array('class' => 'editar'));
             $editAction->setColumn('info_column_1');
+            $editAction->setRouteParameters(array('id','sysparamid' =>$sysparamid));
             $grid->addRowAction($editAction);
         }
         $showColumn = new ActionsColumn('info_column_2', '');
