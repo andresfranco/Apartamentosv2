@@ -85,6 +85,7 @@ class GlobalfunctionsController extends Controller{
 
     public function getmultipleparambyname($name)
     {
+
         // set doctrine
         $em = $this->get('doctrine')->getManager()->getConnection();
         // prepare statement
@@ -94,7 +95,42 @@ class GlobalfunctionsController extends Controller{
         $sth->execute();
         $results = $sth->fetchall();
         unset($sth);
-        return $results;
+
+        $choices = $this->convertfetchalltochoice($results);
+        return $choices;
+
+    }
+
+
+    public function convertfetchalltochoice($resularray)
+    {
+        //Define empty array
+        $choices          = [];
+        //load the fetch all results in choice array data.
+        foreach ($resularray as $result)
+        {
+            $keys = array_keys($result);
+            $choices[$result[$keys[0]]] = $result[$keys[1]];
+        }
+        return $choices;
+
+    }
+
+    public function getcausesbycausetype($causetype)
+    {
+        // set doctrine
+        $em = $this->get('doctrine')->getManager()->getConnection();
+        // prepare statement
+        $sth = $em->prepare("select c.id,c.cause from cause c inner join causetype ct on (c.causetypeid =ct.id) where ct.causetype =:causetype");
+        $sth->bindValue('causetype', $causetype);
+        // execute and fetch
+        $sth->execute();
+        $results = $sth->fetchall();
+        unset($sth);
+
+        $choices = $this->convertfetchalltochoice($results);
+        return $choices;
+
 
     }
     

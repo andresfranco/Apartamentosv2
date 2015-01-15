@@ -421,3 +421,35 @@ Apartamentos\ApartamentosBundle\Entity\Payment:
         depositor:
             - NotBlank:
                message: "depositor.validate"
+
+Apartamentos\ApartamentosBundle\Entity\Reservation:
+    properties:
+        companyid:
+            - NotBlank:
+               message: "condo.select"
+        towerid:
+            - NotBlank:
+               message: "tower.select"
+        apartmentid:
+            - NotBlank:
+               message: "apartment.select"
+        reservename:
+            - NotBlank:
+               message: "reservename.reservation.validate"
+        reason:
+            - NotBlank:
+               message: "reason.reservation.validate"
+        reservationdate:
+            - NotBlank:
+               message: "reservationdate.reservation.validate"
+        hourfrom:
+            - NotBlank:
+               message: "hourfrom.reservation.validate"
+        hourto:
+            - NotBlank:
+               message: "hourto.reservation.validate"
+    constraints:
+            - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+                fields: [reservationdate,hourfrom,hourto]
+                errorPath: reservationdate
+                message: "reservation.reservationdate.exist"

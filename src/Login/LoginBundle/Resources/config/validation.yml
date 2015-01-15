@@ -90,5 +90,5 @@ Login\LoginBundle\Entity\Multiparam:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
             fields: [sysparamid,value]
-            errorPath: name
+            errorPath: value
             message: "validate.exist.multiparam"

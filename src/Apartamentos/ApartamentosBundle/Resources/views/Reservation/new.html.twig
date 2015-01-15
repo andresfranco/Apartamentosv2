@@ -1,7 +1,13 @@
 {% extends '::masteradmin.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui-1.10.4.custom.css') }}" />
+{% endblock %}
 {% block javascripts %}
     {{ parent() }}
     <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script type="text/javascript"src="{{ asset('js/datepicker.js') }}"></script>
 {#{% include 'ApartamentosApartamentosBundle:Reservation:validatereservation.html.twig' %}#}
     {% include 'ApartamentosApartamentosBundle:Reservation:reservationajaxscript.html.twig' %}
 {% endblock %}
@@ -36,6 +42,11 @@
         {{ form_label(form.reason) }}
         {{ form_widget(form.reason)}}
         {{ form_errors(form.reason) }}
+    </div>
+    <div>
+        {{ form_label(form.reservationdate) }}
+        {{ form_widget(form.reservationdate)}}
+        {{ form_errors(form.reservationdate) }}
     </div>
     <div>
         {{ form_label(form.hourfrom) }}

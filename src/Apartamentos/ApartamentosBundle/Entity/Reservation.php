@@ -38,11 +38,18 @@ class Reservation
      * @GRID\Column(title="Motivo")
      */
     private $reason;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="reservationdate", type="date", nullable=true)
+     * @GRID\Column(title="Fecha de reserva")
+     */
+    private $reservationdate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="hourfrom", type="time", nullable=true)
+     * @ORM\Column(name="hourfrom", type="string", nullable=true)
      * @GRID\Column(title="Hora desde")
      */
     private $hourfrom;
@@ -50,7 +57,7 @@ class Reservation
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="hourto", type="time", nullable=true)
+     * @ORM\Column(name="hourto", type="string", nullable=true)
      * @GRID\Column(title="Hora hasta")
      */
     private $hourto;
@@ -135,11 +142,35 @@ class Reservation
     }
 
     /**
+     * Set reservationdate
+     *
+     * @param \DateTime $reservationdate
+     * @return Reservation
+     */
+    public function setReservationdate($reservationdate)
+    {
+        $this->reservationdate = $reservationdate;
+
+        return $this;
+    }
+
+    /**
+     * Get reservationdate
+     *
+     * @return \DateTime
+     */
+    public function getReservationdate()
+    {
+        return $this->reservationdate;
+    }
+    /**
      * Set reason
      *
      * @param string $reason
      * @return Reservation
      */
+
+
     public function setReason($reason)
     {
         $this->reason = $reason;
