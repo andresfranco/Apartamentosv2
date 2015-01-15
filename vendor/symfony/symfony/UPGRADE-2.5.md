@@ -1,6 +1,13 @@
 ﻿UPGRADE FROM 2.4 to 2.5
 =======================
 
+FrameworkBundle
+---------------
+
+* The `Symfony\Bundle\FrameworkBundle\Console\Descriptor\Descriptor::renderTable()`
+  method expects the table to be an instance of `Symfony\Component\Console\Helper\Table`
+  instead of `Symfony\Component\Console\Helper\TableHelper`.
+
 Routing
 -------
 
@@ -43,6 +50,18 @@ Form
    ```
    public function getErrors($deep = false, $flatten = true)
    {
+   ```
+
+   Before:
+
+   ```
+   {% if form.vars.errors %}
+   ```
+
+   After:
+
+   ```
+   {% if form.vars.errors|length %}
    ```
 
 PropertyAccess
@@ -97,7 +116,7 @@ Validator
 
    After:
 
-   Default email validation is now done via a simple regex which may cause invalid emails (not RFC compilant) to be
+   Default email validation is now done via a simple regex which may cause invalid emails (not RFC compliant) to be
    valid. This is the default behaviour.
 
    Strict email validation has to be explicitly activated in the configuration file by adding
@@ -114,7 +133,7 @@ Validator
    Also you have to add to your composer.json:
 
    ```
-   "egulias/email-validator": "1.1.*"
+   "egulias/email-validator": "~1.2"
    ```
 
  * `ClassMetadata::getGroupSequence()` now returns `GroupSequence` instances
