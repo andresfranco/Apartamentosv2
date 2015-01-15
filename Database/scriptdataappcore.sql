@@ -77,7 +77,23 @@ INSERT INTO `action` (`id`, `actionname`, `description`, `createuser`, `modifyus
 (72, 'Delete Residenttype', 'Permite eliminar tipos de residente', 'admin', 'admin', '2014-12-16 10:18:28', '2014-12-16 10:18:28'),
 (73, 'Create ExpenseDocument', 'Permite agregar documentos a un gasto', 'admin', 'admin', '2014-12-16 11:53:54', '2014-12-16 11:53:54'),
 (74, 'Edit ExpenseDocument', 'Permite editar los datos de los documentos de un gasto', 'admin', 'admin', '2014-12-16 11:54:24', '2014-12-16 11:54:24'),
-(75, 'Delete ExpenseDocument', 'permite eliminar documentos de un gasto', 'admin', 'admin', '2014-12-16 11:54:56', '2014-12-16 11:54:56');
+(75, 'Delete ExpenseDocument', 'permite eliminar documentos de un gasto', 'admin', 'admin', '2014-12-16 11:54:56', '2014-12-16 11:54:56'),
+(76, 'Change User Password', 'Permite cambiar la contraseña del usuario', 'admin', 'admin', '2015-01-04 17:06:23', '2015-01-04 17:06:23'),
+(77, 'Add Role Actions', 'Permite asociar acciones a un rol', 'admin', 'admin', '2015-01-04 17:16:30', '2015-01-04 17:16:30'),
+(78, 'Create Security Action', 'Permite crear acciones de seguridad', 'admin', 'admin', '2015-01-04 17:20:50', '2015-01-04 17:20:50'),
+(79, 'Edit Security Action', 'Permite editar acciones de seguridad', 'admin', 'admin', '2015-01-04 17:21:15', '2015-01-04 17:21:15'),
+(80, 'Delete Security Action', 'Permite eliminar acciones de seguridad', 'admin', 'admin', '2015-01-04 17:21:34', '2015-01-04 17:21:34'),
+(81, 'Edit Translation', 'Permite editar las traducciones del sistema', 'admin', 'admin', '2015-01-04 17:31:47', '2015-01-04 17:31:47'),
+(82, 'Delete Transaltion', 'Permite Borrar las traducciones del sistema', 'admin', 'admin', '2015-01-04 17:32:06', '2015-01-04 17:32:06'),
+(83, 'Create Sysparam', 'Permite crear parametros del sistema', 'admin', 'admin', '2015-01-09 15:27:34', '2015-01-09 15:27:34'),
+(84, 'Edit Sysparam', 'Permite editar parámetros del sistema', 'admin', 'admin', '2015-01-09 15:27:55', '2015-01-09 15:27:55'),
+(85, 'Delete Sysparam', 'Permite eliminar parámetros del sistema', 'admin', 'admin', '2015-01-09 15:28:18', '2015-01-09 15:28:18'),
+(86, 'Create Reservation', 'Permite crear reservaciones', 'admin', 'admin', '2015-01-09 19:58:00', '2015-01-09 19:58:00'),
+(87, 'Edit Reservation', 'Permite editar reservaciones', 'admin', 'admin', '2015-01-09 19:58:16', '2015-01-09 19:58:29'),
+(88, 'Delete Reservation', 'Permite eliminar reservaciones', 'admin', 'admin', '2015-01-09 19:59:01', '2015-01-09 19:59:01'),
+(89, 'Create Multiparam', 'Permite crear parametros multiples', 'admin', 'admin', '2015-01-11 13:51:17', '2015-01-11 13:51:17'),
+(90, 'Edit Multiparam', 'Permite editar parámetros con multiples valores', 'admin', 'admin', '2015-01-11 20:05:05', '2015-01-11 20:05:05'),
+(91, 'Delete Multiparam', 'Permite eliminar parámetros con multiples valores', 'admin', 'admin', '2015-01-11 20:05:36', '2015-01-11 20:05:36');
 
 
 --
@@ -152,7 +168,42 @@ INSERT INTO `roleaction` (`id`, `roleid`, `actionid`, `createuser`, `modifyuser`
 (58, 1, 51, 'admin', 'admin', '2014-12-16 11:46:39', '2014-12-16 11:46:39'),
 (59, 1, 52, 'admin', 'admin', '2014-12-16 11:51:47', '2014-12-16 11:51:47'),
 (60, 1, 53, 'admin', 'admin', '2014-12-16 11:52:01', '2014-12-16 11:52:01'),
-(61, 1, 54, 'admin', 'admin', '2014-12-16 11:52:17', '2014-12-16 11:52:17');
+(61, 1, 54, 'admin', 'admin', '2014-12-16 11:52:17', '2014-12-16 11:52:17')
+(62, 1, 61, 'admin', 'admin', '2015-01-04 14:12:57', '2015-01-04 14:12:57'),
+(63, 1, 62, 'admin', 'admin', '2015-01-04 14:13:06', '2015-01-04 14:13:06'),
+(64, 1, 63, 'admin', 'admin', '2015-01-04 14:13:27', '2015-01-04 14:13:27'),
+(65, 1, 55, 'admin', 'admin', '2015-01-04 15:37:31', '2015-01-04 15:37:31'),
+(66, 1, 57, 'admin', 'admin', '2015-01-04 15:42:50', '2015-01-04 15:42:50'),
+(67, 1, 56, 'admin', 'admin', '2015-01-04 15:46:26', '2015-01-04 15:46:26'),
+(68, 1, 64, 'admin', 'admin', '2015-01-04 15:58:47', '2015-01-04 15:58:47'),
+(69, 1, 65, 'admin', 'admin', '2015-01-04 15:58:56', '2015-01-04 15:58:56'),
+(70, 1, 66, 'admin', 'admin', '2015-01-04 15:59:06', '2015-01-04 15:59:06'),
+(71, 1, 68, 'admin', 'admin', '2015-01-04 16:15:04', '2015-01-04 16:15:04'),
+(72, 1, 69, 'admin', 'admin', '2015-01-04 16:15:13', '2015-01-04 16:15:13'),
+(73, 1, 2, 'admin', 'admin', '2015-01-04 17:05:22', '2015-01-04 17:05:22'),
+(74, 1, 3, 'admin', 'admin', '2015-01-04 17:05:26', '2015-01-04 17:05:26'),
+(75, 1, 4, 'admin', 'admin', '2015-01-04 17:05:31', '2015-01-04 17:05:31'),
+(76, 1, 76, 'admin', 'admin', '2015-01-04 17:08:54', '2015-01-04 17:08:54'),
+(77, 1, 5, 'admin', 'admin', '2015-01-04 17:19:22', '2015-01-04 17:19:22'),
+(78, 1, 6, 'admin', 'admin', '2015-01-04 17:19:26', '2015-01-04 17:19:26'),
+(79, 1, 7, 'admin', 'admin', '2015-01-04 17:19:31', '2015-01-04 17:19:31'),
+(80, 1, 77, 'admin', 'admin', '2015-01-04 17:19:39', '2015-01-04 17:19:39'),
+(81, 1, 78, 'admin', 'admin', '2015-01-04 17:29:56', '2015-01-04 17:29:56'),
+(82, 1, 79, 'admin', 'admin', '2015-01-04 17:30:04', '2015-01-04 17:30:04'),
+(83, 1, 80, 'admin', 'admin', '2015-01-04 17:30:11', '2015-01-04 17:30:11'),
+(84, 1, 8, 'admin', 'admin', '2015-01-04 17:38:37', '2015-01-04 17:38:37'),
+(85, 1, 81, 'admin', 'admin', '2015-01-04 17:38:45', '2015-01-04 17:38:45'),
+(86, 1, 82, 'admin', 'admin', '2015-01-04 17:38:57', '2015-01-04 17:38:57'),
+(87, 1, 83, 'admin', 'admin', '2015-01-09 15:28:45', '2015-01-09 15:28:45'),
+(88, 1, 84, 'admin', 'admin', '2015-01-09 16:11:13', '2015-01-09 16:11:13'),
+(89, 1, 85, 'admin', 'admin', '2015-01-09 16:19:16', '2015-01-09 16:19:16'),
+(90, 1, 86, 'admin', 'admin', '2015-01-09 20:05:03', '2015-01-09 20:05:03'),
+(91, 1, 89, 'admin', 'admin', '2015-01-11 13:51:46', '2015-01-11 13:51:46'),
+(92, 1, 90, 'admin', 'admin', '2015-01-11 20:05:51', '2015-01-11 20:05:51'),
+(93, 1, 91, 'admin', 'admin', '2015-01-11 20:05:59', '2015-01-11 20:05:59'),
+(94, 1, 73, 'admin', 'admin', '2015-01-11 20:24:51', '2015-01-11 20:24:51'),
+(95, 1, 74, 'admin', 'admin', '2015-01-11 20:25:12', '2015-01-11 20:25:12'),
+(96, 1, 75, 'admin', 'admin', '2015-01-11 20:25:20', '2015-01-11 20:25:20');
 
 --
 -- Volcado de datos para la tabla `const_company`
@@ -790,8 +841,44 @@ INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updat
 (570, 'Seleccione una Acción', 'messages', '2014-12-09 15:35:36', '2014-12-09 15:35:36'),
 (571, 'roleaction.actionid.validate', 'messages', '2014-12-09 16:25:42', '2014-12-09 16:25:42'),
 (572, 'Quitar Acción', 'messages', '2014-12-10 09:17:28', '2014-12-10 09:17:28'),
-(573, 'delete.roleaction.question', 'messages', '2014-12-10 09:20:15', '2014-12-10 09:20:15');
+(573, 'delete.roleaction.question', 'messages', '2014-12-10 09:20:15', '2014-12-10 09:20:15'),
+(574, 'Valor', 'messages', '2015-01-09 15:46:29', '2015-01-09 15:46:29'),
+(575, 'validate.sysparam.name', 'validators', '2015-01-09 15:47:48', '2015-01-09 15:48:54'),
+(576, 'validate.sysparam.value', 'validators', '2015-01-09 15:48:12', '2015-01-09 15:49:09'),
+(577, 'sysparam.name.validate', 'messages', '2015-01-09 15:55:51', '2015-01-09 15:55:51'),
+(578, 'sysparam.value.validate', 'messages', '2015-01-09 15:56:24', '2015-01-09 15:56:24'),
+(579, 'Parámetros del Sistema', 'messages', '2015-01-09 15:59:05', '2015-01-09 15:59:05'),
+(580, 'Nuevo Parámetro del sistema', 'messages', '2015-01-09 15:59:53', '2015-01-09 15:59:53'),
+(581, 'Detalle del parámetro', 'messages', '2015-01-09 16:10:42', '2015-01-09 16:10:42');
+INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updated_at`) VALUES
+(582, 'Editar Parámetro del sistema', 'messages', '2015-01-09 16:12:45', '2015-01-09 16:12:45'),
+(583, 'Eliminar Parámetro', 'messages', '2015-01-09 16:17:43', '2015-01-09 16:17:43'),
+(584, 'delete.sysparam.question', 'messages', '2015-01-09 16:18:57', '2015-01-09 16:18:57'),
+(585, 'validate.exist.name', 'validators', '2015-01-09 16:25:54', '2015-01-09 16:25:54'),
+(586, 'validate.sysparam.multiparamid', 'validators', '2015-01-10 22:05:13', '2015-01-10 22:05:13'),
+(587, 'sysparam.multiparamid.validate', 'messages', '2015-01-10 22:14:32', '2015-01-10 22:14:32'),
+(588, 'Nuevo parámetro multiple', 'messages', '2015-01-11 19:31:21', '2015-01-11 19:31:21'),
+(589, 'Parámetro', 'messages', '2015-01-11 19:31:41', '2015-01-11 19:31:41'),
+(590, 'Parámetros multiples', 'messages', '2015-01-11 19:32:34', '2015-01-11 19:32:34'),
+(591, 'Parámetros', 'messages', '2015-01-11 19:33:17', '2015-01-11 19:33:17'),
+(592, 'Seleccione un parámetro', 'messages', '2015-01-11 19:36:55', '2015-01-11 19:36:55'),
+(593, 'validate.multiparam.sysparamid', 'validators', '2015-01-11 19:38:03', '2015-01-11 19:38:03'),
+(594, 'validate.multiparam.value', 'validators', '2015-01-11 19:38:55', '2015-01-11 19:38:55'),
+(595, 'multiparam.sysparamid.validate', 'messages', '2015-01-11 19:46:25', '2015-01-11 19:46:25'),
+(596, 'multiparam.value.validate', 'messages', '2015-01-11 19:48:20', '2015-01-11 19:48:20'),
+(597, 'multiparam.description.validate', 'messages', '2015-01-11 19:48:59', '2015-01-11 19:48:59'),
+(598, 'Detalle del parámetro multiple', 'messages', '2015-01-11 20:03:31', '2015-01-11 20:03:31'),
+(599, 'Eliminar parámetro multiple', 'messages', '2015-01-11 20:41:28', '2015-01-11 20:41:45'),
+(600, 'delete.multiparam.question', 'messages', '2015-01-11 20:42:59', '2015-01-11 20:42:59'),
+(601, 'validate.exist.multiparam', 'validators', '2015-01-12 18:14:11', '2015-01-12 18:14:11'),
+(602, 'Fecha de reserva', 'messages', '2015-01-12 19:45:08', '2015-01-12 19:45:08'),
+(603, 'reservename.reservation.validate', 'validators', '2015-01-12 20:18:39', '2015-01-12 20:18:39'),
+(604, 'reason.reservation.validate', 'validators', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
+(605, 'reservationdate.reservation.validate', 'validators', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
+(606, 'hourfrom.reservation.validate', 'validators', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
+(607, 'hourto.reservation.validate', 'validators', '2015-01-12 20:24:55', '2015-01-12 20:24:55');
 
+-- --------------------------------------------------------
 -- --------------------------------------------------------
 --
 -- Volcado de datos para la tabla `lexik_trans_unit_translations`
@@ -1879,10 +1966,6 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 (1078, 5, 548, 'es', 'Débito', '2014-12-03 15:47:33', '2014-12-03 15:47:33'),
 (1079, 4, 549, 'en', 'Invoice Number', '2014-12-03 15:50:34', '2014-12-03 15:50:34'),
 (1080, 5, 549, 'es', 'Recibo', '2014-12-03 15:50:34', '2014-12-03 15:50:34');
-
---
--- Volcado de datos para la tabla `lexik_trans_unit_translations`
---
 INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `locale`, `content`, `created_at`, `updated_at`) VALUES
 (1081, 4, 550, 'en', 'Detail', '2014-12-03 15:51:52', '2014-12-03 15:51:52'),
 (1082, 5, 550, 'es', 'Detalle', '2014-12-03 15:51:52', '2014-12-03 15:51:52'),
@@ -1931,7 +2014,76 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 (1125, 4, 572, 'en', 'Remove Action', '2014-12-10 09:17:28', '2014-12-10 09:17:28'),
 (1126, 5, 572, 'es', 'Quitar Acción', '2014-12-10 09:17:28', '2014-12-10 09:17:28'),
 (1127, 4, 573, 'en', 'Are you sure you want to remove this action role', '2014-12-10 09:20:15', '2014-12-10 09:20:15'),
-(1128, 5, 573, 'es', 'Esta seguro que desea quitar esa accion del rol', '2014-12-10 09:20:15', '2014-12-10 09:20:15');
+(1128, 5, 573, 'es', 'Esta seguro que desea quitar esa accion del rol', '2014-12-10 09:20:15', '2014-12-10 09:20:15'),
+(1129, 9, 574, 'en', 'Value', '2015-01-09 15:46:29', '2015-01-09 15:46:29'),
+(1130, 10, 574, 'es', 'Valor', '2015-01-09 15:46:29', '2015-01-09 15:46:29'),
+(1131, 9, 575, 'en', 'You must enter a name', '2015-01-09 15:47:48', '2015-01-09 15:47:48'),
+(1132, 10, 575, 'es', 'Debe ingresar un nombre', '2015-01-09 15:47:48', '2015-01-09 15:47:48'),
+(1133, 9, 576, 'en', 'You must enter a value', '2015-01-09 15:48:12', '2015-01-09 15:48:12'),
+(1134, 10, 576, 'es', 'Debe ingresar un valor', '2015-01-09 15:48:12', '2015-01-09 15:48:12'),
+(1135, 9, 577, 'en', 'You must enter a name', '2015-01-09 15:55:51', '2015-01-09 15:55:51'),
+(1136, 10, 577, 'es', 'Debe ingresar un nombre', '2015-01-09 15:55:51', '2015-01-09 15:55:51'),
+(1137, 9, 578, 'en', 'You must enter a value', '2015-01-09 15:56:24', '2015-01-09 15:56:24'),
+(1138, 10, 578, 'es', 'Debe ingresar un valor', '2015-01-09 15:56:24', '2015-01-09 15:56:24'),
+(1139, 9, 579, 'en', 'System Parameters', '2015-01-09 15:59:05', '2015-01-09 15:59:05'),
+(1140, 10, 579, 'es', 'Parámetros del Sistema', '2015-01-09 15:59:05', '2015-01-09 15:59:05'),
+(1141, 9, 580, 'en', 'New System parameter', '2015-01-09 15:59:53', '2015-01-09 15:59:53'),
+(1142, 10, 580, 'es', 'Nuevo Parámetro del sistema', '2015-01-09 15:59:53', '2015-01-09 15:59:53'),
+(1143, 9, 581, 'en', 'Parameter Details', '2015-01-09 16:10:42', '2015-01-09 16:10:42'),
+(1144, 10, 581, 'es', 'Detalle del parámetro', '2015-01-09 16:10:42', '2015-01-09 16:10:42'),
+(1145, 9, 582, 'en', 'Edit System parameters', '2015-01-09 16:12:45', '2015-01-09 16:12:45'),
+(1146, 10, 582, 'es', 'Editar Parámetro del sistema', '2015-01-09 16:12:45', '2015-01-09 16:12:45'),
+(1147, 9, 583, 'en', 'Delete parameter', '2015-01-09 16:17:43', '2015-01-09 16:17:43'),
+(1148, 10, 583, 'es', 'Eliminar Parámetro', '2015-01-09 16:17:43', '2015-01-09 16:17:43'),
+(1149, 9, 584, 'en', 'Are you sure you want to delete this system parameter', '2015-01-09 16:18:57', '2015-01-09 16:18:57'),
+(1150, 10, 584, 'es', 'Esta seguro que desea eliminar este parámetro del sistema', '2015-01-09 16:18:57', '2015-01-09 16:18:57'),
+(1151, 11, 585, 'en', 'A parameter with that name already exists', '2015-01-09 16:25:54', '2015-01-09 16:25:54'),
+(1152, 12, 585, 'es', 'Ya existe un parámetro con ese nombre', '2015-01-09 16:25:54', '2015-01-09 16:25:54'),
+(1153, 11, 586, 'en', 'You must enter a key', '2015-01-10 22:05:13', '2015-01-10 22:05:13'),
+(1154, 12, 586, 'es', 'Debe ingresar un identificador', '2015-01-10 22:05:13', '2015-01-10 22:05:13'),
+(1155, 9, 587, 'en', 'You must enter a key', '2015-01-10 22:14:32', '2015-01-10 22:14:32'),
+(1156, 10, 587, 'es', 'Debe ingresar un identificador', '2015-01-10 22:14:32', '2015-01-10 22:14:32'),
+(1157, 9, 588, 'en', 'New multi parameter', '2015-01-11 19:31:21', '2015-01-11 19:31:21'),
+(1158, 10, 588, 'es', 'Nuevo parámetro multiple', '2015-01-11 19:31:21', '2015-01-11 19:31:21'),
+(1159, 9, 589, 'en', 'Parameter', '2015-01-11 19:31:41', '2015-01-11 19:31:41'),
+(1160, 10, 589, 'es', 'Parámetro', '2015-01-11 19:31:41', '2015-01-11 19:31:41'),
+(1161, 9, 590, 'en', 'Multi parameter', '2015-01-11 19:32:34', '2015-01-11 19:32:34'),
+(1162, 10, 590, 'es', 'Parámetros multiples', '2015-01-11 19:32:34', '2015-01-11 19:32:34'),
+(1163, 9, 591, 'en', 'Parameters', '2015-01-11 19:33:17', '2015-01-11 19:33:17'),
+(1164, 10, 591, 'es', 'Parámetros', '2015-01-11 19:33:17', '2015-01-11 19:33:17'),
+(1165, 9, 592, 'en', 'Select a parameter', '2015-01-11 19:36:55', '2015-01-11 19:36:55'),
+(1166, 10, 592, 'es', 'Seleccione un parámetro', '2015-01-11 19:36:55', '2015-01-11 19:36:55'),
+(1167, 11, 593, 'en', 'You must select a parameter', '2015-01-11 19:38:03', '2015-01-11 19:38:03'),
+(1168, 12, 593, 'es', 'Debe seleccionar un parámetro', '2015-01-11 19:38:03', '2015-01-11 19:38:03'),
+(1169, 11, 594, 'en', 'You must enter a value', '2015-01-11 19:38:55', '2015-01-11 19:38:55'),
+(1170, 12, 594, 'es', 'Debe ingresar un valor', '2015-01-11 19:38:55', '2015-01-11 19:38:55'),
+(1171, 9, 595, 'en', 'You must select a parameter', '2015-01-11 19:46:25', '2015-01-11 19:46:25'),
+(1172, 10, 595, 'es', 'Debe seleccionar un parámetro', '2015-01-11 19:46:25', '2015-01-11 19:46:25'),
+(1173, 9, 596, 'en', 'You must enter a value', '2015-01-11 19:48:20', '2015-01-11 19:48:20'),
+(1174, 10, 596, 'es', 'Debe ingresar un valor', '2015-01-11 19:48:20', '2015-01-11 19:48:20'),
+(1175, 9, 597, 'en', 'You must enter a description', '2015-01-11 19:48:59', '2015-01-11 19:48:59'),
+(1176, 10, 597, 'es', 'Debe ingresar una descripción', '2015-01-11 19:48:59', '2015-01-11 19:48:59'),
+(1177, 9, 598, 'en', 'Multi param detail', '2015-01-11 20:03:31', '2015-01-11 20:03:31'),
+(1178, 10, 598, 'es', 'Detalle del parámetro multiple', '2015-01-11 20:03:31', '2015-01-11 20:03:31'),
+(1179, 9, 599, 'en', 'Delete multi parameter', '2015-01-11 20:41:28', '2015-01-11 20:41:44'),
+(1180, 10, 599, 'es', 'Eliminar parámetro multiple', '2015-01-11 20:41:28', '2015-01-11 20:41:28'),
+(1181, 9, 600, 'en', 'Are you sure you want to delete this multi parameter', '2015-01-11 20:42:59', '2015-01-11 20:42:59'),
+(1182, 10, 600, 'es', 'Esta seguro que desea eliminar este parametro multiple', '2015-01-11 20:42:59', '2015-01-11 20:42:59'),
+(1183, 11, 601, 'en', 'A multiple parameter already exists with the value for the selected identifier', '2015-01-12 18:14:11', '2015-01-12 18:14:11'),
+(1184, 12, 601, 'es', 'Ya existe un parametro múltiple con ese valor para el identificador seleccionado', '2015-01-12 18:14:11', '2015-01-12 18:14:11'),
+(1185, 9, 602, 'en', 'Reservation date', '2015-01-12 19:45:08', '2015-01-12 19:45:08'),
+(1186, 10, 602, 'es', 'Fecha de reserva', '2015-01-12 19:45:08', '2015-01-12 19:45:08'),
+(1187, 11, 603, 'en', 'You must enter a reservation name', '2015-01-12 20:18:39', '2015-01-12 20:18:39'),
+(1188, 12, 603, 'es', 'Debe ingresar un nombre de reserva', '2015-01-12 20:18:39', '2015-01-12 20:18:39'),
+(1189, 11, 604, 'en', 'You must enter a reservation reason', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
+(1190, 12, 604, 'es', 'Debe seleccionar un motivo de reserva', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
+(1191, 11, 605, 'en', 'You must enter a reservation date', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
+(1192, 12, 605, 'es', 'Debe ingresar una fecha de reserva', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
+(1193, 11, 606, 'en', 'You must select an hour from', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
+(1194, 12, 606, 'es', 'Debe seleccionar una hora desde', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
+(1195, 11, 607, 'en', 'You must select an hour to', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
+(1196, 12, 607, 'es', 'Debe seleccionar una hora hasta', '2015-01-12 20:24:55', '2015-01-12 20:24:55');
+
 
 -- --------------------------------------------------------
 --3- Data de las demas tablas
@@ -2065,7 +2217,8 @@ INSERT INTO `parking` (`id`, `number`, `type`, `apartmentid`, `locationid`, `cre
 INSERT INTO `causetype` (`id`, `causetype`, `causetypecol`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (1, 'Gastos', NULL, NULL, 'admin', NULL, '2014-11-25 11:47:44'),
 (2, 'Ingresos', NULL, NULL, NULL, NULL, NULL),
-(3, 'Otro', NULL, 'admin', 'admin', '2014-11-25 11:43:28', '2014-11-25 11:43:28');
+(3, 'Otro', NULL, 'admin', 'admin', '2014-11-25 11:43:28', '2014-11-25 11:43:28'),
+(4, 'Reserva', NULL, 'admin', 'admin', '2015-01-12 18:26:49', '2015-01-12 18:26:49');
 
 -- --------------------------------------------------------
 --
@@ -2075,7 +2228,8 @@ INSERT INTO `causetype` (`id`, `causetype`, `causetypecol`, `createuser`, `modif
 INSERT INTO `cause` (`id`, `cause`, `causetypeid`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (2, 'Pago a Proveedor', 1, NULL, 'admin', NULL, '2014-11-25 11:50:08'),
 (3, 'Pago de multa', 2, NULL, NULL, NULL, NULL),
-(4, 'Otro', 2, 'admin', 'admin', '2014-11-25 11:49:40', '2014-11-25 11:49:40');
+(4, 'Otro', 2, 'admin', 'admin', '2014-11-25 11:49:40', '2014-11-25 11:49:40'),
+(5, 'Reserva de area social', 4, 'admin', 'admin', '2015-01-12 18:29:17', '2015-01-12 18:29:17');
 
 --
 -- Volcado de datos para la tabla `bank`

@@ -3,12 +3,13 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-01-2015 a las 22:36:36
+-- Tiempo de generación: 15-01-2015 a las 02:36:23
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -176,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `action` (
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `action`
@@ -266,7 +267,13 @@ INSERT INTO `action` (`id`, `actionname`, `description`, `createuser`, `modifyus
 (82, 'Delete Transaltion', 'Permite Borrar las traducciones del sistema', 'admin', 'admin', '2015-01-04 17:32:06', '2015-01-04 17:32:06'),
 (83, 'Create Sysparam', 'Permite crear parametros del sistema', 'admin', 'admin', '2015-01-09 15:27:34', '2015-01-09 15:27:34'),
 (84, 'Edit Sysparam', 'Permite editar parámetros del sistema', 'admin', 'admin', '2015-01-09 15:27:55', '2015-01-09 15:27:55'),
-(85, 'Delete Sysparam', 'Permite eliminar parámetros del sistema', 'admin', 'admin', '2015-01-09 15:28:18', '2015-01-09 15:28:18');
+(85, 'Delete Sysparam', 'Permite eliminar parámetros del sistema', 'admin', 'admin', '2015-01-09 15:28:18', '2015-01-09 15:28:18'),
+(86, 'Create Reservation', 'Permite crear reservaciones', 'admin', 'admin', '2015-01-09 19:58:00', '2015-01-09 19:58:00'),
+(87, 'Edit Reservation', 'Permite editar reservaciones', 'admin', 'admin', '2015-01-09 19:58:16', '2015-01-09 19:58:29'),
+(88, 'Delete Reservation', 'Permite eliminar reservaciones', 'admin', 'admin', '2015-01-09 19:59:01', '2015-01-09 19:59:01'),
+(89, 'Create Multiparam', 'Permite crear parametros multiples', 'admin', 'admin', '2015-01-11 13:51:17', '2015-01-11 13:51:17'),
+(90, 'Edit Multiparam', 'Permite editar parámetros con multiples valores', 'admin', 'admin', '2015-01-11 20:05:05', '2015-01-11 20:05:05'),
+(91, 'Delete Multiparam', 'Permite eliminar parámetros con multiples valores', 'admin', 'admin', '2015-01-11 20:05:36', '2015-01-11 20:05:36');
 
 -- --------------------------------------------------------
 
@@ -461,7 +468,7 @@ CREATE TABLE IF NOT EXISTS `cause` (
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cause`
@@ -470,7 +477,8 @@ CREATE TABLE IF NOT EXISTS `cause` (
 INSERT INTO `cause` (`id`, `cause`, `causetypeid`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (2, 'Pago a Proveedor', 1, NULL, 'admin', NULL, '2014-11-25 11:50:08'),
 (3, 'Pago de multa', 2, NULL, NULL, NULL, NULL),
-(4, 'Otro', 2, 'admin', 'admin', '2014-11-25 11:49:40', '2014-11-25 11:49:40');
+(4, 'Otro', 2, 'admin', 'admin', '2014-11-25 11:49:40', '2014-11-25 11:49:40'),
+(5, 'Reserva de area social', 4, 'admin', 'admin', '2015-01-12 18:29:17', '2015-01-12 18:29:17');
 
 -- --------------------------------------------------------
 
@@ -486,7 +494,7 @@ CREATE TABLE IF NOT EXISTS `causetype` (
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `causetype`
@@ -495,7 +503,8 @@ CREATE TABLE IF NOT EXISTS `causetype` (
 INSERT INTO `causetype` (`id`, `causetype`, `causetypecol`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (1, 'Gastos', NULL, NULL, 'admin', NULL, '2014-11-25 11:47:44'),
 (2, 'Ingresos', NULL, NULL, NULL, NULL, NULL),
-(3, 'Otro', NULL, 'admin', 'admin', '2014-11-25 11:43:28', '2014-11-25 11:43:28');
+(3, 'Otro', NULL, 'admin', 'admin', '2014-11-25 11:43:28', '2014-11-25 11:43:28'),
+(4, 'Reserva', NULL, 'admin', 'admin', '2015-01-12 18:26:49', '2015-01-12 18:26:49');
 
 -- --------------------------------------------------------
 
@@ -872,7 +881,7 @@ CREATE TABLE IF NOT EXISTS `lexik_trans_unit` (
   `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=586 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=608 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `lexik_trans_unit`
@@ -1464,7 +1473,29 @@ INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updat
 (582, 'Editar Parámetro del sistema', 'messages', '2015-01-09 16:12:45', '2015-01-09 16:12:45'),
 (583, 'Eliminar Parámetro', 'messages', '2015-01-09 16:17:43', '2015-01-09 16:17:43'),
 (584, 'delete.sysparam.question', 'messages', '2015-01-09 16:18:57', '2015-01-09 16:18:57'),
-(585, 'validate.exist.name', 'validators', '2015-01-09 16:25:54', '2015-01-09 16:25:54');
+(585, 'validate.exist.name', 'validators', '2015-01-09 16:25:54', '2015-01-09 16:25:54'),
+(586, 'validate.sysparam.multiparamid', 'validators', '2015-01-10 22:05:13', '2015-01-10 22:05:13'),
+(587, 'sysparam.multiparamid.validate', 'messages', '2015-01-10 22:14:32', '2015-01-10 22:14:32'),
+(588, 'Nuevo parámetro multiple', 'messages', '2015-01-11 19:31:21', '2015-01-11 19:31:21'),
+(589, 'Parámetro', 'messages', '2015-01-11 19:31:41', '2015-01-11 19:31:41'),
+(590, 'Parámetros multiples', 'messages', '2015-01-11 19:32:34', '2015-01-11 19:32:34'),
+(591, 'Parámetros', 'messages', '2015-01-11 19:33:17', '2015-01-11 19:33:17'),
+(592, 'Seleccione un parámetro', 'messages', '2015-01-11 19:36:55', '2015-01-11 19:36:55'),
+(593, 'validate.multiparam.sysparamid', 'validators', '2015-01-11 19:38:03', '2015-01-11 19:38:03'),
+(594, 'validate.multiparam.value', 'validators', '2015-01-11 19:38:55', '2015-01-11 19:38:55'),
+(595, 'multiparam.sysparamid.validate', 'messages', '2015-01-11 19:46:25', '2015-01-11 19:46:25'),
+(596, 'multiparam.value.validate', 'messages', '2015-01-11 19:48:20', '2015-01-11 19:48:20'),
+(597, 'multiparam.description.validate', 'messages', '2015-01-11 19:48:59', '2015-01-11 19:48:59'),
+(598, 'Detalle del parámetro multiple', 'messages', '2015-01-11 20:03:31', '2015-01-11 20:03:31'),
+(599, 'Eliminar parámetro multiple', 'messages', '2015-01-11 20:41:28', '2015-01-11 20:41:45'),
+(600, 'delete.multiparam.question', 'messages', '2015-01-11 20:42:59', '2015-01-11 20:42:59'),
+(601, 'validate.exist.multiparam', 'validators', '2015-01-12 18:14:11', '2015-01-12 18:14:11'),
+(602, 'Fecha de reserva', 'messages', '2015-01-12 19:45:08', '2015-01-12 19:45:08'),
+(603, 'reservename.reservation.validate', 'validators', '2015-01-12 20:18:39', '2015-01-12 20:18:39'),
+(604, 'reason.reservation.validate', 'validators', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
+(605, 'reservationdate.reservation.validate', 'validators', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
+(606, 'hourfrom.reservation.validate', 'validators', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
+(607, 'hourto.reservation.validate', 'validators', '2015-01-12 20:24:55', '2015-01-12 20:24:55');
 
 -- --------------------------------------------------------
 
@@ -1480,7 +1511,7 @@ CREATE TABLE IF NOT EXISTS `lexik_trans_unit_translations` (
   `content` longtext COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1153 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1197 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `lexik_trans_unit_translations`
@@ -2640,7 +2671,51 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 (1149, 9, 584, 'en', 'Are you sure you want to delete this system parameter', '2015-01-09 16:18:57', '2015-01-09 16:18:57'),
 (1150, 10, 584, 'es', 'Esta seguro que desea eliminar este parámetro del sistema', '2015-01-09 16:18:57', '2015-01-09 16:18:57'),
 (1151, 11, 585, 'en', 'A parameter with that name already exists', '2015-01-09 16:25:54', '2015-01-09 16:25:54'),
-(1152, 12, 585, 'es', 'Ya existe un parámetro con ese nombre', '2015-01-09 16:25:54', '2015-01-09 16:25:54');
+(1152, 12, 585, 'es', 'Ya existe un parámetro con ese nombre', '2015-01-09 16:25:54', '2015-01-09 16:25:54'),
+(1153, 11, 586, 'en', 'You must enter a key', '2015-01-10 22:05:13', '2015-01-10 22:05:13'),
+(1154, 12, 586, 'es', 'Debe ingresar un identificador', '2015-01-10 22:05:13', '2015-01-10 22:05:13'),
+(1155, 9, 587, 'en', 'You must enter a key', '2015-01-10 22:14:32', '2015-01-10 22:14:32'),
+(1156, 10, 587, 'es', 'Debe ingresar un identificador', '2015-01-10 22:14:32', '2015-01-10 22:14:32'),
+(1157, 9, 588, 'en', 'New multi parameter', '2015-01-11 19:31:21', '2015-01-11 19:31:21'),
+(1158, 10, 588, 'es', 'Nuevo parámetro multiple', '2015-01-11 19:31:21', '2015-01-11 19:31:21'),
+(1159, 9, 589, 'en', 'Parameter', '2015-01-11 19:31:41', '2015-01-11 19:31:41'),
+(1160, 10, 589, 'es', 'Parámetro', '2015-01-11 19:31:41', '2015-01-11 19:31:41'),
+(1161, 9, 590, 'en', 'Multi parameter', '2015-01-11 19:32:34', '2015-01-11 19:32:34'),
+(1162, 10, 590, 'es', 'Parámetros multiples', '2015-01-11 19:32:34', '2015-01-11 19:32:34'),
+(1163, 9, 591, 'en', 'Parameters', '2015-01-11 19:33:17', '2015-01-11 19:33:17'),
+(1164, 10, 591, 'es', 'Parámetros', '2015-01-11 19:33:17', '2015-01-11 19:33:17'),
+(1165, 9, 592, 'en', 'Select a parameter', '2015-01-11 19:36:55', '2015-01-11 19:36:55'),
+(1166, 10, 592, 'es', 'Seleccione un parámetro', '2015-01-11 19:36:55', '2015-01-11 19:36:55'),
+(1167, 11, 593, 'en', 'You must select a parameter', '2015-01-11 19:38:03', '2015-01-11 19:38:03'),
+(1168, 12, 593, 'es', 'Debe seleccionar un parámetro', '2015-01-11 19:38:03', '2015-01-11 19:38:03'),
+(1169, 11, 594, 'en', 'You must enter a value', '2015-01-11 19:38:55', '2015-01-11 19:38:55'),
+(1170, 12, 594, 'es', 'Debe ingresar un valor', '2015-01-11 19:38:55', '2015-01-11 19:38:55'),
+(1171, 9, 595, 'en', 'You must select a parameter', '2015-01-11 19:46:25', '2015-01-11 19:46:25'),
+(1172, 10, 595, 'es', 'Debe seleccionar un parámetro', '2015-01-11 19:46:25', '2015-01-11 19:46:25'),
+(1173, 9, 596, 'en', 'You must enter a value', '2015-01-11 19:48:20', '2015-01-11 19:48:20'),
+(1174, 10, 596, 'es', 'Debe ingresar un valor', '2015-01-11 19:48:20', '2015-01-11 19:48:20'),
+(1175, 9, 597, 'en', 'You must enter a description', '2015-01-11 19:48:59', '2015-01-11 19:48:59'),
+(1176, 10, 597, 'es', 'Debe ingresar una descripción', '2015-01-11 19:48:59', '2015-01-11 19:48:59'),
+(1177, 9, 598, 'en', 'Multi param detail', '2015-01-11 20:03:31', '2015-01-11 20:03:31'),
+(1178, 10, 598, 'es', 'Detalle del parámetro multiple', '2015-01-11 20:03:31', '2015-01-11 20:03:31'),
+(1179, 9, 599, 'en', 'Delete multi parameter', '2015-01-11 20:41:28', '2015-01-11 20:41:44'),
+(1180, 10, 599, 'es', 'Eliminar parámetro multiple', '2015-01-11 20:41:28', '2015-01-11 20:41:28'),
+(1181, 9, 600, 'en', 'Are you sure you want to delete this multi parameter', '2015-01-11 20:42:59', '2015-01-11 20:42:59'),
+(1182, 10, 600, 'es', 'Esta seguro que desea eliminar este parametro multiple', '2015-01-11 20:42:59', '2015-01-11 20:42:59'),
+(1183, 11, 601, 'en', 'A multiple parameter already exists with the value for the selected identifier', '2015-01-12 18:14:11', '2015-01-12 18:14:11'),
+(1184, 12, 601, 'es', 'Ya existe un parametro múltiple con ese valor para el identificador seleccionado', '2015-01-12 18:14:11', '2015-01-12 18:14:11'),
+(1185, 9, 602, 'en', 'Reservation date', '2015-01-12 19:45:08', '2015-01-12 19:45:08'),
+(1186, 10, 602, 'es', 'Fecha de reserva', '2015-01-12 19:45:08', '2015-01-12 19:45:08'),
+(1187, 11, 603, 'en', 'You must enter a reservation name', '2015-01-12 20:18:39', '2015-01-12 20:18:39'),
+(1188, 12, 603, 'es', 'Debe ingresar un nombre de reserva', '2015-01-12 20:18:39', '2015-01-12 20:18:39'),
+(1189, 11, 604, 'en', 'You must enter a reservation reason', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
+(1190, 12, 604, 'es', 'Debe seleccionar un motivo de reserva', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
+(1191, 11, 605, 'en', 'You must enter a reservation date', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
+(1192, 12, 605, 'es', 'Debe ingresar una fecha de reserva', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
+(1193, 11, 606, 'en', 'You must select an hour from', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
+(1194, 12, 606, 'es', 'Debe seleccionar una hora desde', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
+(1195, 11, 607, 'en', 'You must select an hour to', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
+(1196, 12, 607, 'es', 'Debe seleccionar una hora hasta', '2015-01-12 20:24:55', '2015-01-12 20:24:55');
 
 -- --------------------------------------------------------
 
@@ -2668,6 +2743,77 @@ INSERT INTO `location` (`id`, `location`, `description`, `createuser`, `modifyus
 (3, 'E1', 'E1', NULL, NULL, NULL, NULL),
 (5, 'E2', 'E2', NULL, NULL, NULL, NULL),
 (6, 'E3', 'E3', 'admin', 'admin', '2014-11-25 11:07:35', '2014-11-25 11:07:35');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `multiparam`
+--
+
+CREATE TABLE IF NOT EXISTS `multiparam` (
+`id` int(11) NOT NULL,
+  `value` varchar(1000) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `createuser` varchar(45) NOT NULL,
+  `modifyuser` varchar(45) NOT NULL,
+  `createdate` datetime NOT NULL,
+  `modifydate` datetime NOT NULL,
+  `sysparamid` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `multiparam`
+--
+
+INSERT INTO `multiparam` (`id`, `value`, `description`, `createuser`, `modifyuser`, `createdate`, `modifydate`, `sysparamid`) VALUES
+(2, '00:00', '12:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(4, '00:30', '12:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(5, '01:00', '1:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(6, '01:30', '1:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(7, '02:00', '2:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-12 21:16:24', 1),
+(8, '02:30', '2:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(9, '03:00', '3:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(10, '03:30', '3:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(11, '04:00', '4:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(12, '04:30', '4:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(13, '05:00', '5:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(14, '05:30', '5:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(15, '06:00', '6:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(16, '06:30', '6:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(17, '07:00', '7:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(18, '07:30', '7:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(19, '08:00', '8:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(20, '08:30', '8:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(21, '09:00', '9:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(22, '09:30', '9:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(23, '10:00', '10:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(24, '10:30', '10:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(25, '11:00', '11:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(26, '11:30', '11:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(27, '12:00', '12:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(28, '12:30', '12:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(29, '13:00', '1:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(30, '13:30', '1:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(31, '14:00', '2:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(32, '14:30', '2:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(33, '15:00', '3:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(34, '15:30', '3:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(35, '16:00', '4:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(36, '16:30', '4:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(37, '17:00', '5:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(38, '17:30', '5:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(39, '18:00', '6:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(40, '18:30', '6:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(41, '19:00', '7:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-12 21:16:45', 1),
+(42, '19:30', '7:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(43, '20:00', '8:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(44, '20:30', '8:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(45, '21:00', '9:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(46, '21:30', '9:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(47, '22:00', '10:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(48, '22:30', '10:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(49, '23:00', '11:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(50, '23:30', '11:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1);
 
 -- --------------------------------------------------------
 
@@ -2809,6 +2955,33 @@ CREATE TABLE IF NOT EXISTS `provider_schedule` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `reservation`
+--
+
+CREATE TABLE IF NOT EXISTS `reservation` (
+`id` int(11) NOT NULL,
+  `reservename` varchar(45) DEFAULT NULL,
+  `reason` varchar(45) DEFAULT NULL,
+  `reservationdate` date DEFAULT NULL,
+  `hourfrom` time DEFAULT NULL,
+  `hourto` time DEFAULT NULL,
+  `apartmentid` int(11) NOT NULL,
+  `createdate` datetime DEFAULT NULL,
+  `modifydate` datetime DEFAULT NULL,
+  `createuser` varchar(45) DEFAULT NULL,
+  `modifyuser` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `reservename`, `reason`, `reservationdate`, `hourfrom`, `hourto`, `apartmentid`, `createdate`, `modifydate`, `createuser`, `modifyuser`) VALUES
+(1, 'test', '5', '2015-01-12', '19:00:00', '02:00:00', 4, '2015-01-12 21:17:34', '2015-01-12 21:17:34', 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `resident`
 --
 
@@ -2876,7 +3049,7 @@ CREATE TABLE IF NOT EXISTS `roleaction` (
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `roleaction`
@@ -2964,7 +3137,14 @@ INSERT INTO `roleaction` (`id`, `roleid`, `actionid`, `createuser`, `modifyuser`
 (86, 1, 82, 'admin', 'admin', '2015-01-04 17:38:57', '2015-01-04 17:38:57'),
 (87, 1, 83, 'admin', 'admin', '2015-01-09 15:28:45', '2015-01-09 15:28:45'),
 (88, 1, 84, 'admin', 'admin', '2015-01-09 16:11:13', '2015-01-09 16:11:13'),
-(89, 1, 85, 'admin', 'admin', '2015-01-09 16:19:16', '2015-01-09 16:19:16');
+(89, 1, 85, 'admin', 'admin', '2015-01-09 16:19:16', '2015-01-09 16:19:16'),
+(90, 1, 86, 'admin', 'admin', '2015-01-09 20:05:03', '2015-01-09 20:05:03'),
+(91, 1, 89, 'admin', 'admin', '2015-01-11 13:51:46', '2015-01-11 13:51:46'),
+(92, 1, 90, 'admin', 'admin', '2015-01-11 20:05:51', '2015-01-11 20:05:51'),
+(93, 1, 91, 'admin', 'admin', '2015-01-11 20:05:59', '2015-01-11 20:05:59'),
+(94, 1, 73, 'admin', 'admin', '2015-01-11 20:24:51', '2015-01-11 20:24:51'),
+(95, 1, 74, 'admin', 'admin', '2015-01-11 20:25:12', '2015-01-11 20:25:12'),
+(96, 1, 75, 'admin', 'admin', '2015-01-11 20:25:20', '2015-01-11 20:25:20');
 
 -- --------------------------------------------------------
 
@@ -2977,10 +3157,10 @@ CREATE TABLE IF NOT EXISTS `sysparam` (
   `name` varchar(45) DEFAULT NULL,
   `value` varchar(200) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `createuser` varchar(45) DEFAULT NULL,
-  `modifyuser` varchar(45) DEFAULT NULL,
-  `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
+  `createuser` varchar(45) NOT NULL,
+  `modifyuser` varchar(45) NOT NULL,
+  `createdate` datetime NOT NULL,
+  `modifydate` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
@@ -2988,7 +3168,8 @@ CREATE TABLE IF NOT EXISTS `sysparam` (
 --
 
 INSERT INTO `sysparam` (`id`, `name`, `value`, `description`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
-(1, 'reservedays', '8', 'Cantidad de dias en que se debe pagar el area social una vez reservada', NULL, 'admin', NULL, '2015-01-09 16:16:36');
+(1, 'reservehours', 'multiple', 'Listado de horas posibles para la reserva de area social', 'admin', 'admin', '2015-01-11 13:36:24', '2015-01-11 21:26:39'),
+(2, 'test', 'test', 'test', 'admin', 'admin', '2015-01-11 15:30:25', '2015-01-11 15:30:25');
 
 -- --------------------------------------------------------
 
@@ -3274,6 +3455,12 @@ ALTER TABLE `location`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `multiparam`
+--
+ALTER TABLE `multiparam`
+ ADD PRIMARY KEY (`id`), ADD KEY `fk_multiparam_sysparam1_idx` (`sysparamid`);
+
+--
 -- Indices de la tabla `parking`
 --
 ALTER TABLE `parking`
@@ -3308,6 +3495,12 @@ ALTER TABLE `provider_employee`
 --
 ALTER TABLE `provider_schedule`
  ADD PRIMARY KEY (`id`), ADD KEY `fk_provider_schedule_provider_employee1_idx` (`provideremployeeid`), ADD KEY `fk_provider_schedule_day1_idx` (`dayid`);
+
+--
+-- Indices de la tabla `reservation`
+--
+ALTER TABLE `reservation`
+ ADD PRIMARY KEY (`id`), ADD KEY `fk_reservation_apartment1_idx` (`apartmentid`);
 
 --
 -- Indices de la tabla `resident`
@@ -3375,7 +3568,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `action`
 --
 ALTER TABLE `action`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=86;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=92;
 --
 -- AUTO_INCREMENT de la tabla `admin_roles`
 --
@@ -3415,12 +3608,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT de la tabla `cause`
 --
 ALTER TABLE `cause`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `causetype`
 --
 ALTER TABLE `causetype`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `color`
 --
@@ -3500,17 +3693,22 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 -- AUTO_INCREMENT de la tabla `lexik_trans_unit`
 --
 ALTER TABLE `lexik_trans_unit`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=586;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=608;
 --
 -- AUTO_INCREMENT de la tabla `lexik_trans_unit_translations`
 --
 ALTER TABLE `lexik_trans_unit_translations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1153;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1197;
 --
 -- AUTO_INCREMENT de la tabla `location`
 --
 ALTER TABLE `location`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT de la tabla `multiparam`
+--
+ALTER TABLE `multiparam`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT de la tabla `parking`
 --
@@ -3542,6 +3740,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `provider_schedule`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `reservation`
+--
+ALTER TABLE `reservation`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT de la tabla `resident`
 --
 ALTER TABLE `resident`
@@ -3555,7 +3758,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT de la tabla `roleaction`
 --
 ALTER TABLE `roleaction`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=90;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=97;
 --
 -- AUTO_INCREMENT de la tabla `sysparam`
 --
@@ -3695,6 +3898,12 @@ ADD CONSTRAINT `FK_B0AA394493CB796C` FOREIGN KEY (`file_id`) REFERENCES `lexik_t
 ADD CONSTRAINT `FK_B0AA3944C3C583C9` FOREIGN KEY (`trans_unit_id`) REFERENCES `lexik_trans_unit` (`id`);
 
 --
+-- Filtros para la tabla `multiparam`
+--
+ALTER TABLE `multiparam`
+ADD CONSTRAINT `fk_multiparam_sysparam1` FOREIGN KEY (`sysparamid`) REFERENCES `sysparam` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Filtros para la tabla `parking`
 --
 ALTER TABLE `parking`
@@ -3733,6 +3942,12 @@ ADD CONSTRAINT `fk_provider_employee_provider1` FOREIGN KEY (`providerid`) REFER
 ALTER TABLE `provider_schedule`
 ADD CONSTRAINT `fk_provider_schedule_day1` FOREIGN KEY (`dayid`) REFERENCES `day` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_provider_schedule_provider_employee1` FOREIGN KEY (`provideremployeeid`) REFERENCES `provider_employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `reservation`
+--
+ALTER TABLE `reservation`
+ADD CONSTRAINT `fk_reservation_apartment1` FOREIGN KEY (`apartmentid`) REFERENCES `apartment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `resident`
