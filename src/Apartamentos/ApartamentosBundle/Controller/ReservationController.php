@@ -132,11 +132,16 @@ class ReservationController extends Controller
 
         $delete = $this->get('globalfunctions')->verifyaction("Delete Reservation");
         $edit= $this->get('globalfunctions')->verifyaction("Edit Reservation");
-
+        $hourfrommask=$this->get('globalfunctions')->gethourmask('reservehours',$entity->getHourfrom());
+        $hourtomask  =$this->get('globalfunctions')->gethourmask('reservehours',$entity->getHourTo());
+        $reason =$this->get('globalfunctions')->getcausebyid($entity->getReason());
         return array(
             'entity'      => $entity,
             'deleteaction'=>$delete,
-            'editaction'=>$edit
+            'editaction'=>$edit,
+            'hourfrom'=>$hourfrommask,
+            'hourto'=>$hourtomask,
+            'reason'=>$reason
 
         );
     }
@@ -159,12 +164,12 @@ class ReservationController extends Controller
         }
 
         $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+
 
         return array(
             'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'edit_form'   => $editForm->createView()
+
         );
     }
 
@@ -230,6 +235,22 @@ class ReservationController extends Controller
     {
         // Creates a simple grid based on your entity (ORM)
         $source = new Entity('ApartamentosApartamentosBundle:Reservation');
+
+        $source->manipulateRow(
+            function ($row)
+            {
+                $hourfrommask=$this->get('globalfunctions')->gethourmask('reservehours',$row->getEntity()->getHourfrom());
+                $hourtomask  =$this->get('globalfunctions')->gethourmask('reservehours',$row->getEntity()->getHourto());
+                //$hourvalue=array_column($hourmask, 0);
+                $row->setField('hourfrom',$hourfrommask);
+                $row->setField('hourto',$hourtomask);
+
+
+
+                return $row;
+            }
+        );
+
 
         // Get a Grid instance
         $grid = $this->get('grid');

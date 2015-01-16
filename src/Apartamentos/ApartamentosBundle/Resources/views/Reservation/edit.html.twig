@@ -1,16 +1,72 @@
-{% extends '::base.html.twig' %}
+{% extends '::masteradmin.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui-1.10.4.custom.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script type="text/javascript"src="{{ asset('js/datepicker.js') }}"></script>
+    {#{% include 'ApartamentosApartamentosBundle:Reservation:validatereservation.html.twig' %}#}
+    {% include 'ApartamentosApartamentosBundle:Reservation:reservationajaxscript.html.twig' %}
+{% endblock %}
+{% block contenido %}
 
-{% block body -%}
-    <h1>Reservation edit</h1>
+    <h2 class="titulo">{{'Nueva Reservación'|trans}}</h2>
+    <hr>
 
-    {{ form(edit_form) }}
+    {{ form_start(edit_form) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    <div>
+        {{ form_label(edit_form.companyid) }}
+        {{ form_widget(edit_form.companyid)}}
+        {{ form_errors(edit_form.companyid) }}
+    </div><br>
+    <div>
+        {{ form_label(edit_form.towerid) }}
+        {{ form_widget(edit_form.towerid)}}
+        {{ form_errors(edit_form.towerid) }}
+    </div><br>
+    <div>
+        {{ form_label(edit_form.apartmentid) }}
+        {{ form_widget(edit_form.apartmentid)}}
+        {{ form_errors(edit_form.apartmentid) }}
+    </div><br>
+    <div>
+        {{ form_label(edit_form.reservename) }}
+        {{ form_widget(edit_form.reservename)}}
+        {{ form_errors(edit_form.reservename) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.reason) }}
+        {{ form_widget(edit_form.reason)}}
+        {{ form_errors(edit_form.reason) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.reservationdate) }}
+        {{ form_widget(edit_form.reservationdate)}}
+        {{ form_errors(edit_form.reservationdate) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.hourfrom) }}
+        {{ form_widget(edit_form.hourfrom)}}
+        {{ form_errors(edit_form.hourfrom) }}
+    </div>
+    <div>
+        {{ form_label(edit_form.hourto) }}
+        {{ form_widget(edit_form.hourto)}}
+        {{ form_errors(edit_form.hourto) }}
+    </div>
+    <br><br>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('reservation') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form_end(edit_form) }}
+
+    <div style="display:table-row;">
+        <a href="{{ path('reservationgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/reservation48.png') }}"/><span style="display:table-cell;
+ vertical-align:middle;" >{{'Reservaciones'|trans}}</span></a>
+
+    </div>
+
+
 {% endblock %}

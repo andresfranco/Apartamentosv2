@@ -133,5 +133,43 @@ class GlobalfunctionsController extends Controller{
 
 
     }
+
+    public function getcausebyid($causeid)
+    {
+        // set doctrine
+        $em = $this->get('doctrine')->getManager()->getConnection();
+        // prepare statement
+        $sth = $em->prepare("select c.cause from cause c where c.id =:causeid");
+        $sth->bindValue('causeid', $causeid);
+        // execute and fetch
+        $sth->execute();
+        $results = $sth->fetch();
+        unset($sth);
+        $result =$results['cause'];
+        return $result;
+
+
+    }
+
+    public function gethourmask($name,$hourvalue)
+    {
+        // set doctrine
+        $em = $this->get('doctrine')->getManager()->getConnection();
+        // prepare statement
+        $sth = $em->prepare("select mp.description from multiparam mp inner join sysparam sp on(sp.id =mp.sysparamid)where sp.name =:name and mp.value =:hourvalue");
+        $sth->bindValue('name', $name);
+        $sth->bindValue('hourvalue', $hourvalue);
+        // execute and fetch
+        $sth->execute();
+        $results = $sth->fetch();
+        $description = $results['description'];
+        unset($sth);
+
+
+        return $description;
+
+
+
+    }
     
 }

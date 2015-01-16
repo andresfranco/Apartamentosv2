@@ -386,4 +386,12 @@ class Reservation
     {
         return $this->towerid;
     }
+
+    function gethourmask($hourvalue)
+    {
+
+
+        return $hourdescription;
+    }
+
 }
