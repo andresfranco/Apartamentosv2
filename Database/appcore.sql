@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 15-01-2015 a las 02:36:23
+-- Tiempo de generación: 20-01-2015 a las 02:55:17
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -739,7 +739,7 @@ CREATE TABLE IF NOT EXISTS `expenseinvoice` (
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `expenseinvoice`
@@ -753,7 +753,8 @@ INSERT INTO `expenseinvoice` (`id`, `description`, `name`, `path`, `expenseid`, 
 (11, 'asas', 'assa', 'assa.png', 2, NULL, NULL, NULL, NULL),
 (13, 'Factura de Digicel de Septiembre', 'Facturadigicel2', 'Factura digicel.pdf', 2, NULL, NULL, NULL, NULL),
 (15, 'alala', 'lala', 'lala.png', 2, NULL, NULL, NULL, NULL),
-(16, 'saas', '4566', '1234.png', 12, 'admin', 'admin', '2014-11-25 12:07:10', '2014-11-25 12:08:38');
+(16, 'saas', '4566', '1234.png', 12, 'admin', 'admin', '2014-11-25 12:07:10', '2014-11-25 12:08:38'),
+(17, 'test', 'test android', 'test android.jpeg', 2, 'admin', 'admin', '2015-01-14 22:01:09', '2015-01-14 22:01:09');
 
 -- --------------------------------------------------------
 
@@ -839,39 +840,6 @@ CREATE TABLE IF NOT EXISTS `income_invoice` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lexik_translation_file`
---
-
-CREATE TABLE IF NOT EXISTS `lexik_translation_file` (
-`id` int(11) NOT NULL,
-  `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `extention` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `lexik_translation_file`
---
-
-INSERT INTO `lexik_translation_file` (`id`, `domain`, `locale`, `extention`, `path`, `hash`) VALUES
-(1, 'messages', 'en', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', '741982d306c2db52c1e8053a946a878c'),
-(2, 'messages', 'es', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', 'c2ec8aae6cbf616c3f4115f81c66c9a5'),
-(3, 'validators', 'en', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', '8eb18aa52137add59fb37a545ad98981'),
-(4, 'messages', 'en', 'yml', 'Resources/translations', 'fc74f6a74137e00463e84910ddb3e44e'),
-(5, 'messages', 'es', 'yml', 'Resources/translations', 'd50c2026170e82881f4e8b6f87b63800'),
-(6, 'validators', 'en', 'yml', 'Resources/translations', 'e2d4ac91c2f28e7339b317adc186d1e7'),
-(7, 'validators', 'es', 'yml', 'Resources/translations', 'd3175f1a2739aed80701e38542ec962d'),
-(8, 'messages', 'es', 'yml', '../app\\../src/Apartamentos/ApartamentosBundle/Resources/translations', '460eb0dbdd61c2b7cea83bf8b781a162'),
-(9, 'messages', 'en', 'yml', 'Resources/translations', 'd7886bc44b7dcf86809a262d3cf25bc2'),
-(10, 'messages', 'es', 'yml', 'Resources/translations', '1b0eb5a61a37f8ea43f0bb2c2fdb98a9'),
-(11, 'validators', 'en', 'yml', 'Resources/translations', 'ea28c54d0408a9df21c38211ef9f5b8e'),
-(12, 'validators', 'es', 'yml', 'Resources/translations', '1f8a496b5dc539929700286e7322e074');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `lexik_trans_unit`
 --
 
@@ -881,7 +849,7 @@ CREATE TABLE IF NOT EXISTS `lexik_trans_unit` (
   `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=608 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=623 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `lexik_trans_unit`
@@ -1495,7 +1463,22 @@ INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updat
 (604, 'reason.reservation.validate', 'validators', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
 (605, 'reservationdate.reservation.validate', 'validators', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
 (606, 'hourfrom.reservation.validate', 'validators', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
-(607, 'hourto.reservation.validate', 'validators', '2015-01-12 20:24:55', '2015-01-12 20:24:55');
+(607, 'hourto.reservation.validate', 'validators', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
+(608, 'Reservaciones', 'messages', '2015-01-19 19:00:41', '2015-01-19 19:00:41'),
+(609, 'Nombre de reserva', 'messages', '2015-01-19 19:00:59', '2015-01-19 19:00:59'),
+(610, 'Motivo', 'messages', '2015-01-19 19:01:15', '2015-01-19 19:01:15'),
+(611, 'Hora desde', 'messages', '2015-01-19 19:01:34', '2015-01-19 19:01:34'),
+(612, 'Hora hasta', 'messages', '2015-01-19 19:02:00', '2015-01-19 19:02:00'),
+(613, 'Seleccione un motivo', 'messages', '2015-01-19 19:03:01', '2015-01-19 19:03:01'),
+(614, 'Seleccione una hora', 'messages', '2015-01-19 19:05:02', '2015-01-19 19:05:02'),
+(615, 'reservation.reservationdate.exist', 'validators', '2015-01-19 19:20:38', '2015-01-19 19:20:38'),
+(616, 'reservation.required.reservename', 'messages', '2015-01-19 19:48:42', '2015-01-19 19:48:42'),
+(617, 'reservation.required.reason', 'messages', '2015-01-19 19:52:49', '2015-01-19 19:52:49'),
+(618, 'reservation.required.reservationdate', 'messages', '2015-01-19 19:53:29', '2015-01-19 19:53:29'),
+(619, 'reservation.required.hourfrom', 'messages', '2015-01-19 19:54:00', '2015-01-19 19:54:00'),
+(620, 'reservation.required.hourto', 'messages', '2015-01-19 19:54:37', '2015-01-19 19:54:37'),
+(621, 'Eliminar reservación', 'messages', '2015-01-19 20:48:15', '2015-01-19 20:48:15'),
+(622, 'reservation.delete.question', 'messages', '2015-01-19 20:49:16', '2015-01-19 20:49:16');
 
 -- --------------------------------------------------------
 
@@ -1511,7 +1494,7 @@ CREATE TABLE IF NOT EXISTS `lexik_trans_unit_translations` (
   `content` longtext COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1197 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1227 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `lexik_trans_unit_translations`
@@ -2715,7 +2698,70 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 (1193, 11, 606, 'en', 'You must select an hour from', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
 (1194, 12, 606, 'es', 'Debe seleccionar una hora desde', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
 (1195, 11, 607, 'en', 'You must select an hour to', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
-(1196, 12, 607, 'es', 'Debe seleccionar una hora hasta', '2015-01-12 20:24:55', '2015-01-12 20:24:55');
+(1196, 12, 607, 'es', 'Debe seleccionar una hora hasta', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
+(1197, 9, 608, 'en', 'Reservations', '2015-01-19 19:00:41', '2015-01-19 19:00:41'),
+(1198, 10, 608, 'es', 'Reservaciones', '2015-01-19 19:00:41', '2015-01-19 19:00:41'),
+(1199, 9, 609, 'en', 'Reserve name', '2015-01-19 19:00:59', '2015-01-19 19:00:59'),
+(1200, 10, 609, 'es', 'Nombre de reserva', '2015-01-19 19:00:59', '2015-01-19 19:00:59'),
+(1201, 9, 610, 'en', 'Reason', '2015-01-19 19:01:15', '2015-01-19 19:01:15'),
+(1202, 10, 610, 'es', 'Motivo', '2015-01-19 19:01:15', '2015-01-19 19:01:15'),
+(1203, 9, 611, 'en', 'Hour from', '2015-01-19 19:01:34', '2015-01-19 19:01:34'),
+(1204, 10, 611, 'es', 'Hora desde', '2015-01-19 19:01:34', '2015-01-19 19:01:34'),
+(1205, 9, 612, 'en', 'Hour to', '2015-01-19 19:02:00', '2015-01-19 19:02:00'),
+(1206, 10, 612, 'es', 'Hora hasta', '2015-01-19 19:02:00', '2015-01-19 19:02:00'),
+(1207, 9, 613, 'en', 'Select a reason', '2015-01-19 19:03:01', '2015-01-19 19:03:01'),
+(1208, 10, 613, 'es', 'Seleccione un motivo', '2015-01-19 19:03:01', '2015-01-19 19:03:01'),
+(1209, 9, 614, 'en', 'Select an hour', '2015-01-19 19:05:02', '2015-01-19 19:05:02'),
+(1210, 10, 614, 'es', 'Seleccione una hora', '2015-01-19 19:05:02', '2015-01-19 19:05:02'),
+(1211, 11, 615, 'en', 'A reservation already exists for the selected date and time', '2015-01-19 19:20:38', '2015-01-19 19:20:38'),
+(1212, 12, 615, 'es', 'Ya existe una reservacion para la fecha y hora seleccionadas', '2015-01-19 19:20:38', '2015-01-19 19:20:38'),
+(1213, 9, 616, 'en', 'you must enter a reservation name', '2015-01-19 19:48:42', '2015-01-19 19:48:42'),
+(1214, 10, 616, 'es', 'Debe ingresar un nombre de reserva', '2015-01-19 19:48:42', '2015-01-19 19:48:42'),
+(1215, 9, 617, 'en', 'You must enter a reason', '2015-01-19 19:52:49', '2015-01-19 19:52:49'),
+(1216, 10, 617, 'es', 'Debe ingresar un motivo', '2015-01-19 19:52:49', '2015-01-19 19:52:49'),
+(1217, 9, 618, 'en', 'You must enter a reservation date', '2015-01-19 19:53:29', '2015-01-19 19:53:29'),
+(1218, 10, 618, 'es', 'Debe seleccionar una fecha de reservación', '2015-01-19 19:53:29', '2015-01-19 19:53:29'),
+(1219, 9, 619, 'en', 'You must select an hour from', '2015-01-19 19:54:00', '2015-01-19 19:54:00'),
+(1220, 10, 619, 'es', 'Debe seleccionar una hora desde', '2015-01-19 19:54:00', '2015-01-19 19:54:00'),
+(1221, 9, 620, 'en', 'You must select an hour to', '2015-01-19 19:54:37', '2015-01-19 19:54:37'),
+(1222, 10, 620, 'es', 'Debe seleccionar una hora hasta', '2015-01-19 19:54:37', '2015-01-19 19:54:37'),
+(1223, 9, 621, 'en', 'Delete reservation', '2015-01-19 20:48:15', '2015-01-19 20:48:15'),
+(1224, 10, 621, 'es', 'Eliminar reservación', '2015-01-19 20:48:15', '2015-01-19 20:48:15'),
+(1225, 9, 622, 'en', 'Are you sure you want to delete this reservation', '2015-01-19 20:49:16', '2015-01-19 20:49:16'),
+(1226, 10, 622, 'es', 'Esta seguro que quiere eliminar esta reservación', '2015-01-19 20:49:16', '2015-01-19 20:49:16');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `lexik_translation_file`
+--
+
+CREATE TABLE IF NOT EXISTS `lexik_translation_file` (
+`id` int(11) NOT NULL,
+  `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `extention` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `lexik_translation_file`
+--
+
+INSERT INTO `lexik_translation_file` (`id`, `domain`, `locale`, `extention`, `path`, `hash`) VALUES
+(1, 'messages', 'en', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', '741982d306c2db52c1e8053a946a878c'),
+(2, 'messages', 'es', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', 'c2ec8aae6cbf616c3f4115f81c66c9a5'),
+(3, 'validators', 'en', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', '8eb18aa52137add59fb37a545ad98981'),
+(4, 'messages', 'en', 'yml', 'Resources/translations', 'fc74f6a74137e00463e84910ddb3e44e'),
+(5, 'messages', 'es', 'yml', 'Resources/translations', 'd50c2026170e82881f4e8b6f87b63800'),
+(6, 'validators', 'en', 'yml', 'Resources/translations', 'e2d4ac91c2f28e7339b317adc186d1e7'),
+(7, 'validators', 'es', 'yml', 'Resources/translations', 'd3175f1a2739aed80701e38542ec962d'),
+(8, 'messages', 'es', 'yml', '../app\\../src/Apartamentos/ApartamentosBundle/Resources/translations', '460eb0dbdd61c2b7cea83bf8b781a162'),
+(9, 'messages', 'en', 'yml', 'Resources/translations', 'd7886bc44b7dcf86809a262d3cf25bc2'),
+(10, 'messages', 'es', 'yml', 'Resources/translations', '1b0eb5a61a37f8ea43f0bb2c2fdb98a9'),
+(11, 'validators', 'en', 'yml', 'Resources/translations', 'ea28c54d0408a9df21c38211ef9f5b8e'),
+(12, 'validators', 'es', 'yml', 'Resources/translations', '1f8a496b5dc539929700286e7322e074');
 
 -- --------------------------------------------------------
 
@@ -2766,54 +2812,54 @@ CREATE TABLE IF NOT EXISTS `multiparam` (
 --
 
 INSERT INTO `multiparam` (`id`, `value`, `description`, `createuser`, `modifyuser`, `createdate`, `modifydate`, `sysparamid`) VALUES
-(2, '00:00', '12:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(4, '00:30', '12:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(5, '01:00', '1:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(6, '01:30', '1:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(7, '02:00', '2:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-12 21:16:24', 1),
-(8, '02:30', '2:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(9, '03:00', '3:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(10, '03:30', '3:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(11, '04:00', '4:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(12, '04:30', '4:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(13, '05:00', '5:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(14, '05:30', '5:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(15, '06:00', '6:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(16, '06:30', '6:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(17, '07:00', '7:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(18, '07:30', '7:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(19, '08:00', '8:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(20, '08:30', '8:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(21, '09:00', '9:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(22, '09:30', '9:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(23, '10:00', '10:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(24, '10:30', '10:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(25, '11:00', '11:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(26, '11:30', '11:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(27, '12:00', '12:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(28, '12:30', '12:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(29, '13:00', '1:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(30, '13:30', '1:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(31, '14:00', '2:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(32, '14:30', '2:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(33, '15:00', '3:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(34, '15:30', '3:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(35, '16:00', '4:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(36, '16:30', '4:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(37, '17:00', '5:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(38, '17:30', '5:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(39, '18:00', '6:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(40, '18:30', '6:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(41, '19:00', '7:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-12 21:16:45', 1),
-(42, '19:30', '7:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(43, '20:00', '8:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(44, '20:30', '8:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(45, '21:00', '9:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(46, '21:30', '9:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(47, '22:00', '10:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(48, '22:30', '10:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(49, '23:00', '11:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(50, '23:30', '11:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1);
+(2, '00:00:00', '12:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(4, '00:30:00', '12:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(5, '01:00:00', '1:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(6, '01:30:00', '1:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(7, '02:00:00', '2:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-12 21:16:24', 1),
+(8, '02:30:00', '2:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(9, '03:00:00', '3:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(10, '03:30:00', '3:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(11, '04:00:00', '4:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(12, '04:30:00', '4:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(13, '05:00:00', '5:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(14, '05:30:00', '5:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(15, '06:00:00', '6:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(16, '06:30:00', '6:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(17, '07:00:00', '7:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(18, '07:30:00', '7:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(19, '08:00:00', '8:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(20, '08:30:00', '8:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(21, '09:00:00', '9:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(22, '09:30:00', '9:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(23, '10:00:00', '10:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(24, '10:30:00', '10:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(25, '11:00:00', '11:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(26, '11:30:00', '11:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(27, '12:00:00', '12:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(28, '12:30:00', '12:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(29, '13:00:00', '1:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(30, '13:30:00', '1:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(31, '14:00:00', '2:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(32, '14:30:00', '2:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(33, '15:00:00', '3:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(34, '15:30:00', '3:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(35, '16:00:00', '4:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(36, '16:30:00', '4:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(37, '17:00:00', '5:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(38, '17:30:00', '5:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(39, '18:00:00', '6:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(40, '18:30:00', '6:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(41, '19:00:00', '7:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-12 21:16:45', 1),
+(42, '19:30:00', '7:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(43, '20:00:00', '8:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(44, '20:30:00', '8:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(45, '21:00:00', '9:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(46, '21:30:00', '9:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(47, '22:00:00', '10:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(48, '22:30:00', '10:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(49, '23:00:00', '11:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
+(50, '23:30:00', '11:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1);
 
 -- --------------------------------------------------------
 
@@ -2970,14 +3016,14 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `modifydate` datetime DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `reservation`
 --
 
 INSERT INTO `reservation` (`id`, `reservename`, `reason`, `reservationdate`, `hourfrom`, `hourto`, `apartmentid`, `createdate`, `modifydate`, `createuser`, `modifyuser`) VALUES
-(1, 'test', '5', '2015-01-12', '19:00:00', '02:00:00', 4, '2015-01-12 21:17:34', '2015-01-12 21:17:34', 'admin', 'admin');
+(2, 'test2as', '5', '2015-01-19', '08:00:00', '19:30:00', 14, '2015-01-19 18:34:24', '2015-01-19 20:49:39', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -3049,7 +3095,7 @@ CREATE TABLE IF NOT EXISTS `roleaction` (
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `roleaction`
@@ -3144,7 +3190,9 @@ INSERT INTO `roleaction` (`id`, `roleid`, `actionid`, `createuser`, `modifyuser`
 (93, 1, 91, 'admin', 'admin', '2015-01-11 20:05:59', '2015-01-11 20:05:59'),
 (94, 1, 73, 'admin', 'admin', '2015-01-11 20:24:51', '2015-01-11 20:24:51'),
 (95, 1, 74, 'admin', 'admin', '2015-01-11 20:25:12', '2015-01-11 20:25:12'),
-(96, 1, 75, 'admin', 'admin', '2015-01-11 20:25:20', '2015-01-11 20:25:20');
+(96, 1, 75, 'admin', 'admin', '2015-01-11 20:25:20', '2015-01-11 20:25:20'),
+(97, 1, 87, 'admin', 'admin', '2015-01-15 20:35:46', '2015-01-15 20:35:46'),
+(98, 1, 88, 'admin', 'admin', '2015-01-15 21:09:31', '2015-01-15 21:09:31');
 
 -- --------------------------------------------------------
 
@@ -3431,12 +3479,6 @@ ALTER TABLE `income_invoice`
  ADD PRIMARY KEY (`id`), ADD KEY `fk_income_invoice_income1_idx` (`incomeid`);
 
 --
--- Indices de la tabla `lexik_translation_file`
---
-ALTER TABLE `lexik_translation_file`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `hash_idx` (`hash`);
-
---
 -- Indices de la tabla `lexik_trans_unit`
 --
 ALTER TABLE `lexik_trans_unit`
@@ -3447,6 +3489,12 @@ ALTER TABLE `lexik_trans_unit`
 --
 ALTER TABLE `lexik_trans_unit_translations`
  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `trans_unit_locale_idx` (`trans_unit_id`,`locale`), ADD KEY `IDX_B0AA394493CB796C` (`file_id`), ADD KEY `IDX_B0AA3944C3C583C9` (`trans_unit_id`);
+
+--
+-- Indices de la tabla `lexik_translation_file`
+--
+ALTER TABLE `lexik_translation_file`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `hash_idx` (`hash`);
 
 --
 -- Indices de la tabla `location`
@@ -3663,7 +3711,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 -- AUTO_INCREMENT de la tabla `expenseinvoice`
 --
 ALTER TABLE `expenseinvoice`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT de la tabla `ext_log_entries`
 --
@@ -3685,20 +3733,20 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 ALTER TABLE `income_invoice`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `lexik_translation_file`
---
-ALTER TABLE `lexik_translation_file`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
---
 -- AUTO_INCREMENT de la tabla `lexik_trans_unit`
 --
 ALTER TABLE `lexik_trans_unit`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=608;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=623;
 --
 -- AUTO_INCREMENT de la tabla `lexik_trans_unit_translations`
 --
 ALTER TABLE `lexik_trans_unit_translations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1197;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1227;
+--
+-- AUTO_INCREMENT de la tabla `lexik_translation_file`
+--
+ALTER TABLE `lexik_translation_file`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `location`
 --
@@ -3743,7 +3791,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `reservation`
 --
 ALTER TABLE `reservation`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `resident`
 --
@@ -3758,7 +3806,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT de la tabla `roleaction`
 --
 ALTER TABLE `roleaction`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=97;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=99;
 --
 -- AUTO_INCREMENT de la tabla `sysparam`
 --
@@ -3992,6 +4040,354 @@ ADD CONSTRAINT `fk_vehicle_brand1` FOREIGN KEY (`brandid`) REFERENCES `brand` (`
 ADD CONSTRAINT `fk_vehicle_color1` FOREIGN KEY (`colorid`) REFERENCES `color` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_vehicle_parking1` FOREIGN KEY (`parkingid`) REFERENCES `parking` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_vehicle_resident1` FOREIGN KEY (`residentid`) REFERENCES `resident` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+--
+-- Base de datos: `cdcol`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cds`
+--
+
+CREATE TABLE IF NOT EXISTS `cds` (
+  `titel` varchar(200) DEFAULT NULL,
+  `interpret` varchar(200) DEFAULT NULL,
+  `jahr` int(11) DEFAULT NULL,
+`id` bigint(20) unsigned NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cds`
+--
+
+INSERT INTO `cds` (`titel`, `interpret`, `jahr`, `id`) VALUES
+('Beauty', 'Ryuichi Sakamoto', 1990, 1),
+('Goodbye Country (Hello Nightclub)', 'Groove Armada', 2001, 4),
+('Glee', 'Bran Van 3000', 1997, 5);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cds`
+--
+ALTER TABLE `cds`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `cds`
+--
+ALTER TABLE `cds`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;--
+-- Base de datos: `phpmyadmin`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__bookmark`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__bookmark` (
+`id` int(11) NOT NULL,
+  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `query` text COLLATE utf8_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__column_info`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__column_info` (
+`id` int(5) unsigned NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__designer_coords`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__designer_coords` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `x` int(11) DEFAULT NULL,
+  `y` int(11) DEFAULT NULL,
+  `v` tinyint(4) DEFAULT NULL,
+  `h` tinyint(4) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for Designer';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__history`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__history` (
+`id` bigint(20) unsigned NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `sqlquery` text COLLATE utf8_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__pdf_pages`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__pdf_pages` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+`page_nr` int(10) unsigned NOT NULL,
+  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__recent`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__recent` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+--
+-- Volcado de datos para la tabla `pma__recent`
+--
+
+INSERT INTO `pma__recent` (`username`, `tables`) VALUES
+('root', '[{"db":"appcore","table":"multiparam"},{"db":"appcore","table":"action"}]');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__relation`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__relation` (
+  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__table_coords`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__table_coords` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
+  `x` float unsigned NOT NULL DEFAULT '0',
+  `y` float unsigned NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__table_info`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__table_info` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__table_uiprefs`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__table_uiprefs` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `prefs` text COLLATE utf8_bin NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__tracking`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__tracking` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `version` int(10) unsigned NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
+  `schema_sql` text COLLATE utf8_bin,
+  `data_sql` longtext COLLATE utf8_bin,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
+  `tracking_active` int(1) unsigned NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT COMMENT='Database changes tracking for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pma__userconfig`
+--
+
+CREATE TABLE IF NOT EXISTS `pma__userconfig` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `config_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+--
+-- Volcado de datos para la tabla `pma__userconfig`
+--
+
+INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
+('root', '2014-12-31 20:34:45', '{"lang":"es","collation_connection":"utf8mb4_general_ci"}');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
+
+--
+-- Indices de la tabla `pma__designer_coords`
+--
+ALTER TABLE `pma__designer_coords`
+ ADD PRIMARY KEY (`db_name`,`table_name`);
+
+--
+-- Indices de la tabla `pma__history`
+--
+ALTER TABLE `pma__history`
+ ADD PRIMARY KEY (`id`), ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
+
+--
+-- Indices de la tabla `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+ ADD PRIMARY KEY (`page_nr`), ADD KEY `db_name` (`db_name`);
+
+--
+-- Indices de la tabla `pma__recent`
+--
+ALTER TABLE `pma__recent`
+ ADD PRIMARY KEY (`username`);
+
+--
+-- Indices de la tabla `pma__relation`
+--
+ALTER TABLE `pma__relation`
+ ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`), ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
+
+--
+-- Indices de la tabla `pma__table_coords`
+--
+ALTER TABLE `pma__table_coords`
+ ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
+
+--
+-- Indices de la tabla `pma__table_info`
+--
+ALTER TABLE `pma__table_info`
+ ADD PRIMARY KEY (`db_name`,`table_name`);
+
+--
+-- Indices de la tabla `pma__table_uiprefs`
+--
+ALTER TABLE `pma__table_uiprefs`
+ ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
+
+--
+-- Indices de la tabla `pma__tracking`
+--
+ALTER TABLE `pma__tracking`
+ ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
+
+--
+-- Indices de la tabla `pma__userconfig`
+--
+ALTER TABLE `pma__userconfig`
+ ADD PRIMARY KEY (`username`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+MODIFY `id` int(5) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `pma__history`
+--
+ALTER TABLE `pma__history`
+MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+MODIFY `page_nr` int(10) unsigned NOT NULL AUTO_INCREMENT;--
+-- Base de datos: `test`
+--
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `test_multi_sets`()
+    DETERMINISTIC
+begin
+        select user() as first_col;
+        select user() as first_col, now() as second_col;
+        select user() as first_col, now() as second_col, now() as third_col;
+        end$$
+
+DELIMITER ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

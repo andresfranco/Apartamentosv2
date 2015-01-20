@@ -1,0 +1,86 @@
+<script type="text/javascript">
+    $(function() {
+
+        // Setup form validation on the #register-form element
+        $("#form").validate({
+
+            // Specify the validation rules
+            rules: {
+                "apartamentos_apartamentosbundle_reservation[companyid]":{
+                    required:true
+
+                },
+                "apartamentos_apartamentosbundle_reservation[towerid]":{
+                    required:true
+
+                },
+
+                "apartamentos_apartamentosbundle_reservation[apartmentid]":{
+                    required:true
+
+                },
+                "apartamentos_apartamentosbundle_reservation[reservename]":{
+                    required:true
+
+                },
+
+                "apartamentos_apartamentosbundle_reservation[reason]":{
+                    required:true,
+
+                },
+                "apartamentos_apartamentosbundle_reservation[reservationdate]":{
+                    required:true
+                }
+                ,
+                "apartamentos_apartamentosbundle_reservation[hourfrom]":{
+                    required:true
+                },
+                "apartamentos_apartamentosbundle_reservation[hourto]":{
+                    required:true
+                }
+            },
+            // Specify the validation error messages
+            messages: {
+                "apartamentos_apartamentosbundle_reservation[companyid]":{
+                    required:"{{'companyid.validate'|trans}}"
+
+                },
+
+                "apartamentos_apartamentosbundle_reservation[towerid]":{
+                    required:"{{'towerid.validate'|trans}}"
+
+                },
+
+
+                "apartamentos_apartamentosbundle_reservation[apartmentid]":{
+                    required:"{{'apartmentid.validate'|trans}}"
+
+                },
+
+                "apartamentos_apartamentosbundle_reservation[reservename]":{
+                    required:"{{'reservation.required.reservename'|trans}}",
+
+                },
+                "apartamentos_apartamentosbundle_reservation[reason]":{
+                    required:"{{'reservation.required.reason'|trans}}"
+                },
+                "apartamentos_apartamentosbundle_reservation[reservationdate]":{
+                    required:"{{'reservation.required.reservationdate'|trans}}"
+                },
+                "apartamentos_apartamentosbundle_reservation[hourfrom]":{
+                    required:"{{'reservation.required.hourfrom'|trans}}"
+                },
+                "apartamentos_apartamentosbundle_reservation[hourto]":{
+                    required:"{{'reservation.required.hourto'|trans}}"
+                }
+
+            },
+
+
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+
+    });
+</script>

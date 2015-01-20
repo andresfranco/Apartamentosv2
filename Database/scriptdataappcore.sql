@@ -2,7 +2,7 @@
 -- Estructura de tabla para la tabla `action`
 --
 -- Volcado de datos para la tabla `action`
---
+
 INSERT INTO `action` (`id`, `actionname`, `description`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (2, 'Create User', 'Permiso para crear usuarios', 'admin', 'admin', '2014-12-05 14:42:46', '2014-12-05 14:42:46'),
 (3, 'Edit User', 'Permite cambiar los datos del usuario', 'admin', 'admin', '2014-12-09 16:09:56', '2014-12-09 16:09:56'),
@@ -876,7 +876,22 @@ INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updat
 (604, 'reason.reservation.validate', 'validators', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
 (605, 'reservationdate.reservation.validate', 'validators', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
 (606, 'hourfrom.reservation.validate', 'validators', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
-(607, 'hourto.reservation.validate', 'validators', '2015-01-12 20:24:55', '2015-01-12 20:24:55');
+(607, 'hourto.reservation.validate', 'validators', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
+(608, 'Reservaciones', 'messages', '2015-01-19 19:00:41', '2015-01-19 19:00:41'),
+(609, 'Nombre de reserva', 'messages', '2015-01-19 19:00:59', '2015-01-19 19:00:59'),
+(610, 'Motivo', 'messages', '2015-01-19 19:01:15', '2015-01-19 19:01:15'),
+(611, 'Hora desde', 'messages', '2015-01-19 19:01:34', '2015-01-19 19:01:34'),
+(612, 'Hora hasta', 'messages', '2015-01-19 19:02:00', '2015-01-19 19:02:00'),
+(613, 'Seleccione un motivo', 'messages', '2015-01-19 19:03:01', '2015-01-19 19:03:01'),
+(614, 'Seleccione una hora', 'messages', '2015-01-19 19:05:02', '2015-01-19 19:05:02'),
+(615, 'reservation.reservationdate.exist', 'validators', '2015-01-19 19:20:38', '2015-01-19 19:20:38'),
+(616, 'reservation.required.reservename', 'messages', '2015-01-19 19:48:42', '2015-01-19 19:48:42'),
+(617, 'reservation.required.reason', 'messages', '2015-01-19 19:52:49', '2015-01-19 19:52:49'),
+(618, 'reservation.required.reservationdate', 'messages', '2015-01-19 19:53:29', '2015-01-19 19:53:29'),
+(619, 'reservation.required.hourfrom', 'messages', '2015-01-19 19:54:00', '2015-01-19 19:54:00'),
+(620, 'reservation.required.hourto', 'messages', '2015-01-19 19:54:37', '2015-01-19 19:54:37'),
+(621, 'Eliminar reservación', 'messages', '2015-01-19 20:48:15', '2015-01-19 20:48:15'),
+(622, 'reservation.delete.question', 'messages', '2015-01-19 20:49:16', '2015-01-19 20:49:16');
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------
@@ -2082,7 +2097,37 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 (1193, 11, 606, 'en', 'You must select an hour from', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
 (1194, 12, 606, 'es', 'Debe seleccionar una hora desde', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
 (1195, 11, 607, 'en', 'You must select an hour to', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
-(1196, 12, 607, 'es', 'Debe seleccionar una hora hasta', '2015-01-12 20:24:55', '2015-01-12 20:24:55');
+(1196, 12, 607, 'es', 'Debe seleccionar una hora hasta', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
+(1197, 9, 608, 'en', 'Reservations', '2015-01-19 19:00:41', '2015-01-19 19:00:41'),
+(1198, 10, 608, 'es', 'Reservaciones', '2015-01-19 19:00:41', '2015-01-19 19:00:41'),
+(1199, 9, 609, 'en', 'Reserve name', '2015-01-19 19:00:59', '2015-01-19 19:00:59'),
+(1200, 10, 609, 'es', 'Nombre de reserva', '2015-01-19 19:00:59', '2015-01-19 19:00:59'),
+(1201, 9, 610, 'en', 'Reason', '2015-01-19 19:01:15', '2015-01-19 19:01:15'),
+(1202, 10, 610, 'es', 'Motivo', '2015-01-19 19:01:15', '2015-01-19 19:01:15'),
+(1203, 9, 611, 'en', 'Hour from', '2015-01-19 19:01:34', '2015-01-19 19:01:34'),
+(1204, 10, 611, 'es', 'Hora desde', '2015-01-19 19:01:34', '2015-01-19 19:01:34'),
+(1205, 9, 612, 'en', 'Hour to', '2015-01-19 19:02:00', '2015-01-19 19:02:00'),
+(1206, 10, 612, 'es', 'Hora hasta', '2015-01-19 19:02:00', '2015-01-19 19:02:00'),
+(1207, 9, 613, 'en', 'Select a reason', '2015-01-19 19:03:01', '2015-01-19 19:03:01'),
+(1208, 10, 613, 'es', 'Seleccione un motivo', '2015-01-19 19:03:01', '2015-01-19 19:03:01'),
+(1209, 9, 614, 'en', 'Select an hour', '2015-01-19 19:05:02', '2015-01-19 19:05:02'),
+(1210, 10, 614, 'es', 'Seleccione una hora', '2015-01-19 19:05:02', '2015-01-19 19:05:02'),
+(1211, 11, 615, 'en', 'A reservation already exists for the selected date and time', '2015-01-19 19:20:38', '2015-01-19 19:20:38'),
+(1212, 12, 615, 'es', 'Ya existe una reservacion para la fecha y hora seleccionadas', '2015-01-19 19:20:38', '2015-01-19 19:20:38'),
+(1213, 9, 616, 'en', 'you must enter a reservation name', '2015-01-19 19:48:42', '2015-01-19 19:48:42'),
+(1214, 10, 616, 'es', 'Debe ingresar un nombre de reserva', '2015-01-19 19:48:42', '2015-01-19 19:48:42'),
+(1215, 9, 617, 'en', 'You must enter a reason', '2015-01-19 19:52:49', '2015-01-19 19:52:49'),
+(1216, 10, 617, 'es', 'Debe ingresar un motivo', '2015-01-19 19:52:49', '2015-01-19 19:52:49'),
+(1217, 9, 618, 'en', 'You must enter a reservation date', '2015-01-19 19:53:29', '2015-01-19 19:53:29'),
+(1218, 10, 618, 'es', 'Debe seleccionar una fecha de reservación', '2015-01-19 19:53:29', '2015-01-19 19:53:29'),
+(1219, 9, 619, 'en', 'You must select an hour from', '2015-01-19 19:54:00', '2015-01-19 19:54:00'),
+(1220, 10, 619, 'es', 'Debe seleccionar una hora desde', '2015-01-19 19:54:00', '2015-01-19 19:54:00'),
+(1221, 9, 620, 'en', 'You must select an hour to', '2015-01-19 19:54:37', '2015-01-19 19:54:37'),
+(1222, 10, 620, 'es', 'Debe seleccionar una hora hasta', '2015-01-19 19:54:37', '2015-01-19 19:54:37'),
+(1223, 9, 621, 'en', 'Delete reservation', '2015-01-19 20:48:15', '2015-01-19 20:48:15'),
+(1224, 10, 621, 'es', 'Eliminar reservación', '2015-01-19 20:48:15', '2015-01-19 20:48:15'),
+(1225, 9, 622, 'en', 'Are you sure you want to delete this reservation', '2015-01-19 20:49:16', '2015-01-19 20:49:16'),
+(1226, 10, 622, 'es', 'Esta seguro que quiere eliminar esta reservación', '2015-01-19 20:49:16', '2015-01-19 20:49:16');
 
 
 -- --------------------------------------------------------
