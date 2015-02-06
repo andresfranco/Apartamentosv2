@@ -1,14 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 06-02-2015 a las 03:56:28
--- Versión del servidor: 5.6.21
--- Versión de PHP: 5.6.3
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 06-02-2015 a las 22:56:39
+-- Versión del servidor: 5.5.27
+-- Versión de PHP: 5.4.7
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -130,11 +130,13 @@ DELIMITER ;
 --
 
 CREATE TABLE IF NOT EXISTS `abssenceday` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `absencedate` date DEFAULT NULL,
   `reason` varchar(45) DEFAULT NULL,
-  `employeeid` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `employeeid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_abssenceday_employee1_idx` (`employeeid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -143,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `abssenceday` (
 --
 
 CREATE TABLE IF NOT EXISTS `account` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) DEFAULT NULL,
   `balance` float(18,2) DEFAULT NULL,
   `number` varchar(45) DEFAULT NULL,
@@ -151,8 +153,10 @@ CREATE TABLE IF NOT EXISTS `account` (
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_account_bank1_idx` (`bankid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `account`
@@ -169,14 +173,15 @@ INSERT INTO `account` (`id`, `name`, `balance`, `number`, `bankid`, `createuser`
 --
 
 CREATE TABLE IF NOT EXISTS `action` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `actionname` varchar(45) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=92 ;
 
 --
 -- Volcado de datos para la tabla `action`
@@ -189,7 +194,7 @@ INSERT INTO `action` (`id`, `actionname`, `description`, `createuser`, `modifyus
 (5, 'Create Role', 'Permite crear roles', 'admin', 'admin', '2014-12-10 09:47:50', '2014-12-10 09:47:50'),
 (6, 'Edit Role', 'Permite editar roles', 'admin', 'admin', '2014-12-10 09:48:19', '2014-12-10 09:48:19'),
 (7, 'Delete Role', 'Permite eliminar roles', 'admin', 'admin', '2014-12-10 09:48:53', '2014-12-10 09:48:53'),
-(8, 'Create Translation', 'Permite crear traducciones del sistema', 'admin', 'admin', '2015-01-04 17:31:29', '2015-01-04 17:31:29'),
+(8, 'Create Translation', 'Permite editar las traducciones del sistema', 'admin', 'admin', '2014-12-10 09:50:00', '2014-12-10 09:50:00'),
 (9, 'Configure Action', 'Permite configurar las acciones de seguridad', 'admin', 'admin', '2014-12-10 09:50:33', '2014-12-10 09:50:33'),
 (10, 'Create Condo', 'Permite crear condominios', 'admin', 'admin', '2014-12-10 09:51:42', '2014-12-10 09:51:42'),
 (11, 'Edit Condo', 'Permite editar condominios', 'admin', 'admin', '2014-12-10 09:52:13', '2014-12-10 09:52:13'),
@@ -281,14 +286,15 @@ INSERT INTO `action` (`id`, `actionname`, `description`, `createuser`, `modifyus
 --
 
 CREATE TABLE IF NOT EXISTS `admin_roles` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `admin_rolescol` varchar(45) DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Volcado de datos para la tabla `admin_roles`
@@ -308,7 +314,7 @@ INSERT INTO `admin_roles` (`id`, `nombre`, `admin_rolescol`, `createuser`, `modi
 --
 
 CREATE TABLE IF NOT EXISTS `admin_user` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(32) NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `salt` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -318,8 +324,10 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_admin_user_Company1_idx` (`Companyid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
 
 --
 -- Volcado de datos para la tabla `admin_user`
@@ -338,10 +346,11 @@ INSERT INTO `admin_user` (`id`, `username`, `password`, `salt`, `Companyid`, `na
 --
 
 CREATE TABLE IF NOT EXISTS `advertisement` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(60) DEFAULT NULL,
-  `content` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `content` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -350,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `advertisement` (
 --
 
 CREATE TABLE IF NOT EXISTS `apartment` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `number` varchar(10) DEFAULT NULL,
   `towerid` int(11) DEFAULT NULL,
   `phone` varchar(35) DEFAULT NULL,
@@ -369,8 +378,10 @@ CREATE TABLE IF NOT EXISTS `apartment` (
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
-  `modifyuser` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  `modifyuser` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_apartment_tower1_idx` (`towerid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Volcado de datos para la tabla `apartment`
@@ -398,12 +409,14 @@ INSERT INTO `apartment` (`id`, `number`, `towerid`, `phone`, `area`, `numberresi
 --
 
 CREATE TABLE IF NOT EXISTS `architect` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) DEFAULT NULL,
   `phone` varchar(45) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
-  `const_companyid` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `const_companyid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_architect_const_company1_idx` (`const_companyid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -412,15 +425,16 @@ CREATE TABLE IF NOT EXISTS `architect` (
 --
 
 CREATE TABLE IF NOT EXISTS `bank` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `address` varchar(200) DEFAULT NULL,
   `phone` varchar(45) DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `bank`
@@ -437,13 +451,14 @@ INSERT INTO `bank` (`id`, `name`, `address`, `phone`, `createuser`, `modifyuser`
 --
 
 CREATE TABLE IF NOT EXISTS `brand` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `brand` varchar(45) DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `brand`
@@ -460,14 +475,16 @@ INSERT INTO `brand` (`id`, `brand`, `createuser`, `modifyuser`, `createdate`, `m
 --
 
 CREATE TABLE IF NOT EXISTS `cause` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `cause` varchar(60) DEFAULT NULL,
   `causetypeid` int(11) NOT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cause_causetype1_idx` (`causetypeid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `cause`
@@ -476,8 +493,7 @@ CREATE TABLE IF NOT EXISTS `cause` (
 INSERT INTO `cause` (`id`, `cause`, `causetypeid`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (2, 'Pago a Proveedor', 1, NULL, 'admin', NULL, '2014-11-25 11:50:08'),
 (3, 'Pago de multa', 2, NULL, NULL, NULL, NULL),
-(4, 'Otro', 2, 'admin', 'admin', '2014-11-25 11:49:40', '2014-11-25 11:49:40'),
-(5, 'Reserva de area social', 4, 'admin', 'admin', '2015-01-12 18:29:17', '2015-01-12 18:29:17');
+(4, 'Otro', 2, 'admin', 'admin', '2014-11-25 11:49:40', '2014-11-25 11:49:40');
 
 -- --------------------------------------------------------
 
@@ -486,14 +502,15 @@ INSERT INTO `cause` (`id`, `cause`, `causetypeid`, `createuser`, `modifyuser`, `
 --
 
 CREATE TABLE IF NOT EXISTS `causetype` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `causetype` varchar(45) DEFAULT NULL,
   `causetypecol` varchar(45) DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `causetype`
@@ -502,8 +519,7 @@ CREATE TABLE IF NOT EXISTS `causetype` (
 INSERT INTO `causetype` (`id`, `causetype`, `causetypecol`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (1, 'Gastos', NULL, NULL, 'admin', NULL, '2014-11-25 11:47:44'),
 (2, 'Ingresos', NULL, NULL, NULL, NULL, NULL),
-(3, 'Otro', NULL, 'admin', 'admin', '2014-11-25 11:43:28', '2014-11-25 11:43:28'),
-(4, 'Reserva', NULL, 'admin', 'admin', '2015-01-12 18:26:49', '2015-01-12 18:26:49');
+(3, 'Otro', NULL, 'admin', 'admin', '2014-11-25 11:43:28', '2014-11-25 11:43:28');
 
 -- --------------------------------------------------------
 
@@ -512,13 +528,14 @@ INSERT INTO `causetype` (`id`, `causetype`, `causetypecol`, `createuser`, `modif
 --
 
 CREATE TABLE IF NOT EXISTS `color` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Color` varchar(50) DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Volcado de datos para la tabla `color`
@@ -535,12 +552,15 @@ INSERT INTO `color` (`id`, `Color`, `createuser`, `modifyuser`, `createdate`, `m
 --
 
 CREATE TABLE IF NOT EXISTS `color_translations` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `object_id` int(11) DEFAULT NULL,
   `locale` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
   `field` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `content` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `lookup_unique_idx` (`locale`,`object_id`,`field`),
+  KEY `IDX_CF7DEFD1232D562B` (`object_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Volcado de datos para la tabla `color_translations`
@@ -556,7 +576,7 @@ INSERT INTO `color_translations` (`id`, `object_id`, `locale`, `field`, `content
 --
 
 CREATE TABLE IF NOT EXISTS `company` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) DEFAULT NULL,
   `phone` varchar(32) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -567,8 +587,10 @@ CREATE TABLE IF NOT EXISTS `company` (
   `createdate` datetime NOT NULL,
   `modifydate` datetime NOT NULL,
   `createuser` varchar(45) NOT NULL,
-  `modifyuser` varchar(45) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+  `modifyuser` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_Company_const_company1_idx` (`const_companyid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Volcado de datos para la tabla `company`
@@ -591,7 +613,7 @@ INSERT INTO `company` (`id`, `name`, `phone`, `address`, `Companycode`, `email`,
 --
 
 CREATE TABLE IF NOT EXISTS `const_company` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `phone` varchar(32) DEFAULT NULL,
@@ -599,8 +621,9 @@ CREATE TABLE IF NOT EXISTS `const_company` (
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
-  `modifyuser` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `modifyuser` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `const_company`
@@ -617,10 +640,11 @@ INSERT INTO `const_company` (`id`, `name`, `address`, `phone`, `email`, `created
 --
 
 CREATE TABLE IF NOT EXISTS `day` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `daycol` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `daycol` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -629,7 +653,7 @@ CREATE TABLE IF NOT EXISTS `day` (
 --
 
 CREATE TABLE IF NOT EXISTS `employee` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `completename` varchar(45) DEFAULT NULL,
   `idnumber` varchar(45) DEFAULT NULL,
   `Companyid` int(11) DEFAULT NULL,
@@ -638,8 +662,10 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
-  `modifyuser` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `modifyuser` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_employee_Company1_idx` (`Companyid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Volcado de datos para la tabla `employee`
@@ -657,12 +683,15 @@ INSERT INTO `employee` (`id`, `completename`, `idnumber`, `Companyid`, `salaryam
 --
 
 CREATE TABLE IF NOT EXISTS `employee_schedule` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `starttime` time DEFAULT NULL,
   `endtime` time DEFAULT NULL,
   `employeeid` int(11) DEFAULT NULL,
-  `dayid` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dayid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_employee_schedule_employee1_idx` (`employeeid`),
+  KEY `fk_employee_schedule_day1_idx` (`dayid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -672,8 +701,21 @@ CREATE TABLE IF NOT EXISTS `employee_schedule` (
 
 CREATE TABLE IF NOT EXISTS `employee_tower` (
   `employee_id` int(11) NOT NULL,
-  `tower_id` int(11) NOT NULL
+  `tower_id` int(11) NOT NULL,
+  PRIMARY KEY (`employee_id`,`tower_id`),
+  KEY `fk_employee_tower_employee1_idx` (`employee_id`),
+  KEY `fk_employee_tower_tower1_idx` (`tower_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `employee_tower`
+--
+
+INSERT INTO `employee_tower` (`employee_id`, `tower_id`) VALUES
+(15, 2),
+(16, 2),
+(16, 3),
+(17, 2);
 
 -- --------------------------------------------------------
 
@@ -682,13 +724,15 @@ CREATE TABLE IF NOT EXISTS `employee_tower` (
 --
 
 CREATE TABLE IF NOT EXISTS `employee_vacation` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `startdate` date DEFAULT NULL,
   `enddate` date DEFAULT NULL,
   `totaldays` int(11) DEFAULT NULL,
   `totaldaymissing` int(11) DEFAULT NULL,
-  `employeeid` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `employeeid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_employee_vacation_employee1_idx` (`employeeid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -697,7 +741,7 @@ CREATE TABLE IF NOT EXISTS `employee_vacation` (
 --
 
 CREATE TABLE IF NOT EXISTS `expense` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `expensedate` date DEFAULT NULL,
   `amount` float(18,2) DEFAULT NULL,
   `towerid` int(11) DEFAULT NULL,
@@ -709,8 +753,12 @@ CREATE TABLE IF NOT EXISTS `expense` (
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
-  `modifyuser` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+  `modifyuser` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_expense_tower1_idx` (`towerid`),
+  KEY `fk_expense_cause1_idx` (`causeid`),
+  KEY `fk_expense_account1_idx` (`accountid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `expense`
@@ -729,7 +777,7 @@ INSERT INTO `expense` (`id`, `expensedate`, `amount`, `towerid`, `description`, 
 --
 
 CREATE TABLE IF NOT EXISTS `expenseinvoice` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(45) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
   `path` varchar(255) DEFAULT NULL,
@@ -737,8 +785,10 @@ CREATE TABLE IF NOT EXISTS `expenseinvoice` (
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_expense_invoice_expense1_idx` (`expenseid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Volcado de datos para la tabla `expenseinvoice`
@@ -752,8 +802,7 @@ INSERT INTO `expenseinvoice` (`id`, `description`, `name`, `path`, `expenseid`, 
 (11, 'asas', 'assa', 'assa.png', 2, NULL, NULL, NULL, NULL),
 (13, 'Factura de Digicel de Septiembre', 'Facturadigicel2', 'Factura digicel.pdf', 2, NULL, NULL, NULL, NULL),
 (15, 'alala', 'lala', 'lala.png', 2, NULL, NULL, NULL, NULL),
-(16, 'saas', '4566', '1234.png', 12, 'admin', 'admin', '2014-11-25 12:07:10', '2014-11-25 12:08:38'),
-(17, 'test', 'test android', 'test android.jpeg', 2, 'admin', 'admin', '2015-01-14 22:01:09', '2015-01-14 22:01:09');
+(16, 'saas', '4566', '1234.png', 12, 'admin', 'admin', '2014-11-25 12:07:10', '2014-11-25 12:08:38');
 
 -- --------------------------------------------------------
 
@@ -762,15 +811,20 @@ INSERT INTO `expenseinvoice` (`id`, `description`, `name`, `path`, `expenseid`, 
 --
 
 CREATE TABLE IF NOT EXISTS `ext_log_entries` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `action` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
   `logged_at` datetime NOT NULL,
   `object_id` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   `object_class` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `version` int(11) NOT NULL,
   `data` longtext COLLATE utf8_unicode_ci COMMENT '(DC2Type:array)',
-  `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `log_class_lookup_idx` (`object_class`),
+  KEY `log_date_lookup_idx` (`logged_at`),
+  KEY `log_user_lookup_idx` (`username`),
+  KEY `log_version_lookup_idx` (`object_id`,`object_class`,`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -779,13 +833,26 @@ CREATE TABLE IF NOT EXISTS `ext_log_entries` (
 --
 
 CREATE TABLE IF NOT EXISTS `ext_translations` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `locale` varchar(8) COLLATE utf8_unicode_ci NOT NULL,
   `object_class` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `field` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `foreign_key` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `content` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `lookup_unique_idx` (`locale`,`object_class`,`field`,`foreign_key`),
+  KEY `translations_lookup_idx` (`locale`,`object_class`,`foreign_key`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `ext_translations`
+--
+
+INSERT INTO `ext_translations` (`id`, `locale`, `object_class`, `field`, `foreign_key`, `content`) VALUES
+(1, 'en', 'Apartamentos\\ApartamentosBundle\\Entity\\Color', 'color', '10', 'Orange2'),
+(2, 'en', 'Apartamentos\\ApartamentosBundle\\Entity\\Color', 'color', '12', 'Red'),
+(3, 'en', 'Apartamentos\\ApartamentosBundle\\Entity\\Color', 'color', '14', 'Green'),
+(4, 'en', 'Apartamentos\\ApartamentosBundle\\Entity\\Color', 'color', '15', 'Gray');
 
 -- --------------------------------------------------------
 
@@ -794,7 +861,7 @@ CREATE TABLE IF NOT EXISTS `ext_translations` (
 --
 
 CREATE TABLE IF NOT EXISTS `income` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `incomedate` date DEFAULT NULL,
   `amount` float(18,2) DEFAULT NULL,
   `description` varchar(45) DEFAULT NULL,
@@ -806,8 +873,12 @@ CREATE TABLE IF NOT EXISTS `income` (
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_income_tower1_idx` (`towerid`),
+  KEY `fk_income_cause1_idx` (`causeid`),
+  KEY `fk_income_account1_idx` (`accountid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Volcado de datos para la tabla `income`
@@ -829,12 +900,14 @@ INSERT INTO `income` (`id`, `incomedate`, `amount`, `description`, `towerid`, `c
 --
 
 CREATE TABLE IF NOT EXISTS `income_invoice` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(45) DEFAULT NULL,
   `incomeid` int(11) DEFAULT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `path` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `path` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_income_invoice_income1_idx` (`incomeid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -843,13 +916,15 @@ CREATE TABLE IF NOT EXISTS `income_invoice` (
 --
 
 CREATE TABLE IF NOT EXISTS `lexik_translation_file` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `extention` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `hash_idx` (`hash`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `lexik_translation_file`
@@ -863,11 +938,7 @@ INSERT INTO `lexik_translation_file` (`id`, `domain`, `locale`, `extention`, `pa
 (5, 'messages', 'es', 'yml', 'Resources/translations', 'd50c2026170e82881f4e8b6f87b63800'),
 (6, 'validators', 'en', 'yml', 'Resources/translations', 'e2d4ac91c2f28e7339b317adc186d1e7'),
 (7, 'validators', 'es', 'yml', 'Resources/translations', 'd3175f1a2739aed80701e38542ec962d'),
-(8, 'messages', 'es', 'yml', '../app\\../src/Apartamentos/ApartamentosBundle/Resources/translations', '460eb0dbdd61c2b7cea83bf8b781a162'),
-(9, 'messages', 'en', 'yml', 'Resources/translations', 'd7886bc44b7dcf86809a262d3cf25bc2'),
-(10, 'messages', 'es', 'yml', 'Resources/translations', '1b0eb5a61a37f8ea43f0bb2c2fdb98a9'),
-(11, 'validators', 'en', 'yml', 'Resources/translations', 'ea28c54d0408a9df21c38211ef9f5b8e'),
-(12, 'validators', 'es', 'yml', 'Resources/translations', '1f8a496b5dc539929700286e7322e074');
+(8, 'messages', 'es', 'yml', '../app\\../src/Apartamentos/ApartamentosBundle/Resources/translations', '460eb0dbdd61c2b7cea83bf8b781a162');
 
 -- --------------------------------------------------------
 
@@ -876,12 +947,14 @@ INSERT INTO `lexik_translation_file` (`id`, `domain`, `locale`, `extention`, `pa
 --
 
 CREATE TABLE IF NOT EXISTS `lexik_trans_unit` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `key_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=623 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `key_domain_idx` (`key_name`,`domain`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=576 ;
 
 --
 -- Volcado de datos para la tabla `lexik_trans_unit`
@@ -1461,56 +1534,8 @@ INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updat
 (571, 'roleaction.actionid.validate', 'messages', '2014-12-09 16:25:42', '2014-12-09 16:25:42'),
 (572, 'Quitar Acción', 'messages', '2014-12-10 09:17:28', '2014-12-10 09:17:28'),
 (573, 'delete.roleaction.question', 'messages', '2014-12-10 09:20:15', '2014-12-10 09:20:15'),
-(574, 'Valor', 'messages', '2015-01-09 15:46:29', '2015-01-09 15:46:29'),
-(575, 'validate.sysparam.name', 'validators', '2015-01-09 15:47:48', '2015-01-09 15:48:54'),
-(576, 'validate.sysparam.value', 'validators', '2015-01-09 15:48:12', '2015-01-09 15:49:09'),
-(577, 'sysparam.name.validate', 'messages', '2015-01-09 15:55:51', '2015-01-09 15:55:51'),
-(578, 'sysparam.value.validate', 'messages', '2015-01-09 15:56:24', '2015-01-09 15:56:24'),
-(579, 'Parámetros del Sistema', 'messages', '2015-01-09 15:59:05', '2015-01-09 15:59:05'),
-(580, 'Nuevo Parámetro del sistema', 'messages', '2015-01-09 15:59:53', '2015-01-09 15:59:53'),
-(581, 'Detalle del parámetro', 'messages', '2015-01-09 16:10:42', '2015-01-09 16:10:42');
-INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updated_at`) VALUES
-(582, 'Editar Parámetro del sistema', 'messages', '2015-01-09 16:12:45', '2015-01-09 16:12:45'),
-(583, 'Eliminar Parámetro', 'messages', '2015-01-09 16:17:43', '2015-01-09 16:17:43'),
-(584, 'delete.sysparam.question', 'messages', '2015-01-09 16:18:57', '2015-01-09 16:18:57'),
-(585, 'validate.exist.name', 'validators', '2015-01-09 16:25:54', '2015-01-09 16:25:54'),
-(586, 'validate.sysparam.multiparamid', 'validators', '2015-01-10 22:05:13', '2015-01-10 22:05:13'),
-(587, 'sysparam.multiparamid.validate', 'messages', '2015-01-10 22:14:32', '2015-01-10 22:14:32'),
-(588, 'Nuevo parámetro multiple', 'messages', '2015-01-11 19:31:21', '2015-01-11 19:31:21'),
-(589, 'Parámetro', 'messages', '2015-01-11 19:31:41', '2015-01-11 19:31:41'),
-(590, 'Parámetros multiples', 'messages', '2015-01-11 19:32:34', '2015-01-11 19:32:34'),
-(591, 'Parámetros', 'messages', '2015-01-11 19:33:17', '2015-01-11 19:33:17'),
-(592, 'Seleccione un parámetro', 'messages', '2015-01-11 19:36:55', '2015-01-11 19:36:55'),
-(593, 'validate.multiparam.sysparamid', 'validators', '2015-01-11 19:38:03', '2015-01-11 19:38:03'),
-(594, 'validate.multiparam.value', 'validators', '2015-01-11 19:38:55', '2015-01-11 19:38:55'),
-(595, 'multiparam.sysparamid.validate', 'messages', '2015-01-11 19:46:25', '2015-01-11 19:46:25'),
-(596, 'multiparam.value.validate', 'messages', '2015-01-11 19:48:20', '2015-01-11 19:48:20'),
-(597, 'multiparam.description.validate', 'messages', '2015-01-11 19:48:59', '2015-01-11 19:48:59'),
-(598, 'Detalle del parámetro multiple', 'messages', '2015-01-11 20:03:31', '2015-01-11 20:03:31'),
-(599, 'Eliminar parámetro multiple', 'messages', '2015-01-11 20:41:28', '2015-01-11 20:41:45'),
-(600, 'delete.multiparam.question', 'messages', '2015-01-11 20:42:59', '2015-01-11 20:42:59'),
-(601, 'validate.exist.multiparam', 'validators', '2015-01-12 18:14:11', '2015-01-12 18:14:11'),
-(602, 'Fecha de reserva', 'messages', '2015-01-12 19:45:08', '2015-01-12 19:45:08'),
-(603, 'reservename.reservation.validate', 'validators', '2015-01-12 20:18:39', '2015-01-12 20:18:39'),
-(604, 'reason.reservation.validate', 'validators', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
-(605, 'reservationdate.reservation.validate', 'validators', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
-(606, 'hourfrom.reservation.validate', 'validators', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
-(607, 'hourto.reservation.validate', 'validators', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
-(608, 'Reservaciones', 'messages', '2015-01-19 19:00:41', '2015-01-19 19:00:41'),
-(609, 'Nombre de reserva', 'messages', '2015-01-19 19:00:59', '2015-01-19 19:00:59'),
-(610, 'Motivo', 'messages', '2015-01-19 19:01:15', '2015-01-19 19:01:15'),
-(611, 'Hora desde', 'messages', '2015-01-19 19:01:34', '2015-01-19 19:01:34'),
-(612, 'Hora hasta', 'messages', '2015-01-19 19:02:00', '2015-01-19 19:02:00'),
-(613, 'Seleccione un motivo', 'messages', '2015-01-19 19:03:01', '2015-01-19 19:03:01'),
-(614, 'Seleccione una hora', 'messages', '2015-01-19 19:05:02', '2015-01-19 19:05:02'),
-(615, 'reservation.reservationdate.exist', 'validators', '2015-01-19 19:20:38', '2015-01-19 19:20:38'),
-(616, 'reservation.required.reservename', 'messages', '2015-01-19 19:48:42', '2015-01-19 19:48:42'),
-(617, 'reservation.required.reason', 'messages', '2015-01-19 19:52:49', '2015-01-19 19:52:49'),
-(618, 'reservation.required.reservationdate', 'messages', '2015-01-19 19:53:29', '2015-01-19 19:53:29'),
-(619, 'reservation.required.hourfrom', 'messages', '2015-01-19 19:54:00', '2015-01-19 19:54:00'),
-(620, 'reservation.required.hourto', 'messages', '2015-01-19 19:54:37', '2015-01-19 19:54:37'),
-(621, 'Eliminar reservación', 'messages', '2015-01-19 20:48:15', '2015-01-19 20:48:15'),
-(622, 'reservation.delete.question', 'messages', '2015-01-19 20:49:16', '2015-01-19 20:49:16');
+(574, 'ADMINISTRATION', 'messages', '2015-02-05 13:22:39', '2015-02-05 13:22:39'),
+(575, 'Bad credentials.', 'validators', '2015-02-05 14:41:43', '2015-02-05 14:41:43');
 
 -- --------------------------------------------------------
 
@@ -1519,14 +1544,18 @@ INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updat
 --
 
 CREATE TABLE IF NOT EXISTS `lexik_trans_unit_translations` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `file_id` int(11) DEFAULT NULL,
   `trans_unit_id` int(11) DEFAULT NULL,
   `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `content` longtext COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1227 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `trans_unit_locale_idx` (`trans_unit_id`,`locale`),
+  KEY `IDX_B0AA394493CB796C` (`file_id`),
+  KEY `IDX_B0AA3944C3C583C9` (`trans_unit_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1133 ;
 
 --
 -- Volcado de datos para la tabla `lexik_trans_unit_translations`
@@ -2663,104 +2692,10 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 (1126, 5, 572, 'es', 'Quitar Acción', '2014-12-10 09:17:28', '2014-12-10 09:17:28'),
 (1127, 4, 573, 'en', 'Are you sure you want to remove this action role', '2014-12-10 09:20:15', '2014-12-10 09:20:15'),
 (1128, 5, 573, 'es', 'Esta seguro que desea quitar esa accion del rol', '2014-12-10 09:20:15', '2014-12-10 09:20:15'),
-(1129, 9, 574, 'en', 'Value', '2015-01-09 15:46:29', '2015-01-09 15:46:29'),
-(1130, 10, 574, 'es', 'Valor', '2015-01-09 15:46:29', '2015-01-09 15:46:29'),
-(1131, 9, 575, 'en', 'You must enter a name', '2015-01-09 15:47:48', '2015-01-09 15:47:48'),
-(1132, 10, 575, 'es', 'Debe ingresar un nombre', '2015-01-09 15:47:48', '2015-01-09 15:47:48'),
-(1133, 9, 576, 'en', 'You must enter a value', '2015-01-09 15:48:12', '2015-01-09 15:48:12'),
-(1134, 10, 576, 'es', 'Debe ingresar un valor', '2015-01-09 15:48:12', '2015-01-09 15:48:12'),
-(1135, 9, 577, 'en', 'You must enter a name', '2015-01-09 15:55:51', '2015-01-09 15:55:51'),
-(1136, 10, 577, 'es', 'Debe ingresar un nombre', '2015-01-09 15:55:51', '2015-01-09 15:55:51'),
-(1137, 9, 578, 'en', 'You must enter a value', '2015-01-09 15:56:24', '2015-01-09 15:56:24'),
-(1138, 10, 578, 'es', 'Debe ingresar un valor', '2015-01-09 15:56:24', '2015-01-09 15:56:24'),
-(1139, 9, 579, 'en', 'System Parameters', '2015-01-09 15:59:05', '2015-01-09 15:59:05'),
-(1140, 10, 579, 'es', 'Parámetros del Sistema', '2015-01-09 15:59:05', '2015-01-09 15:59:05'),
-(1141, 9, 580, 'en', 'New System parameter', '2015-01-09 15:59:53', '2015-01-09 15:59:53'),
-(1142, 10, 580, 'es', 'Nuevo Parámetro del sistema', '2015-01-09 15:59:53', '2015-01-09 15:59:53'),
-(1143, 9, 581, 'en', 'Parameter Details', '2015-01-09 16:10:42', '2015-01-09 16:10:42'),
-(1144, 10, 581, 'es', 'Detalle del parámetro', '2015-01-09 16:10:42', '2015-01-09 16:10:42'),
-(1145, 9, 582, 'en', 'Edit System parameters', '2015-01-09 16:12:45', '2015-01-09 16:12:45'),
-(1146, 10, 582, 'es', 'Editar Parámetro del sistema', '2015-01-09 16:12:45', '2015-01-09 16:12:45'),
-(1147, 9, 583, 'en', 'Delete parameter', '2015-01-09 16:17:43', '2015-01-09 16:17:43'),
-(1148, 10, 583, 'es', 'Eliminar Parámetro', '2015-01-09 16:17:43', '2015-01-09 16:17:43'),
-(1149, 9, 584, 'en', 'Are you sure you want to delete this system parameter', '2015-01-09 16:18:57', '2015-01-09 16:18:57'),
-(1150, 10, 584, 'es', 'Esta seguro que desea eliminar este parámetro del sistema', '2015-01-09 16:18:57', '2015-01-09 16:18:57'),
-(1151, 11, 585, 'en', 'A parameter with that name already exists', '2015-01-09 16:25:54', '2015-01-09 16:25:54'),
-(1152, 12, 585, 'es', 'Ya existe un parámetro con ese nombre', '2015-01-09 16:25:54', '2015-01-09 16:25:54'),
-(1153, 11, 586, 'en', 'You must enter a key', '2015-01-10 22:05:13', '2015-01-10 22:05:13'),
-(1154, 12, 586, 'es', 'Debe ingresar un identificador', '2015-01-10 22:05:13', '2015-01-10 22:05:13'),
-(1155, 9, 587, 'en', 'You must enter a key', '2015-01-10 22:14:32', '2015-01-10 22:14:32'),
-(1156, 10, 587, 'es', 'Debe ingresar un identificador', '2015-01-10 22:14:32', '2015-01-10 22:14:32'),
-(1157, 9, 588, 'en', 'New multi parameter', '2015-01-11 19:31:21', '2015-01-11 19:31:21'),
-(1158, 10, 588, 'es', 'Nuevo parámetro multiple', '2015-01-11 19:31:21', '2015-01-11 19:31:21'),
-(1159, 9, 589, 'en', 'Parameter', '2015-01-11 19:31:41', '2015-01-11 19:31:41'),
-(1160, 10, 589, 'es', 'Parámetro', '2015-01-11 19:31:41', '2015-01-11 19:31:41'),
-(1161, 9, 590, 'en', 'Multi parameter', '2015-01-11 19:32:34', '2015-01-11 19:32:34'),
-(1162, 10, 590, 'es', 'Parámetros multiples', '2015-01-11 19:32:34', '2015-01-11 19:32:34'),
-(1163, 9, 591, 'en', 'Parameters', '2015-01-11 19:33:17', '2015-01-11 19:33:17'),
-(1164, 10, 591, 'es', 'Parámetros', '2015-01-11 19:33:17', '2015-01-11 19:33:17'),
-(1165, 9, 592, 'en', 'Select a parameter', '2015-01-11 19:36:55', '2015-01-11 19:36:55'),
-(1166, 10, 592, 'es', 'Seleccione un parámetro', '2015-01-11 19:36:55', '2015-01-11 19:36:55'),
-(1167, 11, 593, 'en', 'You must select a parameter', '2015-01-11 19:38:03', '2015-01-11 19:38:03'),
-(1168, 12, 593, 'es', 'Debe seleccionar un parámetro', '2015-01-11 19:38:03', '2015-01-11 19:38:03'),
-(1169, 11, 594, 'en', 'You must enter a value', '2015-01-11 19:38:55', '2015-01-11 19:38:55'),
-(1170, 12, 594, 'es', 'Debe ingresar un valor', '2015-01-11 19:38:55', '2015-01-11 19:38:55'),
-(1171, 9, 595, 'en', 'You must select a parameter', '2015-01-11 19:46:25', '2015-01-11 19:46:25'),
-(1172, 10, 595, 'es', 'Debe seleccionar un parámetro', '2015-01-11 19:46:25', '2015-01-11 19:46:25'),
-(1173, 9, 596, 'en', 'You must enter a value', '2015-01-11 19:48:20', '2015-01-11 19:48:20'),
-(1174, 10, 596, 'es', 'Debe ingresar un valor', '2015-01-11 19:48:20', '2015-01-11 19:48:20'),
-(1175, 9, 597, 'en', 'You must enter a description', '2015-01-11 19:48:59', '2015-01-11 19:48:59'),
-(1176, 10, 597, 'es', 'Debe ingresar una descripción', '2015-01-11 19:48:59', '2015-01-11 19:48:59'),
-(1177, 9, 598, 'en', 'Multi param detail', '2015-01-11 20:03:31', '2015-01-11 20:03:31'),
-(1178, 10, 598, 'es', 'Detalle del parámetro multiple', '2015-01-11 20:03:31', '2015-01-11 20:03:31'),
-(1179, 9, 599, 'en', 'Delete multi parameter', '2015-01-11 20:41:28', '2015-01-11 20:41:44'),
-(1180, 10, 599, 'es', 'Eliminar parámetro multiple', '2015-01-11 20:41:28', '2015-01-11 20:41:28'),
-(1181, 9, 600, 'en', 'Are you sure you want to delete this multi parameter', '2015-01-11 20:42:59', '2015-01-11 20:42:59'),
-(1182, 10, 600, 'es', 'Esta seguro que desea eliminar este parametro multiple', '2015-01-11 20:42:59', '2015-01-11 20:42:59'),
-(1183, 11, 601, 'en', 'A multiple parameter already exists with the value for the selected identifier', '2015-01-12 18:14:11', '2015-01-12 18:14:11'),
-(1184, 12, 601, 'es', 'Ya existe un parametro múltiple con ese valor para el identificador seleccionado', '2015-01-12 18:14:11', '2015-01-12 18:14:11'),
-(1185, 9, 602, 'en', 'Reservation date', '2015-01-12 19:45:08', '2015-01-12 19:45:08'),
-(1186, 10, 602, 'es', 'Fecha de reserva', '2015-01-12 19:45:08', '2015-01-12 19:45:08'),
-(1187, 11, 603, 'en', 'You must enter a reservation name', '2015-01-12 20:18:39', '2015-01-12 20:18:39'),
-(1188, 12, 603, 'es', 'Debe ingresar un nombre de reserva', '2015-01-12 20:18:39', '2015-01-12 20:18:39'),
-(1189, 11, 604, 'en', 'You must enter a reservation reason', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
-(1190, 12, 604, 'es', 'Debe seleccionar un motivo de reserva', '2015-01-12 20:20:41', '2015-01-12 20:20:41'),
-(1191, 11, 605, 'en', 'You must enter a reservation date', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
-(1192, 12, 605, 'es', 'Debe ingresar una fecha de reserva', '2015-01-12 20:21:16', '2015-01-12 20:21:16'),
-(1193, 11, 606, 'en', 'You must select an hour from', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
-(1194, 12, 606, 'es', 'Debe seleccionar una hora desde', '2015-01-12 20:24:19', '2015-01-12 20:24:19'),
-(1195, 11, 607, 'en', 'You must select an hour to', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
-(1196, 12, 607, 'es', 'Debe seleccionar una hora hasta', '2015-01-12 20:24:55', '2015-01-12 20:24:55'),
-(1197, 9, 608, 'en', 'Reservations', '2015-01-19 19:00:41', '2015-01-19 19:00:41'),
-(1198, 10, 608, 'es', 'Reservaciones', '2015-01-19 19:00:41', '2015-01-19 19:00:41'),
-(1199, 9, 609, 'en', 'Reserve name', '2015-01-19 19:00:59', '2015-01-19 19:00:59'),
-(1200, 10, 609, 'es', 'Nombre de reserva', '2015-01-19 19:00:59', '2015-01-19 19:00:59'),
-(1201, 9, 610, 'en', 'Reason', '2015-01-19 19:01:15', '2015-01-19 19:01:15'),
-(1202, 10, 610, 'es', 'Motivo', '2015-01-19 19:01:15', '2015-01-19 19:01:15'),
-(1203, 9, 611, 'en', 'Hour from', '2015-01-19 19:01:34', '2015-01-19 19:01:34'),
-(1204, 10, 611, 'es', 'Hora desde', '2015-01-19 19:01:34', '2015-01-19 19:01:34'),
-(1205, 9, 612, 'en', 'Hour to', '2015-01-19 19:02:00', '2015-01-19 19:02:00'),
-(1206, 10, 612, 'es', 'Hora hasta', '2015-01-19 19:02:00', '2015-01-19 19:02:00'),
-(1207, 9, 613, 'en', 'Select a reason', '2015-01-19 19:03:01', '2015-01-19 19:03:01'),
-(1208, 10, 613, 'es', 'Seleccione un motivo', '2015-01-19 19:03:01', '2015-01-19 19:03:01'),
-(1209, 9, 614, 'en', 'Select an hour', '2015-01-19 19:05:02', '2015-01-19 19:05:02'),
-(1210, 10, 614, 'es', 'Seleccione una hora', '2015-01-19 19:05:02', '2015-01-19 19:05:02'),
-(1211, 11, 615, 'en', 'A reservation already exists for the selected date and time', '2015-01-19 19:20:38', '2015-01-19 19:20:38'),
-(1212, 12, 615, 'es', 'Ya existe una reservacion para la fecha y hora seleccionadas', '2015-01-19 19:20:38', '2015-01-19 19:20:38'),
-(1213, 9, 616, 'en', 'you must enter a reservation name', '2015-01-19 19:48:42', '2015-01-19 19:48:42'),
-(1214, 10, 616, 'es', 'Debe ingresar un nombre de reserva', '2015-01-19 19:48:42', '2015-01-19 19:48:42'),
-(1215, 9, 617, 'en', 'You must enter a reason', '2015-01-19 19:52:49', '2015-01-19 19:52:49'),
-(1216, 10, 617, 'es', 'Debe ingresar un motivo', '2015-01-19 19:52:49', '2015-01-19 19:52:49'),
-(1217, 9, 618, 'en', 'You must enter a reservation date', '2015-01-19 19:53:29', '2015-01-19 19:53:29'),
-(1218, 10, 618, 'es', 'Debe seleccionar una fecha de reservación', '2015-01-19 19:53:29', '2015-01-19 19:53:29'),
-(1219, 9, 619, 'en', 'You must select an hour from', '2015-01-19 19:54:00', '2015-01-19 19:54:00'),
-(1220, 10, 619, 'es', 'Debe seleccionar una hora desde', '2015-01-19 19:54:00', '2015-01-19 19:54:00'),
-(1221, 9, 620, 'en', 'You must select an hour to', '2015-01-19 19:54:37', '2015-01-19 19:54:37'),
-(1222, 10, 620, 'es', 'Debe seleccionar una hora hasta', '2015-01-19 19:54:37', '2015-01-19 19:54:37'),
-(1223, 9, 621, 'en', 'Delete reservation', '2015-01-19 20:48:15', '2015-01-19 20:48:15'),
-(1224, 10, 621, 'es', 'Eliminar reservación', '2015-01-19 20:48:15', '2015-01-19 20:48:15'),
-(1225, 9, 622, 'en', 'Are you sure you want to delete this reservation', '2015-01-19 20:49:16', '2015-01-19 20:49:16'),
-(1226, 10, 622, 'es', 'Esta seguro que quiere eliminar esta reservación', '2015-01-19 20:49:16', '2015-01-19 20:49:16');
+(1129, 4, 574, 'en', 'ADMINISTRATION', '2015-02-05 13:22:39', '2015-02-05 13:22:39'),
+(1130, 5, 574, 'es', 'ADMINISTRACIÓN', '2015-02-05 13:22:39', '2015-02-05 13:22:39'),
+(1131, 6, 575, 'en', 'The username or password are incorrect', '2015-02-05 14:41:43', '2015-02-05 14:41:43'),
+(1132, 7, 575, 'es', 'El usuario o password son incorrectos', '2015-02-05 14:41:43', '2015-02-05 14:41:43');
 
 -- --------------------------------------------------------
 
@@ -2769,14 +2704,15 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 --
 
 CREATE TABLE IF NOT EXISTS `location` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `location` varchar(10) DEFAULT NULL,
   `description` varchar(60) DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `location`
@@ -2796,69 +2732,17 @@ INSERT INTO `location` (`id`, `location`, `description`, `createuser`, `modifyus
 --
 
 CREATE TABLE IF NOT EXISTS `multiparam` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` varchar(1000) DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
   `createuser` varchar(45) NOT NULL,
   `modifyuser` varchar(45) NOT NULL,
   `createdate` datetime NOT NULL,
   `modifydate` datetime NOT NULL,
-  `sysparamid` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `multiparam`
---
-
-INSERT INTO `multiparam` (`id`, `value`, `description`, `createuser`, `modifyuser`, `createdate`, `modifydate`, `sysparamid`) VALUES
-(2, '00:00:00', '12:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(4, '00:30:00', '12:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(5, '01:00:00', '1:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(6, '01:30:00', '1:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(7, '02:00:00', '2:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-12 21:16:24', 1),
-(8, '02:30:00', '2:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(9, '03:00:00', '3:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(10, '03:30:00', '3:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(11, '04:00:00', '4:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(12, '04:30:00', '4:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(13, '05:00:00', '5:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(14, '05:30:00', '5:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(15, '06:00:00', '6:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(16, '06:30:00', '6:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(17, '07:00:00', '7:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(18, '07:30:00', '7:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(19, '08:00:00', '8:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(20, '08:30:00', '8:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(21, '09:00:00', '9:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(22, '09:30:00', '9:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(23, '10:00:00', '10:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(24, '10:30:00', '10:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(25, '11:00:00', '11:00AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(26, '11:30:00', '11:30AM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(27, '12:00:00', '12:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(28, '12:30:00', '12:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(29, '13:00:00', '1:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(30, '13:30:00', '1:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(31, '14:00:00', '2:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(32, '14:30:00', '2:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(33, '15:00:00', '3:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(34, '15:30:00', '3:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(35, '16:00:00', '4:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(36, '16:30:00', '4:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(37, '17:00:00', '5:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(38, '17:30:00', '5:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(39, '18:00:00', '6:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(40, '18:30:00', '6:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(41, '19:00:00', '7:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-12 21:16:45', 1),
-(42, '19:30:00', '7:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(43, '20:00:00', '8:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(44, '20:30:00', '8:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(45, '21:00:00', '9:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(46, '21:30:00', '9:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(47, '22:00:00', '10:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(48, '22:30:00', '10:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(49, '23:00:00', '11:00PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1),
-(50, '23:30:00', '11:30PM', 'admin', 'admin', '2015-01-11 20:45:49', '2015-01-11 20:45:49', 1);
+  `sysparamid` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_multiparam_sysparam1_idx` (`sysparamid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -2867,7 +2751,7 @@ INSERT INTO `multiparam` (`id`, `value`, `description`, `createuser`, `modifyuse
 --
 
 CREATE TABLE IF NOT EXISTS `parking` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `number` varchar(45) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
   `apartmentid` int(11) DEFAULT NULL,
@@ -2875,8 +2759,11 @@ CREATE TABLE IF NOT EXISTS `parking` (
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
-  `modifyuser` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `modifyuser` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_parking_apartment1_idx` (`apartmentid`),
+  KEY `fk_parking_location1_idx` (`locationid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Volcado de datos para la tabla `parking`
@@ -2895,7 +2782,7 @@ INSERT INTO `parking` (`id`, `number`, `type`, `apartmentid`, `locationid`, `cre
 --
 
 CREATE TABLE IF NOT EXISTS `payment` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `paymentdate` date DEFAULT NULL,
   `amount` float(18,2) DEFAULT NULL,
   `apartmentid` int(11) DEFAULT NULL,
@@ -2906,8 +2793,11 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_payment_apartment1_idx` (`apartmentid`),
+  KEY `fk_payment_account1_idx` (`accountid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `payment`
@@ -2925,10 +2815,12 @@ INSERT INTO `payment` (`id`, `paymentdate`, `amount`, `apartmentid`, `descriptio
 --
 
 CREATE TABLE IF NOT EXISTS `paymentinvoice` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(45) DEFAULT NULL,
-  `paymentid` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `paymentid` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_paymentinvoice_payment1_idx` (`paymentid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `paymentinvoice`
@@ -2946,7 +2838,7 @@ INSERT INTO `paymentinvoice` (`id`, `description`, `paymentid`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `provider` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) DEFAULT NULL,
   `phone` varchar(32) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
@@ -2956,8 +2848,11 @@ CREATE TABLE IF NOT EXISTS `provider` (
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_provider_company1_idx` (`companyid`),
+  KEY `fk_provider_tower1_idx` (`towerid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `provider`
@@ -2976,12 +2871,14 @@ INSERT INTO `provider` (`id`, `name`, `phone`, `email`, `address`, `companyid`, 
 --
 
 CREATE TABLE IF NOT EXISTS `provider_employee` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) DEFAULT NULL,
   `idnumber` varchar(32) DEFAULT NULL,
   `phone` varchar(32) DEFAULT NULL,
-  `providerid` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `providerid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_provider_employee_provider1_idx` (`providerid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -2990,12 +2887,15 @@ CREATE TABLE IF NOT EXISTS `provider_employee` (
 --
 
 CREATE TABLE IF NOT EXISTS `provider_schedule` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `starttime` time DEFAULT NULL,
   `endtime` time DEFAULT NULL,
   `provideremployeeid` int(11) DEFAULT NULL,
-  `dayid` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dayid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_provider_schedule_provider_employee1_idx` (`provideremployeeid`),
+  KEY `fk_provider_schedule_day1_idx` (`dayid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -3004,7 +2904,7 @@ CREATE TABLE IF NOT EXISTS `provider_schedule` (
 --
 
 CREATE TABLE IF NOT EXISTS `reservation` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `reservename` varchar(45) DEFAULT NULL,
   `reason` varchar(45) DEFAULT NULL,
   `reservationdate` date DEFAULT NULL,
@@ -3014,15 +2914,10 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
-  `modifyuser` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `reservation`
---
-
-INSERT INTO `reservation` (`id`, `reservename`, `reason`, `reservationdate`, `hourfrom`, `hourto`, `apartmentid`, `createdate`, `modifydate`, `createuser`, `modifyuser`) VALUES
-(2, 'test2as', '5', '2015-01-19', '08:00:00', '19:30:00', 14, '2015-01-19 18:34:24', '2015-01-19 20:49:39', 'admin', 'admin');
+  `modifyuser` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_reservation_apartment1_idx` (`apartmentid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -3031,7 +2926,7 @@ INSERT INTO `reservation` (`id`, `reservename`, `reason`, `reservationdate`, `ho
 --
 
 CREATE TABLE IF NOT EXISTS `reservecalendar` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `start` datetime DEFAULT NULL,
   `end` datetime DEFAULT NULL,
@@ -3040,8 +2935,17 @@ CREATE TABLE IF NOT EXISTS `reservecalendar` (
   `createuser` varchar(45) NOT NULL,
   `modifyuser` varchar(45) NOT NULL,
   `createdate` datetime NOT NULL,
-  `modifydate` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `modifydate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `reservecalendar`
+--
+
+INSERT INTO `reservecalendar` (`id`, `title`, `start`, `end`, `url`, `allday`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
+(1, 'test', '2014-11-07 00:00:00', '2014-11-07 01:00:00', 'www.google.com', 'test', 'admin', 'admin', '2015-02-06 09:53:12', '2015-02-06 09:53:12'),
+(2, 'test2', '2014-12-07 00:00:00', '2014-12-07 01:00:00', 'www.google.com', 'test2', 'admin', 'admin', '2015-02-06 09:53:12', '2015-02-06 09:53:12');
 
 -- --------------------------------------------------------
 
@@ -3050,7 +2954,7 @@ CREATE TABLE IF NOT EXISTS `reservecalendar` (
 --
 
 CREATE TABLE IF NOT EXISTS `resident` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idnumber` varchar(80) DEFAULT NULL,
   `name` varchar(60) DEFAULT NULL,
   `idnumbertype` varchar(45) DEFAULT NULL,
@@ -3063,8 +2967,12 @@ CREATE TABLE IF NOT EXISTS `resident` (
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_Resident_apartment1_idx` (`apartmentid`),
+  KEY `fk_resident_residenttype1_idx` (`residenttypeid`),
+  KEY `fk_resident_tower1_idx` (`towerid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `resident`
@@ -3082,13 +2990,14 @@ INSERT INTO `resident` (`id`, `idnumber`, `name`, `idnumbertype`, `holder`, `ema
 --
 
 CREATE TABLE IF NOT EXISTS `residenttype` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `residenttype`
@@ -3106,14 +3015,17 @@ INSERT INTO `residenttype` (`id`, `type`, `createuser`, `modifyuser`, `createdat
 --
 
 CREATE TABLE IF NOT EXISTS `roleaction` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `roleid` int(11) NOT NULL,
   `actionid` int(11) NOT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_roleaction_admin_roles1_idx` (`roleid`),
+  KEY `fk_roleaction_action1_idx` (`actionid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=97 ;
 
 --
 -- Volcado de datos para la tabla `roleaction`
@@ -3126,6 +3038,9 @@ INSERT INTO `roleaction` (`id`, `roleid`, `actionid`, `createuser`, `modifyuser`
 (6, 1, 58, 'admin', 'admin', '2014-12-15 11:55:41', '2014-12-15 11:55:41'),
 (7, 1, 59, 'admin', 'admin', '2014-12-15 11:56:06', '2014-12-15 11:56:06'),
 (8, 1, 60, 'admin', 'admin', '2014-12-15 11:56:25', '2014-12-15 11:56:25'),
+(11, 1, 2, 'admin', 'admin', '2014-12-15 13:38:03', '2014-12-15 13:38:03'),
+(12, 1, 3, 'admin', 'admin', '2014-12-15 13:38:17', '2014-12-15 13:38:17'),
+(13, 1, 4, 'admin', 'admin', '2014-12-15 13:40:23', '2014-12-15 13:40:23'),
 (14, 1, 10, 'admin', 'admin', '2014-12-15 14:28:54', '2014-12-15 14:28:54'),
 (15, 1, 11, 'admin', 'admin', '2014-12-15 14:29:21', '2014-12-15 14:29:21'),
 (16, 1, 12, 'admin', 'admin', '2014-12-15 14:36:18', '2014-12-15 14:36:18'),
@@ -3174,12 +3089,12 @@ INSERT INTO `roleaction` (`id`, `roleid`, `actionid`, `createuser`, `modifyuser`
 (59, 1, 52, 'admin', 'admin', '2014-12-16 11:51:47', '2014-12-16 11:51:47'),
 (60, 1, 53, 'admin', 'admin', '2014-12-16 11:52:01', '2014-12-16 11:52:01'),
 (61, 1, 54, 'admin', 'admin', '2014-12-16 11:52:17', '2014-12-16 11:52:17'),
-(62, 1, 61, 'admin', 'admin', '2015-01-04 14:12:57', '2015-01-04 14:12:57'),
-(63, 1, 62, 'admin', 'admin', '2015-01-04 14:13:06', '2015-01-04 14:13:06'),
-(64, 1, 63, 'admin', 'admin', '2015-01-04 14:13:27', '2015-01-04 14:13:27'),
-(65, 1, 55, 'admin', 'admin', '2015-01-04 15:37:31', '2015-01-04 15:37:31'),
-(66, 1, 57, 'admin', 'admin', '2015-01-04 15:42:50', '2015-01-04 15:42:50'),
-(67, 1, 56, 'admin', 'admin', '2015-01-04 15:46:26', '2015-01-04 15:46:26'),
+(62, 1, 73, 'admin', 'admin', '2014-12-18 16:30:29', '2014-12-18 16:30:29'),
+(63, 1, 74, 'admin', 'admin', '2014-12-18 16:30:45', '2014-12-18 16:30:45'),
+(64, 1, 75, 'admin', 'admin', '2014-12-18 16:31:01', '2014-12-18 16:31:01'),
+(65, 1, 61, 'admin', 'admin', '2014-12-18 16:40:57', '2014-12-18 16:40:57'),
+(66, 1, 62, 'admin', 'admin', '2014-12-18 16:41:15', '2014-12-18 16:41:15'),
+(67, 1, 63, 'admin', 'admin', '2014-12-18 16:41:32', '2014-12-18 16:41:32'),
 (68, 1, 64, 'admin', 'admin', '2015-01-04 15:58:47', '2015-01-04 15:58:47'),
 (69, 1, 65, 'admin', 'admin', '2015-01-04 15:58:56', '2015-01-04 15:58:56'),
 (70, 1, 66, 'admin', 'admin', '2015-01-04 15:59:06', '2015-01-04 15:59:06'),
@@ -3208,9 +3123,7 @@ INSERT INTO `roleaction` (`id`, `roleid`, `actionid`, `createuser`, `modifyuser`
 (93, 1, 91, 'admin', 'admin', '2015-01-11 20:05:59', '2015-01-11 20:05:59'),
 (94, 1, 73, 'admin', 'admin', '2015-01-11 20:24:51', '2015-01-11 20:24:51'),
 (95, 1, 74, 'admin', 'admin', '2015-01-11 20:25:12', '2015-01-11 20:25:12'),
-(96, 1, 75, 'admin', 'admin', '2015-01-11 20:25:20', '2015-01-11 20:25:20'),
-(97, 1, 87, 'admin', 'admin', '2015-01-15 20:35:46', '2015-01-15 20:35:46'),
-(98, 1, 88, 'admin', 'admin', '2015-01-15 21:09:31', '2015-01-15 21:09:31');
+(96, 1, 75, 'admin', 'admin', '2015-01-11 20:25:20', '2015-01-11 20:25:20');
 
 -- --------------------------------------------------------
 
@@ -3219,23 +3132,16 @@ INSERT INTO `roleaction` (`id`, `roleid`, `actionid`, `createuser`, `modifyuser`
 --
 
 CREATE TABLE IF NOT EXISTS `sysparam` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `value` varchar(200) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `createuser` varchar(45) NOT NULL,
   `modifyuser` varchar(45) NOT NULL,
   `createdate` datetime NOT NULL,
-  `modifydate` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `sysparam`
---
-
-INSERT INTO `sysparam` (`id`, `name`, `value`, `description`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
-(1, 'reservehours', 'multiple', 'Listado de horas posibles para la reserva de area social', 'admin', 'admin', '2015-01-11 13:36:24', '2015-01-11 21:26:39'),
-(2, 'test', 'test', 'test', 'admin', 'admin', '2015-01-11 15:30:25', '2015-01-11 15:30:25');
+  `modifydate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -3244,7 +3150,7 @@ INSERT INTO `sysparam` (`id`, `name`, `value`, `description`, `createuser`, `mod
 --
 
 CREATE TABLE IF NOT EXISTS `tower` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `Companyid` int(11) DEFAULT NULL,
   `numberapartments` int(11) DEFAULT NULL,
@@ -3255,8 +3161,10 @@ CREATE TABLE IF NOT EXISTS `tower` (
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
-  `modifyuser` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `modifyuser` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_tower_Company1_idx` (`Companyid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `tower`
@@ -3279,10 +3187,13 @@ INSERT INTO `tower` (`id`, `name`, `Companyid`, `numberapartments`, `numberstore
 --
 
 CREATE TABLE IF NOT EXISTS `tower_advertisement` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `towerid` int(11) DEFAULT NULL,
-  `advertisementid` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `advertisementid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_tower_advertisement_tower1_idx` (`towerid`),
+  KEY `fk_tower_advertisement_advertisement1_idx` (`advertisementid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -3291,14 +3202,17 @@ CREATE TABLE IF NOT EXISTS `tower_advertisement` (
 --
 
 CREATE TABLE IF NOT EXISTS `userrole` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `roleid` int(11) NOT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_userrole_admin_user1_idx` (`userid`),
+  KEY `fk_userrole_admin_roles1_idx` (`roleid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 --
 -- Volcado de datos para la tabla `userrole`
@@ -3317,7 +3231,7 @@ INSERT INTO `userrole` (`id`, `userid`, `roleid`, `createuser`, `modifyuser`, `c
 --
 
 CREATE TABLE IF NOT EXISTS `vehicle` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `platenumber` varchar(45) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
   `residentid` int(11) NOT NULL,
@@ -3327,535 +3241,22 @@ CREATE TABLE IF NOT EXISTS `vehicle` (
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL,
   `createdate` datetime DEFAULT NULL,
-  `modifydate` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `modifydate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_vehicle_resident1_idx` (`residentid`),
+  KEY `fk_vehicle_color1_idx` (`colorid`),
+  KEY `fk_vehicle_brand1_idx` (`brandid`),
+  KEY `fk_vehicle_parking1_idx` (`parkingid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
--- Índices para tablas volcadas
+-- Volcado de datos para la tabla `vehicle`
 --
 
---
--- Indices de la tabla `abssenceday`
---
-ALTER TABLE `abssenceday`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_abssenceday_employee1_idx` (`employeeid`);
+INSERT INTO `vehicle` (`id`, `platenumber`, `type`, `residentid`, `colorid`, `brandid`, `parkingid`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
+(7, '23423223', 'Carro', 8, 17, 2, 3, 'admin', 'admin', '2014-11-24 16:18:02', '2014-11-24 16:18:02'),
+(8, '34343444', 'Carro', 8, 17, 2, 4, 'admin', 'admin', '2014-11-24 16:19:10', '2014-11-24 16:19:10');
 
---
--- Indices de la tabla `account`
---
-ALTER TABLE `account`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_account_bank1_idx` (`bankid`);
-
---
--- Indices de la tabla `action`
---
-ALTER TABLE `action`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `admin_roles`
---
-ALTER TABLE `admin_roles`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `admin_user`
---
-ALTER TABLE `admin_user`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_admin_user_Company1_idx` (`Companyid`);
-
---
--- Indices de la tabla `advertisement`
---
-ALTER TABLE `advertisement`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `apartment`
---
-ALTER TABLE `apartment`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_apartment_tower1_idx` (`towerid`);
-
---
--- Indices de la tabla `architect`
---
-ALTER TABLE `architect`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_architect_const_company1_idx` (`const_companyid`);
-
---
--- Indices de la tabla `bank`
---
-ALTER TABLE `bank`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `brand`
---
-ALTER TABLE `brand`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `cause`
---
-ALTER TABLE `cause`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_cause_causetype1_idx` (`causetypeid`);
-
---
--- Indices de la tabla `causetype`
---
-ALTER TABLE `causetype`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `color`
---
-ALTER TABLE `color`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `color_translations`
---
-ALTER TABLE `color_translations`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `lookup_unique_idx` (`locale`,`object_id`,`field`), ADD KEY `IDX_CF7DEFD1232D562B` (`object_id`);
-
---
--- Indices de la tabla `company`
---
-ALTER TABLE `company`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_Company_const_company1_idx` (`const_companyid`);
-
---
--- Indices de la tabla `const_company`
---
-ALTER TABLE `const_company`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `day`
---
-ALTER TABLE `day`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `employee`
---
-ALTER TABLE `employee`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_employee_Company1_idx` (`Companyid`);
-
---
--- Indices de la tabla `employee_schedule`
---
-ALTER TABLE `employee_schedule`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_employee_schedule_employee1_idx` (`employeeid`), ADD KEY `fk_employee_schedule_day1_idx` (`dayid`);
-
---
--- Indices de la tabla `employee_tower`
---
-ALTER TABLE `employee_tower`
- ADD PRIMARY KEY (`employee_id`,`tower_id`), ADD KEY `fk_employee_tower_employee1_idx` (`employee_id`), ADD KEY `fk_employee_tower_tower1_idx` (`tower_id`);
-
---
--- Indices de la tabla `employee_vacation`
---
-ALTER TABLE `employee_vacation`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_employee_vacation_employee1_idx` (`employeeid`);
-
---
--- Indices de la tabla `expense`
---
-ALTER TABLE `expense`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_expense_tower1_idx` (`towerid`), ADD KEY `fk_expense_cause1_idx` (`causeid`), ADD KEY `fk_expense_account1_idx` (`accountid`);
-
---
--- Indices de la tabla `expenseinvoice`
---
-ALTER TABLE `expenseinvoice`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_expense_invoice_expense1_idx` (`expenseid`);
-
---
--- Indices de la tabla `ext_log_entries`
---
-ALTER TABLE `ext_log_entries`
- ADD PRIMARY KEY (`id`), ADD KEY `log_class_lookup_idx` (`object_class`), ADD KEY `log_date_lookup_idx` (`logged_at`), ADD KEY `log_user_lookup_idx` (`username`), ADD KEY `log_version_lookup_idx` (`object_id`,`object_class`,`version`);
-
---
--- Indices de la tabla `ext_translations`
---
-ALTER TABLE `ext_translations`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `lookup_unique_idx` (`locale`,`object_class`,`field`,`foreign_key`), ADD KEY `translations_lookup_idx` (`locale`,`object_class`,`foreign_key`);
-
---
--- Indices de la tabla `income`
---
-ALTER TABLE `income`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_income_tower1_idx` (`towerid`), ADD KEY `fk_income_cause1_idx` (`causeid`), ADD KEY `fk_income_account1_idx` (`accountid`);
-
---
--- Indices de la tabla `income_invoice`
---
-ALTER TABLE `income_invoice`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_income_invoice_income1_idx` (`incomeid`);
-
---
--- Indices de la tabla `lexik_translation_file`
---
-ALTER TABLE `lexik_translation_file`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `hash_idx` (`hash`);
-
---
--- Indices de la tabla `lexik_trans_unit`
---
-ALTER TABLE `lexik_trans_unit`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `key_domain_idx` (`key_name`,`domain`);
-
---
--- Indices de la tabla `lexik_trans_unit_translations`
---
-ALTER TABLE `lexik_trans_unit_translations`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `trans_unit_locale_idx` (`trans_unit_id`,`locale`), ADD KEY `IDX_B0AA394493CB796C` (`file_id`), ADD KEY `IDX_B0AA3944C3C583C9` (`trans_unit_id`);
-
---
--- Indices de la tabla `location`
---
-ALTER TABLE `location`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `multiparam`
---
-ALTER TABLE `multiparam`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_multiparam_sysparam1_idx` (`sysparamid`);
-
---
--- Indices de la tabla `parking`
---
-ALTER TABLE `parking`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_parking_apartment1_idx` (`apartmentid`), ADD KEY `fk_parking_location1_idx` (`locationid`);
-
---
--- Indices de la tabla `payment`
---
-ALTER TABLE `payment`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_payment_apartment1_idx` (`apartmentid`), ADD KEY `fk_payment_account1_idx` (`accountid`);
-
---
--- Indices de la tabla `paymentinvoice`
---
-ALTER TABLE `paymentinvoice`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_paymentinvoice_payment1_idx` (`paymentid`);
-
---
--- Indices de la tabla `provider`
---
-ALTER TABLE `provider`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_provider_company1_idx` (`companyid`), ADD KEY `fk_provider_tower1_idx` (`towerid`);
-
---
--- Indices de la tabla `provider_employee`
---
-ALTER TABLE `provider_employee`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_provider_employee_provider1_idx` (`providerid`);
-
---
--- Indices de la tabla `provider_schedule`
---
-ALTER TABLE `provider_schedule`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_provider_schedule_provider_employee1_idx` (`provideremployeeid`), ADD KEY `fk_provider_schedule_day1_idx` (`dayid`);
-
---
--- Indices de la tabla `reservation`
---
-ALTER TABLE `reservation`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_reservation_apartment1_idx` (`apartmentid`);
-
---
--- Indices de la tabla `reservecalendar`
---
-ALTER TABLE `reservecalendar`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `resident`
---
-ALTER TABLE `resident`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_Resident_apartment1_idx` (`apartmentid`), ADD KEY `fk_resident_residenttype1_idx` (`residenttypeid`), ADD KEY `fk_resident_tower1_idx` (`towerid`);
-
---
--- Indices de la tabla `residenttype`
---
-ALTER TABLE `residenttype`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `roleaction`
---
-ALTER TABLE `roleaction`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_roleaction_admin_roles1_idx` (`roleid`), ADD KEY `fk_roleaction_action1_idx` (`actionid`);
-
---
--- Indices de la tabla `sysparam`
---
-ALTER TABLE `sysparam`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `tower`
---
-ALTER TABLE `tower`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_tower_Company1_idx` (`Companyid`);
-
---
--- Indices de la tabla `tower_advertisement`
---
-ALTER TABLE `tower_advertisement`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_tower_advertisement_tower1_idx` (`towerid`), ADD KEY `fk_tower_advertisement_advertisement1_idx` (`advertisementid`);
-
---
--- Indices de la tabla `userrole`
---
-ALTER TABLE `userrole`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_userrole_admin_user1_idx` (`userid`), ADD KEY `fk_userrole_admin_roles1_idx` (`roleid`);
-
---
--- Indices de la tabla `vehicle`
---
-ALTER TABLE `vehicle`
- ADD PRIMARY KEY (`id`), ADD KEY `fk_vehicle_resident1_idx` (`residentid`), ADD KEY `fk_vehicle_color1_idx` (`colorid`), ADD KEY `fk_vehicle_brand1_idx` (`brandid`), ADD KEY `fk_vehicle_parking1_idx` (`parkingid`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `abssenceday`
---
-ALTER TABLE `abssenceday`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `account`
---
-ALTER TABLE `account`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `action`
---
-ALTER TABLE `action`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=92;
---
--- AUTO_INCREMENT de la tabla `admin_roles`
---
-ALTER TABLE `admin_roles`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT de la tabla `admin_user`
---
-ALTER TABLE `admin_user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
---
--- AUTO_INCREMENT de la tabla `advertisement`
---
-ALTER TABLE `advertisement`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `apartment`
---
-ALTER TABLE `apartment`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
---
--- AUTO_INCREMENT de la tabla `architect`
---
-ALTER TABLE `architect`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `bank`
---
-ALTER TABLE `bank`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `brand`
---
-ALTER TABLE `brand`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `cause`
---
-ALTER TABLE `cause`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT de la tabla `causetype`
---
-ALTER TABLE `causetype`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `color`
---
-ALTER TABLE `color`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
---
--- AUTO_INCREMENT de la tabla `color_translations`
---
-ALTER TABLE `color_translations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT de la tabla `company`
---
-ALTER TABLE `company`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT de la tabla `const_company`
---
-ALTER TABLE `const_company`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `day`
---
-ALTER TABLE `day`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `employee`
---
-ALTER TABLE `employee`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT de la tabla `employee_schedule`
---
-ALTER TABLE `employee_schedule`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `employee_vacation`
---
-ALTER TABLE `employee_vacation`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `expense`
---
-ALTER TABLE `expense`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
---
--- AUTO_INCREMENT de la tabla `expenseinvoice`
---
-ALTER TABLE `expenseinvoice`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT de la tabla `ext_log_entries`
---
-ALTER TABLE `ext_log_entries`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `ext_translations`
---
-ALTER TABLE `ext_translations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `income`
---
-ALTER TABLE `income`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT de la tabla `income_invoice`
---
-ALTER TABLE `income_invoice`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `lexik_translation_file`
---
-ALTER TABLE `lexik_translation_file`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT de la tabla `lexik_trans_unit`
---
-ALTER TABLE `lexik_trans_unit`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=623;
---
--- AUTO_INCREMENT de la tabla `lexik_trans_unit_translations`
---
-ALTER TABLE `lexik_trans_unit_translations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1227;
---
--- AUTO_INCREMENT de la tabla `location`
---
-ALTER TABLE `location`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT de la tabla `multiparam`
---
-ALTER TABLE `multiparam`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
---
--- AUTO_INCREMENT de la tabla `parking`
---
-ALTER TABLE `parking`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT de la tabla `payment`
---
-ALTER TABLE `payment`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `paymentinvoice`
---
-ALTER TABLE `paymentinvoice`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `provider`
---
-ALTER TABLE `provider`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
---
--- AUTO_INCREMENT de la tabla `provider_employee`
---
-ALTER TABLE `provider_employee`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `provider_schedule`
---
-ALTER TABLE `provider_schedule`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `reservation`
---
-ALTER TABLE `reservation`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `resident`
---
-ALTER TABLE `resident`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT de la tabla `residenttype`
---
-ALTER TABLE `residenttype`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT de la tabla `roleaction`
---
-ALTER TABLE `roleaction`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=99;
---
--- AUTO_INCREMENT de la tabla `sysparam`
---
-ALTER TABLE `sysparam`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `tower`
---
-ALTER TABLE `tower`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT de la tabla `tower_advertisement`
---
-ALTER TABLE `tower_advertisement`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `userrole`
---
-ALTER TABLE `userrole`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
---
--- AUTO_INCREMENT de la tabla `vehicle`
---
-ALTER TABLE `vehicle`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Restricciones para tablas volcadas
 --
@@ -3864,206 +3265,206 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- Filtros para la tabla `abssenceday`
 --
 ALTER TABLE `abssenceday`
-ADD CONSTRAINT `fk_abssenceday_employee1` FOREIGN KEY (`employeeid`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_abssenceday_employee1` FOREIGN KEY (`employeeid`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `account`
 --
 ALTER TABLE `account`
-ADD CONSTRAINT `fk_account_bank1` FOREIGN KEY (`bankid`) REFERENCES `bank` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_account_bank1` FOREIGN KEY (`bankid`) REFERENCES `bank` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `admin_user`
 --
 ALTER TABLE `admin_user`
-ADD CONSTRAINT `fk_admin_user_Company1` FOREIGN KEY (`Companyid`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_admin_user_Company1` FOREIGN KEY (`Companyid`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `apartment`
 --
 ALTER TABLE `apartment`
-ADD CONSTRAINT `fk_apartment_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_apartment_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `architect`
 --
 ALTER TABLE `architect`
-ADD CONSTRAINT `fk_architect_const_company1` FOREIGN KEY (`const_companyid`) REFERENCES `const_company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_architect_const_company1` FOREIGN KEY (`const_companyid`) REFERENCES `const_company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `cause`
 --
 ALTER TABLE `cause`
-ADD CONSTRAINT `fk_cause_causetype1` FOREIGN KEY (`causetypeid`) REFERENCES `causetype` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_cause_causetype1` FOREIGN KEY (`causetypeid`) REFERENCES `causetype` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `color_translations`
 --
 ALTER TABLE `color_translations`
-ADD CONSTRAINT `FK_CF7DEFD1232D562B` FOREIGN KEY (`object_id`) REFERENCES `color` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_CF7DEFD1232D562B` FOREIGN KEY (`object_id`) REFERENCES `color` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `company`
 --
 ALTER TABLE `company`
-ADD CONSTRAINT `fk_Company_const_company1` FOREIGN KEY (`const_companyid`) REFERENCES `const_company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Company_const_company1` FOREIGN KEY (`const_companyid`) REFERENCES `const_company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `employee`
 --
 ALTER TABLE `employee`
-ADD CONSTRAINT `fk_employee_Company1` FOREIGN KEY (`Companyid`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_employee_Company1` FOREIGN KEY (`Companyid`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `employee_schedule`
 --
 ALTER TABLE `employee_schedule`
-ADD CONSTRAINT `fk_employee_schedule_day1` FOREIGN KEY (`dayid`) REFERENCES `day` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_employee_schedule_employee1` FOREIGN KEY (`employeeid`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_employee_schedule_day1` FOREIGN KEY (`dayid`) REFERENCES `day` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_employee_schedule_employee1` FOREIGN KEY (`employeeid`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `employee_tower`
 --
 ALTER TABLE `employee_tower`
-ADD CONSTRAINT `fk_employee_tower_employee1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_employee_tower_tower1` FOREIGN KEY (`tower_id`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_employee_tower_employee1` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_employee_tower_tower1` FOREIGN KEY (`tower_id`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `employee_vacation`
 --
 ALTER TABLE `employee_vacation`
-ADD CONSTRAINT `fk_employee_vacation_employee1` FOREIGN KEY (`employeeid`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_employee_vacation_employee1` FOREIGN KEY (`employeeid`) REFERENCES `employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `expense`
 --
 ALTER TABLE `expense`
-ADD CONSTRAINT `fk_expense_account1` FOREIGN KEY (`accountid`) REFERENCES `account` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_expense_cause1` FOREIGN KEY (`causeid`) REFERENCES `cause` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_expense_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_expense_account1` FOREIGN KEY (`accountid`) REFERENCES `account` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_expense_cause1` FOREIGN KEY (`causeid`) REFERENCES `cause` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_expense_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `expenseinvoice`
 --
 ALTER TABLE `expenseinvoice`
-ADD CONSTRAINT `fk_expense_invoice_expense1` FOREIGN KEY (`expenseid`) REFERENCES `expense` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_expense_invoice_expense1` FOREIGN KEY (`expenseid`) REFERENCES `expense` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `income`
 --
 ALTER TABLE `income`
-ADD CONSTRAINT `fk_income_account1` FOREIGN KEY (`accountid`) REFERENCES `account` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_income_cause1` FOREIGN KEY (`causeid`) REFERENCES `cause` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_income_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_income_account1` FOREIGN KEY (`accountid`) REFERENCES `account` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_income_cause1` FOREIGN KEY (`causeid`) REFERENCES `cause` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_income_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `income_invoice`
 --
 ALTER TABLE `income_invoice`
-ADD CONSTRAINT `fk_income_invoice_income1` FOREIGN KEY (`incomeid`) REFERENCES `income` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_income_invoice_income1` FOREIGN KEY (`incomeid`) REFERENCES `income` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `lexik_trans_unit_translations`
 --
 ALTER TABLE `lexik_trans_unit_translations`
-ADD CONSTRAINT `FK_B0AA394493CB796C` FOREIGN KEY (`file_id`) REFERENCES `lexik_translation_file` (`id`),
-ADD CONSTRAINT `FK_B0AA3944C3C583C9` FOREIGN KEY (`trans_unit_id`) REFERENCES `lexik_trans_unit` (`id`);
+  ADD CONSTRAINT `FK_B0AA394493CB796C` FOREIGN KEY (`file_id`) REFERENCES `lexik_translation_file` (`id`),
+  ADD CONSTRAINT `FK_B0AA3944C3C583C9` FOREIGN KEY (`trans_unit_id`) REFERENCES `lexik_trans_unit` (`id`);
 
 --
 -- Filtros para la tabla `multiparam`
 --
 ALTER TABLE `multiparam`
-ADD CONSTRAINT `fk_multiparam_sysparam1` FOREIGN KEY (`sysparamid`) REFERENCES `sysparam` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_multiparam_sysparam1` FOREIGN KEY (`sysparamid`) REFERENCES `sysparam` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `parking`
 --
 ALTER TABLE `parking`
-ADD CONSTRAINT `fk_parking_apartment1` FOREIGN KEY (`apartmentid`) REFERENCES `apartment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_parking_location1` FOREIGN KEY (`locationid`) REFERENCES `location` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_parking_apartment1` FOREIGN KEY (`apartmentid`) REFERENCES `apartment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_parking_location1` FOREIGN KEY (`locationid`) REFERENCES `location` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `payment`
 --
 ALTER TABLE `payment`
-ADD CONSTRAINT `fk_payment_account1` FOREIGN KEY (`accountid`) REFERENCES `account` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_payment_apartment1` FOREIGN KEY (`apartmentid`) REFERENCES `apartment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_payment_account1` FOREIGN KEY (`accountid`) REFERENCES `account` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_payment_apartment1` FOREIGN KEY (`apartmentid`) REFERENCES `apartment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `paymentinvoice`
 --
 ALTER TABLE `paymentinvoice`
-ADD CONSTRAINT `fk_paymentinvoice_payment1` FOREIGN KEY (`paymentid`) REFERENCES `payment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_paymentinvoice_payment1` FOREIGN KEY (`paymentid`) REFERENCES `payment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `provider`
 --
 ALTER TABLE `provider`
-ADD CONSTRAINT `fk_provider_company1` FOREIGN KEY (`companyid`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_provider_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_provider_company1` FOREIGN KEY (`companyid`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_provider_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `provider_employee`
 --
 ALTER TABLE `provider_employee`
-ADD CONSTRAINT `fk_provider_employee_provider1` FOREIGN KEY (`providerid`) REFERENCES `provider` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_provider_employee_provider1` FOREIGN KEY (`providerid`) REFERENCES `provider` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `provider_schedule`
 --
 ALTER TABLE `provider_schedule`
-ADD CONSTRAINT `fk_provider_schedule_day1` FOREIGN KEY (`dayid`) REFERENCES `day` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_provider_schedule_provider_employee1` FOREIGN KEY (`provideremployeeid`) REFERENCES `provider_employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_provider_schedule_day1` FOREIGN KEY (`dayid`) REFERENCES `day` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_provider_schedule_provider_employee1` FOREIGN KEY (`provideremployeeid`) REFERENCES `provider_employee` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `reservation`
 --
 ALTER TABLE `reservation`
-ADD CONSTRAINT `fk_reservation_apartment1` FOREIGN KEY (`apartmentid`) REFERENCES `apartment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_reservation_apartment1` FOREIGN KEY (`apartmentid`) REFERENCES `apartment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `resident`
 --
 ALTER TABLE `resident`
-ADD CONSTRAINT `fk_Resident_apartment1` FOREIGN KEY (`apartmentid`) REFERENCES `apartment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_resident_residenttype1` FOREIGN KEY (`residenttypeid`) REFERENCES `residenttype` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_resident_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Resident_apartment1` FOREIGN KEY (`apartmentid`) REFERENCES `apartment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_resident_residenttype1` FOREIGN KEY (`residenttypeid`) REFERENCES `residenttype` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_resident_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `roleaction`
 --
 ALTER TABLE `roleaction`
-ADD CONSTRAINT `fk_roleaction_action1` FOREIGN KEY (`actionid`) REFERENCES `action` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_roleaction_admin_roles1` FOREIGN KEY (`roleid`) REFERENCES `admin_roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_roleaction_action1` FOREIGN KEY (`actionid`) REFERENCES `action` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_roleaction_admin_roles1` FOREIGN KEY (`roleid`) REFERENCES `admin_roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `tower`
 --
 ALTER TABLE `tower`
-ADD CONSTRAINT `fk_tower_Company1` FOREIGN KEY (`Companyid`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_tower_Company1` FOREIGN KEY (`Companyid`) REFERENCES `company` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `tower_advertisement`
 --
 ALTER TABLE `tower_advertisement`
-ADD CONSTRAINT `fk_tower_advertisement_advertisement1` FOREIGN KEY (`advertisementid`) REFERENCES `advertisement` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_tower_advertisement_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_tower_advertisement_advertisement1` FOREIGN KEY (`advertisementid`) REFERENCES `advertisement` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tower_advertisement_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `userrole`
 --
 ALTER TABLE `userrole`
-ADD CONSTRAINT `fk_userrole_admin_roles1` FOREIGN KEY (`roleid`) REFERENCES `admin_roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_userrole_admin_user1` FOREIGN KEY (`userid`) REFERENCES `admin_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_userrole_admin_roles1` FOREIGN KEY (`roleid`) REFERENCES `admin_roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_userrole_admin_user1` FOREIGN KEY (`userid`) REFERENCES `admin_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `vehicle`
 --
 ALTER TABLE `vehicle`
-ADD CONSTRAINT `fk_vehicle_brand1` FOREIGN KEY (`brandid`) REFERENCES `brand` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_vehicle_color1` FOREIGN KEY (`colorid`) REFERENCES `color` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_vehicle_parking1` FOREIGN KEY (`parkingid`) REFERENCES `parking` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_vehicle_resident1` FOREIGN KEY (`residentid`) REFERENCES `resident` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_vehicle_brand1` FOREIGN KEY (`brandid`) REFERENCES `brand` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_vehicle_color1` FOREIGN KEY (`colorid`) REFERENCES `color` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_vehicle_parking1` FOREIGN KEY (`parkingid`) REFERENCES `parking` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_vehicle_resident1` FOREIGN KEY (`residentid`) REFERENCES `resident` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
