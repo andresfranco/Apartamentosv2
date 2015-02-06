@@ -3,13 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-01-2015 a las 02:55:17
+-- Tiempo de generación: 06-02-2015 a las 03:56:28
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -836,6 +835,39 @@ CREATE TABLE IF NOT EXISTS `income_invoice` (
   `name` varchar(100) DEFAULT NULL,
   `path` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `lexik_translation_file`
+--
+
+CREATE TABLE IF NOT EXISTS `lexik_translation_file` (
+`id` int(11) NOT NULL,
+  `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `extention` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `lexik_translation_file`
+--
+
+INSERT INTO `lexik_translation_file` (`id`, `domain`, `locale`, `extention`, `path`, `hash`) VALUES
+(1, 'messages', 'en', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', '741982d306c2db52c1e8053a946a878c'),
+(2, 'messages', 'es', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', 'c2ec8aae6cbf616c3f4115f81c66c9a5'),
+(3, 'validators', 'en', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', '8eb18aa52137add59fb37a545ad98981'),
+(4, 'messages', 'en', 'yml', 'Resources/translations', 'fc74f6a74137e00463e84910ddb3e44e'),
+(5, 'messages', 'es', 'yml', 'Resources/translations', 'd50c2026170e82881f4e8b6f87b63800'),
+(6, 'validators', 'en', 'yml', 'Resources/translations', 'e2d4ac91c2f28e7339b317adc186d1e7'),
+(7, 'validators', 'es', 'yml', 'Resources/translations', 'd3175f1a2739aed80701e38542ec962d'),
+(8, 'messages', 'es', 'yml', '../app\\../src/Apartamentos/ApartamentosBundle/Resources/translations', '460eb0dbdd61c2b7cea83bf8b781a162'),
+(9, 'messages', 'en', 'yml', 'Resources/translations', 'd7886bc44b7dcf86809a262d3cf25bc2'),
+(10, 'messages', 'es', 'yml', 'Resources/translations', '1b0eb5a61a37f8ea43f0bb2c2fdb98a9'),
+(11, 'validators', 'en', 'yml', 'Resources/translations', 'ea28c54d0408a9df21c38211ef9f5b8e'),
+(12, 'validators', 'es', 'yml', 'Resources/translations', '1f8a496b5dc539929700286e7322e074');
 
 -- --------------------------------------------------------
 
@@ -2733,39 +2765,6 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `lexik_translation_file`
---
-
-CREATE TABLE IF NOT EXISTS `lexik_translation_file` (
-`id` int(11) NOT NULL,
-  `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `extention` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `lexik_translation_file`
---
-
-INSERT INTO `lexik_translation_file` (`id`, `domain`, `locale`, `extention`, `path`, `hash`) VALUES
-(1, 'messages', 'en', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', '741982d306c2db52c1e8053a946a878c'),
-(2, 'messages', 'es', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', 'c2ec8aae6cbf616c3f4115f81c66c9a5'),
-(3, 'validators', 'en', 'yml', '../src/Apartamentos/ApartamentosBundle/Resources/translations', '8eb18aa52137add59fb37a545ad98981'),
-(4, 'messages', 'en', 'yml', 'Resources/translations', 'fc74f6a74137e00463e84910ddb3e44e'),
-(5, 'messages', 'es', 'yml', 'Resources/translations', 'd50c2026170e82881f4e8b6f87b63800'),
-(6, 'validators', 'en', 'yml', 'Resources/translations', 'e2d4ac91c2f28e7339b317adc186d1e7'),
-(7, 'validators', 'es', 'yml', 'Resources/translations', 'd3175f1a2739aed80701e38542ec962d'),
-(8, 'messages', 'es', 'yml', '../app\\../src/Apartamentos/ApartamentosBundle/Resources/translations', '460eb0dbdd61c2b7cea83bf8b781a162'),
-(9, 'messages', 'en', 'yml', 'Resources/translations', 'd7886bc44b7dcf86809a262d3cf25bc2'),
-(10, 'messages', 'es', 'yml', 'Resources/translations', '1b0eb5a61a37f8ea43f0bb2c2fdb98a9'),
-(11, 'validators', 'en', 'yml', 'Resources/translations', 'ea28c54d0408a9df21c38211ef9f5b8e'),
-(12, 'validators', 'es', 'yml', 'Resources/translations', '1f8a496b5dc539929700286e7322e074');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `location`
 --
 
@@ -3016,7 +3015,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `modifydate` datetime DEFAULT NULL,
   `createuser` varchar(45) DEFAULT NULL,
   `modifyuser` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `reservation`
@@ -3024,6 +3023,25 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 
 INSERT INTO `reservation` (`id`, `reservename`, `reason`, `reservationdate`, `hourfrom`, `hourto`, `apartmentid`, `createdate`, `modifydate`, `createuser`, `modifyuser`) VALUES
 (2, 'test2as', '5', '2015-01-19', '08:00:00', '19:30:00', 14, '2015-01-19 18:34:24', '2015-01-19 20:49:39', 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservecalendar`
+--
+
+CREATE TABLE IF NOT EXISTS `reservecalendar` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `start` datetime DEFAULT NULL,
+  `end` datetime DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `allday` varchar(255) DEFAULT NULL,
+  `createuser` varchar(45) NOT NULL,
+  `modifyuser` varchar(45) NOT NULL,
+  `createdate` datetime NOT NULL,
+  `modifydate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -3479,6 +3497,12 @@ ALTER TABLE `income_invoice`
  ADD PRIMARY KEY (`id`), ADD KEY `fk_income_invoice_income1_idx` (`incomeid`);
 
 --
+-- Indices de la tabla `lexik_translation_file`
+--
+ALTER TABLE `lexik_translation_file`
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `hash_idx` (`hash`);
+
+--
 -- Indices de la tabla `lexik_trans_unit`
 --
 ALTER TABLE `lexik_trans_unit`
@@ -3489,12 +3513,6 @@ ALTER TABLE `lexik_trans_unit`
 --
 ALTER TABLE `lexik_trans_unit_translations`
  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `trans_unit_locale_idx` (`trans_unit_id`,`locale`), ADD KEY `IDX_B0AA394493CB796C` (`file_id`), ADD KEY `IDX_B0AA3944C3C583C9` (`trans_unit_id`);
-
---
--- Indices de la tabla `lexik_translation_file`
---
-ALTER TABLE `lexik_translation_file`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `hash_idx` (`hash`);
 
 --
 -- Indices de la tabla `location`
@@ -3549,6 +3567,12 @@ ALTER TABLE `provider_schedule`
 --
 ALTER TABLE `reservation`
  ADD PRIMARY KEY (`id`), ADD KEY `fk_reservation_apartment1_idx` (`apartmentid`);
+
+--
+-- Indices de la tabla `reservecalendar`
+--
+ALTER TABLE `reservecalendar`
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `resident`
@@ -3733,6 +3757,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 ALTER TABLE `income_invoice`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `lexik_translation_file`
+--
+ALTER TABLE `lexik_translation_file`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT de la tabla `lexik_trans_unit`
 --
 ALTER TABLE `lexik_trans_unit`
@@ -3742,11 +3771,6 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=623;
 --
 ALTER TABLE `lexik_trans_unit_translations`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1227;
---
--- AUTO_INCREMENT de la tabla `lexik_translation_file`
---
-ALTER TABLE `lexik_translation_file`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `location`
 --
@@ -3791,7 +3815,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `reservation`
 --
 ALTER TABLE `reservation`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `resident`
 --
@@ -4040,354 +4064,6 @@ ADD CONSTRAINT `fk_vehicle_brand1` FOREIGN KEY (`brandid`) REFERENCES `brand` (`
 ADD CONSTRAINT `fk_vehicle_color1` FOREIGN KEY (`colorid`) REFERENCES `color` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_vehicle_parking1` FOREIGN KEY (`parkingid`) REFERENCES `parking` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
 ADD CONSTRAINT `fk_vehicle_resident1` FOREIGN KEY (`residentid`) REFERENCES `resident` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
---
--- Base de datos: `cdcol`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `cds`
---
-
-CREATE TABLE IF NOT EXISTS `cds` (
-  `titel` varchar(200) DEFAULT NULL,
-  `interpret` varchar(200) DEFAULT NULL,
-  `jahr` int(11) DEFAULT NULL,
-`id` bigint(20) unsigned NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `cds`
---
-
-INSERT INTO `cds` (`titel`, `interpret`, `jahr`, `id`) VALUES
-('Beauty', 'Ryuichi Sakamoto', 1990, 1),
-('Goodbye Country (Hello Nightclub)', 'Groove Armada', 2001, 4),
-('Glee', 'Bran Van 3000', 1997, 5);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `cds`
---
-ALTER TABLE `cds`
- ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `cds`
---
-ALTER TABLE `cds`
-MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;--
--- Base de datos: `phpmyadmin`
---
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__bookmark`
---
-
-CREATE TABLE IF NOT EXISTS `pma__bookmark` (
-`id` int(11) NOT NULL,
-  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `query` text COLLATE utf8_bin NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__column_info`
---
-
-CREATE TABLE IF NOT EXISTS `pma__column_info` (
-`id` int(5) unsigned NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__designer_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma__designer_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `x` int(11) DEFAULT NULL,
-  `y` int(11) DEFAULT NULL,
-  `v` tinyint(4) DEFAULT NULL,
-  `h` tinyint(4) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for Designer';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__history`
---
-
-CREATE TABLE IF NOT EXISTS `pma__history` (
-`id` bigint(20) unsigned NOT NULL,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sqlquery` text COLLATE utf8_bin NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__pdf_pages`
---
-
-CREATE TABLE IF NOT EXISTS `pma__pdf_pages` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-`page_nr` int(10) unsigned NOT NULL,
-  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__recent`
---
-
-CREATE TABLE IF NOT EXISTS `pma__recent` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` text COLLATE utf8_bin NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
-
---
--- Volcado de datos para la tabla `pma__recent`
---
-
-INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{"db":"appcore","table":"multiparam"},{"db":"appcore","table":"action"}]');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__relation`
---
-
-CREATE TABLE IF NOT EXISTS `pma__relation` (
-  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__table_coords`
---
-
-CREATE TABLE IF NOT EXISTS `pma__table_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
-  `x` float unsigned NOT NULL DEFAULT '0',
-  `y` float unsigned NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__table_info`
---
-
-CREATE TABLE IF NOT EXISTS `pma__table_info` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__table_uiprefs`
---
-
-CREATE TABLE IF NOT EXISTS `pma__table_uiprefs` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `prefs` text COLLATE utf8_bin NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__tracking`
---
-
-CREATE TABLE IF NOT EXISTS `pma__tracking` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `version` int(10) unsigned NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_updated` datetime NOT NULL,
-  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
-  `schema_sql` text COLLATE utf8_bin,
-  `data_sql` longtext COLLATE utf8_bin,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
-  `tracking_active` int(1) unsigned NOT NULL DEFAULT '1'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=COMPACT COMMENT='Database changes tracking for phpMyAdmin';
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pma__userconfig`
---
-
-CREATE TABLE IF NOT EXISTS `pma__userconfig` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `config_data` text COLLATE utf8_bin NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
-
---
--- Volcado de datos para la tabla `pma__userconfig`
---
-
-INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2014-12-31 20:34:45', '{"lang":"es","collation_connection":"utf8mb4_general_ci"}');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `pma__bookmark`
---
-ALTER TABLE `pma__bookmark`
- ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `pma__column_info`
---
-ALTER TABLE `pma__column_info`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
-
---
--- Indices de la tabla `pma__designer_coords`
---
-ALTER TABLE `pma__designer_coords`
- ADD PRIMARY KEY (`db_name`,`table_name`);
-
---
--- Indices de la tabla `pma__history`
---
-ALTER TABLE `pma__history`
- ADD PRIMARY KEY (`id`), ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
-
---
--- Indices de la tabla `pma__pdf_pages`
---
-ALTER TABLE `pma__pdf_pages`
- ADD PRIMARY KEY (`page_nr`), ADD KEY `db_name` (`db_name`);
-
---
--- Indices de la tabla `pma__recent`
---
-ALTER TABLE `pma__recent`
- ADD PRIMARY KEY (`username`);
-
---
--- Indices de la tabla `pma__relation`
---
-ALTER TABLE `pma__relation`
- ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`), ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
-
---
--- Indices de la tabla `pma__table_coords`
---
-ALTER TABLE `pma__table_coords`
- ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
-
---
--- Indices de la tabla `pma__table_info`
---
-ALTER TABLE `pma__table_info`
- ADD PRIMARY KEY (`db_name`,`table_name`);
-
---
--- Indices de la tabla `pma__table_uiprefs`
---
-ALTER TABLE `pma__table_uiprefs`
- ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
-
---
--- Indices de la tabla `pma__tracking`
---
-ALTER TABLE `pma__tracking`
- ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
-
---
--- Indices de la tabla `pma__userconfig`
---
-ALTER TABLE `pma__userconfig`
- ADD PRIMARY KEY (`username`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `pma__bookmark`
---
-ALTER TABLE `pma__bookmark`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `pma__column_info`
---
-ALTER TABLE `pma__column_info`
-MODIFY `id` int(5) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `pma__history`
---
-ALTER TABLE `pma__history`
-MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `pma__pdf_pages`
---
-ALTER TABLE `pma__pdf_pages`
-MODIFY `page_nr` int(10) unsigned NOT NULL AUTO_INCREMENT;--
--- Base de datos: `test`
---
-
-DELIMITER $$
---
--- Procedimientos
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `test_multi_sets`()
-    DETERMINISTIC
-begin
-        select user() as first_col;
-        select user() as first_col, now() as second_col;
-        select user() as first_col, now() as second_col, now() as third_col;
-        end$$
-
-DELIMITER ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

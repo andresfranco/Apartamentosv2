@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f29c4e20-b148-46e5-89c6-a670709c355f" name="Default" comment="Reservaciones Completo">
+    <list default="true" id="f29c4e20-b148-46e5-89c6-a670709c355f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Entity/Reservecalendar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/ReservecalendarController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Tests/Controller/ReservecalendarControllerTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Form/ReservecalendarType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservecalendar/edit.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservecalendar/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservecalendar/new.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservecalendar/show.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/apy/datagrid-bundle/APY/DataGridBundle" afterPath="$PROJECT_DIR$/vendor/apy/datagrid-bundle/APY/DataGridBundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle/Stof/DoctrineExtensionsBundle" afterPath="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle/Stof/DoctrineExtensionsBundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modelo/Modelo5.mwb.bak" afterPath="$PROJECT_DIR$/Modelo/Modelo5.mwb.bak" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Modelo/Modelo5.mwb" afterPath="$PROJECT_DIR$/Modelo/Modelo5.mwb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/white-october/pagerfanta-bundle/WhiteOctober/PagerfantaBundle" afterPath="$PROJECT_DIR$/vendor/white-october/pagerfanta-bundle/WhiteOctober/PagerfantaBundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/a2lix/translation-form-bundle/A2lix/TranslationFormBundle" afterPath="$PROJECT_DIR$/vendor/a2lix/translation-form-bundle/A2lix/TranslationFormBundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/ReservationController.php" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/ReservationController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/images/logoapp.png" afterPath="$PROJECT_DIR$/web/images/logoapp.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database/appcore.sql" afterPath="$PROJECT_DIR$/Database/appcore.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservation/new.html.twig" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservation/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Database/scriptdataappcore.sql" afterPath="$PROJECT_DIR$/Database/scriptdataappcore.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservation/show.html.twig" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservation/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservation/validatereservation.html.twig" afterPath="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservation/validatereservation.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Security/inicio.html.twig" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Security/inicio.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/login.css" afterPath="$PROJECT_DIR$/web/css/login.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Security/login.html.twig" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Security/login.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/translations/messages.en.yml" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/translations/messages.en.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/translations/messages.es.yml" afterPath="$PROJECT_DIR$/src/Login/LoginBundle/Resources/translations/messages.es.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/topbar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/topbar.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Apartamentosv2.iws" />
@@ -60,8 +72,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/User/show.html.twig" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Role/rolegrid.html.twig" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Controller/RoleController.php" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Role/show.html.twig" />
@@ -76,7 +86,6 @@
         <option value="dbprocedure:/2fbddd11/a021f4b3-2721-4ba6-8745-b64b5694c721/appcore..generatestatement" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Sysparam/sysparamgrid.html.twig" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Controller/ActionController.php" />
-        <option value="$PROJECT_DIR$/Database/appcore.sql" />
         <option value="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Entity/Account.php" />
         <option value="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Entity/Payment.php" />
         <option value="$PROJECT_DIR$/src/Login/LoginBundle/Resources/views/Security/inicio.html.twig" />
@@ -111,6 +120,9 @@
         <option value="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservation/new.html.twig" />
         <option value="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Reservation/show.html.twig" />
         <option value="$PROJECT_DIR$/Database/scriptdataappcore.sql" />
+        <option value="$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/ReservecalendarController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/topbar.html.twig" />
+        <option value="$PROJECT_DIR$/Database/appcore.sql" />
       </list>
     </option>
   </component>
@@ -172,7 +184,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -191,22 +202,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Apartamentosv2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Apartamentosv2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Database" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -335,7 +333,13 @@
       <option name="project" value="LOCAL" />
       <updated>1421374347760</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Reservaciones  Terminado">
+      <created>1421719235015</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1421719235015</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -362,7 +366,7 @@
     <frame x="-1" y="27" width="1362" height="742" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.184765" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.184765" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19124797" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10045662" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -370,10 +374,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952815" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24961948" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26560122" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18314424" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -412,7 +416,8 @@
     <MESSAGE value="Upgrade Symfony to 2.6" />
     <MESSAGE value="Actualiza  Modelo y Scripts base de datos" />
     <MESSAGE value="Ajustes Reservaciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes Reservaciones" />
+    <MESSAGE value="Reservaciones  Terminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reservaciones  Terminado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -427,34 +432,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/PaymentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5906976" vertical-offset="1044" max-vertical-offset="7812">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/Expense/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33488372" vertical-offset="0" max-vertical-offset="1548">
-          <caret line="8" column="64" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Resources/views/ExpenseInvoice/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4976744" vertical-offset="578" max-vertical-offset="1008">
-          <caret line="44" column="77" selection-start-line="44" selection-start-column="48" selection-end-line="44" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Form/RoleactionType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Login/LoginBundle/Form/SysparamType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6143497" vertical-offset="0" max-vertical-offset="1080">
@@ -669,7 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.7482679" vertical-offset="324" max-vertical-offset="7722">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -677,7 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.7482679" vertical-offset="324" max-vertical-offset="11808">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -706,7 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.62586606" vertical-offset="2321" max-vertical-offset="3204">
           <caret line="147" column="35" selection-start-line="147" selection-start-column="35" selection-end-line="147" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.5981524" vertical-offset="404" max-vertical-offset="2196">
           <caret line="114" column="79" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="79" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,7 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.0" vertical-offset="648" max-vertical-offset="7236">
           <caret line="46" column="24" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -737,7 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.73766816" vertical-offset="481" max-vertical-offset="1548">
           <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,9 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1512">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -755,7 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="7807" max-vertical-offset="8280">
           <caret line="454" column="31" selection-start-line="454" selection-start-column="26" selection-end-line="454" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,11 +730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5404157" vertical-offset="594" max-vertical-offset="1512">
           <caret line="46" column="70" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
-          <folding>
-            <element signature="e#12#35#0#Twig" expanded="true" />
-            <element signature="e#236#251#0#Twig" expanded="true" />
-            <element signature="e#2247#2270#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -775,9 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.04157044" vertical-offset="216" max-vertical-offset="1386">
           <caret line="11" column="94" selection-start-line="11" selection-start-column="94" selection-end-line="11" selection-end-column="94" />
-          <folding>
-            <element signature="e#486#558#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -785,7 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6457399" vertical-offset="1026" max-vertical-offset="1638">
           <caret line="73" column="60" selection-start-line="73" selection-start-column="60" selection-end-line="73" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -793,7 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8637414" vertical-offset="5399" max-vertical-offset="6246">
           <caret line="223" column="37" selection-start-line="223" selection-start-column="37" selection-end-line="223" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,7 +758,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17560975" vertical-offset="0" max-vertical-offset="42516">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/ResidentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6373" max-vertical-offset="7254">
+          <caret line="370" column="5" selection-start-line="370" selection-start-column="4" selection-end-line="370" selection-end-column="35" />
+          <folding>
+            <element signature="e#62#107#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database/appcore.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43421054" vertical-offset="0" max-vertical-offset="73368">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/topbar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5874126" vertical-offset="0" max-vertical-offset="450">
+          <caret line="14" column="94" selection-start-line="14" selection-start-column="94" selection-end-line="14" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Apartamentos/ApartamentosBundle/Controller/ReservecalendarController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5874126" vertical-offset="504" max-vertical-offset="5094">
+          <caret line="42" column="36" selection-start-line="42" selection-start-column="36" selection-end-line="42" selection-end-column="36" />
+          <folding>
+            <element signature="e#62#107#0#PHP" expanded="true" />
+            <element signature="e#2588#2610#0#PHP" expanded="true" />
+            <element signature="e#3149#3173#1#PHP" expanded="true" />
+            <element signature="e#5593#5617#0#PHP" expanded="true" />
+            <element signature="e#6630#6652#0#PHP" expanded="true" />
+            <element signature="e#7616#7633#1#PHP" expanded="true" />
+            <element signature="e#7963#7987#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -2,7 +2,7 @@
             <ul class="title-area">
                 <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
                 <li class="name">
-                    <h1><img src="{{ asset('images/logoapp.png') }}"/><span class="titleproduct">{{ 'CONDO HANDLER'|trans }}</span></h1>
+                    <a href="{{path('iniciologin')}}"> <h1><img src="{{ asset('images/logoapp.png') }}"/><span class="titleproduct">{{ 'CONDO HANDLER'|trans }}</span></h1></a>
                 </li>
             </ul>
          <section class="top-bar-section">
@@ -12,11 +12,8 @@
                 <li>
                     <a href="#"><img src="{{ asset('images/usernav.png') }}"/><b>{{ app.user.username|upper }}</b></a>
                 </li>  
-                <li><a href="{{path('logout')}}"><img src="{{ asset('images/logout.png') }}"/><b>{{'SALIR'|trans }}</b></a></li>
+                <li><a href="{{path('logout')}}"><img src="{{ asset('images/logout.png') }}"/></a></li>
             </ul>
-          <ul class="left">
-              <li><a href="{{path('iniciologin')}}"><img src="{{ asset('images/homepage.png') }}"/><b>{{'INICIO'|trans}}</b></a></li>
-	
-	</ul>
+       
        </section>
 </nav>
