@@ -2,6 +2,7 @@
 
 namespace Apartamentos\ApartamentosBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -51,16 +52,18 @@ class ReservecalendarController extends Controller
      */
     public function Getallevents()
     {
-        $em = $this->getDoctrine()->getManager();
+        // set doctrine
+        $em = $this->get('doctrine')->getManager()->getConnection();
+        // prepare statement
+        $sth = $em->prepare("select * from reservecalendar order by id");
+        // execute and fetch
+        $sth->execute();
+        $results = $sth->fetchall();
+        unset($sth);
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/json');
+        return $response->setContent(json_encode($results));
 
-        $items = $em->getRepository('ApartamentosApartamentosBundle:Reservecalendar')->findAll();
-
-        $serializer = $this->container->get('serializer');
-        $events = array();
-        foreach ($items as $reservations) {
-            $events[] = $serializer->normalize($reservations, 'json');
-        }
-        return new JsonResponse($events);
     }
 
     /**
@@ -274,4 +277,19 @@ class ReservecalendarController extends Controller
             ->getForm()
         ;
     }
+    /**
+     *
+     * @Route("/{_locale}/viewcalendar", name="view_calendar")
+     * @Method("GET")
+     * @Template()
+     */
+    public function ViewCalendarAction()
+    {
+
+       return  $this->render('ApartamentosApartamentosBundle:Reservecalendar:viewcalendar.html.twig');
+
+    }
+
+
+
 }

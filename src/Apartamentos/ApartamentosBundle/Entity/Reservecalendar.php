@@ -105,7 +105,7 @@ class Reservecalendar
     public function setTitle($title)
     {
         $this->title = $title;
-
+    
         return $this;
     }
 
@@ -128,7 +128,7 @@ class Reservecalendar
     public function setStart($start)
     {
         $this->start = $start;
-
+    
         return $this;
     }
 
@@ -151,7 +151,7 @@ class Reservecalendar
     public function setEnd($end)
     {
         $this->end = $end;
-
+    
         return $this;
     }
 
@@ -174,7 +174,7 @@ class Reservecalendar
     public function setUrl($url)
     {
         $this->url = $url;
-
+    
         return $this;
     }
 
@@ -197,7 +197,7 @@ class Reservecalendar
     public function setAllday($allday)
     {
         $this->allday = $allday;
-
+    
         return $this;
     }
 
@@ -220,7 +220,7 @@ class Reservecalendar
     public function setCreateuser($createuser)
     {
         $this->createuser = $createuser;
-
+    
         return $this;
     }
 
@@ -243,7 +243,7 @@ class Reservecalendar
     public function setModifyuser($modifyuser)
     {
         $this->modifyuser = $modifyuser;
-
+    
         return $this;
     }
 
@@ -266,7 +266,7 @@ class Reservecalendar
     public function setCreatedate($createdate)
     {
         $this->createdate = $createdate;
-
+    
         return $this;
     }
 
@@ -289,7 +289,7 @@ class Reservecalendar
     public function setModifydate($modifydate)
     {
         $this->modifydate = $modifydate;
-
+    
         return $this;
     }
 
