@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Apartamentos\ApartamentosBundle\Entity\Apartment;
+use Apartamentos\ApartamentosBundle\Entity\Reservation;
 use Apartamentos\ApartamentosBundle\Entity\Reservecalendar;
 use Apartamentos\ApartamentosBundle\Form\ReservecalendarType;
 use APY\DataGridBundle\Grid\Source\Entity;
@@ -44,7 +46,20 @@ class ReservecalendarController extends Controller
             'entities' => $entities,
         );
     }
-
+    
+    public function getapartmentvalues($apartmentid)
+    {
+       $em = $this->getDoctrine()->getManager();
+       $apartment = $em->getRepository('ApartamentosApartamentosBundle:Apartment')->find($apartmentid);
+       $apartmentname = $apartment->getName();
+       $towername  = $apartment->getTowerid()->getName();
+       $condoname = $apartment->getTowerid()->getCompanyid()->getName();
+       
+       $apartmentdata = $condoname.'-'.$towername.'-'.$apartmentname;
+       return $apartmentdata;
+          
+    }
+            
     /**
      * Creates a new Reservecalendar entity.
      *
@@ -55,7 +70,15 @@ class ReservecalendarController extends Controller
         // set doctrine
         $em = $this->get('doctrine')->getManager()->getConnection();
         // prepare statement
-        $sth = $em->prepare("select * from reservecalendar order by id");
+        
+        $sth = $em->prepare("select r.id as id ,concat(r.reservename,'-',
+(select c.name from apartment a ,tower t,company c where (a.towerid =t.id) and (t.companyid =c.id) and a.id = r.apartmentid),'-',
+(select t.name from apartment a ,tower t where (a.towerid =t.id) and (a.id = r.apartmentid )),'-',(select a.number from apartment a 
+where a.id =r.apartmentid)) as title , 
+concat(reservationdate ,' ' ,hourfrom) as start , 
+concat(reservationdate,' ',hourto) as end,
+'#' as url 
+from reservation r ");
         // execute and fetch
         $sth->execute();
         $results = $sth->fetchall();
@@ -281,7 +304,6 @@ class ReservecalendarController extends Controller
      *
      * @Route("/{_locale}/viewcalendar", name="view_calendar")
      * @Method("GET")
-     * @Template()
      */
     public function ViewCalendarAction()
     {

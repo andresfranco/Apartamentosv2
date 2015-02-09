@@ -1,0 +1,60 @@
+<script>
+
+        $(document).ready(function() {
+                
+
+            function renderCalendar() {
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    defaultDate: '{{ "now"|date("m/d/Y") }}',
+                    lang: '{{ app.request.locale }}',
+                    buttonIcons: false, // show the prev/next text
+                    weekNumbers: true,
+                    editable: true,
+                    eventLimit: true, // allow "more" link when too many events
+
+                            events: {
+                    url: "{{ path('allevents')}}",
+                            error: function() {
+                        $('#script-warning').show();
+                    }
+                },
+                   eventClick: function(event) {
+                   var dataarray =splitdata(event.title);
+                   var name =dataarray[0];
+                   var condo =dataarray[1];
+                   var tower =dataarray[2];
+                   var apartment =dataarray[3];
+                   var formatdate ='MMM D / YYYY h:mm A';
+                         
+                   $('#eventmodal').foundation('reveal', 'open');
+                   $("#startTime").html(moment(event.start).format(formatdate));
+                   $("#endTime").html(moment(event.end).format(formatdate));
+                   $("#eventInfo").html(event.description);
+                   $("#name").html(name);
+                   $("#condo").html(condo);
+                   $("#apartment").html(apartment);
+                   $("#tower").html(tower);
+                   $("#eventContent").html(event.title);
+    },              
+                    loading: function(bool) {
+                        $('#loading').toggle(bool);
+                    }
+
+                });
+            }
+
+            renderCalendar();
+           function splitdata(text)
+           {
+            var arr = text.split('-');   
+            return arr;
+           }
+            
+        });
+
+    </script>
