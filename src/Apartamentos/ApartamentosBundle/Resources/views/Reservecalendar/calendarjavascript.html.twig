@@ -23,7 +23,8 @@
                         $('#script-warning').show();
                     }
                 },
-                   eventClick: function(event) {
+                   eventClick: function(event) 
+                  {
                    var dataarray =splitdata(event.title);
                    var name =dataarray[0];
                    var condo =dataarray[1];
@@ -40,12 +41,42 @@
                    $("#apartment").html(apartment);
                    $("#tower").html(tower);
                    $("#eventContent").html(event.title);
-    },              
+                   },              
                     loading: function(bool) {
                         $('#loading').toggle(bool);
-                    }
+                    },
+                        
+                   eventDrop: function(event) 
+                  {
+                  var formatdate ='YYYY-MM-DD hh:mm:ss';  
+                  var start = event.start.format(formatdate);
+                  var end =  event.end.format(formatdate);
+                  
+                  
+                  var data = {
+                      id:event.id,
+                      title:event.title,
+                      start:start,
+                      end:end
+                      
+                      };
+                  $.ajax({
+                     url: "{{ path('updateevent')}}",
+                     data: data,
+                     type: "POST",
+                     success:function()
+                     {
+                     alert("{{'Se actualizó correctamente el evento'|trans}}");
+                     }
+                    });
+                 } 
+                    
 
                 });
+                
+                
+                
+                
             }
 
             renderCalendar();

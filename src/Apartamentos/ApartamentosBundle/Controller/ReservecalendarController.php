@@ -8,18 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Apartamentos\ApartamentosBundle\Entity\Apartment;
-use Apartamentos\ApartamentosBundle\Entity\Reservation;
 use Apartamentos\ApartamentosBundle\Entity\Reservecalendar;
 use Apartamentos\ApartamentosBundle\Form\ReservecalendarType;
-use APY\DataGridBundle\Grid\Source\Entity;
-use APY\DataGridBundle\Grid\Column\TextColumn;
-use APY\DataGridBundle\Grid\Column\ActionsColumn;
-use APY\DataGridBundle\Grid\Action\MassAction;
-use APY\DataGridBundle\Grid\Action\DeleteMassAction;
-use APY\DataGridBundle\Grid\Action\RowAction;
-use APY\DataGridBundle\Grid\Column\BlankColumn;
+use Apartamentos\ApartamentosBundle\Entity\Reservation;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use DateTime;
 
 /**
  * Reservecalendar controller.
@@ -307,11 +300,35 @@ from reservation r ");
      */
     public function ViewCalendarAction()
     {
-
-       return  $this->render('ApartamentosApartamentosBundle:Reservecalendar:viewcalendar.html.twig');
+       
+       
+      return  $this->render('ApartamentosApartamentosBundle:Reservecalendar:viewcalendar.html.twig');
 
     }
-
+    
+     /**
+     *
+     * @Route("/{_locale}/updatecalendar", name="updateevent")
+     */
+    public function UpdateCalendarAction(Request $request)
+    {
+      $id = $request->request->get('id');
+      $title= $request->request->get('title');
+      $start = $request->request->get('start');
+      $end = $request->request->get('end');
+      $reservedate = date("Y-m-d", strtotime($start));
+      $hourfrom = date("H:i:s", strtotime($start));
+      $hourto = date("H:i:s", strtotime($end));
+      // set doctrine
+        $em = $this->get('doctrine')->getManager()->getConnection();
+       // prepare statement
+        $sth = $em->prepare("UPDATE reservation set reservationdate='".$reservedate."' ,hourfrom='".$hourfrom."' ,hourto='".$hourto."' where id =".$id."");
+        // execute and fetch
+        $sth->execute();
+        unset($sth);
+        return new JsonResponse();
+        
+    }
 
 
 }
