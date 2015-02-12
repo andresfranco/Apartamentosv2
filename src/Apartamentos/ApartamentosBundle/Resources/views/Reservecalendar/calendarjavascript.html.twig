@@ -31,10 +31,10 @@
                    var tower =dataarray[2];
                    var apartment =dataarray[3];
                    var formatdate ='MMM D / YYYY h:mm A';
-                         
+                   //var formatdate = "YYYY-MM-DD HH:mm:ss"
                    $('#eventmodal').foundation('reveal', 'open');
-                   $("#startTime").html(moment(event.start).format(formatdate));
-                   $("#endTime").html(moment(event.end).format(formatdate));
+                   $("#startTime").html(event.start.format(formatdate));
+                   $("#endTime").html(event.end.format(formatdate));
                    $("#eventInfo").html(event.description);
                    $("#name").html(name);
                    $("#condo").html(condo);
@@ -48,7 +48,7 @@
                         
                    eventDrop: function(event) 
                   {
-                  var formatdate ='YYYY-MM-DD hh:mm:ss';  
+                  var formatdate ='YYYY-MM-DD HH:mm:ss';
                   var start = event.start.format(formatdate);
                   var end =  event.end.format(formatdate);
                   
@@ -66,11 +66,34 @@
                      type: "POST",
                      success:function()
                      {
-                     alert("{{'Se actualizó correctamente el evento'|trans}}");
+
                      }
                     });
-                 } 
-                    
+                 },
+                    eventResize:function(event)
+                    {
+                        var formatdate ='YYYY-MM-DD HH:mm:ss';
+                        var start = event.start.format(formatdate);
+                        var end =  event.end.format(formatdate);
+
+
+                        var data = {
+                            id:event.id,
+                            title:event.title,
+                            start:start,
+                            end:end
+
+                        };
+                        $.ajax({
+                            url: "{{ path('updateevent')}}",
+                            data: data,
+                            type: "POST",
+                            success:function()
+                            {
+
+                            }
+                        });
+                    }
 
                 });
                 
