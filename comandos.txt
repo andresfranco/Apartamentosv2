@@ -43,6 +43,8 @@ proyectos utilicen la misma versión de Composer.
 
 php composer.phar update symfony/icu
 
+php composer.phar update apy/datagrid-bundle
+
 ----------------------------------------------------------------
 
 ---Crear un Bundle----------------------------------------------

@@ -2,7 +2,6 @@
 
 namespace References\Fixture\ODM\MongoDB;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use References\Fixture\ORM\Category;
@@ -24,7 +23,8 @@ class Metadata
     /** @ODM\Field(type="int") */
     private $categoryId;
 
-    function __construct($category) {
+    public function __construct($category)
+    {
         $this->setCategory($category);
     }
 
@@ -48,5 +48,4 @@ class Metadata
     {
         return $this->category;
     }
-
 }

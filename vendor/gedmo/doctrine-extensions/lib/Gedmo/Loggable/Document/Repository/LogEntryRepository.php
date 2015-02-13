@@ -4,8 +4,8 @@ namespace Gedmo\Loggable\Document\Repository;
 
 use Gedmo\Tool\Wrapper\MongoDocumentWrapper;
 use Gedmo\Loggable\LoggableListener;
-use Doctrine\ODM\MongoDB\DocumentRepository,
-    Doctrine\ODM\MongoDB\Cursor;
+use Doctrine\ODM\MongoDB\DocumentRepository;
+use Doctrine\ODM\MongoDB\Cursor;
 
 /**
  * The LogEntryRepository has some useful functions
@@ -28,6 +28,7 @@ class LogEntryRepository extends DocumentRepository
      * given $document
      *
      * @param object $document
+     *
      * @return array
      */
     public function getLogEntries($document)
@@ -45,6 +46,7 @@ class LogEntryRepository extends DocumentRepository
         if ($result instanceof Cursor) {
             $result = $result->toArray();
         }
+
         return $result;
     }
 
@@ -54,16 +56,17 @@ class LogEntryRepository extends DocumentRepository
      * After this operation you will need to
      * persist and flush the $document.
      *
-     * @param object $document
+     * @param object  $document
      * @param integer $version
+     *
      * @throws \Gedmo\Exception\UnexpectedValueException
+     *
      * @return void
      */
     public function revert($document, $version = 1)
     {
         $wrapped = new MongoDocumentWrapper($document, $this->dm);
         $objectMeta = $wrapped->getMetadata();
-        $meta = $this->getClassMetadata();
         $objectId = $wrapped->getIdentifier();
 
         $qb = $this->createQueryBuilder();
@@ -97,10 +100,10 @@ class LogEntryRepository extends DocumentRepository
                 $filled = count($fields) === 0;
             }
             /*if (count($fields)) {
-                throw new \Gedmo\Exception\UnexpectedValueException('Cound not fully revert the document to version: '.$version);
+                throw new \Gedmo\Exception\UnexpectedValueException('Could not fully revert the document to version: '.$version);
             }*/
         } else {
-            throw new \Gedmo\Exception\UnexpectedValueException('Count not find any log entries under version: '.$version);
+            throw new \Gedmo\Exception\UnexpectedValueException('Could not find any log entries under version: '.$version);
         }
     }
 
@@ -108,6 +111,7 @@ class LogEntryRepository extends DocumentRepository
      * Get the currently used LoggableListener
      *
      * @throws \Gedmo\Exception\RuntimeException - if listener is not found
+     *
      * @return LoggableListener
      */
     private function getLoggableListener()
@@ -129,6 +133,7 @@ class LogEntryRepository extends DocumentRepository
                 throw new \Gedmo\Exception\RuntimeException('The loggable listener could not be found');
             }
         }
+
         return $this->listener;
     }
 }

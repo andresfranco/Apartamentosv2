@@ -2,9 +2,9 @@
 
 namespace Gedmo\Loggable\Mapping\Driver;
 
-use Doctrine\Common\Persistence\Mapping\ClassMetadata,
-    Gedmo\Mapping\Driver\AbstractAnnotationDriver,
-    Gedmo\Exception\InvalidMappingException;
+use Doctrine\Common\Persistence\Mapping\ClassMetadata;
+use Gedmo\Mapping\Driver\AbstractAnnotationDriver;
+use Gedmo\Exception\InvalidMappingException;
 
 /**
  * This is an annotation mapping driver for Loggable
@@ -51,12 +51,13 @@ class Annotation extends AbstractAnnotationDriver
         if ($annot = $this->reader->getClassAnnotation($class, self::LOGGABLE)) {
             $config['loggable'] = true;
             if ($annot->logEntryClass) {
-                if (!class_exists($annot->logEntryClass)) {
+                if (!$cl = $this->getRelatedClassName($meta, $annot->logEntryClass)) {
                     throw new InvalidMappingException("LogEntry class: {$annot->logEntryClass} does not exist.");
                 }
-                $config['logEntryClass'] = $annot->logEntryClass;
+                $config['logEntryClass'] = $cl;
             }
         }
+
         // property annotations
         foreach ($class->getProperties() as $property) {
             if ($meta->isMappedSuperclass && !$property->isPrivate() ||
@@ -65,8 +66,9 @@ class Annotation extends AbstractAnnotationDriver
             ) {
                 continue;
             }
+
             // versioned property
-            if ($versioned = $this->reader->getPropertyAnnotation($property, self::VERSIONED)) {
+            if ($this->reader->getPropertyAnnotation($property, self::VERSIONED)) {
                 $field = $property->getName();
                 if ($meta->isCollectionValuedAssociation($field)) {
                     throw new InvalidMappingException("Cannot versioned [{$field}] as it is collection in object - {$meta->name}");

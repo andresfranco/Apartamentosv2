@@ -2,8 +2,8 @@
 
 namespace Gedmo\Sortable\Mapping\Driver;
 
-use Gedmo\Mapping\Driver\Xml as BaseXml,
-    Gedmo\Exception\InvalidMappingException;
+use Gedmo\Mapping\Driver\Xml as BaseXml;
+use Gedmo\Exception\InvalidMappingException;
 
 /**
  * This is a xml mapping driver for Sortable
@@ -16,16 +16,16 @@ use Gedmo\Mapping\Driver\Xml as BaseXml,
  */
 class Xml extends BaseXml
 {
-
     /**
      * List of types which are valid for position field
      *
      * @var array
      */
     private $validTypes = array(
+        'int',
         'integer',
         'smallint',
-        'bigint'
+        'bigint',
     );
 
     /**
@@ -39,12 +39,8 @@ class Xml extends BaseXml
         $xml = $this->_getMapping($meta->name);
 
         if (isset($xml->field)) {
-            foreach ($xml->field as $mapping) {
-                $mappingDoctrine = $mapping;
-                /**
-                 * @var \SimpleXmlElement $mapping
-                 */
-                $mapping = $mapping->children(self::GEDMO_NAMESPACE_URI);
+            foreach ($xml->field as $mappingDoctrine) {
+                $mapping = $mappingDoctrine->children(self::GEDMO_NAMESPACE_URI);
 
                 $field = $this->_getAttribute($mappingDoctrine, 'name');
                 if (isset($mapping->{'sortable-position'})) {
@@ -56,7 +52,6 @@ class Xml extends BaseXml
             }
             $this->readSortableGroups($xml->field, $config, 'name');
         }
-
 
         // Search for sortable-groups in association mappings
         if (isset($xml->{'many-to-one'})) {
@@ -75,14 +70,15 @@ class Xml extends BaseXml
         }
     }
 
-    private function readSortableGroups($mapping, array &$config, $fieldAttr='field')
+    /**
+     * @param \SimpleXMLElement[] $mapping
+     * @param array               $config
+     * @param string              $fieldAttr
+     */
+    private function readSortableGroups($mapping, array &$config, $fieldAttr = 'field')
     {
-        foreach ($mapping as $map) {
-            $mappingDoctrine = $map;
-            /**
-             * @var \SimpleXmlElement $mapping
-             */
-            $map = $map->children(self::GEDMO_NAMESPACE_URI);
+        foreach ($mapping as $mappingDoctrine) {
+            $map = $mappingDoctrine->children(self::GEDMO_NAMESPACE_URI);
 
             $field = $this->_getAttribute($mappingDoctrine, $fieldAttr);
             if (isset($map->{'sortable-group'})) {
@@ -99,11 +95,13 @@ class Xml extends BaseXml
      *
      * @param object $meta
      * @param string $field
+     *
      * @return boolean
      */
     protected function isValidField($meta, $field)
     {
         $mapping = $meta->getFieldMapping($field);
+
         return $mapping && in_array($mapping['type'], $this->validTypes);
     }
 }

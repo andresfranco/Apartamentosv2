@@ -2,8 +2,8 @@
 
 namespace Gedmo\Sortable\Mapping\Driver;
 
-use Gedmo\Mapping\Driver\AbstractAnnotationDriver,
-    Gedmo\Exception\InvalidMappingException;
+use Gedmo\Mapping\Driver\AbstractAnnotationDriver;
+use Gedmo\Exception\InvalidMappingException;
 
 /**
  * This is an annotation mapping driver for Sortable
@@ -32,9 +32,10 @@ class Annotation extends AbstractAnnotationDriver
      * @var array
      */
     protected $validTypes = array(
+        'int',
         'integer',
         'smallint',
-        'bigint'
+        'bigint',
     );
 
     /**
@@ -52,8 +53,9 @@ class Annotation extends AbstractAnnotationDriver
             ) {
                 continue;
             }
+
             // position
-            if ($position = $this->reader->getPropertyAnnotation($property, self::POSITION)) {
+            if ($this->reader->getPropertyAnnotation($property, self::POSITION)) {
                 $field = $property->getName();
                 if (!$meta->hasField($field)) {
                     throw new InvalidMappingException("Unable to find 'position' - [{$field}] as mapped property in entity - {$meta->name}");
@@ -63,8 +65,9 @@ class Annotation extends AbstractAnnotationDriver
                 }
                 $config['position'] = $field;
             }
+
             // group
-            if ($group = $this->reader->getPropertyAnnotation($property, self::GROUP)) {
+            if ($this->reader->getPropertyAnnotation($property, self::GROUP)) {
                 $field = $property->getName();
                 if (!$meta->hasField($field) && !$meta->hasAssociation($field)) {
                     throw new InvalidMappingException("Unable to find 'group' - [{$field}] as mapped property in entity - {$meta->name}");

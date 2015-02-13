@@ -4,7 +4,6 @@ namespace Gedmo\Tree;
 
 use Doctrine\Common\EventManager;
 use Tool\BaseTestCaseMongoODM;
-use Tree\Fixture\RootCategory;
 
 /**
  * These are tests for Tree behavior
@@ -24,8 +23,8 @@ class MaterializedPathODMMongoDBRepositoryTest extends BaseTestCaseMongoODM
     {
         parent::setUp();
 
-        $evm = new EventManager;
-        $evm->addEventSubscriber(new TreeListener);
+        $evm = new EventManager();
+        $evm->addEventSubscriber(new TreeListener());
 
         $this->getMockDocumentManager($evm);
         $this->populate();
@@ -36,10 +35,10 @@ class MaterializedPathODMMongoDBRepositoryTest extends BaseTestCaseMongoODM
     /**
      * @test
      */
-    function getRootNodes()
+    public function getRootNodes()
     {
         $result = $this->repo->getRootNodes('title');
-        
+
         $this->assertEquals(3, $result->count());
         $this->assertEquals('Drinks', $result->getNext()->getTitle());
         $this->assertEquals('Food', $result->getNext()->getTitle());
@@ -49,7 +48,7 @@ class MaterializedPathODMMongoDBRepositoryTest extends BaseTestCaseMongoODM
     /**
      * @test
      */
-    function getChildren()
+    public function getChildren()
     {
         $root = $this->repo->findOneByTitle('Food');
 
@@ -113,7 +112,7 @@ class MaterializedPathODMMongoDBRepositoryTest extends BaseTestCaseMongoODM
     /**
      * @test
      */
-    function getTree()
+    public function getTree()
     {
         $tree = $this->repo->getTree();
 
@@ -141,7 +140,7 @@ class MaterializedPathODMMongoDBRepositoryTest extends BaseTestCaseMongoODM
     /**
      * @test
      */
-    function childrenHierarchy()
+    public function childrenHierarchy()
     {
         $tree = $this->repo->childrenHierarchy();
 
@@ -195,7 +194,6 @@ class MaterializedPathODMMongoDBRepositoryTest extends BaseTestCaseMongoODM
         $tree = $this->repo->childrenHierarchy($drinks, false, array('decorate' => true), false);
 
         $this->assertEquals('<ul><li>Whisky<ul><li>Best Whisky</li></ul></li></ul>', $tree);
-
 
         // HTML Tree of one specific root, with the root node
         $roots = $this->repo->getRootNodes();
@@ -257,14 +255,15 @@ class MaterializedPathODMMongoDBRepositoryTest extends BaseTestCaseMongoODM
     protected function getUsedEntityFixtures()
     {
         return array(
-            self::CATEGORY
+            self::CATEGORY,
         );
     }
 
     public function createCategory()
     {
         $class = self::CATEGORY;
-        return new $class;
+
+        return new $class();
     }
 
     private function populate()

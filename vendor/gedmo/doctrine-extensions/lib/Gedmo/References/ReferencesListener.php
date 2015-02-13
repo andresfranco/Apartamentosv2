@@ -4,11 +4,7 @@ namespace Gedmo\References;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\EventArgs;
-use Doctrine\ORM\Mapping\ClassMetadata as ORMClassMetadata;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ODM\MongoDB\DocumentManager;
-use Doctrine\ODM\MongoDB\Mapping\ClassMetadata as MongoDBClassMetadata;
-use Gedmo\Exception\InvalidArgumentException;
+use Doctrine\Common\Persistence\ObjectManager;
 use Gedmo\Mapping\MappedEventSubscriber;
 
 /**
@@ -76,7 +72,7 @@ class ReferencesListener extends MappedEventSubscriber
                     $property->setValue(
                         $object,
                         new LazyCollection(
-                            function() use ($id, &$manager, $class, $identifier) {
+                            function () use ($id, &$manager, $class, $identifier) {
                                 $results = $manager
                                     ->getRepository($class)
                                     ->findBy(array(
@@ -119,6 +115,11 @@ class ReferencesListener extends MappedEventSubscriber
         $this->managers[$type] = $manager;
     }
 
+    /**
+     * @param string $type
+     *
+     * @return ObjectManager
+     */
     public function getManager($type)
     {
         return $this->managers[$type];
@@ -163,6 +164,7 @@ class ReferencesListener extends MappedEventSubscriber
         $object = $ea->getObject();
         $meta = $om->getClassMetadata(get_class($object));
         $config = $this->getConfiguration($om, $meta->name);
+
         foreach ($config['referenceManyEmbed'] as $mapping) {
             $property = $meta->reflClass->getProperty($mapping['field']);
             $property->setAccessible(true);
@@ -172,13 +174,14 @@ class ReferencesListener extends MappedEventSubscriber
 
             $class = $mapping['class'];
             $refMeta = $manager->getClassMetadata($class);
-            $refConfig = $this->getConfiguration($manager, $refMeta->name);
+            // Trigger the loading of the configuration to validate the mapping
+            $this->getConfiguration($manager, $refMeta->name);
 
             $identifier = $mapping['identifier'];
             $property->setValue(
                 $object,
                 new LazyCollection(
-                    function() use ($id, &$manager, $class, $identifier) {
+                    function () use ($id, &$manager, $class, $identifier) {
                         $results = $manager
                             ->getRepository($class)
                             ->findBy(array(

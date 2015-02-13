@@ -119,5 +119,9 @@ ps_pdf:
       options: ~
     markdown_stylesheet_filepath: ~
     markdown_document_template_filepath: ~
-    document_parser_type: ~   
-
+    document_parser_type: ~
+mobile_detect:
+    redirect:
+        mobile: ~
+        tablet: ~
+    switch_device_view: ~

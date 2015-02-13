@@ -24,7 +24,8 @@ class AppKernel extends Kernel
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
             new Ps\PdfBundle\PsPdfBundle(),
-            new Liuggio\ExcelBundle\LiuggioExcelBundle()
+            new Liuggio\ExcelBundle\LiuggioExcelBundle(),
+            new SunCat\MobileDetectBundle\MobileDetectBundle()
            
         );
 

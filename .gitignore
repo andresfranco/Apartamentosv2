@@ -1,0 +1,14 @@
+app/cache/*
+app/logs/*
+# -- Composer -----------------------------------------
+composer.phar
+# phpstorm
+.idea/
+# netbeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml

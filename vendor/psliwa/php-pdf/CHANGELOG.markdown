@@ -1,9 +1,17 @@
 CHANGELOG
 =========
 
-* 1.2.6-DEV (???)
+* 1.2.8 (???)
 
   * (nothing)
+
+* 1.2.7 (2015-01-30)
+
+  * [#87] add "blockquote" tag
+
+* 1.2.6 (2014-12-14)
+
+  * [#83] remove Imagine\Image\Box, fix image drawing in Imagine engine
 
 * 1.2.5 (2014-10-23)
 

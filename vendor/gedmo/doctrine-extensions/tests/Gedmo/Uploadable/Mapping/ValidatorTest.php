@@ -2,8 +2,6 @@
 
 namespace Gedmo\Uploadable\Mapping;
 
-use Gedmo\Uploadable\Mapping\Validator;
-
 /**
  * These are tests for the Mapping Validator of the Uploadable behavior
  *
@@ -66,6 +64,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             Validator::validatePath('/');
         } catch (\Gedmo\Exception\UploadableCantWriteException $e) {
             rmdir($dir);
+
             return;
         }
 
@@ -157,7 +156,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             'filenameGenerator' => 'invalidClass',
             'maxSize'           => 0,
             'allowedTypes'      => '',
-            'disallowedTypes'   => ''
+            'disallowedTypes'   => '',
         );
 
         Validator::validateConfiguration(
@@ -188,7 +187,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             'filenameGenerator' => 'DateTime',
             'maxSize'           => 0,
             'allowedTypes'      => '',
-            'disallowedTypes'   => ''
+            'disallowedTypes'   => '',
         );
 
         Validator::validateConfiguration(
@@ -216,7 +215,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             'filenameGenerator' => 'SHA1',
             'maxSize'           => 0,
             'allowedTypes'      => '',
-            'disallowedTypes'   => ''
+            'disallowedTypes'   => '',
         );
 
         Validator::validateConfiguration(
@@ -244,7 +243,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             'filenameGenerator' => 'Gedmo\Uploadable\FilenameGenerator\FilenameGeneratorSha1',
             'maxSize'           => 0,
             'allowedTypes'      => '',
-            'disallowedTypes'   => ''
+            'disallowedTypes'   => '',
         );
 
         Validator::validateConfiguration(
@@ -270,7 +269,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             'callback'          => '',
             'maxSize'           => -123,
             'allowedTypes'      => '',
-            'disallowedTypes'   => ''
+            'disallowedTypes'   => '',
         );
 
         Validator::validateConfiguration(
@@ -298,7 +297,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             'callback'          => '',
             'maxSize'           => 0,
             'allowedTypes'      => 'text/plain',
-            'disallowedTypes'   => 'text/css'
+            'disallowedTypes'   => 'text/css',
         );
 
         Validator::validateConfiguration(

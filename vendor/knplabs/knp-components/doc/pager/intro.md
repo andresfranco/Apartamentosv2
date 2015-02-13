@@ -1,6 +1,6 @@
 # Intro to Knp Pager Component
 
-This is a PHP 5.3 paginator with a totally diferent core concept.
+This is a PHP 5.3 paginator with a totally different core concept.
 
 **Note:** it is still experimental, any ideas on structural design are very welcome
 
@@ -29,6 +29,7 @@ Why reinvent the wheel? Can someone me tell what the definition of **wheel** is 
 - Separation of conserns, paginator is responsible for generating the pagination view only,
 pagination view - for representation purposes.
 - Does not require initializing specific adapters
+- [configurable](config.md)
 
 ## Usage examples:
 

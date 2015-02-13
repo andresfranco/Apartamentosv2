@@ -4,7 +4,6 @@ namespace Gedmo\Tree;
 
 use Doctrine\Common\EventManager;
 use Tool\BaseTestCaseORM;
-use Tree\Fixture\RootCategory;
 
 /**
  * These are tests for Tree behavior
@@ -26,9 +25,9 @@ class MaterializedPathORMRepositoryTest extends BaseTestCaseORM
     {
         parent::setUp();
 
-        $this->listener = new TreeListener;
+        $this->listener = new TreeListener();
 
-        $evm = new EventManager;
+        $evm = new EventManager();
         $evm->addEventSubscriber($this->listener);
 
         $this->getMockSqliteEntityManager($evm);
@@ -43,10 +42,10 @@ class MaterializedPathORMRepositoryTest extends BaseTestCaseORM
     /**
      * @test
      */
-    function getRootNodes()
+    public function getRootNodes()
     {
         $result = $this->repo->getRootNodes('title');
-        
+
         $this->assertCount(3, $result);
         $this->assertEquals('Drinks', $result[0]->getTitle());
         $this->assertEquals('Food', $result[1]->getTitle());
@@ -56,7 +55,7 @@ class MaterializedPathORMRepositoryTest extends BaseTestCaseORM
     /**
      * @test
      */
-    function getChildren()
+    public function getChildren()
     {
         $root = $this->repo->findOneByTitle('Food');
 
@@ -120,7 +119,7 @@ class MaterializedPathORMRepositoryTest extends BaseTestCaseORM
     /**
      * @test
      */
-    function getChildrenForEntityWithTrimmedSeparators()
+    public function getChildrenForEntityWithTrimmedSeparators()
     {
         $meta = $this->em->getClassMetadata(self::CATEGORY_WITH_TRIMMED_SEPARATOR);
         $this->populate(self::CATEGORY_WITH_TRIMMED_SEPARATOR);
@@ -187,7 +186,7 @@ class MaterializedPathORMRepositoryTest extends BaseTestCaseORM
     /**
      * @test
      */
-    function getTree()
+    public function getTree()
     {
         $tree = $this->repo->getTree();
 
@@ -263,7 +262,6 @@ class MaterializedPathORMRepositoryTest extends BaseTestCaseORM
         $tree = $this->repo->childrenHierarchy($roots[0], false, array('decorate' => true), false);
 
         $this->assertEquals('<ul><li>Whisky<ul><li>Best Whisky</li></ul></li></ul>', $tree);
-
 
         // HTML Tree of one specific root, with the root node
         $roots = $this->repo->getRootNodes();
@@ -346,7 +344,7 @@ class MaterializedPathORMRepositoryTest extends BaseTestCaseORM
     {
         return array(
             self::CATEGORY,
-            self::CATEGORY_WITH_TRIMMED_SEPARATOR
+            self::CATEGORY_WITH_TRIMMED_SEPARATOR,
         );
     }
 
@@ -356,7 +354,7 @@ class MaterializedPathORMRepositoryTest extends BaseTestCaseORM
             $class = self::CATEGORY;
         }
 
-        return new $class;
+        return new $class();
     }
 
     private function populate($class = null)

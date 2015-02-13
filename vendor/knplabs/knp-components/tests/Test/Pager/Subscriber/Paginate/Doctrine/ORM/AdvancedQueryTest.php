@@ -55,7 +55,7 @@ ___SQL;
         $q = $this->em->createQuery($dql);
         $q->setHydrationMode(Query::HYDRATE_ARRAY);
         $p = new Paginator;
-        $view = $p->paginate($q, 1, 10);
+        $view = $p->paginate($q, 1, 10, array('wrap-queries' => true));
         $this->assertEquals(3, count($view));
     }
 
@@ -124,6 +124,27 @@ ___SQL;
         // and should be hydrated as array
         $this->assertEquals('Starship', $items[0][0]['title']);
         $this->assertEquals(1, $items[0]['relevance']);
+    }
+
+    /**
+     * @test
+     */
+    function shouldUseOutputWalkersIfHinted()
+    {
+        $this->populate();
+
+        $dql = <<<___SQL
+        SELECT p, t
+        FROM Test\Fixture\Entity\Shop\Product p
+        INNER JOIN p.tags t
+        GROUP BY p.id
+        HAVING p.numTags = COUNT(t)
+___SQL;
+        $q = $this->em->createQuery($dql);
+        $q->setHydrationMode(Query::HYDRATE_ARRAY);
+        $p = new Paginator;
+        $view = $p->paginate($q, 1, 10, array('wrap-queries' => true));
+        $this->assertEquals(3, count($view));
     }
 
     protected function getUsedEntityFixtures()

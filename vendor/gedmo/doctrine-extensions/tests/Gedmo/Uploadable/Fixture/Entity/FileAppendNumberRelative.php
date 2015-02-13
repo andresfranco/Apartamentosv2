@@ -4,7 +4,6 @@ namespace Uploadable\Fixture\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -35,7 +34,6 @@ class FileAppendNumberRelative
      * @ORM\JoinColumn(name="article_id", referencedColumnName="id")
      */
     private $article;
-
 
     public function getId()
     {

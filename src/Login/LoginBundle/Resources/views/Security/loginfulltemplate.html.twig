@@ -1,0 +1,71 @@
+<head>       
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/masterfoundation.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('foundation/js/foundation.min.js') }}"></script>
+<script src="{{ asset('js/jquery.validate.js') }}"></script>
+<script src="{{ asset('js/validatelogin.js') }}"></script>
+{% endblock %}
+</head>
+<body id="bodylogin">
+<div class="large-3 large-centered columns">
+<div class="login-box">
+<div class="row">
+<div class="large-12 columns">
+<img src="{{ asset('images/logoapp.png') }}"/><b><span class="titulologin">{{'ADMINISTRATION'|trans}}</span></b>
+</div>
+</div>
+<br>
+<div class="row"> 
+<div class="large-12 columns">
+<form id="loginform" action="{{ path('login_check') }}" method="post">
+<div class="row"> 
+<div class="large-12 columns">  
+<div class="error" align ="left">
+<label id="labelerror" class="error2">
+{% if error %}
+{{ error.message|trans({},'messages')  }}<br><br>
+{% endif %}
+</label>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="large-12 columns">
+<div class="row collapse prefix-radius">
+<div class="small-2 columns"    >
+<span class="prefix"><img src="{{ asset('images/userlogin.png') }}"></span>
+</div>
+<div class="small-10 columns">
+<input id="username" type="text" name="_username"  placeholder="{{'Usuario'|trans}}">
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="large-12 columns">
+<div class="row collapse prefix-radius">
+<div class="small-2 columns">
+<span class="prefix"><img src="{{ asset('images/locklogin.png') }}"/></span>
+</div>
+<div class="small-10 columns">
+<input id="password" type="password" name="_password" placeholder="{{'Contraseña'|trans}}" />
+</div>
+</div>
+</div>
+</div>  
+<div class="row">
+<div class="large-12 large-centered columns">
+<input type="submit" name="login" class="button expand" value="{{'Iniciar Sesión'|trans}}"/>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>       
+</body>

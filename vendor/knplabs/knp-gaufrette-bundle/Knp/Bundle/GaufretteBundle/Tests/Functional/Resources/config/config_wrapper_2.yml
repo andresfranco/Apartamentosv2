@@ -1,9 +1,0 @@
-imports:
-    - { resource: config.yml }
-
-knp_gaufrette:
-    stream_wrapper:
-        protocol: tada
-        filesystems:
-            pictures: cache
-            text: ftp

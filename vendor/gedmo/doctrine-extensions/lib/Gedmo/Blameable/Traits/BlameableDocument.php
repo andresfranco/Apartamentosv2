@@ -2,6 +2,8 @@
 
 namespace Gedmo\Blameable\Traits;
 
+use Gedmo\Mapping\Annotation as Gedmo;
+
 /**
  * Blameable Trait, usable with PHP >= 5.4
  *
@@ -11,12 +13,14 @@ namespace Gedmo\Blameable\Traits;
 trait BlameableDocument
 {
     /**
+     * @var string
      * @Gedmo\Blameable(on="create")
      * @ODM\String
      */
     private $createdBy;
 
     /**
+     * @var string
      * @Gedmo\Blameable(on="update")
      * @ODM\String
      */

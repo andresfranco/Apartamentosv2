@@ -1,5 +1,12 @@
 {% extends '::masteradmin.html.twig' %}
-
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/responsive-tables.css') }}" />
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/responsive-tables.js') }}"></script>
+{% endblock %}
 {% block contenido %}
     <div>
          <img style="float:left;" src="{{ asset('images/condominio48.png') }}"/>
@@ -13,7 +20,7 @@
     <div class="grid">
         {% block grid_search %}
        {% if grid.isFilterSectionVisible %}
-          <div class="grid-search">
+          <div>
           <form id="{{ grid.hash }}_search" action="{{ grid.routeUrl }}" method="post">
           <table class="busqueda">
               <tr>  
@@ -25,11 +32,13 @@
             {% endif %}
             
           {% endfor %}
-                <td valign="bottom">
-                    <input type="submit" value="{{ 'Buscar'|trans }}"/>
-                </td>
+                
+                    
+                
               </tr>
+              <tr><td><input type="submit" value="{{ 'Buscar'|trans }}"/></td></tr>
           </table>
+              
           </form>
           </div>
         {% endif %}
@@ -50,7 +59,7 @@
           {% endif %}
           </div>
         <div class="grid_body">
-        <table>
+        <table class="responsive">
       {% block grid_titles %}
       <thead>       
       <tr class="grid-row-titles">

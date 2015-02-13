@@ -3,18 +3,15 @@
 namespace Tool;
 
 // common
-use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\EventManager;
 use Doctrine\Common\Persistence\Mapping\Driver\MappingDriver;
 // orm specific
 use Doctrine\ORM\Mapping\DefaultQuoteStrategy;
 use Doctrine\ORM\Mapping\DefaultNamingStrategy;
-use Doctrine\ORM\Mapping\Driver\Driver as MappingDriverORM;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver as AnnotationDriverORM;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\SchemaTool;
 // odm specific
-use Doctrine\ODM\MongoDB\Mapping\Driver\Driver as MappingDriverODM;
 use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver as AnnotationDriverODM;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\MongoDB\Connection;
@@ -54,7 +51,6 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-
     }
 
     /**
@@ -79,8 +75,9 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
      * DocumentManager mock object together with
      * annotation mapping driver and database
      *
-     * @param string $dbName
+     * @param string                                     $dbName
      * @param Doctrine\ODM\MongoDB\Mapping\Driver\Driver $mappingDriver
+     *
      * @return DocumentManager
      */
     protected function getMockDocumentManager($dbName, MappingDriver $mappingDriver = null)
@@ -88,7 +85,7 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
         if (!class_exists('Mongo')) {
             $this->markTestSkipped('Missing Mongo extension.');
         }
-        $conn = new Connection;
+        $conn = new Connection();
         $config = $this->getMockAnnotatedODMMongoDBConfig($dbName, $mappingDriver);
 
         $dm = null;
@@ -98,6 +95,7 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
         } catch (\MongoException $e) {
             $this->markTestSkipped('Doctrine MongoDB ODM failed to connect');
         }
+
         return $dm;
     }
 
@@ -105,8 +103,9 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
      * DocumentManager mock object with
      * annotation mapping driver
      *
-     * @param string $dbName
+     * @param string                                     $dbName
      * @param Doctrine\ODM\MongoDB\Mapping\Driver\Driver $mappingDriver
+     *
      * @return DocumentManager
      */
     protected function getMockMappedDocumentManager($dbName, MappingDriver $mappingDriver = null)
@@ -115,6 +114,7 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
         $config = $this->getMockAnnotatedODMMongoDBConfig($dbName, $mappingDriver);
 
         $dm = DocumentManager::create($conn, $config, $this->getEventManager());
+
         return $dm;
     }
 
@@ -123,8 +123,9 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
      * annotation mapping driver and pdo_sqlite
      * database in memory
      *
-     * @param array $fixtures
+     * @param array                              $fixtures
      * @param Doctrine\ORM\Mapping\Driver\Driver $mappingDriver
+     *
      * @return EntityManager
      */
     protected function getMockSqliteEntityManager(array $fixtures, MappingDriver $mappingDriver = null)
@@ -137,13 +138,14 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
         $config = $this->getMockAnnotatedORMConfig($mappingDriver);
         $em = EntityManager::create($conn, $config, $this->getEventManager());
 
-        $schema = array_map(function($class) use ($em) {
+        $schema = array_map(function ($class) use ($em) {
             return $em->getClassMetadata($class);
         }, $fixtures);
 
         $schemaTool = new SchemaTool($em);
         $schemaTool->dropSchema(array());
         $schemaTool->createSchema($schema);
+
         return $em;
     }
 
@@ -152,6 +154,7 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
      * annotation mapping driver
      *
      * @param Doctrine\ORM\Mapping\Driver\Driver $mappingDriver
+     *
      * @return EntityManager
      */
     protected function getMockMappedEntityManager(MappingDriver $mappingDriver = null)
@@ -168,6 +171,7 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
 
         $config = $this->getMockAnnotatedORMConfig($mappingDriver);
         $em = EntityManager::create($conn, $config);
+
         return $em;
     }
 
@@ -199,12 +203,12 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
     private function getEventManager()
     {
         if (null === $this->evm) {
-            $this->evm = new EventManager;
-            $this->evm->addEventSubscriber(new TreeListener);
-            $this->evm->addEventSubscriber(new SluggableListener);
-            $this->evm->addEventSubscriber(new LoggableListener);
-            $this->evm->addEventSubscriber(new TranslatableListener);
-            $this->evm->addEventSubscriber(new TimestampableListener);
+            $this->evm = new EventManager();
+            $this->evm->addEventSubscriber(new TreeListener());
+            $this->evm->addEventSubscriber(new SluggableListener());
+            $this->evm->addEventSubscriber(new LoggableListener());
+            $this->evm->addEventSubscriber(new TranslatableListener());
+            $this->evm->addEventSubscriber(new TimestampableListener());
         }
 
         return $this->evm;
@@ -213,8 +217,9 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
     /**
      * Get annotation mapping configuration
      *
-     * @param string $dbName
+     * @param string                                     $dbName
      * @param Doctrine\ODM\MongoDB\Mapping\Driver\Driver $mappingDriver
+     *
      * @return Doctrine\ORM\Configuration
      */
     private function getMockAnnotatedODMMongoDBConfig($dbName, MappingDriver $mappingDriver = null)
@@ -279,6 +284,7 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
      * Get annotation mapping configuration for ORM
      *
      * @param Doctrine\ORM\Mapping\Driver\Driver $mappingDriver
+     *
      * @return Doctrine\ORM\Configuration
      */
     private function getMockAnnotatedORMConfig(MappingDriver $mappingDriver = null)
@@ -328,7 +334,7 @@ abstract class BaseTestCaseOM extends \PHPUnit_Framework_TestCase
         $config
             ->expects($this->once())
             ->method('getRepositoryFactory')
-            ->will($this->returnValue(new DefaultRepositoryFactory));
+            ->will($this->returnValue(new DefaultRepositoryFactory()));
 
         return $config;
     }

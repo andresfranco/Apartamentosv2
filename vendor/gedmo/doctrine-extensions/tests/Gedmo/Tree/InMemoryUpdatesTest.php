@@ -4,7 +4,6 @@ namespace Gedmo\Tree;
 
 use Doctrine\Common\EventManager;
 use Tool\BaseTestCaseORM;
-use Doctrine\Common\Util\Debug;
 use Tree\Fixture\Category;
 
 /**
@@ -22,8 +21,8 @@ class InMemoryUpdatesTest extends BaseTestCaseORM
     {
         parent::setUp();
 
-        $evm = new EventManager;
-        $evm->addEventSubscriber(new TreeListener);
+        $evm = new EventManager();
+        $evm->addEventSubscriber(new TreeListener());
 
         $this->getMockSqliteEntityManager($evm);
     }
@@ -90,7 +89,7 @@ class InMemoryUpdatesTest extends BaseTestCaseORM
     protected function getUsedEntityFixtures()
     {
         return array(
-            self::CATEGORY
+            self::CATEGORY,
         );
     }
 }

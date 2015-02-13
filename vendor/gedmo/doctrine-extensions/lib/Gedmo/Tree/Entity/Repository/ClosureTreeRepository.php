@@ -4,10 +4,9 @@ namespace Gedmo\Tree\Entity\Repository;
 
 use Gedmo\Exception\InvalidArgumentException;
 use Doctrine\ORM\Query;
+use Gedmo\Tree\Entity\MappedSuperclass\AbstractClosure;
 use Gedmo\Tree\Strategy;
-use Gedmo\Tree\Strategy\ORM\Closure;
 use Gedmo\Tool\Wrapper\EntityWrapper;
-use Doctrine\ORM\Proxy\Proxy;
 
 /**
  * The ClosureTreeRepository has some useful functions
@@ -30,13 +29,13 @@ class ClosureTreeRepository extends AbstractTreeRepository
     {
         $meta = $this->getClassMetadata();
         $config = $this->listener->getConfiguration($this->_em, $meta->name);
-        $qb = $this->_em->createQueryBuilder();
+        $qb = $this->getQueryBuilder();
         $qb->select('node')
             ->from($config['useObjectClass'], 'node')
-            ->where('node.' . $config['parent'] . " IS NULL");
+            ->where('node.'.$config['parent']." IS NULL");
 
         if ($sortByField) {
-            $qb->orderBy($sortByField, strtolower($direction) === 'asc' ? 'asc' : 'desc');
+            $qb->orderBy('node.'.$sortByField, strtolower($direction) === 'asc' ? 'asc' : 'desc');
         }
 
         return $qb;
@@ -62,7 +61,9 @@ class ClosureTreeRepository extends AbstractTreeRepository
      * Get the Tree path query by given $node
      *
      * @param object $node
+     *
      * @throws InvalidArgumentException - if input is not valid
+     *
      * @return Query
      */
     public function getPathQuery($node)
@@ -83,6 +84,7 @@ class ClosureTreeRepository extends AbstractTreeRepository
         $dql .= " ORDER BY c.depth DESC";
         $q = $this->_em->createQuery($dql);
         $q->setParameters(compact('node'));
+
         return $q;
     }
 
@@ -90,11 +92,12 @@ class ClosureTreeRepository extends AbstractTreeRepository
      * Get the Tree path of Nodes by given $node
      *
      * @param object $node
+     *
      * @return array - list of Nodes in path
      */
     public function getPath($node)
     {
-        return array_map(function($closure) {
+        return array_map(function (AbstractClosure $closure) {
             return $closure->getAncestor();
         }, $this->getPathQuery($node)->getResult());
     }
@@ -107,7 +110,7 @@ class ClosureTreeRepository extends AbstractTreeRepository
         $meta = $this->getClassMetadata();
         $config = $this->listener->getConfiguration($this->_em, $meta->name);
 
-        $qb = $this->_em->createQueryBuilder();
+        $qb = $this->getQueryBuilder();
         if ($node !== null) {
             if ($node instanceof $meta->name) {
                 if (!$this->_em->getUnitOfWork()->isInIdentityMap($node)) {
@@ -138,13 +141,13 @@ class ClosureTreeRepository extends AbstractTreeRepository
             $qb->select('node')
                 ->from($config['useObjectClass'], 'node');
             if ($direct) {
-                $qb->where('node.' . $config['parent'] . ' IS NULL');
+                $qb->where('node.'.$config['parent'].' IS NULL');
             }
         }
 
         if ($sortByField) {
             if ($meta->hasField($sortByField) && in_array(strtolower($direction), array('asc', 'desc'))) {
-                $qb->orderBy('node.' . $sortByField, $direction);
+                $qb->orderBy('node.'.$sortByField, $direction);
             } else {
                 throw new InvalidArgumentException("Invalid sort options specified: field - {$sortByField}, direction - {$direction}");
             }
@@ -172,10 +175,11 @@ class ClosureTreeRepository extends AbstractTreeRepository
     {
         $result = $this->childrenQuery($node, $direct, $sortByField, $direction, $includeNode)->getResult();
         if ($node) {
-            $result = array_map(function($closure) {
+            $result = array_map(function (AbstractClosure $closure) {
                 return $closure->getDescendant();
             }, $result);
         }
+
         return $result;
     }
 
@@ -207,10 +211,11 @@ class ClosureTreeRepository extends AbstractTreeRepository
      * Removes given $node from the tree and reparents its descendants
      *
      * @todo may be improved, to issue single query on reparenting
+     *
      * @param object $node
+     *
      * @throws \Gedmo\Exception\InvalidArgumentException
-     * @throws \Gedmo\Exception\RuntimeException - if something fails in transaction
-     * @return void
+     * @throws \Gedmo\Exception\RuntimeException         - if something fails in transaction
      */
     public function removeFromTree($node)
     {

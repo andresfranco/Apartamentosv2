@@ -1,7 +1,0 @@
-imports:
-    - { resource: config.yml }
-
-knp_gaufrette:
-    adapters:
-        foo:
-            in_memory:  ~

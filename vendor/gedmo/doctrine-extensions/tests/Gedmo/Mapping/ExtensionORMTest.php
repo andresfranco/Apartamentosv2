@@ -5,7 +5,6 @@ namespace Gedmo\Mapping;
 use Doctrine\Common\EventManager;
 use Tool\BaseTestCaseORM;
 use Gedmo\Mapping\Mock\Extension\Encoder\EncoderListener;
-use Gedmo\Mapping\ExtensionMetadataFactory;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Mapping\Fixture\User;
 
@@ -20,8 +19,8 @@ class ExtensionORMTest extends BaseTestCaseORM
         parent::setUp();
 
         require_once __DIR__.'/Mock/Extension/Encoder/Mapping/Annotations.php';
-        $evm = new EventManager;
-        $this->encoderListener = new EncoderListener;
+        $evm = new EventManager();
+        $this->encoderListener = new EncoderListener();
         $evm->addEventSubscriber($this->encoderListener);
 
         $this->getMockSqliteEntityManager($evm);
@@ -47,7 +46,7 @@ class ExtensionORMTest extends BaseTestCaseORM
 
     public function testGeneratedValues()
     {
-        $user = new User;
+        $user = new User();
         $user->setName('encode me');
         $user->setPassword('secret');
         $this->em->persist($user);
@@ -77,7 +76,7 @@ class ExtensionORMTest extends BaseTestCaseORM
     protected function getUsedEntityFixtures()
     {
         return array(
-            self::USER
+            self::USER,
         );
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Gedmo\Timestampable\Traits;
 
+use Gedmo\Mapping\Annotation as Gedmo;
+
 /**
  * Timestampable Trait, usable with PHP >= 5.4
  *
@@ -11,12 +13,14 @@ namespace Gedmo\Timestampable\Traits;
 trait TimestampableDocument
 {
     /**
+     * @var \DateTime
      * @Gedmo\Timestampable(on="create")
      * @ODM\Date
      */
     private $createdAt;
 
     /**
+     * @var \DateTime
      * @Gedmo\Timestampable(on="update")
      * @ODM\Date
      */
@@ -25,7 +29,7 @@ trait TimestampableDocument
     /**
      * Sets createdAt.
      *
-     * @param  Datetime $createdAt
+     * @param  \Datetime $createdAt
      * @return $this
      */
     public function setCreatedAt(\DateTime $createdAt)
@@ -38,7 +42,7 @@ trait TimestampableDocument
     /**
      * Returns createdAt.
      *
-     * @return DateTime
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -48,7 +52,7 @@ trait TimestampableDocument
     /**
      * Sets updatedAt.
      *
-     * @param  DateTime $updatedAt
+     * @param  \DateTime $updatedAt
      * @return $this
      */
     public function setUpdatedAt(\DateTime $updatedAt)
@@ -61,7 +65,7 @@ trait TimestampableDocument
     /**
      * Returns updatedAt.
      *
-     * @return Datetime
+     * @return \Datetime
      */
     public function getUpdatedAt()
     {

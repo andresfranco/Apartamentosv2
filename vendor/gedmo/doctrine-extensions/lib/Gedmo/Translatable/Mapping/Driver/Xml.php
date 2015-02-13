@@ -2,8 +2,8 @@
 
 namespace Gedmo\Translatable\Mapping\Driver;
 
-use Gedmo\Mapping\Driver\Xml as BaseXml,
-    Gedmo\Exception\InvalidMappingException;
+use Gedmo\Mapping\Driver\Xml as BaseXml;
+use Gedmo\Exception\InvalidMappingException;
 
 /**
  * This is a xml mapping driver for Translatable
@@ -20,7 +20,8 @@ class Xml extends BaseXml
     /**
      * {@inheritDoc}
      */
-    public function readExtendedMetadata($meta, array &$config) {
+    public function readExtendedMetadata($meta, array &$config)
+    {
         /**
          * @var \SimpleXmlElement $xml
          */
@@ -42,10 +43,10 @@ class Xml extends BaseXml
                 }
                 if ($this->_isAttributeSet($data, 'entity')) {
                     $entity = $this->_getAttribute($data, 'entity');
-                    if (!class_exists($entity)) {
+                    if (!$cl = $this->getRelatedClassName($meta, $entity)) {
                         throw new InvalidMappingException("Translation entity class: {$entity} does not exist.");
                     }
-                    $config['translationClass'] = $entity;
+                    $config['translationClass'] = $cl;
                 }
             }
         }

@@ -2,12 +2,9 @@
 
 namespace Gedmo\Tree;
 
-use Doctrine\Common\Util\Debug,
-    Doctrine\ORM\Mapping\Driver\YamlDriver,
-    Doctrine\ORM\Mapping\Driver\DriverChain,
-    Mapping\Fixture\Yaml\Category,
-    Gedmo\Mapping\ExtensionMetadataFactory,
-    Gedmo\Tree\TreeListener;
+use Doctrine\ORM\Mapping\Driver\YamlDriver;
+use Doctrine\ORM\Mapping\Driver\DriverChain;
+use Gedmo\Mapping\ExtensionMetadataFactory;
 
 /**
  * These are mapping tests for tree extension
@@ -21,27 +18,35 @@ class TreeMappingTest extends \PHPUnit_Framework_TestCase
     const TEST_YAML_ENTITY_CLASS = 'Mapping\Fixture\Yaml\Category';
     const YAML_CLOSURE_CATEGORY = 'Mapping\Fixture\Yaml\ClosureCategory';
     const YAML_MATERIALIZED_PATH_CATEGORY = 'Mapping\Fixture\Yaml\MaterializedPathCategory';
+
+    /**
+     * @var \Doctrine\ORM\EntityManager
+     */
     private $em;
+
+    /**
+     * @var TreeListener
+     */
     private $listener;
 
     public function setUp()
     {
         $config = new \Doctrine\ORM\Configuration();
-        $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ApcCache);
-        $config->setQueryCacheImpl(new \Doctrine\Common\Cache\ArrayCache);
+        $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ApcCache());
+        $config->setQueryCacheImpl(new \Doctrine\Common\Cache\ArrayCache());
         $config->setProxyDir(TESTS_TEMP_DIR);
         $config->setProxyNamespace('Gedmo\Mapping\Proxy');
-        $chainDriverImpl = new DriverChain;
+        $chainDriverImpl = new DriverChain();
         $chainDriverImpl->addDriver(
-            new YamlDriver(array(__DIR__ . '/Driver/Yaml')),
+            new YamlDriver(array(__DIR__.'/Driver/Yaml')),
             'Mapping\Fixture\Yaml'
         );
         $chainDriverImpl->addDriver(
-            $config->newDefaultAnnotationDriver(),
+            $config->newDefaultAnnotationDriver(array(), false),
             'Tree\Fixture'
         );
         $chainDriverImpl->addDriver(
-            $config->newDefaultAnnotationDriver(),
+            $config->newDefaultAnnotationDriver(array(), false),
             'Gedmo\Tree'
         );
         $config->setMetadataDriverImpl($chainDriverImpl);
@@ -51,7 +56,7 @@ class TreeMappingTest extends \PHPUnit_Framework_TestCase
             'memory' => true,
         );
 
-        $this->listener = new TreeListener;
+        $this->listener = new TreeListener();
         $evm = new \Doctrine\Common\EventManager();
         $evm->addEventSubscriber(new TreeListener());
         $this->em = \Doctrine\ORM\EntityManager::create($conn, $config, $evm);
@@ -62,7 +67,7 @@ class TreeMappingTest extends \PHPUnit_Framework_TestCase
         if (!extension_loaded('apc') || !ini_get('apc.enable_cli')) {
             $this->markTestSkipped('APC extension is not loaded.');
         }
-        $meta = $this->em->getClassMetadata(self::YAML_CLOSURE_CATEGORY);
+        $this->em->getClassMetadata(self::YAML_CLOSURE_CATEGORY);
         $this->em->getClassMetadata('Tree\Fixture\Closure\CategoryClosure');
 
         $meta = $this->em->getMetadataFactory()->getCacheDriver()->fetch(
@@ -77,7 +82,7 @@ class TreeMappingTest extends \PHPUnit_Framework_TestCase
         if (!extension_loaded('apc') || !ini_get('apc.enable_cli')) {
             $this->markTestSkipped('APC extension is not loaded.');
         }
-        $meta = $this->em->getClassMetadata(self::TEST_YAML_ENTITY_CLASS);
+        $this->em->getClassMetadata(self::TEST_YAML_ENTITY_CLASS);
         $cacheId = ExtensionMetadataFactory::getCacheId(
             self::TEST_YAML_ENTITY_CLASS,
             'Gedmo\Tree'

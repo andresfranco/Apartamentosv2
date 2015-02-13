@@ -4,7 +4,6 @@ namespace Sluggable\Fixture\Issue939;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Sluggable\Fixture\Issue939\Category;
 
 /**
  * @ORM\Entity
@@ -57,11 +56,11 @@ class Article
 
     public function setCategory(Category $category)
     {
-      $this->category = $category;
+        $this->category = $category;
     }
 
     public function getCategory()
     {
-      return $this->category;
+        return $this->category;
     }
 }

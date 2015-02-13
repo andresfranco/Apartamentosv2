@@ -2,9 +2,7 @@
 
 namespace SoftDeleteable\Fixture\Entity;
 
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -25,5 +23,4 @@ class Child extends MappedSuperclass
     {
         return $this->title;
     }
-
 }

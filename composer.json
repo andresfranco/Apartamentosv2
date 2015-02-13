@@ -21,12 +21,13 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "knplabs/knp-paginator-bundle": "~2.4",
         "apy/datagrid-bundle": "dev-master",
-	"white-october/pagerfanta-bundle": "dev-master",
+	    "white-october/pagerfanta-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "a2lix/translation-form-bundle": "dev-master",
-	"lexik/translation-bundle": "~1.4",
-	"psliwa/pdf-bundle": "~1.0",
-        "liuggio/excelbundle": "~2.0.1"
+	    "lexik/translation-bundle": "~1.4",
+	    "psliwa/pdf-bundle": "~1.0",
+        "liuggio/excelbundle": "~2.0.1",
+        "suncat/mobile-detect-bundle": "0.10.*"
        
 		
     },

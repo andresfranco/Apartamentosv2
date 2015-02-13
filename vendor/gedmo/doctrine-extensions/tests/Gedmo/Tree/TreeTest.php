@@ -4,7 +4,6 @@ namespace Gedmo\Tree;
 
 use Doctrine\Common\EventManager;
 use Tool\BaseTestCaseORM;
-use Doctrine\Common\Util\Debug;
 use Tree\Fixture\Category;
 use Tree\Fixture\CategoryUuid;
 
@@ -24,8 +23,8 @@ class TreeTest extends BaseTestCaseORM
     {
         parent::setUp();
 
-        $evm = new EventManager;
-        $evm->addEventSubscriber(new TreeListener);
+        $evm = new EventManager();
+        $evm->addEventSubscriber(new TreeListener());
 
         $this->getMockSqliteEntityManager($evm);
     }
@@ -177,18 +176,18 @@ class TreeTest extends BaseTestCaseORM
     {
         $repo = $this->em->getRepository(self::CATEGORY);
 
-        $root = new Category;
+        $root = new Category();
         $root->setTitle('root');
 
-        $node1 = new Category;
+        $node1 = new Category();
         $node1->setTitle('node1');
         $node1->setParent($root);
 
-        $node2 = new Category;
+        $node2 = new Category();
         $node2->setTitle('node2');
         $node2->setParent($root);
 
-        $subNode = new Category;
+        $subNode = new Category();
         $subNode->setTitle('sub-node');
         $subNode->setParent($node2);
 

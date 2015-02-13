@@ -4,7 +4,6 @@ namespace Gedmo\References;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver as MongoDBAnnotationDriver;
-use Doctrine\ODM\MongoDB\Configuration;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver as ORMAnnotationDriver;
 use References\Fixture\ODM\MongoDB\Product;
 use References\Fixture\ODM\MongoDB\Metadata;
@@ -27,10 +26,10 @@ class ReferencesListenerTest extends BaseTestCaseOM
 
         $reader = new AnnotationReader();
 
-        $this->dm = $this->getMockDocumentManager('test', new MongoDBAnnotationDriver($reader, __DIR__ . '/Fixture/ODM/MongoDB'));
+        $this->dm = $this->getMockDocumentManager('test', new MongoDBAnnotationDriver($reader, __DIR__.'/Fixture/ODM/MongoDB'));
 
         $listener = new ReferencesListener(array(
-            'document' => $this->dm
+            'document' => $this->dm,
         ));
 
         $this->evm->addEventSubscriber($listener);
@@ -40,9 +39,9 @@ class ReferencesListenerTest extends BaseTestCaseOM
         $this->em = $this->getMockSqliteEntityManager(
             array(
                 'References\Fixture\ORM\StockItem',
-                'References\Fixture\ORM\Category'
+                'References\Fixture\ORM\Category',
             ),
-            new ORMAnnotationDriver($reader, __DIR__ . '/Fixture/ORM')
+            new ORMAnnotationDriver($reader, __DIR__.'/Fixture/ORM')
         );
         $listener->registerManager('entity', $this->em);
     }
@@ -137,7 +136,7 @@ class ReferencesListenerTest extends BaseTestCaseOM
         $tvCategory = new Category();
         $tvCategory->setName("Television");
         $this->em->persist($tvCategory);
-        
+
         $cellPhoneCategory = new Category();
         $cellPhoneCategory->setName("CellPhone");
         $this->em->persist($cellPhoneCategory);
@@ -151,8 +150,6 @@ class ReferencesListenerTest extends BaseTestCaseOM
         $this->dm->persist($appleTV);
         $this->dm->clear();
 
-
-
         $samsungTV = new Product();
         $samsungTV->setName('Samsung TV');
         $this->dm->persist( $samsungTV );
@@ -163,7 +160,6 @@ class ReferencesListenerTest extends BaseTestCaseOM
         $this->dm->persist( $iPhone );
         $this->dm->flush();
 
-
         $appleTV->addMetadata( $tvMetadata );
         $samsungTV->addMetadata( $tvMetadata );
         $this->dm->persist( $samsungTV );
@@ -173,18 +169,15 @@ class ReferencesListenerTest extends BaseTestCaseOM
         $this->assertEquals($appleTV->getMetadatas()->first(), $tvMetadata);
         $this->assertEquals($samsungTV->getMetadatas()->first(), $tvMetadata);
 
-
         $tvs = $tvCategory->getProducts();
         $this->assertNotNull($tvs);
         $first = $tvs->first();
         $last = $tvs->last();
 
-
         $this->assertInstanceOf(get_class($appleTV), $first);
         $this->assertEquals('Apple TV', $first->getName());
-        
+
         $this->assertInstanceOf(get_class($samsungTV), $last);
         $this->assertEquals('Samsung TV', $last->getName());
     }
-
 }

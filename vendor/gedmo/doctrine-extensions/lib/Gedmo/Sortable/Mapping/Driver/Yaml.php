@@ -2,9 +2,9 @@
 
 namespace Gedmo\Sortable\Mapping\Driver;
 
-use Gedmo\Mapping\Driver\File,
-    Gedmo\Mapping\Driver,
-    Gedmo\Exception\InvalidMappingException;
+use Gedmo\Mapping\Driver\File;
+use Gedmo\Mapping\Driver;
+use Gedmo\Exception\InvalidMappingException;
 
 /**
  * This is a yaml mapping driver for Sortable
@@ -29,9 +29,10 @@ class Yaml extends File implements Driver
      * @var array
      */
     private $validTypes = array(
+        'int',
         'integer',
         'smallint',
-        'bigint'
+        'bigint',
     );
 
     /**
@@ -44,7 +45,6 @@ class Yaml extends File implements Driver
         if (isset($mapping['fields'])) {
             foreach ($mapping['fields'] as $field => $fieldMapping) {
                 if (isset($fieldMapping['gedmo'])) {
-
                     if (in_array('sortablePosition', $fieldMapping['gedmo'])) {
                         if (!$this->isValidField($meta, $field)) {
                             throw new InvalidMappingException("Sortable position field - [{$field}] type is not valid and must be 'integer' in class - {$meta->name}");
@@ -96,11 +96,13 @@ class Yaml extends File implements Driver
      *
      * @param object $meta
      * @param string $field
+     *
      * @return boolean
      */
     protected function isValidField($meta, $field)
     {
         $mapping = $meta->getFieldMapping($field);
+
         return $mapping && in_array($mapping['type'], $this->validTypes);
     }
 }
