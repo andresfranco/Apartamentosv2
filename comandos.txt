@@ -86,8 +86,8 @@ php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotatio
 php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Paymentmethod
 
 
-php app/console doctrine:mapping:import LoginLoginBundle  annotation --filter="Multiparam"
-php app/console doctrine:generate:entities LoginLoginBundle:Multiparam
+php app/console doctrine:mapping:import LoginLoginBundle  annotation --filter="Residentuser"
+php app/console doctrine:generate:entities LoginLoginBundle:Residentuser
 
 
 ----------------------------------------------------------------------------
@@ -108,6 +108,9 @@ php app/console generate:doctrine:crud --entity=ApartamentosApartamentosBundle:I
 php app/console generate:doctrine:crud --entity=ApartamentosApartamentosBundle:Reservation --format=annotation --with-write
 
 php app/console generate:doctrine:crud --entity=LoginLoginBundle:Sysparam --format=annotation --with-write
+
+
+php app/console generate:doctrine:crud --entity=LoginLoginBundle:Residentuser --format=annotation --with-write
 
 ----limpiar cache----
 php app/console cache:clear

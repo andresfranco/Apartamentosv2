@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Residentuser list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Createuser</th>
+                <th>Createdate</th>
+                <th>Modifyuser</th>
+                <th>Modifydate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('residentuser_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.createuser }}</td>
+                <td>{% if entity.createdate %}{{ entity.createdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.modifyuser }}</td>
+                <td>{% if entity.modifydate %}{{ entity.modifydate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('residentuser_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('residentuser_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('residentuser_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
