@@ -4,7 +4,7 @@
             {% set attr = attr|merge({'class': errorClass}) %}
       
        {% for error in errors %}
-            <label class="error">{{ error.message }}</li>
+<label class="error"  >{{ error.message }}</label>
        {% endfor %}
  {% endif %}
 {% endblock form_errors %}
@@ -39,4 +39,8 @@
         {%- endfor -%}
     {% endspaceless %}
 {% endblock widget_attributes %}
+                
+{%- block button_widget -%}
+    
+{%- endblock button_widget -%}
                 

@@ -1,0 +1,73 @@
+<?php
+
+namespace Login\LoginBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Residentuser
+ *
+ * @ORM\Table(name="residentuser", indexes={@ORM\Index(name="fk_residentuser_resident1_idx", columns={"residentid"}), @ORM\Index(name="fk_residentuser_admin_user1_idx", columns={"userid"})})
+ * @ORM\Entity
+ */
+class Residentuser
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="createuser", type="string", length=45, nullable=false)
+     */
+    private $createuser;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdate", type="datetime", nullable=false)
+     */
+    private $createdate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modifyuser", type="string", length=45, nullable=false)
+     */
+    private $modifyuser;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="modifydate", type="datetime", nullable=false)
+     */
+    private $modifydate;
+
+    /**
+     * @var \AdminUser
+     *
+     * @ORM\ManyToOne(targetEntity="AdminUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="userid", referencedColumnName="id")
+     * })
+     */
+    private $userid;
+
+    /**
+     * @var \Resident
+     *
+     * @ORM\ManyToOne(targetEntity="Resident")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="residentid", referencedColumnName="id")
+     * })
+     */
+    private $residentid;
+
+
+}

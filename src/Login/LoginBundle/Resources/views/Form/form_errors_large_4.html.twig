@@ -1,0 +1,46 @@
+{% block form_errors %}
+{% if errors|length > 0 %}
+            {% set errorClass = 'error' %}
+            {% set attr = attr|merge({'class': errorClass}) %}
+      
+       {% for error in errors %}
+<label class="error large-4" >{{ error.message }}</label>
+       {% endfor %}
+ {% endif %}
+{% endblock form_errors %}
+
+{% block widget_attributes %}
+    {% spaceless %}
+        {# ADD ERROR START #}
+        {% if errors|length > 0 %}
+            {% set errorClass = 'error' %}
+            {% if attr.class is defined %}
+                {% set errorClass = errorClass ~ ' ' ~ attr.class %}
+            {% endif %}
+            {% set attr = attr|merge({'class': errorClass}) %}
+            
+        {% endif %}
+        {# ADD ERROR END #}
+        id="{{ id }}" name="{{ full_name }}"
+        {%- if read_only %} readonly="readonly"{% endif -%}
+        {%- if disabled %} disabled="disabled"{% endif -%}
+        {%- if required %} required="required"{% endif -%}
+        {%- if max_length %} maxlength="{{ max_length }}"{% endif -%}
+        {%- if pattern %} pattern="{{ pattern }}"{% endif -%}
+        {%- for attrname, attrvalue in attr -%}
+            {{- " " -}}
+            {%- if attrname in ['placeholder', 'title'] -%}
+                {{- attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
+            {%- elseif attrvalue is sameas(true) -%}
+                {{- attrname }}="{{ attrname }}"
+            {%- elseif attrvalue is not sameas(false) -%}
+                {{- attrname }}="{{ attrvalue }}"
+            {%- endif -%}
+        {%- endfor -%}
+    {% endspaceless %}
+{% endblock widget_attributes %}
+                
+{%- block button_widget -%}
+    
+{%- endblock button_widget -%}
+                

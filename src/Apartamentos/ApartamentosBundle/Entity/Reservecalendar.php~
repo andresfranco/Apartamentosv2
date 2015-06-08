@@ -1,0 +1,88 @@
+<?php
+
+namespace Apartamentos\ApartamentosBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Reservecalendar
+ *
+ * @ORM\Table(name="reservecalendar")
+ * @ORM\Entity
+ */
+class Reservecalendar
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="start", type="datetime", nullable=true)
+     */
+    private $start;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="end", type="datetime", nullable=true)
+     */
+    private $end;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="allday", type="string", length=255, nullable=true)
+     */
+    private $allday;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="createuser", type="string", length=45, nullable=false)
+     */
+    private $createuser;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modifyuser", type="string", length=45, nullable=false)
+     */
+    private $modifyuser;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createdate", type="datetime", nullable=false)
+     */
+    private $createdate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="modifydate", type="datetime", nullable=false)
+     */
+    private $modifydate;
+
+
+}

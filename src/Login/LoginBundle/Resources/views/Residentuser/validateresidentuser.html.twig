@@ -1,0 +1,17 @@
+<script type="text/javascript">
+    $(function() {
+        $("#form").validate({
+            errorClass : "error large-4",
+            rules: {"login_loginbundle_residentuser[residentid]":{required:true}
+               
+            },
+            messages:{"login_loginbundle_residentuser[residentid]":{required:"{{'residentuser.residentid.validate'|trans}}"}},
+
+
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+
+    });
+</script>

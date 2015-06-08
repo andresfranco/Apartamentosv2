@@ -16,7 +16,7 @@
           </td>
            {% endif %}
        <td> 
-          <a href="{{ path('residentusergrid')}}" class="button radius">
+          <a href="{{ path('residentusergrid',{'userid':entity.id})}}" class="button radius">
               <img  src="{{ asset('images/residentuser32.png') }}"/>
               <span>{{'Asociar Residentes'|trans}}</span>
           </a>   

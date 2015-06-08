@@ -45,14 +45,14 @@ class ResidentuserController extends Controller
     /**
      * Creates a new Residentuser entity.
      *
-     * @Route("/{_locale}/new", name="residentuser_create")
+     * @Route("/new/{_locale}/{userid}", name="residentuser_create")
      * @Method("POST")
      * @Template("LoginLoginBundle:Residentuser:new.html.twig")
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request,$userid)
     {
         $entity = new Residentuser();
-        $form = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity,$userid);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -61,12 +61,13 @@ class ResidentuserController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('residentusergrid'));
+            return $this->redirect($this->generateUrl('residentusergrid',array('userid'=>$userid)));
         }
 
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'userid'=>$userid
         );
     }
 
@@ -77,10 +78,10 @@ class ResidentuserController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Residentuser $entity)
+    private function createCreateForm(Residentuser $entity,$userid)
     {
-        $form = $this->createForm(new ResidentuserType(), $entity, array(
-            'action' => $this->generateUrl('residentuser_create'),
+        $form = $this->createForm(new ResidentuserType($userid), $entity, array(
+            'action' => $this->generateUrl('residentuser_create',array('userid'=>$userid)),
             'method' => 'POST',
             'attr' => array('id' => 'form')
         ));
@@ -93,18 +94,19 @@ class ResidentuserController extends Controller
     /**
      * Displays a form to create a new Residentuser entity.
      *
-     * @Route("{_locale}/new", name="residentuser_new")
+     * @Route("/new/{_locale}/{userid}", name="residentuser_new")
      * @Method("GET")
      * @Template()
      */
-    public function newAction()
+    public function newAction($userid)
     {
         $entity = new Residentuser();
-        $form   = $this->createCreateForm($entity);
-
+        $form   = $this->createCreateForm($entity,$userid);
+        
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'userid'=>$userid  
         );
     }
 
@@ -138,11 +140,11 @@ class ResidentuserController extends Controller
     /**
      * Displays a form to edit an existing Residentuser entity.
      *
-     * @Route("/{_locale}/{id}/edit", name="residentuser_edit")
+     * @Route("/edit/{_locale}/{id}/{userid}", name="residentuser_edit")
      * @Method("GET")
      * @Template()
      */
-    public function editAction($id)
+    public function editAction($id,$userid)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -152,13 +154,14 @@ class ResidentuserController extends Controller
             throw $this->createNotFoundException('Unable to find Residentuser entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($entity,$userid);
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'userid'      =>$userid
         );
     }
 
@@ -169,10 +172,10 @@ class ResidentuserController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Residentuser $entity)
+    private function createEditForm(Residentuser $entity,$userid)
     {
-        $form = $this->createForm(new ResidentuserType(), $entity, array(
-            'action' => $this->generateUrl('residentuser_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new ResidentuserType($userid), $entity, array(
+            'action' => $this->generateUrl('residentuser_update', array('id' => $entity->getId(),'userid'=>$userid)),
             'method' => 'PUT',
             'attr' => array('id' => 'form')
         ));
@@ -184,11 +187,11 @@ class ResidentuserController extends Controller
     /**
      * Edits an existing Residentuser entity.
      *
-     * @Route("/{_locale}/{id}/edit", name="residentuser_update")
+     * @Route("/{_locale}/{id}/{userid}/edit", name="residentuser_update")
      * @Method("PUT")
      * @Template("LoginLoginBundle:Residentuser:edit.html.twig")
      */
-    public function updateAction(Request $request, $id)
+    public function updateAction(Request $request,$id,$userid)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -199,20 +202,21 @@ class ResidentuserController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
+        $editForm = $this->createEditForm($entity,$userid);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
             $entity=$this->get('globalfunctions')->Audit($entity,'upd');
             $em->flush();
 
-            return $this->redirect($this->generateUrl('residentusergrid'));
+            return $this->redirect($this->generateUrl('residentusergrid',array('userid'=>$userid)));
         }
 
         return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'userid'      =>$userid
         );
     }
     /**
@@ -259,11 +263,13 @@ class ResidentuserController extends Controller
     }
     
     /**
-     * Deletes a Residentuser entity.
+     * Resident User Grid
      *
-     * @Route("/{_locale}", name="residentusergrid")
+     * @Route("/residentusers/{_locale}/{userid}", name="residentusergrid")
+     * @Method("GET")
+     * @Template()
      */
-     public function Residentusergrid()
+     public function Resident_user_grid_Action($userid)
     {
         // Creates a simple grid based on your entity (ORM)
         $source = new Entity('LoginLoginBundle:Residentuser');
@@ -271,7 +277,17 @@ class ResidentuserController extends Controller
         // Get a Grid instance
         $grid = $this->get('grid');
 
-        // Attach the source to the grid
+         // Get a Grid instance
+        $tableAlias = $source->getTableAlias();
+       $source->manipulateQuery(
+       function ($query) use ($tableAlias,$userid)        
+      {
+          
+        $query->andWhere($tableAlias . '.userid ='.$userid);
+      }
+      );
+        
+         // Attach the source to the grid
         $grid->setSource($source);
         
         // Set the selector of the number of items per page
@@ -290,35 +306,40 @@ class ResidentuserController extends Controller
 
             $editColumn = new ActionsColumn('info_column_1', '');
             $editColumn->setSeparator("<br />");
-            $grid->addColumn($editColumn, 5);
+            $grid->addColumn($editColumn, 12);
             // Attach a rowAction to the Actions Column
-            $editAction = new RowAction('Edit', 'action_edit', false, '_self', array('class' => 'editar'));
+            $editAction = new RowAction('Edit', 'residentuser_edit', false, '_self', array('class' => 'editar'));
             $editAction->setColumn('info_column_1');
+            $editAction->setRouteParameters(array('id','userid' =>$userid));
             $grid->addRowAction($editAction);
         }
          $showColumn = new ActionsColumn('info_column_2', '');
          $showColumn->setSeparator("<br />");
-         $grid->addColumn($showColumn, 6);
+         $grid->addColumn($showColumn, 13);
         // Attach a rowAction to the Actions Column
          
-         $showAction = new RowAction('Show', 'action_show',false, '_self', array('class' => 'mostrar'));
+         $showAction = new RowAction('Show', 'residentuser_show',false, '_self', array('class' => 'mostrar'));
          
          $showAction->setColumn('info_column_2');
          $grid->addRowAction($showAction);
        
         
         $grid->hideColumns(array('id','createuser','modifyuser','createdate','modifydate'));
-        return $grid->getGridResponse('LoginLoginBundle:Residentuser:residentusergrid.html.twig',array('create'=>$create,'edit'=>$edit,'urlnew'=>'residentuser_new'));
+        return $grid->getGridResponse('LoginLoginBundle:Residentuser:residentusergrid.html.twig'
+                ,array('create'=>$create
+                ,'edit'=>$edit
+                ,'urlnew'=>'residentuser_new'
+                ,'userid'=>$userid));
     }
      /**
      * Deletes a Residentuser entity.
-     *@Route("/{_locale}/deleteresidentuser/{id}", name="action_deletemodal")
+     *@Route("deleteresidentuser/{_locale}/{id}", name="residentuser_deletemodal")
      */
-          
     public function deletemodalAction($id)
     {
      $em = $this->getDoctrine()->getManager();
      $entity = $em->getRepository('LoginLoginBundle:Residentuser')->find($id);
+     
       if (!$entity) 
        {
         throw $this->createNotFoundException('Unable to find Residentuser entity.');
@@ -333,7 +354,7 @@ class ResidentuserController extends Controller
               
             return $this->redirect($this->generateUrl('action_show',array('id'=> $entity->getId())));   
             }
-            
-         return $this->redirect($this->generateUrl('residentusergrid'));       
+          $userid=$entity->getUserid()->getId();  
+         return $this->redirect($this->generateUrl('residentusergrid',array('userid'=>$userid)));       
     }     
 }

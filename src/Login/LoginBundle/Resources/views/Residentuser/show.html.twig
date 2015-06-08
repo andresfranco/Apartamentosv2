@@ -1,44 +1,65 @@
-{% extends '::base.html.twig' %}
+{% extends '::masteradmin.html.twig' %}
 
-{% block body -%}
-    <h1>Residentuser</h1>
-
-    <table class="record_properties">
-        <tbody>
+{% block contenido %}
+   <h2 class="titulo">{{'Asociación de Usuarios y Residentes'|trans}}</h2>
+   <hr>
+   {% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="error">
+        <table>
+            <tr><td><img  src="{{ asset('images/warning.png') }}"/></td>
+                <td>{{ flashMessage|trans}}</td>
+            </tr>   
+        </table> 
+    </div><br>
+    {% endfor %}
+  
+  {% if deleteaction =='S' %}
+    <div>
+    <a href="#" data-reveal-id="myNormal" class="button radius">
+    <img  src="{{ asset('images/delete32.png') }}"/>
+    <span>{{'Eliminar Asociación'|trans}}</span>
+    </a>
+    </div>
+    {% endif %}
+     
+   <table class="record_properties">
+       
+           
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
+                <td class="titulocampo">{{'Usuario'|trans}}</td>
+                <td>{{ entity.userid.username }}</td>
+               
             </tr>
-            <tr>
-                <th>Createuser</th>
-                <td>{{ entity.createuser }}</td>
+             <tr>
+                <td class="titulocampo">{{'Residente'|trans}}</td>
+                <td>{{ entity.residentid.name }}</td>
             </tr>
-            <tr>
-                <th>Createdate</th>
-                <td>{{ entity.createdate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Modifyuser</th>
-                <td>{{ entity.modifyuser }}</td>
-            </tr>
-            <tr>
-                <th>Modifydate</th>
-                <td>{{ entity.modifydate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-        </tbody>
+                
+       
     </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('residentuser') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('residentuser_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <br>
+    <div>
+   <a href="{{ path('residentusergrid',{'userid':entity.userid.id}) }}" class="button radius">
+              <img  src="{{ asset('images/back24.png') }}"/>
+              <span>{{'Asociaciones'|trans}}</span>
+   </a> 
+   </div>
+   <div class="reveal-modal small" id="myNormal" data-reveal >
+      &iquest;{{'delete.residentuser.question'|trans}}?
+	  <br><br>
+	  <table class="dialogo">
+	  <tr>
+	  <td><a class="radius button" href="{{ path('residentuser_deletemodal', { 'id': entity.id }) }}">{{'Aceptar'|trans}}</a></td>
+	  <td><a id ="cancelar" class="radius button" href="#">{{'Cancelar'|trans}}</a></td>
+	  </tr>
+	  </table>
+      <a class="close-reveal-modal"><img src="{{ asset('images/dialog_close.png')}}"/></a>
+  </div>
+    <script>
+     {% block foundation %}
+   $("#cancelar").click(function (e) {
+    $('#myNormal').foundation('reveal', 'close');
+});
+{% endblock %} 
+    </script>
 {% endblock %}

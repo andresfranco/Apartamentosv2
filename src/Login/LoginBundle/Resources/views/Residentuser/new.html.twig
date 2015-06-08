@@ -1,15 +1,36 @@
-{% extends '::base.html.twig' %}
+{% extends '::masteradmin.html.twig' %}
 
-{% block body -%}
-    <h1>Residentuser creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('residentuser') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/change_valid_class.js') }}"></script>
+{% include 'LoginLoginBundle:Residentuser:validateresidentuser.html.twig' %}
+{% endblock %}
+{% block contenido %}
+<div class="large-12 columns">
+    <h2 class="titulo">{{ 'Nueva Asociación'|trans }}</h2>
+    <hr> 
+    {{ form_start(form) }}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors_large_4.html.twig' %}
+    
+    <div class="large-12 columns">
+        {{ form_label(form.userid) }}
+        {{ form_widget(form.userid,{ 'attr': {'class': 'large-4 columns'} })}}
+        {{ form_errors(form.userid)}}
+    </div><br>
+    <div class="large-12 columns">
+        {{ form_label(form.residentid) }}
+        {{ form_widget(form.residentid,{ 'attr': {'class': 'large-4 columns'} })}}
+        {{ form_errors(form.residentid) }}
+    </div>
+    
+    <div>{{ form_errors(form) }}</div>
+    
+    <div class="large-12 columns">
+    <button type="submit">{{ 'Guardar'|trans}}</button>
+    <a href="{{path('residentusergrid',{'userid':userid})}} " class="button">{{'Cancelar'|trans}}</a>
+    </div>
+{{ form_end(form) }}
+         
+   </div> 
 {% endblock %}

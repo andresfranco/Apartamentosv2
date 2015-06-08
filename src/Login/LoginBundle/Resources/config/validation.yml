@@ -92,3 +92,11 @@ Login\LoginBundle\Entity\Multiparam:
             fields: [sysparamid,value]
             errorPath: value
             message: "validate.exist.multiparam"
+            
+Login\LoginBundle\Entity\Residentuser:
+    properties:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [userid]
+            errorPath: userid
+            message: "validate.exist.residentuser"           

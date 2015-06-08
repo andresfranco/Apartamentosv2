@@ -30,7 +30,7 @@
        {% endblock grid_search %}
         {% if create =='S'%}
             <div>
-                <a href="{{path(urlnew)}}"><img  src="{{ asset('images/newitem.png') }}"/></a>
+                <a href="{{path(urlnew,{'userid':userid})}}"><img  src="{{ asset('images/newitem.png') }}"/></a>
             </div>
         {% endif %}
 
@@ -152,5 +152,13 @@
 {% endif %}
 </div>
 {% endblock grid %}
+   
+   <br><br><div>
+   <a href="{{ path('admin_user_show',{'id':userid}) }}" class="button radius">
+              <img  src="{{ asset('images/back24.png') }}"/>
+              <span>{{'Usuario'|trans}}</span>
+   </a> 
+   </div>
+   
  {% endblock contenido %}   
 
