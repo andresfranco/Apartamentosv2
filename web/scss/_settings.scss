@@ -926,7 +926,7 @@ $white       : #FFFFFF;
 // $pagination-li-float: $default-float;
 // $pagination-li-height: rem-calc(24);
 // $pagination-li-font-color: $jet;
-// $pagination-li-font-size: rem-calc(14);
+ $pagination-li-font-size: rem-calc(16);
 // $pagination-li-margin: rem-calc(5);
 
 // We use these for the pagination anchor links
@@ -1278,14 +1278,14 @@ $white       : #FFFFFF;
 
 // These control the table head styles
 // $table-head-bg: $white-smoke  ;
-// $table-head-font-size: rem-calc(14);
+$table-head-font-size: rem-calc(16);
 // $table-head-font-color: $jet;
 // $table-head-font-weight: $font-weight-bold;
 // $table-head-padding: rem-calc(8 10 10);
 
 // These control the row padding and font styles
 // $table-row-padding: rem-calc(9 10);
-// $table-row-font-size: rem-calc(14);
+ $table-row-font-size: rem-calc(16);
 // $table-row-font-color: $jet;
 // $table-line-height: rem-calc(18);
 

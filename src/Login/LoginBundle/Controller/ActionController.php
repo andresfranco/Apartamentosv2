@@ -333,57 +333,5 @@ class ActionController extends Controller
             
          return $this->redirect($this->generateUrl('actiongrid'));       
     } 
-     
-    
-    
-  /**
-     *@Route("/{_locale}/testgrid", name="testgrid")
-     */
-    public function responsivegridAction()
-    {
-        $grid="";
-      // set doctrine
-        $em = $this->get('doctrine')->getManager()->getConnection();
-        // prepare statement
-        $sth = $em->prepare("select * from action");
-       
-        // execute and fetch
-        $sth->execute();
-        $results = $sth->fetch();
-        unset($sth);
-        $grid .='<div id="grids" width="100%">         
-       <table id="datagrid" class="table table-striped table-hover dt-responsive" cellspacing="0" width="80%">
-        <thead>
-            <tr>
-              <th>Action</th>
-              <th>Description</th>
-              <th class="nosort">Actions</th>
-            </tr>
-        </thead>
-        <tbody>';
-        foreach ($results as $row) 
-        {
-         $grid .='<tr>';
-         $grid .='<td>'. $row["actionname"] . '</td>';
-         $grid .='<td>'. $row["description"] . '</td>';
-         $grid .='<td class="center">';
-         
-         $grid .='<a class="btn btn-info" href="'.$this->generateUrl('action_edit',array('id'=> $row['id'])).'">
-	 <i class="fa fa-edit"></i>  
-	 </a> ';
-         
-         
-	 $grid .='<a href ="'.$this->generateUrl('action_delete',array('id'=> $row['id'])).'" class="btn btn-danger">
-	 <i class="fa fa-trash-o"></i> 
-	 </a>';
-                
-	 $grid .='</td></tr>';
-        } 
-            
-        $grid .='</tbody></table></div>';  
         
-        return $this->render('LoginLoginBundle:Action:responsivegrid_action.html.twig',array('grid'=>$grid));
-        
-        
-    }         
 }
