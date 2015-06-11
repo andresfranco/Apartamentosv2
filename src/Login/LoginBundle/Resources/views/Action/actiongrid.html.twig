@@ -1,9 +1,19 @@
 {% extends '::masteradmin.html.twig' %}
+{% block stylesheets %}
+{{parent()}}
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/responsive-tables.css') }}" />
+	{% endblock %}
+        {% block javascripts %}
+                {{parent()}}
+		<script src="{{ asset('js/responsive-tables.js') }}"></script>
+               
+        {% endblock %}
 {% block contenido %} 
   <h2 class="titulo">{{'Acciones de Seguridad'|trans}}</h2>
    <hr>   
     {% block grid %}
     <div class="grid">
+        <div class="row large-12 columns"> <a href="{{path(urlnew)}}" class="button radius" ><img  src="{{ asset('images/new.png') }}"/>{{'New Action'}}</a></div>
     <div class="row large-12 columns">     
         {% block grid_search %}
        {% if grid.isFilterSectionVisible %}
@@ -29,11 +39,28 @@
       </div>       
         {% endif %}
        {% endblock grid_search %}
+        
        <div class="row large-12 columns">   
         {% if create =='S'%}
             <div>
-                <a href="{{path(urlnew)}}"><img  src="{{ asset('images/new.png') }}"/></a>
+              
+                <div class="pager" >
+            <table style="border:0px;">
+                <tr>
+               <td>{{ '%count% Resultados, ' | transchoice(grid.totalCount, {'%count%': grid.totalCount}) }}
+                    {{ 'Mostrar'|trans }}
+                </td>
+                    <td>
+                   <select onchange="return {{ grid.hash }}_resultsPerPage(this.value);" class="paginado">
+                      {% for key, value in grid.limits %}
+                      <option value="{{ key }}"{% if (key == grid.limit) %} selected="selected"{% endif %}>{{ value }}</option>
+                      {% endfor %}
+                   </td>   
+                </tr>
+            </table>            
+        </div>
             </div>
+           
         {% endif %}
 
        {% if grid.totalCount > 0 or grid.isFiltered or grid.noDataMessage is sameas(false) %}
@@ -46,7 +73,7 @@
           {% endif %}
           </div>
         <div class="grid_body">
-        <table>
+        <table class="responsive">
       {% block grid_titles %}
       <thead>       
       <tr class="grid-row-titles">
@@ -139,7 +166,7 @@
         </div>
        <br>#}
       
-          
+       <div>
            <ul class="pagination">
            <li class={% if grid.page <= 0 %}"arrow unavailable" aria-disabled="true"{% else %}"arrow"{% endif %}>
                <a {% if grid.page > 0 %}onclick="return {{ grid.hash }}_previousPage();"{% endif %}>&laquo; Previous</a>
@@ -149,9 +176,12 @@
              <a  value="{{i}}" onclick ="return {{ grid.hash }}_goto('{{ grid_url('page',grid,i-1) }}');">{{i}}</a></li>
             {% endfor %}
             <li class={% if grid.page >= grid.pageCount-1 %}"arrow unavailable" aria-disabled="true"{%else%}"arrow"{% endif %}>
-                <a onclick="return {{ grid.hash }}_nextPage();">Next &raquo;</a>
+                <a onclick="return {{ grid.hash }}_nextPage();" >Next &raquo;</a>
             </li>   
            </ul>
+       </div>  
+       <br>
+       
       
        
     {% endif %}

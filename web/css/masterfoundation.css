@@ -6056,7 +6056,7 @@ table {
     table thead tr th,
     table thead tr td {
       padding: 0.5rem 0.625rem 0.625rem;
-      font-size: 1rem;
+      font-size: 1.125rem;
       font-weight: bold;
       color: #222222; }
   table tfoot {
@@ -6064,7 +6064,7 @@ table {
     table tfoot tr th,
     table tfoot tr td {
       padding: 0.5rem 0.625rem 0.625rem;
-      font-size: 1rem;
+      font-size: 1.125rem;
       font-weight: bold;
       color: #222222; }
   table tr th,
@@ -7199,7 +7199,7 @@ ul.pagination {
       cursor: default;
       color: #999999; }
     ul.pagination li.unavailable:hover a, ul.pagination li.unavailable a:focus, ul.pagination li.unavailable:hover button, ul.pagination li.unavailable button:focus {
-      background: gray; }
+      background: blue; }
     ul.pagination li.current a, ul.pagination li.current button {
       background: #008CBA;
       color: #FFFFFF;
