@@ -2,162 +2,185 @@
 
 {% block contenido %}
     
-     <div class=" row large-6 columns">
+     <div class=" row large-6 columns home_row_location" >
      
      <ul class="stack button-group">
-     <li><h5>{{'configure.condo.title'|trans}}</h5> </li>    
+     <li><h5 class="titlehome">{{'configure.condo.title'|trans}}</h5> </li>    
      <li> 
-     <a href="{{ path('companygrid') }}" class="button">
-     <b><span>{{'Condominios'|trans}}</span></b>
+     <a href="{{ path('companygrid') }}" class="button left-align">
+     <img src="{{asset('images/condo48.png') }}">    
+     <b>{{'Condominios'|trans}}</b>
      </a>
      </li>
      
      <li>
-     <a href="{{ path('towergrid') }}" class="button radius">
-     <b><span>{{'Torres'|trans}}</span></b>
+     <a href="{{ path('towergrid') }}" class="button left-align">
+     <img src="{{asset('images/tower48.png') }}">      
+     <b>{{'Torres'|trans}}</b>
      </a>
      </li>
      
      <li> 
-     <a href="{{ path('apartmentgrid') }}" class="button radius">
-     <b><span>{{'Apartamentos'|trans}}</span></b>
+     <a href="{{ path('apartmentgrid') }}" class="button left-align">
+     <img src="{{asset('images/apartments48.png') }}">    
+     <b>{{'Apartamentos'|trans}}</b>
      </a>
      </li> 
      
      <li> 
-     <a href="{{ path('employeegrid') }}" class="button radius">
-     <b><span>{{'Empleados'|trans}}</span></b>
+     <a href="{{ path('employeegrid') }}" class="button left-align">
+     <img src="{{asset('images/employee48.png') }}">     
+     <b>{{'Empleados'|trans}}</b>
      </a>   
      </li> 
      
      <li> 
-     <a href="{{ path('providergrid') }}" class="button radius">
-     <b><span>{{'Proveedores'|trans}}</span></b>
+     <a href="{{ path('providergrid') }}" class="button left-align">
+      <img src="{{asset('images/provider48.png') }}">
+     <b>{{'Proveedores'|trans}}</b>
      </a>   
      </li>
      
      <li> 
-     <a href="{{ path('constcompanygrid') }}" class="button radius">
-     <b><span>{{'Constructoras'|trans}}</span></b>
+     <a href="{{ path('constcompanygrid') }}" class="button left-align">
+     <img src="{{asset('images/constcompany48.png') }}">
+     <b>{{'Constructoras'|trans}}</b>
      </a> 
      </li>     
      </ul>
      </div> 
              {# if app.user.hasRole('Company Admin') or app.user.hasRole('ROLE_ADMIN') #}
-     <div class="row large-6 columns"> 
+     <div class="row large-6 columns home_row_location"> 
      <ul class="stack button-group">
-     <li><h5>{{'manage.budget.title'|trans}}</h5></li>    
+     <li><h5 class="titlehome">{{'manage.budget.title'|trans}}</h5></li>    
      <li>
-     <a href="{{ path('causegrid') }}" class="button">
+     <a href="{{ path('causegrid') }}" class="button left-align">
+      <img src="{{asset('images/cause48.png') }}">    
      <b>{{'Causas'|trans}}</b>
      </a>
      </li>
             
      <li>
-     <a href="{{ path('bankgrid') }}" class="button">
+     <a href="{{ path('bankgrid') }}" class="button left-align">
+     <img src="{{asset('images/bank48.png') }}">     
      <b>{{'Bancos'|trans}}</b>
      </a>
      </li>
             
      <li>
-     <a href="{{ path('accountgrid') }}" class="button">
-     <b><span>{{'Cuentas'|trans}}</span></b>
+     <a href="{{ path('accountgrid') }}" class="button left-align">
+     <img src="{{asset('images/account48.png') }}"> 
+     <b>{{'Cuentas'|trans}}</b>
      </a>   
      </li>
             
      <li>
-     <a href="{{ path('incomegrid') }}" class="button">
-     <b><span>{{'Ingresos'|trans}}</span></b>
+     <a href="{{ path('incomegrid') }}" class="button left-align">
+     <img src="{{asset('images/income48.png') }}"> 
+     <b>{{'Ingresos'|trans}}</b>
      </a>
      </li>
             
      <li>
-     <a href="{{ path('paymentgrid') }}" class="button radius">
-     <b><span>{{'Pagos'|trans}}</span></b>
+     <a href="{{ path('paymentgrid') }}" class="button left-align">
+     <img src="{{asset('images/payment48.png') }}"> 
+     <b>{{'Pagos'|trans}}</b>
      </a> 
      </li>
             
      <li>
-     <a href="{{ path('expensegrid') }}" class="button radius">
-     <b><span style ="padding-left:0px !important;">{{'Gastos'|trans}}</span></b>
+     <a href="{{ path('expensegrid') }}" class="button left-align">
+     <img src="{{asset('images/expense48.png') }}">     
+     <b>{{'Gastos'|trans}}</b>
      </a>
      </li>
      
      <li>
-     <a href="{{ path('statementview') }}" class="button">
-     <b><span>{{'Estado de Cuenta'|trans}}</span></b>
+     <a href="{{ path('statementview') }}" class="button left-align">
+     <img src="{{asset('images/statement.png') }}"> 
+     <b>{{'Estado de Cuenta'|trans}}</b>
      </a>    
      </li> 
      </ul>
     </div>
      
       
-     <div class="row large-6 columns">   
+     <div class="row large-6 columns home_row_location">   
      <ul class="stack button-group">
-     <li><h5>{{'config.residents.title'|trans}}</h5></li>    
+     <li><h5 class="titlehome">{{'config.residents.title'|trans}}</h5></li>    
      <li> 
-     <a href="{{ path('residentsgrid') }}" class="button">
-     <b><span>{{'Residentes'|trans}}</span></b>
+     <a href="{{ path('residentsgrid') }}" class="button left-align">
+     <img src="{{asset('images/resident48.png') }}">     
+     <b>{{'Residentes'|trans}}</b>
      </a>
      </li>
            
     <li>
-    <a href="{{ path('vehiclegrid') }}" class="button">
-    <b><span>{{'Vehículos'|trans}}</span></b>
+    <a href="{{ path('vehiclegrid') }}" class="button left-align">
+    <img src="{{asset('images/car48.png') }}">     
+    <b>{{'Vehículos'|trans}}</b>
     </a>
     </li>
            
     <li>
-    <a href="{{ path('parkinggrid') }}" class="button">
-    <b><span>{{'Estacionamientos'|trans}}</span></b>
+    <a href="{{ path('parkinggrid') }}" class="button left-align">
+    <img src="{{asset('images/parking48.png') }}"> 
+    <b>{{'Estacionamientos'|trans}}</b>
     </a>
     </li>
            
     <li>
-    <a href="{{ path('locationgrid') }}" class="button">
-    <b><span>{{'Localización'|trans}}</span></b>
+    <a href="{{ path('locationgrid') }}" class="button left-align">
+    <img src="{{asset('images/location48.png') }}"> 
+    <b>{{'Localización'|trans}}</b>
     </a>
     </li>
            
     <li>
-    <a href="{{ path('reservationgrid') }}" class="button">
-    <b><span>{{'Reservaciones'|trans}}</span></b>
+    <a href="{{ path('reservationgrid') }}" class="button left-align">
+    <img src="{{asset('images/reservation48.png') }}">
+    <b>{{'Reservaciones'|trans}}</b>
     </a>
     </li> 
     </ul>
     </div>
         
     {% if is_granted('ROLE_ADMIN') %}
-     <div class ="row large-6 columns">
+     <div class ="row large-6 columns home_row_location">
      <ul class="stack button-group">
-     <li><h5>{{'config.system.title'|trans}}</h5></li>    
+     <li><h5 class="titlehome">{{'config.system.title'|trans}}</h5></li>    
      <li>  
-     <a href="{{ path('userslist') }}" class="button radius">
-     <b><span>{{'Usuarios  '|trans}}</span></b>
+     <a href="{{ path('userslist') }}" class="button left-align">
+     <img src="{{asset('images/user48.png') }}">    
+     <b>{{'Usuarios'|trans}}</b>
      </a>
      </li> 
           
      <li> 
-     <a href="{{ path('rolelist') }}" class="button radius">
-     <b><span>{{'Roles'|trans}}</span></b>
+     <a href="{{ path('rolelist') }}" class="button left-align">
+     <img src="{{asset('images/role48.png') }}">
+     <b>{{'Roles'|trans}}</b>
      </a>
      </li>
           
      <li> 
-     <a href="{{ path('actiongrid') }}" class="button radius">
-     <b><span>{{'Acciones'|trans}}</span></b>
+     <a href="{{ path('actiongrid') }}" class="button left-align">
+     <img src="{{asset('images/action48.png') }}">
+     <b>{{'Acciones'|trans}}</b>
      </a>
      </li>
           
      <li> 
-     <a href="{{ path('lexik_translation_grid') }}" class="button radius">
-     <b><span>{{'Etiquetas'|trans}}</span></b>
+     <a href="{{ path('lexik_translation_grid') }}" class="button left-align">
+     <img src="{{asset('images/trans48.png') }}">
+     <b>{{'Etiquetas'|trans}}</b>
      </a>
      </li> 
               
     <li>    
-    <a href="{{ path('sysparamgrid') }}" class="button radius">
-    <b><span>{{'Parámetros'|trans}}</span></b>
+    <a href="{{ path('sysparamgrid') }}" class="button left-align">
+    <img src="{{asset('images/param48.png') }}">
+    <b>{{'Parámetros'|trans}}</b>
     </a>
     </li>
     </ul>
