@@ -29,14 +29,14 @@
    {% for column in grid.columns %}
    {% if column.isFilterable and column.type not in ['actions', 'massaction'] %}
    {% set columnTitle = grid.prefixTitle ~ column.title %}
-   <div class="{{ cycle(['odd', 'even'], loop.index) }} large-4 columns">
+   <div class="{{ cycle(['odd', 'even'], loop.index) }} large-6 columns">
    <label>{{ columnTitle|trans }}</label>
    {{ grid_filter(column, grid, false)|raw }}
    </div>
    {% endif %}
    {% endfor %}
-    <div class=" large-4 columns">     
-    <input type="submit" value="{{ 'Buscar'|trans }}" class="button radius "/>
+    <div class="row gridcontrol_location">   
+    <input type="submit" value="{{ 'Buscar'|trans }}" class="button radius"/>
     </div>
     </form>
   </div>       

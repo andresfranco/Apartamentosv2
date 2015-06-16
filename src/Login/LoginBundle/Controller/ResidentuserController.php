@@ -266,7 +266,6 @@ class ResidentuserController extends Controller
      * Resident User Grid
      *
      * @Route("/residentusers/{_locale}/{userid}", name="residentusergrid")
-     * @Method("GET")
      * @Template()
      */
      public function Resident_user_grid_Action($userid)

@@ -49,12 +49,12 @@ class User implements UserInterface, \Serializable
     private $companyid;
      /**
     * @ORM\Column(type="string", length=45)
-    * @GRID\Column(title="Nombre")
+    * @GRID\Column(title="name.filter")
     */
     private $name;
      /**
     * @ORM\Column(type="string", length=60)
-    * @GRID\Column(title="email")
+    * @GRID\Column(title="Email")
     */
     private $email;
     /**
