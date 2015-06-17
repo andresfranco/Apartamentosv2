@@ -7,7 +7,6 @@
  {{parent()}}
 <script src="{{ asset('js/responsive-tables.js') }}"></script>
 {% endblock %}
-
 {% block contenido %} 
  <h2 class="titulo gridcontrol_location">{{'Acciones del rol'|trans}}{{' / '}}{% render url('Rolenametwig', {'roleid':  app.request.get('roleid')}) %}</h2>
  <div class ="gridcontrol_location"><hr></div> 
