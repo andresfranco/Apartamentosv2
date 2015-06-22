@@ -4,7 +4,7 @@
             {% set attr = attr|merge({'class': errorClass}) %}
       
        {% for error in errors %}
-<label class="error large-4" >{{ error.message }}</label>
+<label class="error large-12 columns" >{{ error.message }}</label>
        {% endfor %}
  {% endif %}
 {% endblock form_errors %}

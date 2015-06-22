@@ -23,30 +23,36 @@ class CompanyType extends AbstractType
         $builder
             ->add('name',"text", array(
                     "label"=>"nombre",
-                    'required' =>false
+                    'required' =>false,
+                    'attr' => array('class' => 'large-6 columns')
                     ))
             ->add('phone',"text", array(
                     "label"=>"teléfono",
-                    'required' =>false
+                    'required' =>false,
+                    'attr' => array('class' => 'large-6 columns')
                     ))
             ->add('address',"text", array(
                     "label"=>"dirección",
-                    'required' =>false
+                    'required' =>false,
+                    'attr' => array('class' => 'large-6 columns')
                     ))
             
            
             ->add('email',"text", array(
                     "label"=>"Email",
-                    'required' =>false
+                    'required' =>false,
+                    'attr' => array('class' => 'large-6 columns')
                     ))
             ->add('website',"text", array(
                     "label"=>"Página web",
-                    'required' =>false
+                    'required' =>false,
+                    'attr' => array('class' => 'large-6 columns')
                     ))
             ->add('constCompanyid', 'entity', array(
                   'class' => 'ApartamentosApartamentosBundle:ConstCompany',
                   'property' => 'name',
-                  'label'=>'Constructora'  
+                  'label'=>'Constructora',
+                  
                    ))     
             
         ;
@@ -57,7 +63,7 @@ class CompanyType extends AbstractType
                     "label"=>"código",
                     'required' =>false,
                     'read_only' => true,
-                    'attr'=>array('class'=>'readonlytext')
+                    'attr'=>array('class'=>'readonlytext large-6 columns')
                    
                     ))
                     
@@ -72,7 +78,7 @@ class CompanyType extends AbstractType
                     'required' =>false,
                     'data'=>$this->globalfunctions->generateCode(),
                     'read_only' => true,
-                    'attr'=>array('class'=>'readonlytext')
+                    'attr'=>array('class'=>'readonlytext large-6 columns')
                     )); // or whatever  
             
         }    
