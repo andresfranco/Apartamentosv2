@@ -430,6 +430,9 @@ class TowerController extends Controller
         // Set the default page
         $grid->setPage(1);
         
+        //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create Apartment");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Apartment");
         // Add Edit actions in the default row actions column
         
         $editColumn = new ActionsColumn('info_column_1', '');
@@ -450,13 +453,16 @@ class TowerController extends Controller
          $showAction->setColumn('info_column_2');
          $grid->addRowAction($showAction);
        
-       $grid->hideColumns(array( 'id','area','numberresidents','floornumber','rooms','hasmade','hasbabysitting','haspet','hasmaderoom','haskids','petkind','petnumber','numberofkids'));
+       $grid->hideColumns(array( 'id','area','numberresidents'
+           ,'floornumber','rooms','hasmade','hasbabysitting','haspet'
+           ,'hasmaderoom','haskids','petkind','petnumber','numberofkids'
+           ,'createdate','modifydate','createuser','modifyuser'));
        //$grid->
        //$grid->getGridResponse();
        //return array(
         //'grid' => $grid
       // );
-         return $grid->getGridResponse('ApartamentosApartamentosBundle:Tower:gridapartment.html.twig',array('entity'=>$entity));
+         return $grid->getGridResponse('ApartamentosApartamentosBundle:Tower:gridapartment.html.twig',array('entity'=>$entity,'create'=>$create,'edit'=>$edit));
     } 
     
     
@@ -500,6 +506,9 @@ class TowerController extends Controller
         // Set the default page
         $grid2->setPage(1);
         
+        //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create Employee");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Employee");
         // Add Edit actions in the default row actions column
         
         $editColumn = new ActionsColumn('info_column_1', '');
@@ -520,11 +529,11 @@ class TowerController extends Controller
          $showAction->setColumn('info_column_2');
          $grid2->addRowAction($showAction);
        
-        $grid2->hideColumns(array( 'salaryamount','tower.id'));
+        $grid2->hideColumns(array( 'id','salaryamount','tower.id','createdate','modifydate','createuser','modifyuser'));
        //$grid->
        //$grid->getGridResponse();
        
-        return $grid2->getGridResponse('ApartamentosApartamentosBundle:Tower:gridemployee.html.twig',array('entity'=>$entity));
+        return $grid2->getGridResponse('ApartamentosApartamentosBundle:Tower:gridemployee.html.twig',array('entity'=>$entity,'create'=>$create,'edit'=>$edit));
           
             //'grid'=>$grid
     

@@ -1,7 +1,7 @@
 {% extends '::masteradmin.html.twig' %}
 
 {% block contenido %}
-    <h2 class="titulo">{{'Detalles del Apartamento'|trans}}</h2>
+    <h2 class="titulo">{{'Detalles del Apartamento'|trans}}{{' '}}{{entity.number}}</h2>
     <hr>
     {% for flashMessage in app.session.flashbag.get('error') %}
     <div class="error">

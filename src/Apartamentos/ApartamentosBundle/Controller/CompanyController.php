@@ -372,6 +372,10 @@ class CompanyController extends Controller
         // Set the default page
         $grid->setPage(1);
         
+        //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create Tower");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Tower");
+        
         // Add Edit actions in the default row actions column
         
         $editColumn = new ActionsColumn('info_column_1', '');
@@ -394,7 +398,7 @@ class CompanyController extends Controller
        
         $grid->hideColumns(array('id','numberapartments', 'numberstorerooms','numberparkings','numberaptperfloor','email'));
        
-         return $grid->getGridResponse('ApartamentosApartamentosBundle:Company:gridtower.html.twig',array('entity'=>$entity));
+         return $grid->getGridResponse('ApartamentosApartamentosBundle:Company:gridtower.html.twig',array('entity'=>$entity,'create'=>$create,'edit'=>$edit));
     } 
      
 }

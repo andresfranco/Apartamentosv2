@@ -420,6 +420,10 @@ class ApartmentController extends Controller
         $grid->setPage(1);
         
         // Add Edit actions in the default row actions column
+         //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create Resident");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Resident");
+        // Add Edit actions in the default row actions column
         
         $editColumn = new ActionsColumn('info_column_1', '');
         $editColumn->setSeparator("<br />");
@@ -439,10 +443,10 @@ class ApartmentController extends Controller
          $showAction->setColumn('info_column_2');
          $grid->addRowAction($showAction);
        
-       $grid->hideColumns(array('id','idnumbertype','holder'));
+       $grid->hideColumns(array('id','idnumbertype','holder','createdate','createuser','modifyuser','modifydate'));
        //$grid->
       
-        return $grid->getGridResponse('ApartamentosApartamentosBundle:Apartment:gridresident.html.twig', array('entity'=>$entity));
+        return $grid->getGridResponse('ApartamentosApartamentosBundle:Apartment:gridresident.html.twig', array('entity'=>$entity,'create'=>$create,'edit'=>$edit));
 
     }
     
