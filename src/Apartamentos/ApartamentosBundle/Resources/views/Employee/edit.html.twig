@@ -6,50 +6,68 @@
 {% include 'ApartamentosApartamentosBundle:Employee:employeescriptajax.html.twig' %} 
 {% endblock %}
 {% block contenido %}
-    <h2 class="titulo">{{'Editar Empleado'|trans}}</h2>
-    <hr> 
-
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Editar Empleado'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(edit_form) }}
-    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
-    <div>
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
+    
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.companyid) }}
         {{ form_widget(edit_form.companyid) }}
         {{ form_errors(edit_form.companyid) }}
+        </div>    
     </div><br>
-    <div>
-        {{ form_label(edit_form.tower) }}
+    <div class="large-12 columns">
+        <div class="large-6 columns">
+         {{ form_label(edit_form.tower) }}
         <br>
         {{ form_widget(edit_form.tower) }}
         {{ form_errors(edit_form.tower) }}
-    </div><br>
-    <div>
+        </div>
+    </div>
+     <div class="large-12 columns">
+        <div class="large-6 columns">         
         {{ form_label(edit_form.completename) }}
         {{ form_widget(edit_form.completename)}}
         {{ form_errors(edit_form.completename) }}
+        </div>
     </div>
-
-    <div>
+     <div class="large-12 columns">
+         <div class="large-6 columns">   
         {{ form_label(edit_form.idnumber) }}
         {{ form_widget(edit_form.idnumber) }}
         {{ form_errors(edit_form.idnumber) }}
+         </div>     
     </div>
-    <div>
+    
+   <div class="large-12 columns">
+       <div class="large-6 columns"> 
         {{ form_label(edit_form.salaryamount) }}
         {{ form_widget(edit_form.salaryamount) }}
         {{ form_errors(edit_form.salaryamount) }}
+       </div>   
     </div>
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns"> 
         {{ form_label(edit_form.position) }}
         {{ form_widget(edit_form.position) }}
         {{ form_errors(edit_form.position) }}
+        </div>    
     </div>
-    
    
+    
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Actualizar'|trans}}</button>
+    <a href="{{ path('employeegrid') }}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+    <div>{{ form_errors(edit_form) }}</div>
+</div>   
+    
 {{ form_end(edit_form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('employeegrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/employee.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Empleados'|trans}}</span></a>
-
-       </div> 
-{% endblock %}
+{% endblock contenido %}

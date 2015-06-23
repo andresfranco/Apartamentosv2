@@ -3,35 +3,40 @@
 {{ parent() }}
 <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
 {% include 'ApartamentosApartamentosBundle:Cause:validatecause.html.twig' %}   
- 
 {% endblock %}
-{% block contenido %}
-  
-    <h2 class="titulo">{{'Nueva Causa'|trans}}</h2>
-    <hr> 
 
+{% block contenido %}
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Nueva Causa'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(form) }}
-    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
     
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.cause) }}
         {{ form_widget(form.cause)}}
         {{ form_errors(form.cause) }}
-    </div>
-    <div>
-        {{ form_label(form.causetypeid) }}
+        </div>    
+    </div><br>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
+         {{ form_label(form.causetypeid) }}
         {{ form_widget(form.causetypeid)}}
         {{ form_errors(form.causetypeid) }}
-    </div><br><br>
-
-   
-{{ form_end(form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('causegrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/cause.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Causas'|trans}}</span></a>
-
-       </div> 
+        </div>
+    </div>
     
-   
-{% endblock %}
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Guardar'|trans}}</button>
+    <a href="{{ path('causegrid')}}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+    <div>{{ form_errors(form) }}</div>
+</div>   
+    
+{{ form_end(form) }}
+{% endblock contenido %}

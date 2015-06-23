@@ -3,39 +3,47 @@
 {{ parent() }}
 <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
 {% include 'ApartamentosApartamentosBundle:Bank:validatebank.html.twig' %}
- 
 {% endblock %}
-{% block contenido %}
-  
-    <h2 class="titulo">{{'Editar Banco'|trans}}</h2>
-    <hr> 
 
+{% block contenido %}
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Editar Banco'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(edit_form) }}
-    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
     
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.name) }}
         {{ form_widget(edit_form.name)}}
         {{ form_errors(edit_form.name) }}
+        </div>    
     </div><br>
-     <div>
-        {{ form_label(edit_form.phone) }}
+    <div class="large-12 columns">
+        <div class="large-6 columns">
+         {{ form_label(edit_form.phone) }}
         {{ form_widget(edit_form.phone)}}
         {{ form_errors(edit_form.phone) }}
-     </div><br>
-      <div>
-        {{ form_label(edit_form.address) }}
+        </div>
+    </div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
+         {{ form_label(edit_form.address) }}
         {{ form_widget(edit_form.address)}}
         {{ form_errors(edit_form.address) }}
+        </div>
     </div>
-   
-{{ form_end(edit_form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('bankgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/bank.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Bancos'|trans}}</span></a>
-
-       </div> 
     
-   
-{% endblock %}
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Guardar'|trans}}</button>
+    <a href="{{ path('bankgrid') }}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+    <div>{{ form_errors(edit_form) }}</div>
+</div>   
+    
+{{ form_end(edit_form) }}
+{% endblock contenido %}

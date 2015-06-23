@@ -41,17 +41,7 @@ class TowerType extends AbstractType
                     "label"=>"Cantidad de apartamentos por piso",
                     "required"=>false,
                     ))
-        /* ->add('companyid','entity',array(
-                'class' => 'ApartamentosApartamentosBundle:Company',
-                'query_builder' => function(EntityRepository $er) {
-      return $er->createQueryBuilder('c')
-                ->groupBy('c.id')
-               ->setMaxResults(1); 
-      },        'attr'=>array('style'=>'display:none;'),
-                'required' =>true , 
-                'property' =>'name',
-                'label' =>' '
-                ))*/
+       
                 ->add('companyid', 'entity', array(
                   'class' => 'ApartamentosApartamentosBundle:Company',
                   'property' => 'name',

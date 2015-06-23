@@ -3,43 +3,53 @@
 {{ parent() }}
 <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
 {% include 'ApartamentosApartamentosBundle:Account:validateaccount.html.twig' %}
- 
 {% endblock %}
-{% block contenido %}
-  
-    <h2 class="titulo">{{'Editar Cuenta'|trans}}</h2>
-    <hr> 
 
+{% block contenido %}
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Editar Cuenta'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(edit_form) }}
-    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
-    <div>
-        {{ form_label(edit_form.number) }}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
+    
+    <div class="large-12 columns">
+        <div class="large-6 columns">
+         {{ form_label(edit_form.number) }}
         {{ form_widget(edit_form.number)}}
         {{ form_errors(edit_form.number) }}
+        </div>    
     </div><br>
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.name) }}
         {{ form_widget(edit_form.name)}}
         {{ form_errors(edit_form.name) }}
-    </div><br>
-     <div>
+        </div>
+    </div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.balance) }}
         {{ form_widget(edit_form.balance)}}
         {{ form_errors(edit_form.balance) }}
-     </div><br>
-      <div>
+        </div>
+    </div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.bankid) }}
         {{ form_widget(edit_form.bankid)}}
         {{ form_errors(edit_form.bankid) }}
-      </div><br><br>
-   
-{{ form_end(edit_form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('accountgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/account.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Cuentas'|trans}}</span></a>
-
-       </div> 
+        </div>
+    </div>
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Actualizar'|trans}}</button>
+    <a href="{{ path('accountgrid') }}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+    <div>{{ form_errors(edit_form) }}</div>
+</div>   
     
-   
-{% endblock %}
+{{ form_end(edit_form) }}
+{% endblock contenido %}

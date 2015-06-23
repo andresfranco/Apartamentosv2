@@ -1,58 +1,78 @@
 {% extends '::masteradmin.html.twig' %}
 {% block javascripts %}
-{{ parent() }}
+{{ parent() }}    
 <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
 {% include 'ApartamentosApartamentosBundle:Tower:validatetower.html.twig' %} 
 {% endblock %}
 {% block contenido %}
-    <h2 class="titulo">{{'Editar Torre'|trans}}</h2>
-    <hr> 
-
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Editar Torre'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(edit_form) }}
-    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
     
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.companyid) }}
         {{ form_widget(edit_form.companyid)}}
-        {{ form_errors(edit_form.companyid) }}
-    </div>
-    <div>
+        {{ form_errors(edit_form.companyid)}}
+        </div>    
+    </div><br>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.name) }}
         {{ form_widget(edit_form.name)}}
         {{ form_errors(edit_form.name) }}
+        </div>
     </div>
-
-    <div>
+     <div class="large-12 columns">
+        <div class="large-6 columns">         
         {{ form_label(edit_form.email) }}
-        {{ form_widget(edit_form.email) }}
+        {{ form_widget(edit_form.email)}}
         {{ form_errors(edit_form.email) }}
+        </div>
     </div>
-    <div>
+     <div class="large-12 columns">
+         <div class="large-6 columns">   
         {{ form_label(edit_form.numberapartments) }}
-        {{ form_widget(edit_form.numberapartments) }}
+        {{ form_widget(edit_form.numberapartments)}}
         {{ form_errors(edit_form.numberapartments) }}
+         </div>     
     </div>
-    <div>
+    
+   <div class="large-12 columns">
+       <div class="large-6 columns"> 
         {{ form_label(edit_form.numberstorerooms) }}
-        {{ form_widget(edit_form.numberstorerooms) }}
+        {{ form_widget(edit_form.numberstorerooms)}}
         {{ form_errors(edit_form.numberstorerooms) }}
+       </div>   
     </div>
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns"> 
         {{ form_label(edit_form.numberparkings) }}
-        {{ form_widget(edit_form.numberparkings) }}
+        {{ form_widget(edit_form.numberparkings)}}
         {{ form_errors(edit_form.numberparkings) }}
+        </div>    
     </div>
-    <div>
+    <div class="large-12 columns">
+         <div class="large-6 columns">  
         {{ form_label(edit_form.numberaptperfloor) }}
-        {{ form_widget(edit_form.numberaptperfloor) }}
+        {{ form_widget(edit_form.numberaptperfloor)}}
         {{ form_errors(edit_form.numberaptperfloor) }}
+         </div>     
+           
     </div>
-
+    
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Actualizar'|trans}}</button>
+    <a href="{{ path('towergrid') }}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+    <div>{{ form_errors(edit_form) }}</div>
+</div>   
+    
 {{ form_end(edit_form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('towergrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/torres.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Torres'|trans}}</span></a>
-
-       </div> 
-{% endblock %}
+{% endblock contenido %}

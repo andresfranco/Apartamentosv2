@@ -12,69 +12,88 @@
 {% include 'ApartamentosApartamentosBundle:Payment:validatepayment.html.twig' %}   
 {% include 'ApartamentosApartamentosBundle:Payment:paymentajaxscript.html.twig' %}   
 {% endblock %}
-{% block contenido %}
-  
-    <h2 class="titulo">{{'Nuevo Pago'|trans}}</h2>
-    <hr> 
 
+{% block contenido %}
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Nuevo Pago'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(form) }}
-    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
     
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.companyid) }}
         {{ form_widget(form.companyid)}}
         {{ form_errors(form.companyid) }}
-    </div>
-     <div>
+        </div>    
+    </div><br>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.towerid) }}
         {{ form_widget(form.towerid)}}
         {{ form_errors(form.towerid) }}
-     </div>
-      <div>
+        </div>
+    </div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.apartmentid) }}
         {{ form_widget(form.apartmentid)}}
         {{ form_errors(form.apartmentid) }}
-     </div>
-    <div>
+        </div>    
+    </div><br>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.paymentdate) }}
         {{ form_widget(form.paymentdate)}}
         {{ form_errors(form.paymentdate) }}
+        </div>
     </div>
-     <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.accountid) }}
         {{ form_widget(form.accountid)}}
         {{ form_errors(form.accountid) }}
-    </div>
-     <div>
+        </div>    
+    </div><br>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.paymentmethod) }}
         {{ form_widget(form.paymentmethod)}}
         {{ form_errors(form.paymentmethod) }}
+        </div>
     </div>
-    
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.amount) }}
         {{ form_widget(form.amount)}}
         {{ form_errors(form.amount) }}
-    </div>
-    <div>
+        </div>    
+    </div><br>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.depositor) }}
         {{ form_widget(form.depositor) }}
         {{ form_errors(form.depositor) }}
+        </div>
     </div>
-    <div>
+     <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.description) }}
         {{ form_widget(form.description) }}
         {{ form_errors(form.description) }}
-    </div><br>
+        </div>
+    </div>
+    
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Guardar'|trans}}</button>
+    <a href="{{ path('paymentgrid')}}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+    <div>{{ form_errors(form) }}</div>
+</div>   
     
 {{ form_end(form) }}
-    
-     <div style="display:table-row;">
-          <a href="{{ path('paymentgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/payment.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Pagos'|trans}}</span></a>
-
-     </div><br> 
-    
-   
-{% endblock %}
-
+{% endblock contenido %}
