@@ -3,30 +3,30 @@
 {{ parent() }}
 <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
 {% include 'ApartamentosApartamentosBundle:Brand:validatebrand.html.twig' %}
- 
-{% endblock %}
+ {% endblock %}
 {% block contenido %}
-  
-    <h2 class="titulo">{{'Nueva Marca'|trans}}</h2>
-    <hr> 
-
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Nueva Marca'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(form) }}
-    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
     
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.brand) }}
         {{ form_widget(form.brand)}}
         {{ form_errors(form.brand) }}
+        </div>    
+    </div><br>
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Guardar'|trans}}</button>
+    <a href="{{ path('brandgrid') }}" class="button">{{'Cancelar'|trans}}</a>
     </div>
-
-   
+    </div>    
+    <div>{{ form_errors(form) }}</div>
+</div>   
 {{ form_end(form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('brandgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/brand.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Marca'|trans}}</span></a>
-
-       </div> 
-    
-   
-{% endblock %}
+{% endblock contenido %}

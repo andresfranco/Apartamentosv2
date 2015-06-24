@@ -1,4 +1,3 @@
-
 {% extends layout %}
 {% block javascripts %}
     {{ parent() }}
@@ -6,19 +5,39 @@
 {% include 'LexikTranslationBundle:Edition:validatetranslation.html.twig' %}  
 {% endblock %}
 {% block contenido %}
-<div>
-    <h2 class="titulo">{{ 'translations.add_translation'|trans({}, 'LexikTranslationBundle') }}</h2>
+<div class="large-12 columns">
+    <div class="large-12 columns">
+     <h2 class="titulo">{{ 'translations.add_translation'|trans({}, 'LexikTranslationBundle') }}</h2>
     <hr> 
-
-
-    <form id ="form" action="{{ path('lexik_translation_new') }}" method="post">
-        {{ form_row(form.key) }}
-        {{ form_row(form.domain) }}
-        {% for translation in form.translations %}
+    </div> 
+     <form id ="form" action="{{ path('lexik_translation_new') }}" method="post">
+    {% form_theme form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
+    
+    <div class="large-12 columns">
+        <div class="large-6 columns">
+       {{ form_row(form.key) }}
+        </div>    
+    </div>
+     <div class="large-12 columns">
+        <div class="large-6 columns">
+       {{ form_row(form.domain) }}
+        </div>    
+    </div>
+     <div class="large-12 columns">
+        <div class="large-6 columns">
+       {% for translation in form.translations %}
             {{ form_row(translation) }}
         {% endfor %}
-        {{ form_rest(form) }}
-        <input type="submit" id="trans-unit-submit" name="trans-unit-submit" value="{{ 'translations.add'|trans({}, 'LexikTranslationBundle') }}" class="button" />
-    </form>
-</div>
-{% endblock %}
+        </div>    
+    </div>   
+    {{ form_rest(form) }}    
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <input type="submit" id="trans-unit-submit" name="trans-unit-submit" value="{{ 'translations.add'|trans({}, 'LexikTranslationBundle') }}" class="button" />
+    <a href="{{ path('lexik_translation_grid') }}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+   
+</div>   
+
+{% endblock contenido %}

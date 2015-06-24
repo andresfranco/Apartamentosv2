@@ -34,7 +34,7 @@ class ResidentuserType extends AbstractType
                   'label'=>'Usuario',
                   'empty_value' =>false,
                   'required'=>false,
-                  'attr' => array('class' => 'large-4')
+                  
                    ))
             ->add('residentid','entity', array(
                   'class' => 'ApartamentosApartamentosBundle:Resident',
@@ -42,7 +42,7 @@ class ResidentuserType extends AbstractType
                   'label'=>'Residente',
                   'empty_value' => 'Seleccione un Residente',
                   'required'=>false,
-                  'attr' => array('class' => 'large-4')
+                  
                    ))
         ;
     }

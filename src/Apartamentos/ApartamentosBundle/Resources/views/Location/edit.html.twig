@@ -5,36 +5,38 @@
 {% include 'ApartamentosApartamentosBundle:Location:validatelocation.html.twig' %}
 {% endblock %}
 {% block contenido %}
-  
-    <h2 class="titulo">{{'Editar Localización'|trans}}</h2>
-    <hr> 
-
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Editar Localización'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(edit_form) }}
-    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
     
-    <div>
+   
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.location) }}
         {{ form_widget(edit_form.location)}}
         {{ form_errors(edit_form.location) }}
+        </div>
     </div>
-
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.description) }}
         {{ form_widget(edit_form.description) }}
         {{ form_errors(edit_form.description) }}
+         </div>
     </div>
-    
-  
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Guardar'|trans}}</button>
+    <a href="{{ path('locationgrid') }}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+    <div>{{ form_errors(edit_form) }}</div>
+</div>   
 {{ form_end(edit_form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('locationgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/location.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Localización'|trans}}</span></a>
-
-       </div> 
-    
-   
-{% endblock %}
-
+{% endblock contenido %}
 
 

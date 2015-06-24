@@ -6,69 +6,89 @@
 {% include 'ApartamentosApartamentosBundle:Vehicle:Vehicleajaxscript.html.twig' %}   
 {% endblock %}
 {% block contenido %}
-  
-    <h2 class="titulo">{{'Nuevo vehículo'|trans}}</h2>
-    <hr> 
-
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Nuevo Vehículo'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(form) }}
-    {% form_theme form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    {% form_theme form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
     
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.companyid) }}
         {{ form_widget(form.companyid)}}
         {{ form_errors(form.companyid) }}
+        </div>    
     </div><br>
-     <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(form.towerid) }}
         {{ form_widget(form.towerid)}}
         {{ form_errors(form.towerid) }}
-     </div><br>
-      <div>
+        </div>
+    </div>
+     <div class="large-12 columns">
+        <div class="large-6 columns">         
         {{ form_label(form.apartmentid) }}
         {{ form_widget(form.apartmentid)}}
         {{ form_errors(form.apartmentid) }}
-     </div><br>
-      <div>
+        </div>
+    </div>
+     <div class="large-12 columns">
+         <div class="large-6 columns">   
         {{ form_label(form.residentid) }}
         {{ form_widget(form.residentid)}}
         {{ form_errors(form.residentid) }}
-     </div><br>
-    <div>
-        {{ form_label(form.platenumber) }}
-        {{ form_widget(form.platenumber)}}
-        {{ form_errors(form.platenumber) }}
+         </div>     
     </div>
-    <div>
-        {{ form_label(form.type) }}
+    
+   <div class="large-12 columns">
+       <div class="large-6 columns"> 
+       {{ form_label(form.platenumber) }}
+       {{ form_widget(form.platenumber)}}
+       {{ form_errors(form.platenumber) }}
+       </div>   
+    </div>
+    <div class="large-12 columns">
+        <div class="large-6 columns"> 
+       {{ form_label(form.type) }}
         {{ form_widget(form.type)}}
         {{ form_errors(form.type) }}
-    </div><br>
-    <div>
+        </div>    
+    </div>
+    <div class="large-12 columns">
+         <div class="large-6 columns">  
         {{ form_label(form.brandid) }}
         {{ form_widget(form.brandid) }}
         {{ form_errors(form.brandid) }}
-    </div><br>
-     <div>
+         </div>     
+           
+    </div>
+     <div class="large-12 columns">
+        <div class="large-6 columns"> 
         {{ form_label(form.colorid) }}
         {{ form_widget(form.colorid) }}
         {{ form_errors(form.colorid) }}
-     </div><br>
-     
-     <div>
+        </div>    
+    </div>
+    <div class="large-12 columns">
+         <div class="large-6 columns">  
         {{ form_label(form.parkingid) }}
         {{ form_widget(form.parkingid) }}
         {{ form_errors(form.parkingid) }}
-     </div><br>
+         </div>     
+           
+    </div>
     
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Guardar'|trans}}</button>
+    <a href="{{ path('vehiclegrid') }}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+    <div>{{ form_errors(form) }}</div>
+</div>   
     
-  
 {{ form_end(form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('vehiclegrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/car.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Vehículos'|trans}}</span></a>
-
-     </div><br> 
-    
-   
-{% endblock %}
+{% endblock contenido %}

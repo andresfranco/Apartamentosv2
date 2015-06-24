@@ -6,69 +6,89 @@
 {% include 'ApartamentosApartamentosBundle:Vehicle:Vehicleajaxscript.html.twig' %}   
 {% endblock %}
 {% block contenido %}
-  
-    <h2 class="titulo">{{'Editar vehículo'|trans}}</h2>
-    <hr> 
-
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Editar Vehículo'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(edit_form) }}
-    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    {% form_theme edit_form'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
     
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.companyid) }}
         {{ form_widget(edit_form.companyid)}}
         {{ form_errors(edit_form.companyid) }}
+        </div>    
     </div><br>
-     <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.towerid) }}
         {{ form_widget(edit_form.towerid)}}
         {{ form_errors(edit_form.towerid) }}
-     </div><br>
-      <div>
+        </div>
+    </div>
+     <div class="large-12 columns">
+        <div class="large-6 columns">         
         {{ form_label(edit_form.apartmentid) }}
         {{ form_widget(edit_form.apartmentid)}}
         {{ form_errors(edit_form.apartmentid) }}
-     </div><br>
-      <div>
+        </div>
+    </div>
+     <div class="large-12 columns">
+         <div class="large-6 columns">   
         {{ form_label(edit_form.residentid) }}
         {{ form_widget(edit_form.residentid)}}
         {{ form_errors(edit_form.residentid) }}
-     </div><br>
-    <div>
-        {{ form_label(edit_form.platenumber) }}
-        {{ form_widget(edit_form.platenumber)}}
-        {{ form_errors(edit_form.platenumber) }}
+         </div>     
     </div>
-    <div>
-        {{ form_label(edit_form.type) }}
+    
+   <div class="large-12 columns">
+       <div class="large-6 columns"> 
+       {{ form_label(edit_form.platenumber) }}
+       {{ form_widget(edit_form.platenumber)}}
+       {{ form_errors(edit_form.platenumber) }}
+       </div>   
+    </div>
+    <div class="large-12 columns">
+        <div class="large-6 columns"> 
+       {{ form_label(edit_form.type) }}
         {{ form_widget(edit_form.type)}}
         {{ form_errors(edit_form.type) }}
-    </div><br>
-    <div>
+        </div>    
+    </div>
+    <div class="large-12 columns">
+         <div class="large-6 columns">  
         {{ form_label(edit_form.brandid) }}
         {{ form_widget(edit_form.brandid) }}
         {{ form_errors(edit_form.brandid) }}
-    </div><br>
-     <div>
+         </div>     
+           
+    </div>
+     <div class="large-12 columns">
+        <div class="large-6 columns"> 
         {{ form_label(edit_form.colorid) }}
         {{ form_widget(edit_form.colorid) }}
         {{ form_errors(edit_form.colorid) }}
-     </div><br>
-     
-     <div>
+        </div>    
+    </div>
+    <div class="large-12 columns">
+         <div class="large-6 columns">  
         {{ form_label(edit_form.parkingid) }}
         {{ form_widget(edit_form.parkingid) }}
         {{ form_errors(edit_form.parkingid) }}
-     </div><br>
+         </div>     
+           
+    </div>
     
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Actualizar'|trans}}</button>
+    <a href="{{ path('vehiclegrid') }}" class="button">{{'Cancelar'|trans}}</a>
+    </div>
+    </div>    
+    <div>{{ form_errors(edit_form) }}</div>
+</div>   
     
-  
 {{ form_end(edit_form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('vehiclegrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/car.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Vehículos'|trans}}</span></a>
-
-     </div><br> 
-    
-   
-{% endblock %}
+{% endblock contenido %}

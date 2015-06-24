@@ -3,30 +3,30 @@
 {{ parent() }}
 <script type="text/javascript" src="{{ asset('js/jquery.validate.js') }}"></script>
 {% include 'ApartamentosApartamentosBundle:Color:validatecolor.html.twig' %}
- 
-{% endblock %}
+ {% endblock %}
 {% block contenido %}
-  
-    <h2 class="titulo">{{'Editar Color'|trans}}</h2>
-    <hr> 
-
+<div class="large-12 columns">
+    <div class="large-12 columns">
+      <h2 class="titulo">{{'Editar Color'|trans}}</h2>
+      <hr>
+    </div> 
     {{ form_start(edit_form) }}
-    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors.html.twig' %}
+    {% form_theme edit_form 'LoginLoginBundle:Form:form_errors_large_12.html.twig' %}
     
-    <div>
+    <div class="large-12 columns">
+        <div class="large-6 columns">
         {{ form_label(edit_form.color) }}
         {{ form_widget(edit_form.color)}}
         {{ form_errors(edit_form.color) }}
+        </div>    
+    </div><br>
+    <div class="large-12 columns">
+    <div class="large-6 columns">     
+    <button type="submit">{{ 'Guardar'|trans}}</button>
+    <a href="{{ path('colorgrid') }}" class="button">{{'Cancelar'|trans}}</a>
     </div>
-
-   
+    </div>    
+    <div>{{ form_errors(edit_form) }}</div>
+</div>   
 {{ form_end(edit_form) }}
-
-     <div style="display:table-row;">
-          <a href="{{ path('colorgrid') }}"><img style="display:table-cell;vertical-align:middle;" src="{{ asset('images/color.png') }}"/><span style="display:table-cell;
- vertical-align:middle;" >{{'Color'|trans}}</span></a>
-
-       </div> 
-    
-   
-{% endblock %}
+{% endblock contenido %}
