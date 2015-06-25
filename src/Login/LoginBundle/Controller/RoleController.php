@@ -130,7 +130,7 @@ class RoleController extends Controller
 
         $delete = $this->get('globalfunctions')->verifyaction("Delete Role");
         $edit= $this->get('globalfunctions')->verifyaction("Edit Role");
-        $addroleactions =$this->get('globalfunctions')->verifyaction("Add Role Actions");
+        $addroleactions =$this->get('globalfunctions')->verifyaction("Create Role Action");
         return array(
             'entity'      => $entity,
             'deleteaction'=>$delete,

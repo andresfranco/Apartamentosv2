@@ -287,12 +287,14 @@ class RoleactionController extends Controller
         // Set the default page
         $grid->setPage(1);
         
+        
+         // Add Edit actions in the default row actions column
+        //Validate create and edit actions
+        $create= $this->get('globalfunctions')->verifyaction("Create Role Action");
+        $edit = $this->get('globalfunctions')->verifyaction("Edit Role Action");
         // Add Edit actions in the default row actions column
         
-        $editColumn = new ActionsColumn('info_column_1', '');
-        $editColumn->setSeparator("<br />");
-        $grid->addColumn($editColumn, 9);
-        
+         //IMPORTANT: THIS GRID Dont Have Edit Column 
          
          $showColumn = new ActionsColumn('info_column_2', '');
          $showColumn->setSeparator("<br />");
@@ -305,7 +307,7 @@ class RoleactionController extends Controller
          $grid->addRowAction($showAction);
     
          $grid->hideColumns(array('id','createuser','modifyuser','createdate','modifydate'));
-        return $grid->getGridResponse('LoginLoginBundle:Roleaction:roleactiongrid.html.twig');
+        return $grid->getGridResponse('LoginLoginBundle:Roleaction:roleactiongrid.html.twig',array('create'=>$create,'edit'=>$edit));
     }
     /**
      * Deletes a Userrole entity.
