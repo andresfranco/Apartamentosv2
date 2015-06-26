@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Post list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Postdate</th>
+                <th>Status</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Createuser</th>
+                <th>Createdate</th>
+                <th>Modifyuser</th>
+                <th>Modifydate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('post_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.postdate %}{{ entity.postdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.status }}</td>
+                <td>{{ entity.title }}</td>
+                <td>{{ entity.content }}</td>
+                <td>{{ entity.createuser }}</td>
+                <td>{% if entity.createdate %}{{ entity.createdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.modifyuser }}</td>
+                <td>{% if entity.modifydate %}{{ entity.modifydate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('post_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('post_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('post_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

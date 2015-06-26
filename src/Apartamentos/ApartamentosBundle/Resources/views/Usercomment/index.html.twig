@@ -1,0 +1,53 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Usercomment list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Content</th>
+                <th>Status</th>
+                <th>Commentdate</th>
+                <th>Createdate</th>
+                <th>Createuser</th>
+                <th>Modifydate</th>
+                <th>Modifyuser</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('usercomment_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.content }}</td>
+                <td>{{ entity.status }}</td>
+                <td>{% if entity.commentdate %}{{ entity.commentdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.createdate %}{{ entity.createdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.createuser }}</td>
+                <td>{% if entity.modifydate %}{{ entity.modifydate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.modifyuser }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('usercomment_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('usercomment_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('usercomment_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

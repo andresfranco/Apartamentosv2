@@ -79,8 +79,8 @@ php app/console doctrine:generate:entities LoginLoginBundle
 php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation
 php app/console doctrine:generate:entities ApartamentosApartamentosBundle
 ------crear una sola entidad----------------------------------------------
-php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation --filter="Reservation"
-php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Reservation
+php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation --filter="Usercomment"
+php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Usercomment
 
 php app/console doctrine:mapping:import ApartamentosApartamentosBundle annotation --filter="Paymentmethod"
 php app/console doctrine:generate:entities ApartamentosApartamentosBundle:Paymentmethod

@@ -1,0 +1,18 @@
+<script type="text/javascript">
+$(function() {
+$("#form").validate({
+rules: {"apartamentos_apartamentosbundle_post[postdate]":{required:true},
+        "apartamentos_apartamentosbundle_post[title]":{required:true},
+        "apartamentos_apartamentosbundle_post[content]":{required:true}
+       
+       },
+      
+messages: {"apartamentos_apartamentosbundle_post[postdate]":{required:"{{'post.required.postdate'|trans}}"},
+           "apartamentos_apartamentosbundle_post[title]":{required:"{{'post.required.title'|trans}}"},
+           "apartamentos_apartamentosbundle_post[content]":{required:"{{'post.required.content'|trans}}"},
+           }
+        },
+       submitHandler: function(form){form.submit();}
+    });
+  });
+</script>

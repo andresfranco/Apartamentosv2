@@ -3,9 +3,10 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-02-2015 a las 22:56:39
+-- Tiempo de generación: 26-06-2015 a las 23:24:58
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
+
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -181,7 +182,7 @@ CREATE TABLE IF NOT EXISTS `action` (
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=92 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=103 ;
 
 --
 -- Volcado de datos para la tabla `action`
@@ -263,7 +264,7 @@ INSERT INTO `action` (`id`, `actionname`, `description`, `createuser`, `modifyus
 (74, 'Edit ExpenseDocument', 'Permite editar los datos de los documentos de un gasto', 'admin', 'admin', '2014-12-16 11:54:24', '2014-12-16 11:54:24'),
 (75, 'Delete ExpenseDocument', 'permite eliminar documentos de un gasto', 'admin', 'admin', '2014-12-16 11:54:56', '2014-12-16 11:54:56'),
 (76, 'Change User Password', 'Permite cambiar la contraseña del usuario', 'admin', 'admin', '2015-01-04 17:06:23', '2015-01-04 17:06:23'),
-(77, 'Add Role Actions', 'Permite asociar acciones a un rol', 'admin', 'admin', '2015-01-04 17:16:30', '2015-01-04 17:16:30'),
+(77, 'Create Role Action', 'Permite asociar acciones a un rol', 'admin', 'admin', '2015-01-04 17:16:30', '2015-06-25 08:36:24'),
 (78, 'Create Security Action', 'Permite crear acciones de seguridad', 'admin', 'admin', '2015-01-04 17:20:50', '2015-01-04 17:20:50'),
 (79, 'Edit Security Action', 'Permite editar acciones de seguridad', 'admin', 'admin', '2015-01-04 17:21:15', '2015-01-04 17:21:15'),
 (80, 'Delete Security Action', 'Permite eliminar acciones de seguridad', 'admin', 'admin', '2015-01-04 17:21:34', '2015-01-04 17:21:34'),
@@ -277,7 +278,18 @@ INSERT INTO `action` (`id`, `actionname`, `description`, `createuser`, `modifyus
 (88, 'Delete Reservation', 'Permite eliminar reservaciones', 'admin', 'admin', '2015-01-09 19:59:01', '2015-01-09 19:59:01'),
 (89, 'Create Multiparam', 'Permite crear parametros multiples', 'admin', 'admin', '2015-01-11 13:51:17', '2015-01-11 13:51:17'),
 (90, 'Edit Multiparam', 'Permite editar parámetros con multiples valores', 'admin', 'admin', '2015-01-11 20:05:05', '2015-01-11 20:05:05'),
-(91, 'Delete Multiparam', 'Permite eliminar parámetros con multiples valores', 'admin', 'admin', '2015-01-11 20:05:36', '2015-01-11 20:05:36');
+(91, 'Delete Multiparam', 'Permite eliminar parámetros con multiples valores', 'admin', 'admin', '2015-01-11 20:05:36', '2015-01-11 20:05:36'),
+(92, 'Create Resident User', 'Permite crear una asociación entre un usuario del sistema y un residente', 'admin', 'admin', '2015-02-27 11:30:53', '2015-02-27 11:30:53'),
+(93, 'Edit Resident User', NULL, 'admin', 'admin', '2015-02-27 11:39:34', '2015-02-27 11:39:34'),
+(94, 'Delete Resident User', NULL, 'admin', 'admin', '2015-02-27 11:39:51', '2015-02-27 11:39:51'),
+(95, 'Create User Role', 'Create User Role', 'admin', 'admin', '2015-06-25 08:28:54', '2015-06-25 08:28:54'),
+(96, 'Edit User Role', 'Edit User Role', 'admin', 'admin', '2015-06-25 08:29:21', '2015-06-25 08:29:21'),
+(97, 'Delete User Role', 'Delete User Role', 'admin', 'admin', '2015-06-25 08:30:45', '2015-06-25 08:30:45'),
+(98, 'Edit Role Action', 'Edit Role Action', 'admin', 'admin', '2015-06-25 08:31:35', '2015-06-25 08:31:35'),
+(99, 'Delete Role Action', 'Delete Role Action', 'admin', 'admin', '2015-06-25 08:31:58', '2015-06-25 08:31:58'),
+(100, 'Create Post', 'Create Post', 'admin', 'admin', '2015-06-26 14:53:27', '2015-06-26 14:53:27'),
+(101, 'Edit Post', 'Edit Post', 'admin', 'admin', '2015-06-26 14:53:44', '2015-06-26 14:53:44'),
+(102, 'Delete Post', 'Delete Post', 'admin', 'admin', '2015-06-26 14:54:00', '2015-06-26 14:54:00');
 
 -- --------------------------------------------------------
 
@@ -381,7 +393,7 @@ CREATE TABLE IF NOT EXISTS `apartment` (
   `modifyuser` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_apartment_tower1_idx` (`towerid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Volcado de datos para la tabla `apartment`
@@ -400,7 +412,8 @@ INSERT INTO `apartment` (`id`, `number`, `towerid`, `phone`, `area`, `numberresi
 (15, '1A', 6, '1221221', 120, 1, 1, 2, 'N', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (16, '1B', 3, '2323', 120, 2, 1, 2, 'N', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (17, '13B', 1, '2323232', 120, 2, 13, 2, 'N', 'N', 'N', 'N', 'N', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(18, '2C', 2, '2342323', NULL, 2, 2, NULL, 'N', 'N', 'N', 'N', 'N', NULL, NULL, NULL, '2014-11-24 12:56:59', '2014-11-24 12:56:59', 'admin', 'admin');
+(18, '2C', 2, '2342323', NULL, 2, 2, NULL, 'N', 'N', 'N', 'N', 'N', NULL, NULL, NULL, '2014-11-24 12:56:59', '2014-11-24 12:56:59', 'admin', 'admin'),
+(19, 'test23AAAA', 2, '2323232', 230, 2, 23, 3, 'N', 'N', 'N', 'N', 'N', NULL, NULL, NULL, '2015-06-23 10:54:21', '2015-06-23 10:54:51', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -484,7 +497,7 @@ CREATE TABLE IF NOT EXISTS `cause` (
   `modifydate` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_cause_causetype1_idx` (`causetypeid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `cause`
@@ -493,7 +506,8 @@ CREATE TABLE IF NOT EXISTS `cause` (
 INSERT INTO `cause` (`id`, `cause`, `causetypeid`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (2, 'Pago a Proveedor', 1, NULL, 'admin', NULL, '2014-11-25 11:50:08'),
 (3, 'Pago de multa', 2, NULL, NULL, NULL, NULL),
-(4, 'Otro', 2, 'admin', 'admin', '2014-11-25 11:49:40', '2014-11-25 11:49:40');
+(4, 'Otro', 2, 'admin', 'admin', '2014-11-25 11:49:40', '2014-11-25 11:49:40'),
+(5, 'Reserva de area social', 4, 'admin', 'admin', '2015-02-09 09:16:51', '2015-02-09 09:16:51');
 
 -- --------------------------------------------------------
 
@@ -510,7 +524,7 @@ CREATE TABLE IF NOT EXISTS `causetype` (
   `createdate` datetime DEFAULT NULL,
   `modifydate` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `causetype`
@@ -519,7 +533,8 @@ CREATE TABLE IF NOT EXISTS `causetype` (
 INSERT INTO `causetype` (`id`, `causetype`, `causetypecol`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
 (1, 'Gastos', NULL, NULL, 'admin', NULL, '2014-11-25 11:47:44'),
 (2, 'Ingresos', NULL, NULL, NULL, NULL, NULL),
-(3, 'Otro', NULL, 'admin', 'admin', '2014-11-25 11:43:28', '2014-11-25 11:43:28');
+(3, 'Otro', NULL, 'admin', 'admin', '2014-11-25 11:43:28', '2014-11-25 11:43:28'),
+(4, 'Reserva', NULL, 'admin', 'admin', '2015-02-09 09:16:27', '2015-02-09 09:16:27');
 
 -- --------------------------------------------------------
 
@@ -597,7 +612,7 @@ CREATE TABLE IF NOT EXISTS `company` (
 --
 
 INSERT INTO `company` (`id`, `name`, `phone`, `address`, `Companycode`, `email`, `const_companyid`, `website`, `createdate`, `modifydate`, `createuser`, `modifyuser`) VALUES
-(1, 'GreenBay', '2342323', 'COSTA DEL ESTE', 'ABCD1234', NULL, 1, NULL, '2014-10-13 10:18:44', '2014-10-13 10:18:44', 'admin', 'admin'),
+(1, 'GreenBay', '2342323', 'COSTA DEL ESTE', 'ABCD1234', NULL, 1, NULL, '2014-10-13 10:18:44', '2015-06-17 13:32:41', 'admin', 'admin'),
 (2, 'pacific hills', '23452', 'el dorado', 'dcba321', NULL, 1, NULL, '2014-10-13 10:18:44', '2014-10-13 10:18:44', 'admin', 'admin'),
 (4, 'prueba', '22233', 'assas', '769e3b5659d033', NULL, 1, NULL, '2014-10-13 10:18:44', '2014-10-13 10:18:44', 'admin', 'admin'),
 (8, 'Emp', '21122112', 'Obarrio', '888d5a5dbd1631', NULL, 1, NULL, '2014-10-13 19:05:52', '2014-10-13 19:09:35', 'admin', 'prueba'),
@@ -665,7 +680,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `modifyuser` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_employee_Company1_idx` (`Companyid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Volcado de datos para la tabla `employee`
@@ -674,7 +689,8 @@ CREATE TABLE IF NOT EXISTS `employee` (
 INSERT INTO `employee` (`id`, `completename`, `idnumber`, `Companyid`, `salaryamount`, `position`, `createdate`, `modifydate`, `createuser`, `modifyuser`) VALUES
 (15, 'Juan Perez', '8-6526', 1, 400.00, 'Conserje', NULL, '2014-11-24 14:38:51', NULL, 'admin'),
 (16, 'Pedro Perez', '1212', 1, 1212.00, 'assa', NULL, '2014-11-24 14:42:00', NULL, 'admin'),
-(17, 'asasa', '232323', 1, 2323.00, 'sasdds', '2014-11-24 14:44:00', '2014-11-24 14:44:00', 'admin', 'admin');
+(17, 'asasa', '232323', 1, 2323.00, 'sasdds', '2014-11-24 14:44:00', '2014-11-24 14:44:00', 'admin', 'admin'),
+(18, 'testemployee333', '233233', 1, 400.00, 'test', '2015-06-23 11:13:31', '2015-06-23 11:13:47', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -715,7 +731,8 @@ INSERT INTO `employee_tower` (`employee_id`, `tower_id`) VALUES
 (15, 2),
 (16, 2),
 (16, 3),
-(17, 2);
+(17, 2),
+(18, 2);
 
 -- --------------------------------------------------------
 
@@ -954,7 +971,7 @@ CREATE TABLE IF NOT EXISTS `lexik_trans_unit` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_domain_idx` (`key_name`,`domain`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=576 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=598 ;
 
 --
 -- Volcado de datos para la tabla `lexik_trans_unit`
@@ -1363,7 +1380,7 @@ INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updat
 (400, 'config.residents.title', 'messages', '2014-08-26 20:24:57', '2014-08-26 20:24:57'),
 (401, 'manage.budget.title', 'messages', '2014-08-26 20:25:39', '2014-08-26 20:25:39'),
 (402, 'config.system.title', 'messages', '2014-08-26 20:26:32', '2014-08-26 20:26:32'),
-(403, 'INICIO', 'messages', '2014-08-26 20:30:16', '2014-08-26 20:30:16'),
+(403, 'Inicio', 'messages', '2014-08-26 20:30:16', '2015-06-17 10:58:32'),
 (404, 'number.account.validate', 'validators', '2014-08-27 23:35:46', '2014-08-27 23:35:46'),
 (405, 'number.account.exist', 'validators', '2014-08-27 23:36:55', '2014-08-27 23:36:55'),
 (406, 'account.required.number', 'messages', '2014-08-28 00:00:14', '2014-08-28 00:00:14'),
@@ -1535,7 +1552,30 @@ INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updat
 (572, 'Quitar Acción', 'messages', '2014-12-10 09:17:28', '2014-12-10 09:17:28'),
 (573, 'delete.roleaction.question', 'messages', '2014-12-10 09:20:15', '2014-12-10 09:20:15'),
 (574, 'ADMINISTRATION', 'messages', '2015-02-05 13:22:39', '2015-02-05 13:22:39'),
-(575, 'Bad credentials.', 'validators', '2015-02-05 14:41:43', '2015-02-05 14:41:43');
+(575, 'Bad credentials.', 'validators', '2015-02-05 14:41:43', '2015-02-05 14:41:43'),
+(576, 'residentuser.residentid.validate', 'messages', '2015-06-05 08:23:22', '2015-06-05 08:31:55'),
+(577, 'validate.exist.residentuser', 'validators', '2015-06-05 08:25:14', '2015-06-05 08:28:27'),
+(578, 'Seleccione un Residente', 'messages', '2015-06-05 08:59:06', '2015-06-05 08:59:06'),
+(579, 'Residente', 'messages', '2015-06-05 09:35:04', '2015-06-05 09:35:04'),
+(580, 'Asociar Residentes', 'messages', '2015-06-05 09:35:48', '2015-06-05 09:35:48');
+INSERT INTO `lexik_trans_unit` (`id`, `key_name`, `domain`, `created_at`, `updated_at`) VALUES
+(581, 'Asociación de Usuarios y Residentes', 'messages', '2015-06-05 09:36:14', '2015-06-05 09:36:14'),
+(582, 'Editar Asociación', 'messages', '2015-06-05 09:36:46', '2015-06-05 09:36:46'),
+(583, 'Eliminar Asociación', 'messages', '2015-06-05 09:37:11', '2015-06-05 09:37:11'),
+(584, 'Asociaciones', 'messages', '2015-06-05 09:37:32', '2015-06-05 09:37:32'),
+(585, 'delete.residentuser.question', 'messages', '2015-06-05 09:38:30', '2015-06-05 09:38:30'),
+(586, 'Nueva Asociación', 'messages', '2015-06-05 09:39:19', '2015-06-05 09:39:19'),
+(587, 'Resultados', 'messages', '2015-06-12 14:07:42', '2015-06-12 14:07:42'),
+(588, 'Mostrar', 'messages', '2015-06-12 14:08:13', '2015-06-12 14:08:13'),
+(589, 'previous.text', 'messages', '2015-06-12 14:12:31', '2015-06-12 14:12:31'),
+(590, 'next.text', 'messages', '2015-06-12 14:12:54', '2015-06-12 14:12:54'),
+(591, 'Parámetros', 'messages', '2015-06-16 10:38:34', '2015-06-16 10:38:34'),
+(592, 'name.filter', 'messages', '2015-06-16 14:19:51', '2015-06-16 14:19:51'),
+(593, 'Nueva Traducción', 'messages', '2015-06-16 14:25:37', '2015-06-16 14:25:37'),
+(594, 'Refrescar Cache', 'messages', '2015-06-16 14:26:06', '2015-06-16 14:30:31'),
+(595, 'Valor', 'messages', '2015-06-16 14:33:29', '2015-06-16 14:33:29'),
+(596, 'Nuevo Parámetro', 'messages', '2015-06-16 14:34:10', '2015-06-16 14:34:10'),
+(597, 'Parámetros Múltiples', 'messages', '2015-06-16 16:22:35', '2015-06-16 16:22:35');
 
 -- --------------------------------------------------------
 
@@ -1555,7 +1595,7 @@ CREATE TABLE IF NOT EXISTS `lexik_trans_unit_translations` (
   UNIQUE KEY `trans_unit_locale_idx` (`trans_unit_id`,`locale`),
   KEY `IDX_B0AA394493CB796C` (`file_id`),
   KEY `IDX_B0AA3944C3C583C9` (`trans_unit_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1133 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1177 ;
 
 --
 -- Volcado de datos para la tabla `lexik_trans_unit_translations`
@@ -2348,8 +2388,8 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 (783, 5, 401, 'es', 'Maneje su presupuesto', '2014-08-26 20:25:39', '2014-08-26 20:25:39'),
 (784, 4, 402, 'en', 'System Setup', '2014-08-26 20:26:32', '2014-08-26 20:26:32'),
 (785, 5, 402, 'es', 'Configuración del Sistema', '2014-08-26 20:26:32', '2014-10-02 21:20:14'),
-(786, 4, 403, 'en', 'HOME', '2014-08-26 20:30:16', '2014-08-26 20:30:16'),
-(787, 5, 403, 'es', 'INICIO', '2014-08-26 20:30:16', '2014-08-26 20:30:16'),
+(786, 4, 403, 'en', 'Home', '2014-08-26 20:30:16', '2015-06-17 10:58:32'),
+(787, 5, 403, 'es', 'Inicio', '2014-08-26 20:30:16', '2015-06-17 10:58:32'),
 (788, 6, 404, 'en', 'You must enter an account number', '2014-08-27 23:35:46', '2014-08-27 23:35:46'),
 (789, 7, 404, 'es', 'Debe ingresar un número de cuenta', '2014-08-27 23:35:46', '2014-08-27 23:35:46'),
 (790, 6, 405, 'en', 'An account already exists with that number, please check', '2014-08-27 23:36:55', '2014-08-27 23:36:55'),
@@ -2695,7 +2735,51 @@ INSERT INTO `lexik_trans_unit_translations` (`id`, `file_id`, `trans_unit_id`, `
 (1129, 4, 574, 'en', 'ADMINISTRATION', '2015-02-05 13:22:39', '2015-02-05 13:22:39'),
 (1130, 5, 574, 'es', 'ADMINISTRACIÓN', '2015-02-05 13:22:39', '2015-02-05 13:22:39'),
 (1131, 6, 575, 'en', 'The username or password are incorrect', '2015-02-05 14:41:43', '2015-02-05 14:41:43'),
-(1132, 7, 575, 'es', 'El usuario o password son incorrectos', '2015-02-05 14:41:43', '2015-02-05 14:41:43');
+(1132, 7, 575, 'es', 'El usuario o password son incorrectos', '2015-02-05 14:41:43', '2015-02-05 14:41:43'),
+(1133, 4, 576, 'en', 'You must select a resident', '2015-06-05 08:23:22', '2015-06-05 08:31:55'),
+(1134, 5, 576, 'es', 'Debe seleccionar un residente', '2015-06-05 08:23:22', '2015-06-05 08:31:55'),
+(1135, 6, 577, 'en', 'Already exist a resident for this user', '2015-06-05 08:25:14', '2015-06-05 08:28:27'),
+(1136, 7, 577, 'es', 'Ya existe un residente asociado a este usuario', '2015-06-05 08:25:14', '2015-06-05 08:28:27'),
+(1137, 4, 578, 'en', 'Select a Resident', '2015-06-05 08:59:06', '2015-06-05 08:59:06'),
+(1138, 5, 578, 'es', 'Seleccione un Residente', '2015-06-05 08:59:06', '2015-06-05 08:59:06'),
+(1139, 4, 579, 'en', 'Resident', '2015-06-05 09:35:04', '2015-06-05 09:35:04'),
+(1140, 5, 579, 'es', 'Residente', '2015-06-05 09:35:04', '2015-06-05 09:35:04'),
+(1141, 4, 580, 'en', 'Residents associate', '2015-06-05 09:35:48', '2015-06-05 09:35:48'),
+(1142, 5, 580, 'es', 'Asociar Residentes', '2015-06-05 09:35:48', '2015-06-05 09:35:48'),
+(1143, 4, 581, 'en', 'Users and Residents Association', '2015-06-05 09:36:14', '2015-06-05 09:36:14'),
+(1144, 5, 581, 'es', 'Asociación de Usuarios y Residentes', '2015-06-05 09:36:14', '2015-06-05 09:36:14'),
+(1145, 4, 582, 'en', 'Edit Association', '2015-06-05 09:36:46', '2015-06-05 09:36:46'),
+(1146, 5, 582, 'es', 'Editar Asociación', '2015-06-05 09:36:46', '2015-06-05 09:36:46'),
+(1147, 4, 583, 'en', 'Delete Association', '2015-06-05 09:37:11', '2015-06-05 09:37:11'),
+(1148, 5, 583, 'es', 'Eliminar Asociación', '2015-06-05 09:37:11', '2015-06-05 09:37:11'),
+(1149, 4, 584, 'en', 'Associations', '2015-06-05 09:37:32', '2015-06-05 09:37:32'),
+(1150, 5, 584, 'es', 'Asociaciones', '2015-06-05 09:37:32', '2015-06-05 09:37:32'),
+(1151, 4, 585, 'en', 'Are you sure you want to delete this association?', '2015-06-05 09:38:30', '2015-06-05 09:38:30'),
+(1152, 5, 585, 'es', 'Esta seguro que desea eliminar esta asociación?', '2015-06-05 09:38:30', '2015-06-05 09:38:30'),
+(1153, 4, 586, 'en', 'New Association', '2015-06-05 09:39:19', '2015-06-05 09:39:19'),
+(1154, 5, 586, 'es', 'Nueva Asociación', '2015-06-05 09:39:19', '2015-06-05 09:39:19'),
+(1155, 4, 587, 'en', 'Results', '2015-06-12 14:07:42', '2015-06-12 14:07:42'),
+(1156, 5, 587, 'es', 'Resultados', '2015-06-12 14:07:42', '2015-06-12 14:07:42'),
+(1157, 4, 588, 'en', 'Show', '2015-06-12 14:08:13', '2015-06-12 14:08:13'),
+(1158, 5, 588, 'es', 'Mostrar', '2015-06-12 14:08:13', '2015-06-12 14:08:13'),
+(1159, 4, 589, 'en', 'Previous', '2015-06-12 14:12:31', '2015-06-12 14:12:31'),
+(1160, 5, 589, 'es', 'Anterior', '2015-06-12 14:12:31', '2015-06-12 14:12:31'),
+(1161, 4, 590, 'en', 'Next', '2015-06-12 14:12:54', '2015-06-12 14:12:54'),
+(1162, 5, 590, 'es', 'Siguiente', '2015-06-12 14:12:54', '2015-06-12 14:12:54'),
+(1163, 4, 591, 'en', 'Parameters', '2015-06-16 10:38:34', '2015-06-16 10:38:34'),
+(1164, 5, 591, 'es', 'Parámetros', '2015-06-16 10:38:34', '2015-06-16 10:38:34'),
+(1165, 4, 592, 'en', 'Name', '2015-06-16 14:19:51', '2015-06-16 14:19:51'),
+(1166, 5, 592, 'es', 'Nombre', '2015-06-16 14:19:51', '2015-06-16 14:19:51'),
+(1167, 4, 593, 'en', 'New Translation', '2015-06-16 14:25:37', '2015-06-16 14:25:37'),
+(1168, 5, 593, 'es', 'Nueva Traducción', '2015-06-16 14:25:37', '2015-06-16 14:25:37'),
+(1169, 4, 594, 'en', 'Refresh Cache', '2015-06-16 14:26:06', '2015-06-16 14:26:06'),
+(1170, 5, 594, 'es', 'Refrescar Cache', '2015-06-16 14:26:06', '2015-06-16 14:30:31'),
+(1171, 4, 595, 'en', 'Value', '2015-06-16 14:33:29', '2015-06-16 14:33:29'),
+(1172, 5, 595, 'es', 'Valor', '2015-06-16 14:33:29', '2015-06-16 14:33:29'),
+(1173, 4, 596, 'en', 'New Parameter', '2015-06-16 14:34:10', '2015-06-16 14:34:10'),
+(1174, 5, 596, 'es', 'Nuevo Parámetro', '2015-06-16 14:34:10', '2015-06-16 14:34:10'),
+(1175, 4, 597, 'en', 'Multi Parameter', '2015-06-16 16:22:35', '2015-06-16 16:22:35'),
+(1176, 5, 597, 'es', 'Parámetros Múltiples', '2015-06-16 16:22:35', '2015-06-16 16:22:35');
 
 -- --------------------------------------------------------
 
@@ -2742,7 +2826,15 @@ CREATE TABLE IF NOT EXISTS `multiparam` (
   `sysparamid` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_multiparam_sysparam1_idx` (`sysparamid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `multiparam`
+--
+
+INSERT INTO `multiparam` (`id`, `value`, `description`, `createuser`, `modifyuser`, `createdate`, `modifydate`, `sysparamid`) VALUES
+(1, '00:00:00', '12:00 AM', 'admin', 'admin', '2015-02-09 10:18:44', '2015-02-09 10:18:44', 1),
+(2, '02:00:00', '2:00 AM', 'admin', 'admin', '2015-02-09 10:18:44', '2015-02-09 10:18:44', 1);
 
 -- --------------------------------------------------------
 
@@ -2834,6 +2926,27 @@ INSERT INTO `paymentinvoice` (`id`, `description`, `paymentid`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `post`
+--
+
+CREATE TABLE IF NOT EXISTS `post` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `postdate` datetime DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `content` longtext,
+  `createuser` varchar(45) NOT NULL,
+  `createdate` datetime NOT NULL,
+  `modifyuser` varchar(45) NOT NULL,
+  `modifydate` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_post_admin_user1_idx` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `provider`
 --
 
@@ -2852,7 +2965,7 @@ CREATE TABLE IF NOT EXISTS `provider` (
   PRIMARY KEY (`id`),
   KEY `fk_provider_company1_idx` (`companyid`),
   KEY `fk_provider_tower1_idx` (`towerid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `provider`
@@ -2862,7 +2975,8 @@ INSERT INTO `provider` (`id`, `name`, `phone`, `email`, `address`, `companyid`, 
 (6, 'Electra', '2323232', NULL, NULL, 1, 2, NULL, 'admin', NULL, '2014-11-24 15:05:35'),
 (7, 'Tropigas', '232322', NULL, NULL, 1, 2, NULL, NULL, NULL, NULL),
 (8, 'Idaan', '232323', NULL, NULL, 2, 1, NULL, NULL, NULL, NULL),
-(9, 'assss', '232323', NULL, NULL, 1, 2, 'admin', 'admin', '2014-11-24 15:07:26', '2014-11-24 15:07:26');
+(9, 'assss', '232323', NULL, NULL, 1, 2, 'admin', 'admin', '2014-11-24 15:07:26', '2014-11-24 15:07:26'),
+(10, 'test', '3434344', 'asas@sdsd.com', 'sdsddsd', 1, 2, 'admin', 'admin', '2015-06-23 11:23:09', '2015-06-23 11:23:29');
 
 -- --------------------------------------------------------
 
@@ -2917,7 +3031,17 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `modifyuser` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_reservation_apartment1_idx` (`apartmentid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `reservename`, `reason`, `reservationdate`, `hourfrom`, `hourto`, `apartmentid`, `createdate`, `modifydate`, `createuser`, `modifyuser`) VALUES
+(1, 'Andres Franco', '5', '2015-02-06', '12:00:00', '02:00:00', 4, '2015-02-09 09:45:43', '2015-02-09 09:45:43', 'admin', 'admin'),
+(2, 'Zoraya Campos', '5', '2015-02-03', '10:30:00', '12:00:00', 9, '2015-02-09 14:10:14', '2015-02-09 14:10:14', 'admin', 'admin'),
+(3, 'Pedro Perez', '5', '2015-01-29', '07:00:00', '08:30:00', 3, '2015-02-09 15:35:17', '2015-02-09 15:35:17', 'admin', 'admin'),
+(4, 'test', '5', '2015-01-28', '02:00:00', '04:00:00', 9, '2015-02-11 16:06:46', '2015-02-11 16:06:46', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -2937,15 +3061,7 @@ CREATE TABLE IF NOT EXISTS `reservecalendar` (
   `createdate` datetime NOT NULL,
   `modifydate` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Volcado de datos para la tabla `reservecalendar`
---
-
-INSERT INTO `reservecalendar` (`id`, `title`, `start`, `end`, `url`, `allday`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
-(1, 'test', '2014-11-07 00:00:00', '2014-11-07 01:00:00', 'www.google.com', 'test', 'admin', 'admin', '2015-02-06 09:53:12', '2015-02-06 09:53:12'),
-(2, 'test2', '2014-12-07 00:00:00', '2014-12-07 01:00:00', 'www.google.com', 'test2', 'admin', 'admin', '2015-02-06 09:53:12', '2015-02-06 09:53:12');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -3011,6 +3127,32 @@ INSERT INTO `residenttype` (`id`, `type`, `createuser`, `modifyuser`, `createdat
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `residentuser`
+--
+
+CREATE TABLE IF NOT EXISTS `residentuser` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `residentid` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `createuser` varchar(45) NOT NULL,
+  `createdate` datetime NOT NULL,
+  `modifyuser` varchar(45) NOT NULL,
+  `modifydate` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_residentuser_resident1_idx` (`residentid`),
+  KEY `fk_residentuser_admin_user1_idx` (`userid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Volcado de datos para la tabla `residentuser`
+--
+
+INSERT INTO `residentuser` (`id`, `residentid`, `userid`, `createuser`, `createdate`, `modifyuser`, `modifydate`) VALUES
+(6, 8, 35, 'admin', '2015-06-05 09:29:20', 'admin', '2015-06-05 09:29:20');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `roleaction`
 --
 
@@ -3025,7 +3167,7 @@ CREATE TABLE IF NOT EXISTS `roleaction` (
   PRIMARY KEY (`id`),
   KEY `fk_roleaction_admin_roles1_idx` (`roleid`),
   KEY `fk_roleaction_action1_idx` (`actionid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=97 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=105 ;
 
 --
 -- Volcado de datos para la tabla `roleaction`
@@ -3123,7 +3265,15 @@ INSERT INTO `roleaction` (`id`, `roleid`, `actionid`, `createuser`, `modifyuser`
 (93, 1, 91, 'admin', 'admin', '2015-01-11 20:05:59', '2015-01-11 20:05:59'),
 (94, 1, 73, 'admin', 'admin', '2015-01-11 20:24:51', '2015-01-11 20:24:51'),
 (95, 1, 74, 'admin', 'admin', '2015-01-11 20:25:12', '2015-01-11 20:25:12'),
-(96, 1, 75, 'admin', 'admin', '2015-01-11 20:25:20', '2015-01-11 20:25:20');
+(96, 1, 75, 'admin', 'admin', '2015-01-11 20:25:20', '2015-01-11 20:25:20'),
+(97, 1, 92, 'admin', 'admin', '2015-02-27 11:40:24', '2015-02-27 11:40:24'),
+(98, 1, 93, 'admin', 'admin', '2015-02-27 11:40:39', '2015-02-27 11:40:39'),
+(99, 1, 94, 'admin', 'admin', '2015-02-27 11:41:02', '2015-02-27 11:41:02'),
+(100, 1, 55, 'admin', 'admin', '2015-06-23 15:11:25', '2015-06-23 15:11:25'),
+(101, 1, 56, 'admin', 'admin', '2015-06-23 15:14:20', '2015-06-23 15:14:20'),
+(102, 1, 87, 'admin', 'admin', '2015-06-24 11:18:15', '2015-06-24 11:18:15'),
+(103, 1, 98, 'admin', 'admin', '2015-06-25 11:38:25', '2015-06-25 11:38:25'),
+(104, 1, 100, 'admin', 'admin', '2015-06-26 14:54:24', '2015-06-26 14:54:24');
 
 -- --------------------------------------------------------
 
@@ -3141,7 +3291,14 @@ CREATE TABLE IF NOT EXISTS `sysparam` (
   `createdate` datetime NOT NULL,
   `modifydate` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `sysparam`
+--
+
+INSERT INTO `sysparam` (`id`, `name`, `value`, `description`, `createuser`, `modifyuser`, `createdate`, `modifydate`) VALUES
+(1, 'reservehours', 'horas de reserva', 'Horas para reservas', 'admin', 'admin', '2015-02-09 09:37:20', '2015-02-09 09:37:46');
 
 -- --------------------------------------------------------
 
@@ -3164,7 +3321,7 @@ CREATE TABLE IF NOT EXISTS `tower` (
   `modifyuser` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_tower_Company1_idx` (`Companyid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `tower`
@@ -3178,7 +3335,8 @@ INSERT INTO `tower` (`id`, `name`, `Companyid`, `numberapartments`, `numberstore
 (5, 'prueba2', 1, 4, 4, 5, 645, NULL, NULL, NULL, NULL, NULL),
 (6, 'torre1', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (7, 'assas', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 'Torre4', 1, NULL, NULL, NULL, NULL, NULL, '2014-11-24 11:39:36', '2014-11-24 11:39:36', 'admin', 'admin');
+(8, 'Torre4', 1, NULL, NULL, NULL, NULL, NULL, '2014-11-24 11:39:36', '2014-11-24 11:39:36', 'admin', 'admin'),
+(9, 'test123456', 1, 12, 1, 20, 2, 'test@test.com', '2015-06-23 10:32:10', '2015-06-23 10:41:32', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -3194,6 +3352,28 @@ CREATE TABLE IF NOT EXISTS `tower_advertisement` (
   KEY `fk_tower_advertisement_tower1_idx` (`towerid`),
   KEY `fk_tower_advertisement_advertisement1_idx` (`advertisementid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usercomment`
+--
+
+CREATE TABLE IF NOT EXISTS `usercomment` (
+  `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `postid` int(11) NOT NULL,
+  `content` tinytext,
+  `status` varchar(20) DEFAULT NULL,
+  `commentdate` datetime DEFAULT NULL,
+  `createdate` datetime NOT NULL,
+  `createuser` varchar(45) NOT NULL,
+  `modifydate` datetime NOT NULL,
+  `modifyuser` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_usercomment_admin_user1_idx` (`userid`),
+  KEY `fk_usercomment_post1_idx` (`postid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -3397,6 +3577,12 @@ ALTER TABLE `paymentinvoice`
   ADD CONSTRAINT `fk_paymentinvoice_payment1` FOREIGN KEY (`paymentid`) REFERENCES `payment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Filtros para la tabla `post`
+--
+ALTER TABLE `post`
+  ADD CONSTRAINT `fk_post_admin_user1` FOREIGN KEY (`userid`) REFERENCES `admin_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Filtros para la tabla `provider`
 --
 ALTER TABLE `provider`
@@ -3431,6 +3617,13 @@ ALTER TABLE `resident`
   ADD CONSTRAINT `fk_resident_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Filtros para la tabla `residentuser`
+--
+ALTER TABLE `residentuser`
+  ADD CONSTRAINT `fk_residentuser_admin_user1` FOREIGN KEY (`userid`) REFERENCES `admin_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_residentuser_resident1` FOREIGN KEY (`residentid`) REFERENCES `resident` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Filtros para la tabla `roleaction`
 --
 ALTER TABLE `roleaction`
@@ -3449,6 +3642,13 @@ ALTER TABLE `tower`
 ALTER TABLE `tower_advertisement`
   ADD CONSTRAINT `fk_tower_advertisement_advertisement1` FOREIGN KEY (`advertisementid`) REFERENCES `advertisement` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tower_advertisement_tower1` FOREIGN KEY (`towerid`) REFERENCES `tower` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `usercomment`
+--
+ALTER TABLE `usercomment`
+  ADD CONSTRAINT `fk_usercomment_admin_user1` FOREIGN KEY (`userid`) REFERENCES `admin_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_usercomment_post1` FOREIGN KEY (`postid`) REFERENCES `post` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `userrole`
