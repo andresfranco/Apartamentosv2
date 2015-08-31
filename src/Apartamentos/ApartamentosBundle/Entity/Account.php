@@ -10,6 +10,7 @@ use APY\DataGridBundle\Grid\Mapping as GRID;
  *
  * @ORM\Table(name="account", indexes={@ORM\Index(name="fk_account_bank1_idx", columns={"bankid"})})
  * @ORM\Entity
+ * @GRID\Source(columns="id, name,balance,number,bankid,createdate,createuser,modifydate,modifyuser")
  */
 class Account
 {

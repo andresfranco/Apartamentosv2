@@ -10,12 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Apartamentos\ApartamentosBundle\Entity\Account;
 use Apartamentos\ApartamentosBundle\Form\AccountType;
 use APY\DataGridBundle\Grid\Source\Entity;
-use APY\DataGridBundle\Grid\Column\TextColumn;
 use APY\DataGridBundle\Grid\Column\ActionsColumn;
-use APY\DataGridBundle\Grid\Action\MassAction;
-use APY\DataGridBundle\Grid\Action\DeleteMassAction;
 use APY\DataGridBundle\Grid\Action\RowAction;
-use APY\DataGridBundle\Grid\Column\BlankColumn;
 /**
  * Account controller.
  *
